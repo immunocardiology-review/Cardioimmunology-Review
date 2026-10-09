@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1F3B5C">
+<title>The Method · Cardioimmunology, Book 2</title>
+<meta name="description" content="The second book of the Cardioimmunology collection: how knowledge is built in cardioimmunology, through twenty-one chapters and one hundred commented scientific texts.">
+<meta name="author" content="Brahim S. Abdelouaeb">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Cardioimmunology Review">
+<meta property="og:title" content="The Method · Cardioimmunology, Book 2">
+<meta property="og:description" content="Understanding Evidence and Building Knowledge in Cardioimmunology. Open access, CC BY-NC-ND 4.0.">
+<meta property="og:image" content="https://immunocardiology-review.github.io/Cardioimmunology-Review/share.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F3B5C'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23C9D3DE' stroke-width='1.4'/%3E%3Ctext x='16' y='21' font-family='Georgia,serif' font-size='15' fill='%23FFFFFF' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--prusse:#1F3B5C; --prusse-f:#142A44; --ardoise:#5B6573; --encre:#1E2329; --papier:#FBFAF7; --voile:#EEF2F6; --trait:#D9DEE5;
+    --serif:'EB Garamond','Times New Roman',serif; --display:'Cormorant Garamond','Times New Roman',serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--serif);color:var(--encre);background:var(--papier);font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased;font-feature-settings:'onum' 1,'liga' 1,'kern' 1}
+  a{color:inherit}
+  .bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;height:62px;padding:0 28px;background:var(--prusse-f);color:#EEF2F6;border-bottom:1px solid #2E4D72}
+  .bar a{text-decoration:none;display:flex;align-items:center;gap:10px}
+  .bar .mm{width:28px;height:28px;border:1px solid #8FA3BA;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:15px}
+  .bar b{font-weight:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+  .bar .tag{margin-left:auto;font-size:11px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #5F7894;padding:4px 12px;white-space:nowrap}
+  .hero{background:linear-gradient(180deg,var(--prusse),var(--prusse-f));color:#F4F6F9;text-align:center;padding:88px 24px 76px}
+  .kick{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#B9C6D5}
+  .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(48px,8vw,84px);line-height:1;margin:22px 0 0;letter-spacing:.01em}
+  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(19px,2.6vw,25px);color:#D5DEE8;max-width:28em;margin:18px auto 0;line-height:1.3}
+  .rule{width:64px;height:1px;background:#8FA3BA;margin:32px auto}
+  .byline{font-size:16px;letter-spacing:.06em}
+  .byline a{color:#C9D6E3;text-decoration:none;border-bottom:1px solid #5F7894;font-size:14px;margin-left:8px}
+  .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .btn{display:inline-block;padding:13px 24px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid #F4F6F9;background:#F4F6F9;color:var(--prusse-f)}
+  .btn:hover{background:transparent;color:#F4F6F9}
+  .btn.sec{background:transparent;color:#F4F6F9;border-color:#8FA3BA}
+  .btn.sec:hover{border-color:#F4F6F9}
+  .btn.off{opacity:.7;cursor:default}
+  main{max-width:760px;margin:0 auto;padding:64px 28px 40px}
+  h2{font-family:var(--display);font-weight:600;font-size:30px;color:var(--prusse);margin:56px 0 16px;line-height:1.2}
+  h2::before{content:'';display:block;width:36px;height:1px;background:var(--ardoise);margin-bottom:16px}
+  main p{margin:0 0 1.05em;hyphens:auto}
+  .lead::first-letter{font-family:var(--display);float:left;font-size:4.4em;line-height:.82;padding:.06em .1em 0 0;color:var(--prusse)}
+  .reads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0 10px}
+  .rd{background:#fff;border:1px solid var(--trait);border-top:2px solid var(--prusse);padding:16px 18px}
+  .rd-t{font-family:var(--display);font-weight:600;font-size:21px;color:var(--prusse)}
+  .rd-q{font-style:italic;margin-top:4px}
+  .rd-k{font-size:14px;color:var(--ardoise);margin-top:6px}
+  .judg{margin-top:12px;padding:14px 18px;background:var(--voile);text-align:center;font-size:17px}
+  .judg b{font-weight:600;color:var(--prusse)}
+  .part{padding:20px 0;border-top:1px solid var(--trait)}
+  .pn{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--ardoise)}
+  .pt{font-family:var(--display);font-weight:600;font-size:23px;color:var(--prusse);margin:4px 0 8px}
+  .part ol{padding-left:2.2em;font-size:17px}
+  .part li{padding:3px 0}
+  .part li::marker{color:var(--ardoise);font-feature-settings:'lnum' 1}
+  dl.facts{display:grid;grid-template-columns:160px 1fr;gap:8px 20px;font-size:17px;padding:22px 24px;background:#fff;border:1px solid var(--trait)}
+  dl.facts dt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ardoise);padding-top:4px}
+  dl.facts a{color:var(--prusse)}
+  .note{font-size:16px;color:#3A434E}
+  .cite{margin-top:30px;padding:18px 22px;border-left:2px solid var(--prusse);background:var(--voile);font-size:15px}
+  footer{margin-top:70px;background:var(--prusse-f);color:#B9C6D5;text-align:center;padding:42px 24px;font-size:14px}
+  footer a{color:#fff;text-decoration:none;border-bottom:1px solid #5F7894}
+  @media(max-width:640px){
+    body{font-size:18px} .bar{padding:0 16px} .bar b{font-size:10px;letter-spacing:.16em} .bar .tag{display:none}
+    .hero{padding:60px 16px 52px} main{padding:48px 16px 30px}
+    .reads{grid-template-columns:minmax(0,1fr)}
+    dl.facts{grid-template-columns:minmax(0,1fr);gap:2px;padding:18px 16px} dl.facts dd{margin-bottom:10px}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a href="../index.html"><span class="mm">C</span><b>Cardioimmunology Review</b></a>
+  <span class="tag">Book 2 · The Method</span>
+</header>
+
+<section class="hero">
+  <div class="kick">Cardioimmunology · Book 2</div>
+  <h1>The Method</h1>
+  <p class="sub">Understanding Evidence and Building Knowledge in Cardioimmunology</p>
+  <div class="rule"></div>
+  <p class="byline">Brahim S. Abdelouaeb <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID 0009-0002-7690-9993</a></p>
+  <div class="acts">
+    <a class="btn" href="The-Method_Book-2_EN.pdf" download>Download the book (PDF, English)</a>
+    <a class="btn sec" href="https://doi.org/10.5281/zenodo.23271825" target="_blank" rel="noopener">Zenodo · doi:10.5281/zenodo.23271825</a>
+  </div>
+</section>
+
+<main>
+  <h2>About the book</h2>
+  <p class="lead">The Method is the second book of the Cardioimmunology collection, after the treatise. It examines how knowledge is built in cardioimmunology: how a result supports a proposition, how a cause is established, how sources are read and evidence is constructed. It also shows how a conclusion can be kept, restricted or revised.</p>
+  <p>Twenty-one chapters in five parts move from the foundations of medical knowledge to inflammation and experimental models, the testing of hypotheses through treatments, including the lessons of negative trials, the connections between systems and measurements and the formation and transmission of medical judgment.</p>
+  <p>One hundred scientific texts are commented on, among them a methodological analysis of the 2025 guidelines of the European Society of Cardiology. Each commentary distinguishes what is established, what remains plausible and what cannot be concluded.</p>
+
+  <h2>Four readings for each text</h2>
+  <div class="reads">
+<div class="rd"><div class="rd-t">Critical reading</div><div class="rd-q">What does the comparison allow?</div><div class="rd-k">Measures, bias, uncertainty</div></div>
+<div class="rd"><div class="rd-t">Immunological reading</div><div class="rd-q">What is the explanation worth?</div><div class="rd-k">Mechanism, context, alternatives</div></div>
+<div class="rd"><div class="rd-t">Cardiological reading</div><div class="rd-q">What scope for the heart?</div><div class="rd-k">Diagnosis, prognosis, treatment</div></div>
+<div class="rd"><div class="rd-t">Integrative clinical reading</div><div class="rd-q">What does it change for the person?</div><div class="rd-k">Priorities, other diseases, care pathway</div></div>
+  </div>
+  <div class="judg"><b>Judgment common to the four readings:</b> keep, restrict or revise the conclusion.</div>
+
+  <h2>Contents</h2>
+<div class="part"><div class="pn">Part I</div><div class="pt">Building Knowledge of Living Systems</div><ol start="1"><li>Knowing in Medicine</li><li>Defining Health and Disease</li><li>Explaining and Establishing a Cause</li><li>Reading Sources and Building the Evidence</li></ol></div>
+<div class="part"><div class="pn">Part II</div><div class="pt">Understanding Mechanisms and Testing Models</div><ol start="5"><li>Inflammation between Protection and Disease</li><li>The Heart as an Immune Milieu</li><li>Atherosclerosis and the Convergence of Evidence</li><li>Repair and the Limits of Experimental Models</li></ol></div>
+<div class="part"><div class="pn">Part III</div><div class="pt">Testing Hypotheses through Treatments</div><ol start="9"><li>Coronary Inflammation Put to the Test in Trials</li><li>Pericarditis and Myocarditis as Testing Grounds for Clinical Experimentation</li><li>Systemic Diseases and the Question of Extrapolation to the Heart</li><li>Heart Failure and the Lessons of Negative Trials</li><li>Infiltrative Cardiomyopathies and the Specificity of Treatments</li></ol></div>
+<div class="part"><div class="pn">Part IV</div><div class="pt">Connecting Systems and Interpreting Measurements</div><ol start="14"><li>The Heart in Its Relations with the Microbiota and Infection</li><li>Immune Treatments as Revealers of Disease</li><li>Precision Medicine between Measurement and Interpretation</li><li>Transplantation and the Knowledge of Rejection</li></ol></div>
+<div class="part"><div class="pn">Part V</div><div class="pt">Forming and Transmitting Medical Judgment</div><ol start="18"><li>What Numbers Allow One to Conclude</li><li>From the Study Population to the Person Receiving Care</li><li>Objectivity as Collective Work</li><li>The Responsibility to Know and to Transmit</li></ol></div>
+
+  <h2>The edition</h2>
+  <dl class="facts">
+    <dt>Author</dt><dd>Dr Brahim S. Abdelouaeb, author and scientific editor</dd>
+    <dt>Edition</dt><dd>First edition, 2026. Digital edition, 378 pages</dd>
+    <dt>Language</dt><dd>English translation of the French edition, <i lang="fr">La Méthode</i>, which remains the reference text</dd>
+    <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.23271825" target="_blank" rel="noopener">10.5281/zenodo.23271825</a></dd>
+    <dt>License</dt><dd><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a></dd>
+    <dt>Collection</dt><dd>Book 1 is the treatise <i>Cardioimmunology</i>; its <a href="https://doi.org/10.5281/zenodo.23248048" target="_blank" rel="noopener">architecture</a> is published on Zenodo</dd>
+  </dl>
+
+  <h2>Status of the text</h2>
+  <p class="note">This is a book of method. It is neither a guideline of a learned society nor an enforceable standard. The current guidelines of learned societies remain the sole authority for therapeutic decisions. Examples presented as fictional are entirely fictional.</p>
+  <p class="note"><b>Disclosure of interests.</b> The author declares relationships with GSK, AstraZeneca, Lilly and Menarini, limited to invitations to meals at product presentations. The book received no external funding. Its integrity charter is printed at the beginning of the book.</p>
+
+  <p class="cite"><b>How to cite.</b> Abdelouaeb BS. Cardioimmunology. Book 2. The Method: Understanding Evidence and Building Knowledge in Cardioimmunology. Zenodo; 2026. doi:10.5281/zenodo.23271825</p>
+</main>
+
+<footer>
+  <p>Cardioimmunology Review · The collection</p>
+  <p style="margin-top:8px"><a href="../index.html">Home</a> · <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID</a></p>
+</footer>
+
+</body>
+</html>
