@@ -35,7 +35,8 @@
   .rule{width:64px;height:1px;background:#8FA3BA;margin:32px auto}
   .byline{font-size:16px;letter-spacing:.06em}
   .byline a{color:#C9D6E3;text-decoration:none;border-bottom:1px solid #5F7894;font-size:14px;margin-left:8px}
-  .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .acts .btn{min-width:200px;text-align:center}
   .btn{display:inline-block;padding:13px 24px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid #F4F6F9;background:#F4F6F9;color:var(--prusse-f)}
   .btn:hover{background:transparent;color:#F4F6F9}
   .btn.sec{background:transparent;color:#F4F6F9;border-color:#8FA3BA}
@@ -68,7 +69,10 @@
   footer a{color:#fff;text-decoration:none;border-bottom:1px solid #5F7894}
   @media(max-width:640px){
     body{font-size:18px} .bar{padding:0 16px} .bar b{font-size:10px;letter-spacing:.16em} .bar .tag{display:none}
-    .hero{padding:60px 16px 52px} main{padding:48px 16px 30px}
+    .hero{padding:56px 16px 44px} main{padding:44px 16px 30px}
+    .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:420px;margin:28px auto 0}
+    .acts .btn{min-width:0;padding:12px 10px;font-size:11px;letter-spacing:.1em}
+    .acts .btn:last-child:nth-child(3){grid-column:1 / -1}
     .reads{grid-template-columns:minmax(0,1fr)}
     dl.facts{grid-template-columns:minmax(0,1fr);gap:2px;padding:18px 16px} dl.facts dd{margin-bottom:10px}
   }
@@ -88,7 +92,8 @@
   <div class="rule"></div>
   <p class="byline">Brahim S. Abdelouaeb <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID 0009-0002-7690-9993</a></p>
   <div class="acts">
-    <a class="btn" href="The-Method_Book-2_EN.pdf" download>Download the book (PDF, English)</a>
+    <a class="btn" href="The-Method_Book-2_EN.pdf" target="_blank" rel="noopener">Read online</a>
+    <a class="btn sec" href="The-Method_Book-2_EN.pdf" download>Download the PDF</a>
     <a class="btn sec" href="https://doi.org/10.5281/zenodo.23271825" target="_blank" rel="noopener">Zenodo · doi:10.5281/zenodo.23271825</a>
   </div>
 </section>

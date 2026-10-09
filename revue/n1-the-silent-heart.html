@@ -54,6 +54,9 @@
   .abs h3{font-family:var(--serif);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--carmin);margin-bottom:10px}
   .abs p{font-size:16px;line-height:1.55}
   .abs .en p{font-style:italic;color:#3B3B3B}
+  .abs details summary{list-style:none;cursor:default}
+  .abs details summary::-webkit-details-marker{display:none}
+  .abs details summary h3{display:inline}
   main h2{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.2;color:var(--noir);margin:58px 0 18px;letter-spacing:.005em}
   main h2::before{content:'';display:block;width:36px;height:2px;background:var(--carmin);margin-bottom:18px}
   main p{margin:0 0 1.05em;hyphens:auto;-webkit-hyphens:auto}
@@ -129,7 +132,13 @@
     .bar{padding:0 16px} .bar b{font-size:10px;letter-spacing:.16em} .bar .issue{display:none} .lang{font-size:10px}
     .wrap{padding:0 16px}
     .hero{padding:56px 16px 44px}
-    .abs{grid-template-columns:1fr;padding:22px 18px}
+    .abs{grid-template-columns:1fr;padding:22px 18px;gap:18px}
+    .abs details summary{cursor:pointer;border-top:1px solid var(--gris-trait);padding-top:14px}
+    .abs details summary h3::after{content:' +';font-weight:normal}
+    .abs details[open] summary h3::after{content:' −'}
+    .tab tbody tr{padding:10px 0}
+    .tab tbody td{padding:2px 0;font-size:14px}
+    .tab tbody td::before{font-size:10px;margin-top:4px}
     .propo{margin:44px -16px;padding:8px 16px 14px}
     .fig,.box,.qcm{padding:20px 16px}
     .row{grid-template-columns:62px 1fr 56px;gap:8px}
@@ -181,7 +190,7 @@
   <main>
     <div class="abs">
 <div lang="en"><h3>Abstract</h3><p>In the French Vasculitis Study Group cohort, nearly one in three deaths among patients with eosinophilic granulomatosis with polyangiitis was cardiac. The French national protocol for antineutrophil cytoplasmic antibody (ANCA)-associated vasculitis, updated in January 2026, requires an electrocardiogram and echocardiography in every patient and advises against screening cardiac MRI. Silent cardiac involvement is frequent and associated with mortality, yet no trial has shown that treating it improves outcomes. Trials have had no cardiac end point; avacopan has lost its European authorization and its pivotal trial has been retracted. A cardioimmunology reading proposes to describe cardiac involvement by lesion activity, as is done for the kidney.</p></div>
-<div class="en" lang="fr"><h3>Résumé</h3><p>Dans la cohorte du Groupe français d’étude des vascularites, près d’un décès sur trois au cours de la granulomatose éosinophilique avec polyangéite est d’origine cardiaque. Le protocole national de diagnostic et de soins des vascularites associées aux anticorps anticytoplasme des polynucléaires neutrophiles (ANCA), actualisé en janvier 2026, prescrit à tous un électrocardiogramme et une échocardiographie, et déconseille l’IRM cardiaque de dépistage. L’atteinte silencieuse est fréquente et associée à la mortalité, mais aucun essai n’a montré que la traiter améliore le pronostic. Les essais n’ont eu aucun critère de jugement cardiaque&nbsp;; l’avacopan a perdu son autorisation européenne et son essai pivot a été rétracté. Une lecture cardioimmunologique propose de décrire l’atteinte cardiaque selon l’activité de ses lésions, comme pour le rein.</p></div>
+<details class="en" lang="fr" open><summary><h3>Résumé (français)</h3></summary><p>Dans la cohorte du Groupe français d’étude des vascularites, près d’un décès sur trois au cours de la granulomatose éosinophilique avec polyangéite est d’origine cardiaque. Le protocole national de diagnostic et de soins des vascularites associées aux anticorps anticytoplasme des polynucléaires neutrophiles (ANCA), actualisé en janvier 2026, prescrit à tous un électrocardiogramme et une échocardiographie, et déconseille l’IRM cardiaque de dépistage. L’atteinte silencieuse est fréquente et associée à la mortalité, mais aucun essai n’a montré que la traiter améliore le pronostic. Les essais n’ont eu aucun critère de jugement cardiaque&nbsp;; l’avacopan a perdu son autorisation européenne et son essai pivot a été rétracté. Une lecture cardioimmunologique propose de décrire l’atteinte cardiaque selon l’activité de ses lésions, comme pour le rein.</p></details>
     </div>
 
 <h2 id="introduction">Introduction</h2>
@@ -309,5 +318,15 @@
   <p style="margin-top:8px"><a href="../index.html">The collection</a> · <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID</a></p>
 </footer>
 
+<script>
+  if (window.matchMedia && window.matchMedia("(max-width: 640px)").matches) {
+    document.querySelectorAll(".abs details").forEach(function (d) { d.open = false; });
+  }
+  document.querySelectorAll(".abs details summary").forEach(function (s) {
+    s.addEventListener("click", function (e) {
+      if (!window.matchMedia("(max-width: 640px)").matches) e.preventDefault();
+    });
+  });
+</script>
 </body>
 </html>

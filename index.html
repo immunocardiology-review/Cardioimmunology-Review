@@ -202,6 +202,27 @@
     .chap{grid-template-columns:56px 1fr;gap:14px}.chap .rom{font-size:28px}
     #p2 .epi{display:none}
   }
+  @media(max-width:640px){
+    .p3in{padding:44px 16px 56px}
+    .p3rule{margin:16px auto 26px}
+    .shelf{flex-direction:column;align-items:stretch;gap:12px;perspective:none;width:100%;max-width:440px;margin:0 auto}
+    .shelf:hover .vol{opacity:1}
+    .vol{position:relative;width:100%}
+    .vcover{width:100%;aspect-ratio:auto;height:94px;transform:none!important}
+    .vol:hover .vcover{box-shadow:0 32px 70px -30px rgba(0,0,0,.82)}
+    .vcover .frame{inset:7px}
+    .vcover .frame::after{inset:4px}
+    .vin{flex-direction:row;justify-content:flex-start;align-items:center;gap:14px;padding:0 20px;text-align:left}
+    .vrom{font-size:13px;letter-spacing:.2em;min-width:28px}
+    .vmid{flex-direction:row;gap:12px}
+    .vem{width:38px;height:38px}
+    .vem svg{width:20px;height:20px}
+    .vt{font-size:23px;line-height:1.1}
+    .vfoot{position:absolute;right:20px;top:15px;font-size:9px;letter-spacing:.18em}
+    .vcap{position:absolute;right:20px;bottom:15px;margin:0;font-size:10px;letter-spacing:.18em;z-index:4}
+    .vrev .vcap{color:#B3122E}
+    .vmeth .vcap{color:#C9D3DE}
+  }
 
   /* ——— refinement layer ——— */
   html{scrollbar-color:var(--or) transparent}
