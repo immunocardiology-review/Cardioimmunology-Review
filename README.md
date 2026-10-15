@@ -6,6 +6,8 @@ ORCID: [0009-0002-7690-9993](https://orcid.org/0009-0002-7690-9993)
 
 ## Publications (Zenodo, CC BY-NC-ND 4.0)
 
+- La Méthode. Cardioimmunologie. Livre 2, édition originale française (octobre 2026). DOI [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) — livre intégral et fiche de présentation des travaux en français.
+
 - Cardioimmunology. Book 2. The Method: Understanding Evidence and Building Knowledge in Cardioimmunology (2026-10-10). DOI [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) — [book page](https://immunocardiology-review.github.io/Cardioimmunology-Review/method/the-method.html)
 - Architecture scientifique et clinique du Traité de Cardioimmunologie (2026-10-08). DOI [10.5281/zenodo.23248208](https://doi.org/10.5281/zenodo.23248208)
 - L'architecture du Traité de Cardioimmunologie (2026-10-08). DOI [10.5281/zenodo.23248152](https://doi.org/10.5281/zenodo.23248152)
@@ -39,6 +41,6 @@ Le dépôt français de La Méthode, hal-05801818v1, est en modération au 15 oc
 
 ## Citation library and responsive audit — 15 October 2026
 
-The [citation library](https://immunocardiology-review.github.io/Cardioimmunology-Review/references.html) provides readable citations and individual copy actions, with static UTF-8 BibTeX downloads for French, English and the full collection. The original `publications-fr.bib` URL remains available. With JavaScript disabled, citations and downloads remain usable; when clipboard access is unavailable, the requested text is selected for manual copying. The French Method has no DOI advertised while its HAL submission remains under moderation.
+The [citation library](https://immunocardiology-review.github.io/Cardioimmunology-Review/references.html) provides readable citations and individual copy actions, with static UTF-8 BibTeX downloads for French, English and the full collection. The original `publications-fr.bib` URL remains available. With JavaScript disabled, citations and downloads remain usable; when clipboard access is unavailable, the requested text is selected for manual copying. The original French Method is now available on Zenodo under DOI 10.5281/zenodo.23403519; its separate HAL submission remains under moderation.
 
 Shared French editorial styles wrap long titles on narrow screens, preserve contrast for the seal, and provide touch-friendly header navigation. The constellation and book palettes remain intact. Scientific article text and PDFs are unchanged.
