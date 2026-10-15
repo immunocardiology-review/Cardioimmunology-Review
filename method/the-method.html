@@ -133,7 +133,7 @@ a,button,summary{-webkit-tap-highlight-color:#ad704b25}button,a{touch-action:man
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.vcover,.node,.far{opacity:1!important;transform:none!important}}
 @media print{.section-nav,.site-nav,.entry-action,.map-action,.skip-link{display:none!important}.hero{break-after:avoid}.method-poster{min-height:350px}.part{break-inside:avoid}main{max-width:none}body{background:white;color:#111}}
 
-</style><link rel="canonical" href="https://immunocardiology-review.github.io/Cardioimmunology-Review/method/the-method.html"><link rel="stylesheet" href="../assets/identity.css"><style>.contents-section li{scroll-margin-top:110px}.chapter-reading{display:none}.contents-section li:target{background:#e0e8d5;border-left:3px solid #87312b;padding-left:16px}.contents-section li:target .chapter-reading{display:block;width:max-content;max-width:100%;font:700 14px/1.5 Arial,sans-serif;min-height:44px;padding:12px 0;color:#173e33}</style></head>
+</style><link rel="canonical" href="https://immunocardiology-review.github.io/Cardioimmunology-Review/method/the-method.html"><link rel="stylesheet" href="../assets/identity.css"><style>html:has(.contents-section li:target){scroll-behavior:auto}.contents-section li{scroll-margin-top:110px}.chapter-reading{display:none}.contents-section li:target{background:#e0e8d5;border-left:3px solid #87312b;padding-left:16px}.contents-section li:target .chapter-reading{display:block;width:max-content;max-width:100%;font:700 14px/1.5 Arial,sans-serif;min-height:44px;padding:12px 0;color:#173e33}</style></head>
 <body><a class="skip-link" href="#main-content">Skip to the book</a>
 
 <header class="bar">
@@ -198,5 +198,21 @@ a,button,summary{-webkit-tap-highlight-color:#ad704b25}button,a{touch-action:man
   <p style="margin-top:8px"><a href="../index.html#collection">Home</a> · <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID</a></p>
 </footer>
 
+<script>
+(function(){
+  function showChapter(){
+    if(!/^#chapter-(?:[1-9]|1[0-9]|2[01])$/.test(location.hash))return;
+    var chapter=document.getElementById(location.hash.slice(1));
+    if(!chapter)return;
+    var part=chapter.closest('details');if(part)part.open=true;
+    chapter.scrollIntoView({block:'start',behavior:'auto'});
+  }
+  window.addEventListener('load',function(){
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(showChapter);
+    else showChapter();
+  });
+  window.addEventListener('hashchange',showChapter);
+})();
+</script>
 </body>
 </html>
