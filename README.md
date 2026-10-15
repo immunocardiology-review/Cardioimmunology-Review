@@ -36,3 +36,9 @@ The atlas scripts and interface styles remain embedded. Shared identity assets l
 - [Brahim Abdelouaeb : médecin et auteur](https://immunocardiology-review.github.io/Cardioimmunology-Review/auteur.html)
 
 Le dépôt français de La Méthode, hal-05801818v1, est en modération au 15 octobre 2026.
+
+## Citation library and responsive audit — 15 October 2026
+
+The [citation library](https://immunocardiology-review.github.io/Cardioimmunology-Review/references.html) provides readable citations and individual copy actions, with static UTF-8 BibTeX downloads for French, English and the full collection. The original `publications-fr.bib` URL remains available. With JavaScript disabled, citations and downloads remain usable; when clipboard access is unavailable, the requested text is selected for manual copying. The French Method has no DOI advertised while its HAL submission remains under moderation.
+
+Shared French editorial styles wrap long titles on narrow screens, preserve contrast for the seal, and provide touch-friendly header navigation. The constellation and book palettes remain intact. Scientific article text and PDFs are unchanged.
