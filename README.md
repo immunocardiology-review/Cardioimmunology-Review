@@ -1,6 +1,6 @@
 # Cardioimmunology Review
 
-Site of the Cardioimmunology collection by Dr Brahim S. Abdelouaeb: the treatise *Cardioimmunology*, *The Method* (Book 2) and the *Cardioimmunology Review*.
+Site of the Cardioimmunology collection by Dr Brahim Abdelouaeb: the treatise *Cardioimmunology*, *The Method* (Book 2) and the *Cardioimmunology Review*.
 
 ORCID: [0009-0002-7690-9993](https://orcid.org/0009-0002-7690-9993)
 
@@ -28,3 +28,11 @@ Theme links use `?theme=complement#field`. The welcome and collection screens re
 The atlas is an educational synthesis. It does not replace the full references or disease-specific clinical guidance. Its teaching families describe a reading structure, not a single causal pathway. Sources were checked on 15 October 2026; the book PDF and original article texts have been preserved.
 
 The atlas scripts and interface styles remain embedded. Shared identity assets live in `assets/`: the engraved journal seal and responsive identity styles. The readable journal name accompanies the seal in headers and signatures; the constellation and publication palettes are preserved. Existing PDF, share image and article content are preserved.
+
+## Publications et auteur en français
+
+- [Livres de cardioimmunologie en français](https://immunocardiology-review.github.io/Cardioimmunology-Review/livres-cardioimmunologie.html)
+- [La Méthode : édition originale française](https://immunocardiology-review.github.io/Cardioimmunology-Review/method/la-methode.html)
+- [Brahim Abdelouaeb : médecin et auteur](https://immunocardiology-review.github.io/Cardioimmunology-Review/auteur.html)
+
+Le dépôt français de La Méthode, hal-05801818v1, est en modération au 15 octobre 2026.
