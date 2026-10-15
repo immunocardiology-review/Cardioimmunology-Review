@@ -6,9 +6,9 @@ ORCID: [0009-0002-7690-9993](https://orcid.org/0009-0002-7690-9993)
 
 ## Publications (Zenodo, CC BY-NC-ND 4.0)
 
-- La Méthode. Cardioimmunologie. Livre 2, édition originale française (octobre 2026). DOI [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) — livre intégral et fiche de présentation des travaux en français.
+- La Méthode, Cardioimmunologie. Livre 2, édition originale française (octobre 2026). DOI [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) — livre intégral et fiche de présentation des travaux en français.
 
-- Cardioimmunology. Book 2. The Method: Understanding Evidence and Building Knowledge in Cardioimmunology (2026-10-10). DOI [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) — [book page](https://immunocardiology-review.github.io/Cardioimmunology-Review/method/the-method.html)
+- The Method, Cardioimmunology. Book 2: Understanding Evidence and Building Knowledge in Cardioimmunology (2026-10-10). DOI [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) — [book page](https://immunocardiology-review.github.io/Cardioimmunology-Review/method/the-method.html)
 - Architecture scientifique et clinique du Traité de Cardioimmunologie (2026-10-08). DOI [10.5281/zenodo.23248208](https://doi.org/10.5281/zenodo.23248208)
 - L'architecture du Traité de Cardioimmunologie (2026-10-08). DOI [10.5281/zenodo.23248152](https://doi.org/10.5281/zenodo.23248152)
 - Scientific and Clinical Architecture of the Treatise on Cardioimmunology (2026-10-08). DOI [10.5281/zenodo.23248048](https://doi.org/10.5281/zenodo.23248048)
