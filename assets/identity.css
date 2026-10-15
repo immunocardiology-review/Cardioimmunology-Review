@@ -9,3 +9,5 @@
 @media(max-width:700px){.site-nav{gap:14px;padding:5px 10px}.site-nav .journal-home{margin-right:0}.site-nav button{font-size:11px;padding:9px 0}.bar .journal-seal{width:46px;height:46px}.bar b{font-size:16px;letter-spacing:0;max-width:190px}.bar>a:first-child{gap:10px}.journal-signature span{font-size:18px}#p1 .mono,#p1 .mono .journal-seal{width:116px;height:116px}}
 @media(max-height:550px){#p1 .mono,#p1 .mono .journal-seal{width:70px;height:70px}#p1 .mono{margin-bottom:14px}}
 @media print{.journal-seal{print-color-adjust:exact}.journal-signature{break-inside:avoid}}
+#soon .card p{margin:22px auto 0;max-width:330px}#soon .card a{display:inline-flex;align-items:center;min-height:44px;color:#24563e;font-size:18px;line-height:1.5;text-underline-offset:4px}
+@media(max-width:700px){.constellation-filters button{font-size:12px;min-height:44px}}
