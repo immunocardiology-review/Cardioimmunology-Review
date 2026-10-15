@@ -27,4 +27,4 @@ Theme links use `?theme=complement#field`. The welcome and collection screens re
 
 The atlas is an educational synthesis. It does not replace the full references or disease-specific clinical guidance. Its teaching families describe a reading structure, not a single causal pathway. Sources were checked on 15 October 2026; the book PDF and original article texts have been preserved.
 
-Published HTML pages are self-contained: the interface styles and atlas scripts are embedded, so no additional asset upload is required for this release. Existing PDF, share image and article content are preserved.
+The atlas scripts and interface styles remain embedded. Shared identity assets live in `assets/`: the engraved journal seal and responsive identity styles. The readable journal name accompanies the seal in headers and signatures; the constellation and publication palettes are preserved. Existing PDF, share image and article content are preserved.
