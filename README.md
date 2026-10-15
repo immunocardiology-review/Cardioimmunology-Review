@@ -37,7 +37,7 @@ The atlas scripts and interface styles remain embedded. Shared identity assets l
 - [La Méthode : édition originale française](https://immunocardiology-review.github.io/Cardioimmunology-Review/method/la-methode.html)
 - [Brahim Abdelouaeb : médecin et auteur](https://immunocardiology-review.github.io/Cardioimmunology-Review/auteur.html)
 
-Le dépôt français de La Méthode, hal-05801818v1, est en modération au 15 octobre 2026.
+Les dépôts HAL de La Méthode en français (hal-05801818v1, soumis le 15 octobre 2026) et de sa traduction anglaise The Method (hal-05801974v1, soumis le 16 octobre 2026) sont en modération au 16 octobre 2026. Les éditions linguistiques sont distinctes ; les DOI Zenodo publiés restent les références pérennes.
 
 ## Citation library and responsive audit — 15 October 2026
 
