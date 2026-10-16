@@ -36,7 +36,7 @@
       "id": "innate",
       "title": "Pattern recognition",
       "group": "signals",
-      "idea": "Pattern-recognition receptors detect microbial structures and damage-associated signals. They operate in immune cells and cardiac-resident cells; innate immunity is the wider system, not a separate class of signals.",
+      "idea": "Pattern-recognition receptors detect microbial structures and damage-associated signals in immune and cardiac-resident cells. Their signalling initiates context-dependent innate responses.",
       "heart": "TLRs, cytosolic nucleic-acid sensors and downstream pathways connect infection or sterile injury to inflammatory activation.",
       "evidence": "Receptor expression is not proof of pathway activation. Viral and sterile injury can share sensors while requiring different interpretations.",
       "sources": [],
@@ -184,7 +184,7 @@
       "group": "cells",
       "immune": "Innate cells · adaptive priming",
       "question": "Which dendritic-cell subset, maturation state and antigen?",
-      "idea": "Dendritic cells belong to innate immunity and specialise in antigen presentation. They connect danger sensing with T-cell priming and tolerance; they do not sit outside the innate immune system.",
+      "idea": "Dendritic cells integrate danger sensing, antigen processing and T-cell priming. Their subset, maturation state and tissue niche influence immunity or tolerance.",
       "heart": "Cardiac antigen sampling and presentation provide a bridge between local tissue injury, draining lymph nodes and adaptive responses.",
       "evidence": "Conventional and plasmacytoid subsets have different functions. Benefits of engineered cells in experimental models do not establish a clinical treatment.",
       "related": [
@@ -194,6 +194,25 @@
         "tolerance"
       ],
       "reading": "dc",
+      "sources": [],
+      "book": null
+    },
+    {
+      "id": "neutrophils",
+      "title": "Neutrophils & NETs",
+      "group": "cells",
+      "immune": "Innate cells · immunothrombosis",
+      "question": "Which neutrophil state and which evidence of NET formation?",
+      "idea": "Neutrophils coordinate antimicrobial defence, acute inflammation and interactions with platelets and other immune cells. Extracellular traps are one effector mechanism, not a synonym for all neutrophil activity.",
+      "heart": "NET-associated processes connect thrombosis, reperfusion injury and repair, while timing and tissue context shape the effects of neutrophils.",
+      "evidence": "Circulating NET-associated markers do not uniquely identify tissue NET formation or show that NET-directed treatment improves clinical outcomes.",
+      "related": [
+        "complement",
+        "macrophages",
+        "atherosclerosis",
+        "vasculitis"
+      ],
+      "reading": "neutrophils",
       "sources": [],
       "book": null
     },
@@ -318,7 +337,8 @@
       "related": [
         "immunometabolism",
         "inflammasome",
-        "microbiome"
+        "microbiome",
+        "clonal-haematopoiesis"
       ],
       "book": null,
       "immune": "Lipid–immune disease",
@@ -424,6 +444,7 @@
       "evidence": "The vasculitis subtype matters; a general label does not determine a patient’s organ involvement.",
       "sources": [],
       "related": [
+        "neutrophils",
         "complement",
         "systemic",
         "kidney"
@@ -633,6 +654,25 @@
       "immune": "Systemic–cardiac interface",
       "question": "Inflammatory injury, vascular disease, treatment effect or an analytical interference?",
       "reading": "rheum"
+    },
+    {
+      "id": "clonal-haematopoiesis",
+      "title": "Clonal haematopoiesis",
+      "group": "connections",
+      "immune": "Bone marrow–cardiovascular interface",
+      "question": "Which driver mutation, clone size and clinical endpoint?",
+      "idea": "Somatic mutations can expand a haematopoietic clone and alter the inflammatory behaviour of its blood-cell descendants. Different driver genes do not produce one uniform immune phenotype.",
+      "heart": "Clonal haematopoiesis links ageing, myeloid biology and cardiovascular risk, including atherosclerosis and heart failure.",
+      "evidence": "Risk associations and mechanistic models do not establish routine population screening or a validated clone-directed cardiovascular treatment.",
+      "related": [
+        "inflammasome",
+        "macrophages",
+        "atherosclerosis",
+        "heart-failure"
+      ],
+      "reading": "chip",
+      "sources": [],
+      "book": null
     }
   ],
   "reviewed": "16 October 2026",
@@ -648,11 +688,11 @@
     },
     "complement": {
       "title": "Complement C3 in panvascular disease: a central integrator of immune signaling and vascular remodeling",
-      "journal": "Chinese Medical Journal",
+      "journal": "Clinical Science",
       "year": "2025",
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12687451/",
-      "doi": "",
+      "doi": "10.1042/CS20257865",
       "access": "Open access"
     },
     "inflammasome": {
@@ -814,7 +854,7 @@
       "year": "2026",
       "kind": "Clinical guideline",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13290301/",
-      "doi": "",
+      "doi": "10.1093/rheumatology/keag223",
       "access": "Open access"
     },
     "vasculitis": {
@@ -850,7 +890,7 @@
       "year": "2026",
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13294274/",
-      "doi": "",
+      "doi": "10.3389/fphar.2026.1845366",
       "access": "Open access"
     },
     "infection": {
@@ -905,6 +945,24 @@
       "kind": "Review",
       "url": "https://www.sciencedirect.com/science/article/pii/S0025619626186601",
       "doi": "10.1016/j.mayocp.2026.07.023",
+      "access": "Open access"
+    },
+    "neutrophils": {
+      "title": "Role of neutrophil extracellular traps in myocardial infarction pathogenesis, diagnosis, and treatment",
+      "journal": "International Journal of Immunopathology and Pharmacology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://journals.sagepub.com/doi/full/10.1177/1721727X261478016",
+      "doi": "10.1177/1721727X261478016",
+      "access": "Open access"
+    },
+    "chip": {
+      "title": "Clonal haematopoiesis and cardiovascular disease, defining risk, filling gaps, and framing the future",
+      "journal": "npj Cardiovascular Health",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.nature.com/articles/s44325-026-00127-4",
+      "doi": "10.1038/s44325-026-00127-4",
       "access": "Open access"
     }
   },

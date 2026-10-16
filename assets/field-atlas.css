@@ -3,6 +3,10 @@
 .field-framework{max-width:700px;margin:0 auto 18px;text-align:center;color:#d9e3d0;font:16px/1.6 'EB Garamond',Georgia,serif}
 .field-paths{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin:0 auto 18px}
 .field-paths button{border:0;border-bottom:1px solid #b4c6a66b;background:transparent;color:#f0dfbc;min-height:44px;padding:8px 2px;font:16px/1.45 'EB Garamond',Georgia,serif;cursor:pointer}
+.field-tools{margin:12px 0 20px;border-top:1px solid #94ad8c6b;color:#dce7d1}
+.field-tools summary{padding:14px 0;min-height:48px;font:17px/1.5 'EB Garamond',Georgia,serif;cursor:pointer}
+.field-tools[open] summary{margin-bottom:8px}
+.field-layout.has-topic .field-tools{display:none}
 .field-search{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 14px;margin:0 auto 16px;font:12px/1.4 Arial,sans-serif;color:#dce7d1}
 .field-search input{min-height:44px;border:1px solid #7c9a83;background:#193d33;color:#f3f1df;padding:10px 14px;font:15px/1.45 Arial,sans-serif;width:350px;max-width:100%;border-radius:0}
 .field-search input::placeholder{color:#c7d7c4;opacity:1}
@@ -10,6 +14,10 @@
 .constellation-filters button{font-size:12px;min-height:44px}
 .constellation-wrap{max-width:1400px}
 .constellation-wrap svg{overflow:visible;pointer-events:auto}
+.constellation-mobile-tools{display:flex;justify-content:center;align-items:center;gap:14px;margin:6px 0 12px;color:#c9d8c1;font:14px/1.5 Georgia,serif}
+.constellation-mobile-tools button{min-height:44px;padding:8px 12px;background:transparent;color:#e4e9d5;border:1px solid #8ca584;font:12px/1.5 Arial,sans-serif;cursor:pointer}
+.constellation-wrap.is-enlarged{max-width:100%;height:70dvh;overflow:auto;border:1px solid #819b7c;overscroll-behavior:contain}
+.constellation-wrap.is-enlarged svg{width:1600px;min-width:1600px;max-width:none}
 .constellation-caption{max-width:700px;margin:12px auto 24px;font-size:16px;line-height:1.6}
 .constellation-node.family-muted{opacity:.2}
 .constellation-node.is-related .constellation-star{fill:#f0dfbc;stroke:#fff4d8;stroke-width:3}
@@ -72,4 +80,8 @@
  .field-topic-open .field-header>.caps-s{font-size:9px}
 }
 @media(max-height:600px) and (max-width:900px){.field-layout.has-topic .field-panel{max-height:70dvh}.field-layout.has-topic .field-map-area{max-height:35dvh}}
+@media(max-width:700px) and (min-height:601px){
+ .field-topic-open .field-layout.has-topic{grid-template-rows:minmax(200px,36%) minmax(0,1fr)}
+ .field-layout.has-topic .constellation-wrap{width:60%;max-width:270px}
+}
 @media(prefers-reduced-motion:reduce){#field-connections path,.constellation-node{transition:none}}
