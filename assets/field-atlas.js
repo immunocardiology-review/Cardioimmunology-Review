@@ -77,7 +77,7 @@ function drawConstellation(){
   {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:230,phase:-90},
   {ids:data.topics.filter(t=>['cells','tissue'].includes(t.group)).map(t=>t.id),r:410,phase:-72},
   {ids:data.topics.filter(t=>t.group==='clinical').map(t=>t.id),r:590,phase:-90},
-  {ids:data.topics.filter(t=>t.group==='connections').map(t=>t.id),r:740,phase:-65}
+  {ids:data.topics.filter(t=>t.group==='connections').map(t=>t.id),r:740,phase:-56}
  ];
  const rays=make('g',{'aria-hidden':'true',class:'field-rays'});
  const connections=make('g',{id:'field-connections','aria-hidden':'true'});
