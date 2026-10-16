@@ -109,6 +109,10 @@ function drawConstellation(){
   for(const word of t.title.split(' ')){if((line+' '+word).trim().length>19&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
   let ty=vertical?y+Math.sign(sin)*34:y+8;
   if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*29;
+  // Keep text clear of neighbouring stars without changing the scientific layout.
+  const offset=id==='sarcoidosis'?-30:id==='dendritic-cells'?22:0;
+  ty+=offset;
+  if(offset)make('line',{x1:x+16,y1:y,x2:tx-8,y2:ty-10,stroke:g.color,'stroke-width':'1.5',opacity:'.6','aria-hidden':'true'},n);
   const text=make('text',{x:tx,y:ty,fill:g.color,'text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'32','font-weight':'500','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
   lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*31},text).textContent=l);
  });

@@ -10,12 +10,13 @@ button.addEventListener('click',async()=>{
   const presentation=document.getElementById('field-presentation');
   if(presentation.getAttribute('aria-pressed')!=='true')presentation.click();
   await document.fonts.ready;
-  const canvas=document.createElement('canvas');canvas.width=2000;canvas.height=2200;
+  const canvas=document.createElement('canvas');canvas.width=3200;canvas.height=3200;
   const ctx=canvas.getContext('2d');
   if(!ctx)throw new Error('Canvas unavailable');
+  ctx.scale(1.6,1.6);
   const text=(value,x,y,font,color='#edf0df',align='center')=>{ctx.font=font;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillText(value,x,y);};
-  ctx.fillStyle='#102f28';ctx.fillRect(0,0,2000,2200);
-  ctx.strokeStyle='#7f9b8055';ctx.lineWidth=1;ctx.strokeRect(42,42,1916,2116);
+  ctx.fillStyle='#102f28';ctx.fillRect(0,0,2000,2000);
+  ctx.strokeStyle='#7f9b8055';ctx.lineWidth=1;ctx.strokeRect(42,42,1916,1916);
   text('Cardioimmunology Review',1000,92,'500 44px "EB Garamond", Georgia, serif');
   text('THE MAP OF THE FIELD',1000,145,'22px Arial, sans-serif','#bcd0b5');
   text('Cardioimmunology',1000,233,'500 86px "Cormorant Garamond", Georgia, serif');
@@ -24,7 +25,7 @@ button.addEventListener('click',async()=>{
   const widths=groups.map(g=>{ctx.font='22px Arial';return ctx.measureText(g.title).width+60;});
   let gx=(2000-widths.reduce((a,b)=>a+b,0))/2;
   groups.forEach((g,i)=>{ctx.fillStyle=g.color;ctx.beginPath();ctx.arc(gx+9,328,5,0,Math.PI*2);ctx.fill();text(g.title,gx+25,335,'22px Arial, sans-serif',g.color,'left');gx+=widths[i];});
-  ctx.save();ctx.translate(0,350);
+  ctx.save();ctx.translate(160,330);ctx.scale(.84,.84);
   const svg=document.getElementById('field-constellation');
   for(const node of svg.querySelectorAll('circle,line,path,text')){
    if(node.classList.contains('constellation-hit'))continue;
@@ -57,15 +58,15 @@ button.addEventListener('click',async()=>{
    }
    ctx.restore();
   }
-  ctx.restore();ctx.strokeStyle='#7f9b8066';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(130,2060);ctx.lineTo(1870,2060);ctx.stroke();
-  text('Explore the interactive map · cardioimmunologyreview.org/#field',1000,2107,'30px "EB Garamond", Georgia, serif');
-  text('Brahim Abdelouaeb · Author & editor',1000,2144,'22px Arial, sans-serif','#bcd0b5');
-  text('Conceptual reading map · Connections do not establish causality',1000,2177,'18px Arial, sans-serif','#bcd0b5');
+  ctx.restore();ctx.strokeStyle='#7f9b8066';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(130,1815);ctx.lineTo(1870,1815);ctx.stroke();
+  text('Explore the interactive map · cardioimmunologyreview.org/#field',1000,1860,'30px "EB Garamond", Georgia, serif');
+  text('Brahim Abdelouaeb · Author & editor',1000,1900,'22px Arial, sans-serif','#bcd0b5');
+  text('Conceptual reading map · Connections do not establish causality',1000,1940,'18px Arial, sans-serif','#bcd0b5');
   const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
   if(!blob)throw new Error('Image unavailable');
   const url=URL.createObjectURL(blob),link=document.createElement('a');
-  link.href=url;link.download='cardioimmunology-map-of-the-field.png';link.click();
-  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  link.href=url;link.download='cardioimmunology-map-of-the-field-hd-square.png';link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
   status.textContent='The complete map has been downloaded';
  }catch(error){
   status.textContent='The figure could not be downloaded. Please try again.';
