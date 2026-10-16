@@ -1,0 +1,27 @@
+/* Original covers, with readable titles independent of the artwork. */
+#p3 .p3in{padding-top:74px}
+#p3 .p3in>h2{margin-bottom:0;font-size:clamp(30px,4vw,42px)}
+#p3 .collection-quotes{max-width:1040px;gap:32px;margin-bottom:36px}
+#p3 .original-covers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;width:100%;max-width:1060px;align-items:start;perspective:none}
+#p3 .original-covers .vol{min-width:0;width:auto;text-align:left;display:block}
+#p3 .original-covers .vcover{width:100%;height:auto;aspect-ratio:1/1.5;background:#fcfcfa;border:0;box-shadow:0 18px 32px -15px #071f1ab3;border-radius:0;transform:none!important;opacity:1;animation:none;display:flex;align-items:center;justify-content:center}
+#p3 .original-covers .vcover::before{display:none}
+#p3 .original-covers img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%}
+#p3 .original-covers .vol:hover .vcover{box-shadow:0 24px 42px -15px #071f1ae6}
+#p3 .original-covers .cover-category{display:block;margin-top:22px;font:11px/1.5 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#cad8bf}
+#p3 .original-covers .cover-title{display:block;margin-top:5px;font:400 clamp(20px,2.1vw,27px)/1.25 Georgia,serif;letter-spacing:-.025em;color:#faf8ef}
+#p3 .original-covers .cover-caption{display:inline-flex;gap:10px;align-items:center;min-height:44px;margin-top:7px;font:13px/1.5 Arial,sans-serif;color:#d5dfc9}
+#p3 .original-covers .vrev .cover-category{color:#f0b59f}
+#p3 .pubs{width:100%;max-width:1060px;margin-top:76px}
+#p3 .publication-group-intro{display:none}
+#p3 .pubs li{background:transparent;border:0;border-top:1px solid #c8d9af45;padding:23px 0}
+#p3 .pubs ul{column-gap:40px;row-gap:0}
+#p3 .pubs .pt{font:400 22px/1.4 Georgia,serif;color:#faf8ef}
+#p3 .pubs .publication-subtitle{font:16px/1.6 Arial,sans-serif;color:#d5dfc9;max-width:44em}
+#p3 .pubs .pm{display:block;margin-top:13px;font-size:13px}
+#p3 .pubs .publication-group{margin-top:32px}
+#p3 .publication-tools{margin-bottom:20px}
+@media(max-width:900px){#p3 .original-covers{max-width:720px;gap:30px 26px;grid-template-columns:repeat(2,minmax(0,1fr))}#p3 .original-covers .cover-title{font-size:26px}}
+@media(max-width:600px){#p3 .p3in{padding:80px 20px 42px}#p3 .collection-quotes{grid-template-columns:1fr;gap:16px;margin-bottom:28px}#p3 .collection-quotes blockquote{font-size:22px;max-width:340px}#p3 .original-covers{gap:25px 18px}#p3 .original-covers .cover-category{font-size:9px;letter-spacing:.1em;margin-top:16px}#p3 .original-covers .cover-title{font-size:21px}#p3 .original-covers .cover-caption{font-size:12px;gap:6px;margin-top:4px}#p3 .pubs{margin-top:48px}#p3 .pubs ul{grid-template-columns:1fr}#p3 .pubs .pt{font-size:22px}}
+@media(prefers-reduced-motion:no-preference){#p3 .original-covers .vcover{transition:box-shadow .25s ease}}
+@media(max-width:600px){#p3 .original-covers .v1 .cover-title{font-size:clamp(15px,4.7vw,20px)}}
