@@ -14,6 +14,18 @@ function setMapZoom(enlarged){
  el('constellation-zoom').textContent=enlarged?'Show the whole map':'Enlarge the map';
  el('constellation-help').textContent=enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.';
 }
+function setPresentation(enabled){
+ if(enabled){
+  if(active)closeTopic();
+  setMapZoom(false);
+  document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family==='all')));
+  el('field-search').value='';filterMap();
+ }
+ el('p2').classList.toggle('is-presentation',enabled);
+ el('field-presentation').setAttribute('aria-pressed',String(enabled));
+ el('field-presentation').textContent=enabled?'Back to exploration':'Presentation view';
+ el('p2').scrollTop=0;
+}
 function readingMarkup(topic){
  const p=data.papers[topic.reading];
  return `<section class="field-selected-reading"><h4>Selected reading</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
@@ -40,6 +52,7 @@ function routeMarkup(id){
 }
 function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
+ if(el('p2').classList.contains('is-presentation'))setPresentation(false);
  const repeated=active===id&&trigger?.closest('.constellation-node');
  if(repeated){closeTopic();return;}
  setMapZoom(false);active=id;
@@ -72,7 +85,7 @@ function drawConstellation(){
  make('desc').textContent='A circular reading map with the heart at its centre. Innate and adaptive immunity cross its five thematic families. Select a theme to read its question, evidence and selected article.';
  const defs=make('defs');
  defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>';
- [230,410,590,740].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.13','stroke-width':'1'}));
+ [230,410,590,740].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
  const orbits=[
   {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:230,phase:-90},
   {ids:data.topics.filter(t=>['cells','tissue'].includes(t.group)).map(t=>t.id),r:410,phase:-72},
@@ -85,18 +98,18 @@ function drawConstellation(){
  for(const orbit of orbits)orbit.ids.forEach((id,i)=>{
   const t=byId.get(id),g=data.groups.find(x=>x.id===t.group),a=(orbit.phase+i*360/orbit.ids.length)*Math.PI/180;
   const x=cx+orbit.r*Math.cos(a),y=cy+orbit.r*Math.sin(a);positions.set(id,{x,y});
-  make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.12'},rays);
+  make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.16'},rays);
   const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':`${t.title} — ${t.immune}. Open evidence and selected reading`,'aria-controls':'field-panel','aria-expanded':'false',class:'constellation-node'},nodes);
   make('title',{},n).textContent=`${t.title} · ${t.immune}`;
   make('circle',{cx:x,cy:y,r:43,fill:'transparent',class:'constellation-hit'},n);
-  make('circle',{cx:x,cy:y,r:11,fill:'#173e33',stroke:g.color,'stroke-width':'2.2',class:'constellation-star'},n);
+  make('circle',{cx:x,cy:y,r:12,fill:'#173e33',stroke:g.color,'stroke-width':'2.2',class:'constellation-star'},n);
   const cos=Math.cos(a),sin=Math.sin(a),vertical=Math.abs(cos)<.26;
   const tx=x+(vertical?0:Math.sign(cos)*28),anchor=vertical?'middle':cos>0?'start':'end';
   const lines=[];let line='';
   for(const word of t.title.split(' ')){if((line+' '+word).trim().length>19&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
   let ty=vertical?y+Math.sign(sin)*34:y+8;
   if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*29;
-  const text=make('text',{x:tx,y:ty,fill:g.color,'text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'31','font-weight':'500','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
+  const text=make('text',{x:tx,y:ty,fill:g.color,'text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'32','font-weight':'500','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
   lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*31},text).textContent=l);
  });
  const core=make('g',{'aria-hidden':'true',class:'field-centre'});
@@ -123,6 +136,7 @@ window.initFieldAtlas=function(){
  drawConstellation();
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
+ el('field-presentation')?.addEventListener('click',()=>setPresentation(!el('p2').classList.contains('is-presentation')));
  el('constellation-filters').innerHTML='<button type="button" data-family="all" aria-pressed="true">All themes</button>'+data.groups.map(g=>`<button type="button" data-family="${g.id}" aria-pressed="false"><span style="background:${g.color}" aria-hidden="true"></span>${esc(g.title)}</button>`).join('');
  el('constellation-filters').addEventListener('click',e=>{const b=e.target.closest('[data-family]');if(!b)return;document.querySelectorAll('[data-family]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));filterMap();});
  el('field-search').addEventListener('input',filterMap);
@@ -140,6 +154,6 @@ window.initFieldAtlas=function(){
  el('field-close').addEventListener('click',closeTopic);
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
- el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
+ el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&el('p2').classList.contains('is-presentation')){e.preventDefault();setPresentation(false);el('field-presentation').focus({preventScroll:true});return;}if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
 };
 })();
