@@ -1,0 +1,943 @@
+{
+  "groups": [
+    {
+      "id": "signals",
+      "title": "Sensing & mediators",
+      "question": "How is danger recognised and communicated?",
+      "color": "#c8d9af"
+    },
+    {
+      "id": "cells",
+      "title": "Immune cells",
+      "question": "Which cells recognise, respond and cooperate?",
+      "color": "#9dcbbb"
+    },
+    {
+      "id": "tissue",
+      "title": "Regulation & repair",
+      "question": "What restrains injury and shapes recovery?",
+      "color": "#e8cc91"
+    },
+    {
+      "id": "clinical",
+      "title": "Clinical phenotypes",
+      "question": "Which mechanism fits this clinical context?",
+      "color": "#e7a184"
+    },
+    {
+      "id": "connections",
+      "title": "Organ interfaces",
+      "question": "Which connections are supported by evidence?",
+      "color": "#c7bddb"
+    }
+  ],
+  "topics": [
+    {
+      "id": "innate",
+      "title": "Pattern recognition",
+      "group": "signals",
+      "idea": "Pattern-recognition receptors detect microbial structures and damage-associated signals. They operate in immune cells and cardiac-resident cells; innate immunity is the wider system, not a separate class of signals.",
+      "heart": "TLRs, cytosolic nucleic-acid sensors and downstream pathways connect infection or sterile injury to inflammatory activation.",
+      "evidence": "Receptor expression is not proof of pathway activation. Viral and sterile injury can share sensors while requiring different interpretations.",
+      "sources": [],
+      "related": [
+        "dendritic-cells",
+        "macrophages",
+        "inflammasome"
+      ],
+      "book": null,
+      "immune": "Innate sensing",
+      "question": "What is being sensed: a pathogen, damaged tissue, or both?",
+      "reading": "sensing"
+    },
+    {
+      "id": "complement",
+      "title": "Complement",
+      "group": "signals",
+      "idea": "A regulated protein cascade: classical, lectin and alternative activation converge on C3. Opsonisation, inflammatory signalling and the terminal complex are key outputs.",
+      "heart": "Connects host defence with tissue injury; cardiovascular research includes ischaemia–reperfusion and vascular inflammation.",
+      "evidence": "Mechanistic involvement does not establish benefit from complement inhibition in every cardiac disease.",
+      "sources": [],
+      "related": [
+        "innate",
+        "vasculitis",
+        "transplantation"
+      ],
+      "book": null,
+      "immune": "Innate effector · adaptive interface",
+      "question": "Which pathway, fragment and disease stage are implicated?",
+      "reading": "complement"
+    },
+    {
+      "id": "inflammasome",
+      "title": "Inflammasome",
+      "group": "signals",
+      "idea": "Intracellular protein complexes that can activate caspase-1 and promote maturation of IL-1β and IL-18.",
+      "heart": "A bridge between cellular danger signals and inflammatory pathways studied in cardiovascular injury.",
+      "evidence": "Distinguish evidence about a specific inflammasome from evidence about its downstream cytokines.",
+      "sources": [],
+      "related": [
+        "interleukins",
+        "innate",
+        "atherosclerosis"
+      ],
+      "book": null,
+      "immune": "Innate sensing & amplification",
+      "question": "Is the evidence about inflammasome assembly, a cytokine, or pyroptosis?",
+      "reading": "inflammasome"
+    },
+    {
+      "id": "interleukins",
+      "title": "Cytokine networks",
+      "group": "signals",
+      "idea": "Cytokines form context-dependent networks between immune, vascular and stromal cells. IL-1, IL-6 and other interleukins have distinct sources, receptors and effects.",
+      "heart": "Cytokine inhibition tests a specific target in a defined population; it does not test all inflammation at once.",
+      "evidence": "A fall in CRP or another biomarker does not establish a reduction in cardiovascular events.",
+      "sources": [],
+      "related": [
+        "inflammasome",
+        "pericarditis",
+        "immunometabolism"
+      ],
+      "book": null,
+      "immune": "Innate ↔ adaptive communication",
+      "question": "Which ligand, receptor and patient population are being studied?",
+      "reading": "cytokines"
+    },
+    {
+      "id": "immunometabolism",
+      "title": "Immunometabolism",
+      "group": "tissue",
+      "idea": "The interaction between metabolic state and immune-cell function.",
+      "heart": "Helps frame inflammatory responses to ischaemic injury and cardiometabolic stress.",
+      "evidence": "A promising translational field; changing a cellular metabolic pathway is not automatically a validated therapy.",
+      "sources": [],
+      "related": [
+        "macrophages",
+        "atherosclerosis",
+        "microbiome"
+      ],
+      "book": null,
+      "immune": "Innate ↔ adaptive regulation",
+      "question": "Is altered metabolism driving cell function, reflecting injury, or both?",
+      "reading": "metabolism"
+    },
+    {
+      "id": "microbiome",
+      "title": "Gut–heart axis",
+      "group": "connections",
+      "idea": "Microbial communities and their metabolites interact with host physiology and immunity.",
+      "heart": "The gut–heart axis connects diet, microbial metabolism and cardiovascular phenotypes.",
+      "evidence": "A prospective association or a predictive model does not show that changing the microbiome prevents cardiovascular disease.",
+      "sources": [],
+      "related": [
+        "immunometabolism",
+        "atherosclerosis",
+        "innate"
+      ],
+      "book": null,
+      "immune": "Microbial–metabolic interface",
+      "question": "Does the study show association, prediction or a causal intervention?",
+      "reading": "microbiome"
+    },
+    {
+      "id": "macrophages",
+      "title": "Cardiac macrophages",
+      "group": "cells",
+      "idea": "Resident and recruited macrophage populations participate in surveillance, clearance and repair. Ontogeny, tissue niche and activation state all matter; a simple M1/M2 split is insufficient.",
+      "heart": "Cardiac macrophages interact with cardiomyocytes, vessels and fibroblasts. Their roles vary between homeostasis, acute injury and chronic disease.",
+      "evidence": "Much mechanistic evidence comes from models; origin alone does not fully define a cell’s function.",
+      "sources": [],
+      "related": [
+        "dendritic-cells",
+        "resolution",
+        "remodeling",
+        "immunometabolism"
+      ],
+      "book": null,
+      "immune": "Innate cells",
+      "question": "Which origin, state, niche and time after injury?",
+      "reading": "macrophages"
+    },
+    {
+      "id": "lymphocytes",
+      "title": "B & T lymphocytes",
+      "group": "cells",
+      "idea": "B and T cells mediate antigen-specific effector, memory and regulatory responses. B cells also present antigen; T-cell subsets can support injury, tolerance or repair.",
+      "heart": "Antigen specificity distinguishes targeted cardiac immune responses from a nonspecific inflammatory infiltrate.",
+      "evidence": "Cell identity, activation state and tissue context matter; “lymphocyte” is not one uniform mechanism.",
+      "sources": [],
+      "related": [
+        "adaptive",
+        "dendritic-cells",
+        "tolerance",
+        "myocarditis"
+      ],
+      "book": null,
+      "immune": "Adaptive cells",
+      "question": "Which subset, antigen specificity and tissue compartment?",
+      "reading": "tcells"
+    },
+    {
+      "id": "dendritic-cells",
+      "title": "Dendritic cells",
+      "group": "cells",
+      "immune": "Innate cells · adaptive priming",
+      "question": "Which dendritic-cell subset, maturation state and antigen?",
+      "idea": "Dendritic cells belong to innate immunity and specialise in antigen presentation. They connect danger sensing with T-cell priming and tolerance; they do not sit outside the innate immune system.",
+      "heart": "Cardiac antigen sampling and presentation provide a bridge between local tissue injury, draining lymph nodes and adaptive responses.",
+      "evidence": "Conventional and plasmacytoid subsets have different functions. Benefits of engineered cells in experimental models do not establish a clinical treatment.",
+      "related": [
+        "innate",
+        "adaptive",
+        "lymphocytes",
+        "tolerance"
+      ],
+      "reading": "dc",
+      "sources": [],
+      "book": null
+    },
+    {
+      "id": "adaptive",
+      "title": "Antigen presentation",
+      "group": "signals",
+      "idea": "Antigen-presenting cells process proteins and display peptides to T cells. Dendritic cells, macrophages and B cells differ in how they prime, sustain or regulate responses.",
+      "heart": "Presentation of cardiac antigens links tissue injury to T-cell activation or tolerance. Antigen release alone is not evidence of pathogenic autoimmunity.",
+      "evidence": "Distinguish antigen presentation, demonstrable antigen-specific responses and proof that those responses cause disease.",
+      "sources": [],
+      "related": [
+        "dendritic-cells",
+        "lymphocytes",
+        "tolerance",
+        "myocarditis"
+      ],
+      "book": null,
+      "immune": "Innate ↔ adaptive bridge",
+      "question": "Who presents which antigen, through which MHC and co-signals?",
+      "reading": "dc"
+    },
+    {
+      "id": "tolerance",
+      "title": "Immune tolerance",
+      "group": "tissue",
+      "idea": "Mechanisms that prevent or restrain immune responses against self. Central selection and peripheral control are complementary safeguards.",
+      "heart": "A conceptual bridge to autoimmune disease, graft rejection and adverse effects of immune therapies.",
+      "evidence": "Tolerance is not simply the absence of inflammation or general immunosuppression.",
+      "sources": [],
+      "related": [
+        "dendritic-cells",
+        "lymphocytes",
+        "cardio-oncology",
+        "transplantation"
+      ],
+      "book": null,
+      "immune": "Adaptive regulation · innate support",
+      "question": "Which protective control is lost, preserved or being restored?",
+      "reading": "treg"
+    },
+    {
+      "id": "resolution",
+      "title": "Resolution",
+      "group": "tissue",
+      "idea": "Active containment and ending of an inflammatory response, rather than merely a fall in inflammatory markers.",
+      "heart": "Timely resolution and clearance of the infiltrate are important for organised cardiac repair.",
+      "evidence": "Stopping inflammation and restoring functional tissue are related but different outcomes.",
+      "sources": [],
+      "related": [
+        "macrophages",
+        "fibrosis",
+        "regeneration"
+      ],
+      "book": null,
+      "immune": "Active inflammatory control",
+      "question": "Has inflammation resolved, and has tissue function recovered?",
+      "reading": "resolution"
+    },
+    {
+      "id": "remodeling",
+      "title": "Remodeling",
+      "group": "tissue",
+      "idea": "Changes in cardiac structure and function after injury or persistent stress.",
+      "heart": "Inflammatory and reparative responses contribute to the trajectory after myocardial injury.",
+      "evidence": "Remodelling describes a process; it is not synonymous with inflammation or proof of its cause.",
+      "sources": [],
+      "related": [
+        "fibrosis",
+        "heart-failure",
+        "resolution"
+      ],
+      "book": null,
+      "immune": "Immune–stromal response",
+      "question": "Which structural change, at which phase after injury?",
+      "reading": "repair"
+    },
+    {
+      "id": "fibrosis",
+      "title": "Fibrosis",
+      "group": "tissue",
+      "idea": "Accumulation and reorganisation of extracellular matrix, including scar formation after tissue loss.",
+      "heart": "A scar can preserve integrity, while persistent or diffuse fibrosis may impair function.",
+      "evidence": "Active fibroblast signalling, accumulated scar and potential reversibility are different quantities. An imaging signal needs validation against the biological process it is claimed to measure.",
+      "sources": [],
+      "related": [
+        "remodeling",
+        "regeneration",
+        "myocarditis"
+      ],
+      "book": null,
+      "immune": "Stromal response",
+      "question": "Active fibroblast signalling, matrix deposition or established scar?",
+      "reading": "fibrosis"
+    },
+    {
+      "id": "regeneration",
+      "title": "Regeneration",
+      "group": "tissue",
+      "idea": "Replacement of lost functional tissue; distinct from repair by scar formation.",
+      "heart": "Experimental cardiac repair studies investigate how inflammatory and stromal responses affect recovery.",
+      "evidence": "Results in mice do not establish restoration of human myocardium or a ready-to-use treatment.",
+      "sources": [],
+      "related": [
+        "fibrosis",
+        "macrophages",
+        "resolution"
+      ],
+      "book": null,
+      "immune": "Repair–regeneration interface",
+      "question": "Is functional myocardium replaced, or is scar formation modified?",
+      "reading": "regeneration"
+    },
+    {
+      "id": "atherosclerosis",
+      "title": "Atherosclerosis",
+      "group": "clinical",
+      "idea": "Arterial plaque disease in which lipids and inflammatory processes interact.",
+      "heart": "A major cardiovascular setting for studying the consequences of immune activation.",
+      "evidence": "Inflammation is one component of risk, alongside other established contributors.",
+      "sources": [],
+      "related": [
+        "immunometabolism",
+        "inflammasome",
+        "microbiome"
+      ],
+      "book": null,
+      "immune": "Lipid–immune disease",
+      "question": "Does target engagement translate into fewer clinical events?",
+      "reading": "atherosclerosis"
+    },
+    {
+      "id": "pericarditis",
+      "title": "Pericarditis",
+      "group": "clinical",
+      "idea": "Inflammation of the pericardium, the sac surrounding the heart.",
+      "heart": "Shows why anatomical site, disease course and cause should be considered separately.",
+      "evidence": "Clinical assessment and disease-specific guidance are needed; a pathway alone does not define management.",
+      "sources": [],
+      "related": [
+        "interleukins",
+        "autoinflammation",
+        "myocarditis"
+      ],
+      "book": null,
+      "immune": "Pericardial inflammation",
+      "question": "Which cause, inflammatory phenotype and recurrence pattern?",
+      "reading": "pericarditis"
+    },
+    {
+      "id": "myocarditis",
+      "title": "Myocarditis",
+      "group": "clinical",
+      "idea": "Inflammation involving the heart muscle.",
+      "heart": "Distinct from pericarditis, although the two may overlap.",
+      "evidence": "The cause, clinical presentation and evidence of tissue injury need individual assessment.",
+      "sources": [],
+      "related": [
+        "fibrosis",
+        "pericarditis",
+        "cardio-oncology"
+      ],
+      "book": null,
+      "immune": "Myocardial inflammation",
+      "question": "What establishes inflammation, its cause and the risk profile?",
+      "reading": "esc"
+    },
+    {
+      "id": "sarcoidosis",
+      "title": "Sarcoidosis",
+      "group": "clinical",
+      "idea": "A multisystem disease characterised by granulomatous inflammation.",
+      "heart": "Cardiac involvement is a distinct concern within a disease that may affect several organs.",
+      "evidence": "A diagnosis in one organ does not by itself define the presence or severity of cardiac involvement.",
+      "sources": [],
+      "related": [
+        "pulmonary",
+        "systemic",
+        "myocarditis"
+      ],
+      "book": null,
+      "immune": "Granulomatous disease",
+      "question": "Active inflammation, scar, or a combination of both?",
+      "reading": "sarcoidosis"
+    },
+    {
+      "id": "amyloidosis",
+      "title": "Amyloidosis",
+      "group": "clinical",
+      "idea": "Misfolded proteins accumulate in tissue. Cardiac AL amyloidosis and transthyretin amyloidosis are biologically distinct entities.",
+      "heart": "Included at the boundary of the map: AL involves an immunoglobulin-producing clone, whereas ATTR is not primarily an immune-mediated myocarditis.",
+      "evidence": "AL and transthyretin amyloidosis are distinct; infiltration must not be equated with active immune inflammation.",
+      "sources": [],
+      "related": [
+        "heart-failure",
+        "fibrosis",
+        "systemic"
+      ],
+      "book": null,
+      "immune": "Protein deposition · differential diagnosis",
+      "question": "Which amyloid protein is demonstrated?",
+      "reading": "amyloidosis"
+    },
+    {
+      "id": "systemic",
+      "title": "Systemic diseases",
+      "group": "clinical",
+      "idea": "Immune-mediated diseases may involve several organs rather than one isolated tissue.",
+      "heart": "Lupus, for example, can involve the heart as well as other organs.",
+      "evidence": "Mechanisms and organ patterns differ between diseases; extrapolation requires care.",
+      "sources": [],
+      "related": [
+        "tolerance",
+        "rheumatology",
+        "kidney"
+      ],
+      "book": null,
+      "immune": "Multiorgan immune disease",
+      "question": "What is established in the heart, rather than inferred from another organ?",
+      "reading": "systemic"
+    },
+    {
+      "id": "vasculitis",
+      "title": "Vasculitis",
+      "group": "clinical",
+      "idea": "Inflammation affecting blood vessels, with manifestations depending on the vessels and organs involved.",
+      "heart": "Connects vascular injury with questions about the heart and other organs.",
+      "evidence": "The vasculitis subtype matters; a general label does not determine a patient’s organ involvement.",
+      "sources": [],
+      "related": [
+        "complement",
+        "systemic",
+        "kidney"
+      ],
+      "book": {
+        "label": "Read issue 1 · The Silent Heart",
+        "url": "revue/n1-the-silent-heart.html"
+      },
+      "immune": "Vascular inflammation",
+      "question": "Which subtype, vessel size, activity and cardiac manifestation?",
+      "reading": "vasculitis"
+    },
+    {
+      "id": "autoinflammation",
+      "title": "Autoinflammation",
+      "group": "clinical",
+      "idea": "Disorders characterised by inappropriate activation of innate inflammatory pathways.",
+      "heart": "Offers a framework for understanding recurrent inflammatory syndromes and their interfaces.",
+      "evidence": "Autoinflammation and autoimmunity overlap in some settings but are not interchangeable terms.",
+      "sources": [],
+      "related": [
+        "innate",
+        "inflammasome",
+        "pericarditis"
+      ],
+      "book": null,
+      "immune": "Dysregulated innate inflammation",
+      "question": "What supports an autoinflammatory rather than an infectious or autoimmune mechanism?",
+      "reading": "pericarditis"
+    },
+    {
+      "id": "pulmonary-hypertension",
+      "title": "Pulmonary hypertension",
+      "group": "clinical",
+      "idea": "Elevated pressure in the pulmonary circulation, arising through different disease groups.",
+      "heart": "Connects pulmonary vascular disease with the workload of the right heart.",
+      "evidence": "The underlying group and cause matter; inflammation is not the sole explanation for pulmonary hypertension.",
+      "sources": [],
+      "related": [
+        "heart-failure",
+        "pulmonary",
+        "systemic"
+      ],
+      "book": null,
+      "immune": "Pulmonary vascular–right heart interface",
+      "question": "Which haemodynamic group, and what evidence of immune involvement?",
+      "reading": "ph"
+    },
+    {
+      "id": "heart-failure",
+      "title": "Heart failure",
+      "group": "clinical",
+      "idea": "A clinical syndrome with multiple possible causes.",
+      "heart": "Provides a shared clinical outcome in which vascular, myocardial and systemic processes may converge.",
+      "evidence": "Heart failure is not one immune disease; identifying a mechanism requires more than the syndrome label.",
+      "sources": [],
+      "related": [
+        "remodeling",
+        "amyloidosis",
+        "pulmonary-hypertension"
+      ],
+      "book": null,
+      "immune": "Syndrome · heterogeneous mechanisms",
+      "question": "Which cause and phenotype explain the immune signal?",
+      "reading": "hf"
+    },
+    {
+      "id": "cardio-oncology",
+      "title": "Cardio-oncology",
+      "group": "clinical",
+      "idea": "The cardiovascular consequences of cancer and its treatments.",
+      "heart": "Immune therapies are an important interface, alongside other cancer-related cardiovascular effects.",
+      "evidence": "Risk and management depend on the treatment and clinical setting; mechanisms cannot be generalised across agents.",
+      "sources": [],
+      "related": [
+        "tolerance",
+        "myocarditis",
+        "lymphocytes"
+      ],
+      "book": null,
+      "immune": "Treatment–immune interface",
+      "question": "Which therapy, immune lesion and competing diagnosis?",
+      "reading": "ici"
+    },
+    {
+      "id": "cardio-infectiology",
+      "title": "Cardio-infectiology",
+      "group": "clinical",
+      "idea": "The cardiovascular interfaces of infection, including infective endocarditis.",
+      "heart": "Connects pathogen, host response and cardiac tissue or device involvement.",
+      "evidence": "The selected influenza study combines human observations with mechanistic animal work. It does not explain every infection-related cardiac syndrome.",
+      "sources": [],
+      "related": [
+        "innate",
+        "myocarditis",
+        "complement"
+      ],
+      "book": null,
+      "immune": "Pathogen–host interface",
+      "question": "What distinguishes pathogen persistence from immune-mediated damage?",
+      "reading": "infection"
+    },
+    {
+      "id": "transplantation",
+      "title": "Transplantation",
+      "group": "clinical",
+      "idea": "Replacement of a failing heart with a donor organ, with continuing attention to immune rejection.",
+      "heart": "Makes recognition of non-self and its regulation clinically tangible.",
+      "evidence": "Rejection, infection and graft dysfunction are distinct problems requiring specialist evaluation.",
+      "sources": [],
+      "related": [
+        "tolerance",
+        "lymphocytes",
+        "complement"
+      ],
+      "book": null,
+      "immune": "Alloimmune recognition",
+      "question": "Cellular rejection, antibody-mediated injury, infection or another graft problem?",
+      "reading": "transplant"
+    },
+    {
+      "id": "eye",
+      "title": "Ocular immunity",
+      "group": "connections",
+      "idea": "Immune-mediated and infectious inflammation of the eye; uveitis is one example.",
+      "heart": "A cross-organ perspective for reading multisystem inflammation, rather than a claim of a universal eye–heart mechanism.",
+      "evidence": "An inflammatory sign in the eye does not establish a cardiac diagnosis.",
+      "sources": [],
+      "related": [
+        "systemic",
+        "sarcoidosis",
+        "tolerance"
+      ],
+      "book": null,
+      "immune": "Cross-organ comparison",
+      "question": "Which ocular mechanism is demonstrated, and can it be extrapolated?",
+      "reading": "eye"
+    },
+    {
+      "id": "kidney",
+      "title": "Renal immunity",
+      "group": "connections",
+      "idea": "Immune injury in the kidney, illustrated by lupus nephritis.",
+      "heart": "Offers a cross-organ way to think about systemic disease and organ-specific damage.",
+      "evidence": "The selected human study identifies signatures in lupus nephritis. Its findings cannot diagnose cardiac involvement or establish a cardiac therapeutic target.",
+      "sources": [],
+      "related": [
+        "systemic",
+        "vasculitis",
+        "tolerance"
+      ],
+      "book": null,
+      "immune": "Cross-organ comparison",
+      "question": "Do circulating signatures reflect kidney injury, cardiac injury or systemic activity?",
+      "reading": "kidney"
+    },
+    {
+      "id": "neuro",
+      "title": "Neuroimmune axis",
+      "group": "connections",
+      "idea": "Interactions between immunity and the nervous system; multiple sclerosis is a familiar example of immune-mediated damage.",
+      "heart": "Included as a neighbouring discipline for comparing tissue context and organ vulnerability.",
+      "evidence": "This conceptual connection does not imply a common cardiac mechanism or treatment.",
+      "sources": [],
+      "related": [
+        "tolerance",
+        "adaptive",
+        "systemic"
+      ],
+      "book": null,
+      "immune": "Neural–immune communication",
+      "question": "Which neural circuit, immune effector and cardiac outcome are linked?",
+      "reading": "neuro"
+    },
+    {
+      "id": "pulmonary",
+      "title": "Pulmonary immunity",
+      "group": "connections",
+      "idea": "Immune processes in the lung, including granulomatous inflammation in sarcoidosis.",
+      "heart": "Connects a multisystem perspective with pulmonary and cardiovascular questions.",
+      "evidence": "Shared inflammatory vocabulary does not mean identical organ behaviour.",
+      "sources": [],
+      "related": [
+        "sarcoidosis",
+        "pulmonary-hypertension",
+        "systemic"
+      ],
+      "book": null,
+      "immune": "Lung–heart interface",
+      "question": "Is cardiac stress secondary to pulmonary vascular disease or direct cardiac involvement?",
+      "reading": "ph"
+    },
+    {
+      "id": "rheumatology",
+      "title": "Cardio-rheumatology",
+      "group": "connections",
+      "idea": "Systemic immune-mediated diseases may involve joints, skin and internal organs.",
+      "heart": "Lupus illustrates why cardiovascular questions belong within a wider organ assessment.",
+      "evidence": "Troponin indicates myocardial injury in context; assay interference and non-inflammatory causes must also be considered.",
+      "sources": [],
+      "related": [
+        "systemic",
+        "tolerance",
+        "vasculitis"
+      ],
+      "book": null,
+      "immune": "Systemic–cardiac interface",
+      "question": "Inflammatory injury, vascular disease, treatment effect or an analytical interference?",
+      "reading": "rheum"
+    }
+  ],
+  "reviewed": "16 October 2026",
+  "papers": {
+    "sensing": {
+      "title": "Antiviral innate immunity in myocarditis: mechanisms and emerging therapeutics",
+      "journal": "Experimental & Molecular Medicine",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.nature.com/articles/s12276-026-01822-z",
+      "doi": "10.1038/s12276-026-01822-z",
+      "access": "Open access"
+    },
+    "complement": {
+      "title": "Complement C3 in panvascular disease: a central integrator of immune signaling and vascular remodeling",
+      "journal": "Chinese Medical Journal",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12687451/",
+      "doi": "",
+      "access": "Open access"
+    },
+    "inflammasome": {
+      "title": "NLRP3-mediated pyroptosis in cardiovascular disease: from molecular mechanisms to therapeutic targets",
+      "journal": "Frontiers in Pharmacology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1901368/full",
+      "doi": "10.3389/fphar.2026.1901368",
+      "access": "Open access"
+    },
+    "cytokines": {
+      "title": "Targeting Interleukin-6 for Treatment of CKD and Cardiovascular Disease",
+      "journal": "Kidney International Reports",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13508385/",
+      "doi": "10.1016/j.ekir.2026.106712",
+      "access": "Open access"
+    },
+    "metabolism": {
+      "title": "Roles of inflammation and metabolic dysfunction in cardiovascular diseases: molecular mechanisms and therapeutic targets",
+      "journal": "Molecular Biomedicine",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://link.springer.com/article/10.1186/s43556-026-00599-x",
+      "doi": "10.1186/s43556-026-00599-x",
+      "access": "Open access"
+    },
+    "microbiome": {
+      "title": "A gut microbiome-kidney-heart axis predictive of future cardiovascular diseases",
+      "journal": "Nature Communications",
+      "year": "2026",
+      "kind": "Human cohort study",
+      "url": "https://www.nature.com/articles/s41467-026-69405-0",
+      "doi": "10.1038/s41467-026-69405-0",
+      "access": "Open access"
+    },
+    "macrophages": {
+      "title": "Functional diversity of cardiac macrophages in health and disease",
+      "journal": "Nature Reviews Cardiology",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12596025/",
+      "doi": "10.1038/s41569-024-01109-8",
+      "access": "Free full text"
+    },
+    "tcells": {
+      "title": "T cells in cardiac health and disease",
+      "journal": "Journal of Clinical Investigation",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://www.jci.org/articles/view/185218",
+      "doi": "10.1172/JCI185218",
+      "access": "Open access"
+    },
+    "dc": {
+      "title": "Dendritic Cells: Origin, Classification, Development, Biological Functions, and Therapeutic Potential",
+      "journal": "MedComm",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/mco2.70455",
+      "doi": "10.1002/mco2.70455",
+      "access": "Open access"
+    },
+    "treg": {
+      "title": "Preclinical and clinical developments in Treg therapy for heart transplantation: Critical assessment and translational challenges",
+      "journal": "Human Immunology",
+      "year": "2026",
+      "kind": "Translational review",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0198885926000273",
+      "doi": "10.1016/j.humimm.2026.111681",
+      "access": "Open access"
+    },
+    "resolution": {
+      "title": "Inflammation-resolution signalling in cardiac repair, remodelling, and heart failure",
+      "journal": "European Heart Journal Open",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12728415/",
+      "doi": "10.1093/ehjopen/oeaf157",
+      "access": "Open access"
+    },
+    "repair": {
+      "title": "Cellular and molecular signals of cardiac wound healing after myocardial infarction",
+      "journal": "American Journal of Physiology — Heart and Circulatory Physiology",
+      "year": "2026",
+      "kind": "Mechanistic review",
+      "url": "https://journals.physiology.org/doi/full/10.1152/ajpheart.00891.2025",
+      "doi": "10.1152/ajpheart.00891.2025",
+      "access": "Open access"
+    },
+    "fibrosis": {
+      "title": "Next-generation molecular imaging of cardiac fibrosis",
+      "journal": "The International Journal of Cardiovascular Imaging",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://link.springer.com/article/10.1007/s10554-026-03682-0",
+      "doi": "10.1007/s10554-026-03682-0",
+      "access": "Open access"
+    },
+    "regeneration": {
+      "title": "Spatiotemporal precision interventions for cardiac repair and regenerative therapy",
+      "journal": "Experimental & Molecular Medicine",
+      "year": "2026",
+      "kind": "Translational review",
+      "url": "https://www.nature.com/articles/s12276-026-01704-4",
+      "doi": "10.1038/s12276-026-01704-4",
+      "access": "Open access"
+    },
+    "atherosclerosis": {
+      "title": "Targeting Inflammation in Atherosclerotic Cardiovascular Disease: Mechanisms and Emerging Therapies",
+      "journal": "Immunological Reviews",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13420926/",
+      "doi": "10.1111/imr.70151",
+      "access": "Free full text"
+    },
+    "esc": {
+      "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
+      "journal": "European Heart Journal",
+      "year": "2025",
+      "kind": "Clinical guideline",
+      "url": "https://academic.oup.com/eurheartj/article/46/40/3952/8234483",
+      "doi": "10.1093/eurheartj/ehaf192",
+      "access": "Free full text"
+    },
+    "pericarditis": {
+      "title": "French protocol for the diagnosis and management of recurrent pericarditis",
+      "journal": "La Revue de Médecine Interne",
+      "year": "2026",
+      "kind": "National care protocol",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0248866326000159",
+      "doi": "10.1016/j.revmed.2026.02.002",
+      "access": "Open access"
+    },
+    "sarcoidosis": {
+      "title": "Cardiac sarcoidosis: from clinical manifestations to heart transplantation",
+      "journal": "Frontiers in Medicine",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2026.1723644/full",
+      "doi": "10.3389/fmed.2026.1723644",
+      "access": "Open access"
+    },
+    "amyloidosis": {
+      "title": "Multimodality imaging for cardiac amyloidosis: clinical applications and future directions",
+      "journal": "European Journal of Internal Medicine",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.sciencedirect.com/science/article/pii/S095362052500439X",
+      "doi": "10.1016/j.ejim.2025.106562",
+      "access": "Open access"
+    },
+    "systemic": {
+      "title": "The 2026 British Society for Rheumatology guideline for the management of children, young people and adults with systemic lupus erythematosus",
+      "journal": "Rheumatology",
+      "year": "2026",
+      "kind": "Clinical guideline",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13290301/",
+      "doi": "",
+      "access": "Open access"
+    },
+    "vasculitis": {
+      "title": "Mechanisms, clinical manifestations and management of cardiovascular diseases in ANCA-associated vasculitis",
+      "journal": "Rheumatology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13332445/",
+      "doi": "10.1093/rheumatology/keag268",
+      "access": "Open access"
+    },
+    "ph": {
+      "title": "Beyond the Heart-Lung Axis: A Review of the Crosstalk Between the Hemodynamic, Neurohormonal, and Immune Systems in Pulmonary Hypertension",
+      "journal": "Comprehensive Physiology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/cph4.70266",
+      "doi": "10.1002/cph4.70266",
+      "access": "Open access"
+    },
+    "hf": {
+      "title": "Immune cell dynamics in heart failure: implicated mechanisms and therapeutic targets",
+      "journal": "ESC Heart Failure",
+      "year": "2025",
+      "kind": "Review",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/ehf2.15238",
+      "doi": "10.1002/ehf2.15238",
+      "access": "Open access"
+    },
+    "ici": {
+      "title": "Immune checkpoint inhibitor-related cardiotoxicity: a cellular pharmacology perspective on susceptibility and resistance",
+      "journal": "Frontiers in Pharmacology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13294274/",
+      "doi": "",
+      "access": "Open access"
+    },
+    "infection": {
+      "title": "Influenza hijacks myeloid cells to inflict Type-I Interferon-fueled damage in the heart",
+      "journal": "Immunity",
+      "year": "2026",
+      "kind": "Human tissue & animal study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13299115/",
+      "doi": "10.1016/j.immuni.2025.12.011",
+      "access": "Free full text"
+    },
+    "transplant": {
+      "title": "Diagnosis of rejection following heart transplantation: diving into the future",
+      "journal": "Frontiers in Transplantation",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.frontiersin.org/journals/transplantation/articles/10.3389/frtra.2025.1693821/full",
+      "doi": "10.3389/frtra.2025.1693821",
+      "access": "Open access"
+    },
+    "eye": {
+      "title": "The Immunopathogenesis of uveitis",
+      "journal": "Frontiers in Medicine",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13006656/",
+      "doi": "10.3389/fmed.2026.1717056",
+      "access": "Open access"
+    },
+    "kidney": {
+      "title": "Single-cell profiling unveils nephritis-related circulating immunological signatures in systemic lupus erythematosus patients",
+      "journal": "Communications Biology",
+      "year": "2026",
+      "kind": "Human single-cell study",
+      "url": "https://www.nature.com/articles/s42003-025-09431-8",
+      "doi": "10.1038/s42003-025-09431-8",
+      "access": "Open access"
+    },
+    "neuro": {
+      "title": "Neural-immune-cardiovascular axis: from mechanistic crosstalk to therapeutic targets in cardiovascular disease",
+      "journal": "Frontiers in Immunology",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1886102/full",
+      "doi": "10.3389/fimmu.2026.1886102",
+      "access": "Open access"
+    },
+    "rheum": {
+      "title": "Cardiac Troponin in Autoimmune Rheumatic Diseases: Lights and Shadows",
+      "journal": "Mayo Clinic Proceedings",
+      "year": "2026",
+      "kind": "Review",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0025619626186601",
+      "doi": "10.1016/j.mayocp.2026.07.023",
+      "access": "Open access"
+    }
+  },
+  "paths": [
+    {
+      "id": "injury-repair",
+      "title": "From injury to repair",
+      "topics": [
+        "innate",
+        "macrophages",
+        "resolution",
+        "fibrosis"
+      ]
+    },
+    {
+      "id": "antigen-heart",
+      "title": "From antigen to myocarditis",
+      "topics": [
+        "dendritic-cells",
+        "adaptive",
+        "lymphocytes",
+        "myocarditis"
+      ]
+    },
+    {
+      "id": "systemic-heart",
+      "title": "From systemic disease to the heart",
+      "topics": [
+        "systemic",
+        "vasculitis",
+        "kidney",
+        "heart-failure"
+      ]
+    }
+  ]
+}
