@@ -129,3 +129,7 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
  body:has(#p2.is-presentation) .constellation-mobile-tools{display:none}
  .is-presentation .constellation-wrap{max-width:100%}
 }
+
+.is-presentation #field-download{font-size:10px;min-height:30px;border:0;padding:5px;color:#dce7d1}
+.is-presentation .constellation-mobile-tools{top:-25px;gap:8px}
+@media(max-width:700px){.is-presentation .constellation-mobile-tools{top:-28px}}
