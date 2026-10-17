@@ -78,6 +78,7 @@ function updateChapter(){
 }
 async function showPage(n,{resetScroll=true}={}){
  if(!pdf)return;
+ const moved=pageNumber!==undefined&&Number(n)!==pageNumber;
  const request=++generation;
  pageNumber=Math.max(1,Math.min(pdf.numPages,Math.round(n)||1));
  const previousRender=rendering;previousRender?.cancel();textLayer?.cancel();
@@ -106,7 +107,7 @@ async function showPage(n,{resetScroll=true}={}){
    textLayer=new TextLayer({textContentSource:text,container:$('text-layer'),viewport});
    await textLayer.render();
   }).catch(error=>console.warn('Selectable text unavailable:',error));
-  if(resetScroll){box.scrollTop=0;box.scrollLeft=0;}
+  if(resetScroll){box.scrollTop=0;box.scrollLeft=0;if(moved)box.scrollIntoView({block:'start',behavior:'instant'});}
  }catch(error){
   if(error?.name==='RenderingCancelledException'||request!==generation)return;
   console.error('Book reader:',error);$('page-scroll').setAttribute('aria-busy','false');message('Page indisponible. Réessayez ou téléchargez le PDF original.');
