@@ -10,7 +10,7 @@ const params = new URLSearchParams(location.search);
 const mobile = matchMedia('(max-width:800px)');
 const title = $('chapter-title');
 mobile.addEventListener('change',()=>{$('chapter-links').closest('details').open=!mobile.matches;});
-function message(text){ status.textContent=text; }
+function message(text){if(pdf&&/^Ouverture du (?:livre|chapitre)/.test(text))return;status.textContent=text;}
 // Zenodo accepts byte ranges, but its CORS policy does not expose the range
 // headers used by PDF.js auto-detection. Supply the transport explicitly so
 // a chapter opens without first transferring the complete Treatise.
