@@ -1,4 +1,4 @@
-import { getDocument, GlobalWorkerOptions, TextLayer, OPS } from './book-pdf.mjs';
+import { getDocument, GlobalWorkerOptions, TextLayer, OPS, PDFDataRangeTransport } from './book-pdf.mjs';
 GlobalWorkerOptions.workerSrc = new URL('./book-pdf.worker.mjs', import.meta.url).href;
 const $ = id => document.getElementById(id);
 const status = $('reader-status');
@@ -8,6 +8,51 @@ const mobile = matchMedia('(max-width:800px)');
 const title = $('chapter-title');
 mobile.addEventListener('change',()=>{$('chapter-links').closest('details').open=!mobile.matches;});
 function message(text){ status.textContent=text; }
+// Zenodo accepts byte ranges, but its CORS policy does not expose the range
+// headers used by PDF.js auto-detection. Supply the transport explicitly so
+// a chapter opens without first transferring the complete Treatise.
+class ArchiveRanges extends PDFDataRangeTransport {
+ constructor(url,length,initial){super(length,initial,true);this.url=url;this.controllers=new Set();}
+ async requestDataRange(begin,end){
+  const controller=new AbortController();this.controllers.add(controller);
+  try{
+   const response=await fetch(this.url,{headers:{Range:`bytes=${begin}-${end-1}`},credentials:'omit',signal:controller.signal});
+   if(response.status!==206){await response.body?.cancel();throw Error('Archive range unavailable');}
+   const bytes=new Uint8Array(await response.arrayBuffer());
+   if(bytes.byteLength!==end-begin)throw Error('Incomplete archive range');
+   if(!controller.signal.aborted)this.onDataRange(begin,bytes);
+  }catch(error){if(!controller.signal.aborted)this.onError?.(error);}
+  finally{this.controllers.delete(controller);}
+ }
+ abort(){for(const controller of this.controllers)controller.abort();this.controllers.clear();}
+}
+async function openBookPdf(){
+ const url=new URL(book.pdf,location.href).href;
+ const chunk=262144;let range;
+ if(book.bytes>8*1024*1024&&url.startsWith('https://zenodo.org/api/')){
+  try{
+   message('Ouverture du chapitre…');
+   const response=await fetch(url,{headers:{Range:`bytes=0-${chunk-1}`},credentials:'omit'});
+   if(response.status===206){
+    const initial=new Uint8Array(await response.arrayBuffer());
+    if(initial.length===chunk)range=new ArchiveRanges(url,book.bytes,initial);
+   }else await response.body?.cancel();
+  }catch{ /* The ordinary original-PDF reader remains the fallback. */ }
+ }
+ const options={url,isEvalSupported:false,withCredentials:false};
+ if(range)Object.assign(options,{range,rangeChunkSize:chunk,disableStream:true,disableAutoFetch:true});
+ const task=getDocument(options);
+ task.onProgress=({loaded,total})=>message(range?'Ouverture du chapitre…':total?`Ouverture du livre · ${Math.min(100,Math.round(loaded/total*100))} %`:'Ouverture du livre…');
+ if(!range)return task.promise;
+ const failed=new Promise((_,reject)=>{range.onError=error=>{range.abort();task.destroy().catch(()=>{});reject(error);};});
+ try{return await Promise.race([task.promise,failed]);}
+ catch{
+  range.abort();task.destroy().catch(()=>{});
+  const fallback=getDocument({url,isEvalSupported:false,withCredentials:false});
+  fallback.onProgress=({loaded,total})=>message(total?`Ouverture du livre · ${Math.min(100,Math.round(loaded/total*100))} %`:'Ouverture du livre…');
+  return fallback.promise;
+ }
+}
 function chapterFor(page){ return [...book.chapters].reverse().find(c=>c.page<=page) || book.chapters[0]; }
 function updateLocation(){
  const u=new URL(location.href); u.search='';u.searchParams.set('livre',bookKey);u.searchParams.set('chapitre',chapter.number);u.searchParams.set('page',pageNumber);
@@ -82,7 +127,8 @@ async function showPage(n,{resetScroll=true}={}){
   const paths=operators.fnArray.filter(op=>op===OPS.constructPath).length;
   const image=operators.fnArray.some(op=>op===OPS.paintImageXObject||op===OPS.paintInlineImageXObject||op===OPS.paintImageMaskXObject);
   const caption=text.items.some(item=>/^(?:Tableau|Figure|Planche|Table|Plate)\s+\d/.test(item.str?.trim()||''));
-  const complex=image||paths>9||caption;
+  const chapterOpening=book.chapters.some(c=>c.page===pageNumber);
+  const complex=image||paths>9||caption||chapterOpening;
   const reading=viewMode==='reading'&&!complex;
   $('reading-view').setAttribute('aria-pressed',String(viewMode==='reading'));
   $('original-view').setAttribute('aria-pressed',String(viewMode==='original'));
@@ -107,11 +153,11 @@ async function showPage(n,{resetScroll=true}={}){
  }
 }
 function changeChapter(c){
- if(!c)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;
+ if(!c)return;zoom=1;showPage(c.readingPage||c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;
  $('reading').focus({preventScroll:true});$('reading').scrollIntoView({block:'start',behavior:'instant'});
 }
 async function init(){
- const response=await fetch(new URL('./book-reader-data.json',import.meta.url));if(!response.ok)throw Error('Book catalogue');
+ const response=await fetch(new URL('./book-reader-data.json?v=20261017-range',import.meta.url));if(!response.ok)throw Error('Book catalogue');
  const books=await response.json();
  try{const words=await fetch(new URL('./book-word-boundaries.json',import.meta.url));if(words.ok)sourceWords=new Set(await words.json());}catch{}
  bookKey=params.get('livre')||'methode';book=books[bookKey];
@@ -130,9 +176,7 @@ async function init(){
  if(mobile.matches)$('chapter-links').closest('details').open=false;
  chapter=book.chapters.find(c=>c.number===Number(params.get('chapitre')))||book.chapters[0];title.textContent=chapter.title;
  $('chapter-label').textContent='Chapitre '+String(chapter.number).padStart(2,'0');
- const loading=getDocument({url:new URL(book.pdf,location.href).href,isEvalSupported:false,withCredentials:false});
- loading.onProgress=({loaded,total})=>message(total?`Ouverture du livre · ${Math.min(100,Math.round(loaded/total*100))} %`:'Ouverture du livre…');
- pdf=await loading.promise;
+ pdf=await openBookPdf();
  for(const id of ['page-number','zoom-in','zoom-out','fit-width'])$(id).disabled=false;
  $('page-number').max=pdf.numPages;
  $('previous').addEventListener('click',()=>showPage(pageNumber-1));$('next').addEventListener('click',()=>showPage(pageNumber+1));
@@ -146,6 +190,6 @@ async function init(){
  for(const id of ['previous-chapter','next-chapter'])$(id).addEventListener('click',e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();const n=Number(new URL($(id).href).searchParams.get('chapitre'));changeChapter(book.chapters.find(c=>c.number===n));});
  document.addEventListener('keydown',e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||e.ctrlKey||e.altKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();showPage(pageNumber+1);}if(e.key==='ArrowLeft'){e.preventDefault();showPage(pageNumber-1);}});
  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>showPage(pageNumber,{resetScroll:false}),200);});
- await showPage(Number(params.get('page'))||chapter.page);
+ await showPage(Number(params.get('page'))||chapter.readingPage||chapter.page);
 }
 init().catch(error=>{console.error('Book reader:',error);message('La liseuse ne peut pas ouvrir le livre pour le moment. Retrouvez le PDF original depuis la présentation du livre.');});

@@ -13,129 +13,151 @@
         "title": "Bases immunologiques fondamentales",
         "page": 65,
         "depth": 1,
-        "number": 1
+        "number": 1,
+        "readingPage": 66
       },
       {
         "title": "Cellules effectrices de l’immunité cardiaque",
         "page": 87,
         "depth": 1,
-        "number": 2
+        "number": 2,
+        "readingPage": 88
       },
       {
         "title": "Biologie vasculaire et athérogenèse inflammatoire",
         "page": 137,
         "depth": 1,
-        "number": 3
+        "number": 3,
+        "readingPage": 138
       },
       {
         "title": "Remodelage cardiaque post-infarctus : mécanismes immunitaires de la réparation",
         "page": 178,
         "depth": 1,
-        "number": 4
+        "number": 4,
+        "readingPage": 179
       },
       {
         "title": "Péricardites immuno-médiées",
         "page": 212,
         "depth": 1,
-        "number": 5
+        "number": 5,
+        "readingPage": 213
       },
       {
         "title": "Myocardites : physiopathologie, diagnostic et prise en charge",
         "page": 252,
         "depth": 1,
-        "number": 6
+        "number": 6,
+        "readingPage": 253
       },
       {
         "title": "Cardiopathies inflammatoires et infiltratives : sarcoïdose et amyloses (AL, ATTR, AA)",
         "page": 317,
         "depth": 1,
-        "number": 7
+        "number": 7,
+        "readingPage": 318
       },
       {
         "title": "Atteintes cardiovasculaires des maladies auto-immunes systémiques",
         "page": 395,
         "depth": 1,
-        "number": 8
+        "number": 8,
+        "readingPage": 396
       },
       {
         "title": "Atteintes cardiovasculaires des vascularites systémiques",
         "page": 477,
         "depth": 1,
-        "number": 9
+        "number": 9,
+        "readingPage": 478
       },
       {
         "title": "Syndromes auto-inflammatoires",
         "page": 544,
         "depth": 1,
-        "number": 10
+        "number": 10,
+        "readingPage": 545
       },
       {
         "title": "Hypertension pulmonaire des maladies auto-immunes",
         "page": 564,
         "depth": 1,
-        "number": 11
+        "number": 11,
+        "readingPage": 565
       },
       {
         "title": "Maladies systémiques rares à expression cardiovasculaire",
         "page": 601,
         "depth": 1,
-        "number": 12
+        "number": 12,
+        "readingPage": 602
       },
       {
         "title": "De la défaillance à l’étiologie",
         "page": 638,
         "depth": 1,
-        "number": 13
+        "number": 13,
+        "readingPage": 639
       },
       {
         "title": "De l’étiologie à l’ordonnance",
         "page": 798,
         "depth": 1,
-        "number": 14
+        "number": 14,
+        "readingPage": 799
       },
       {
         "title": "Pharmacologie et biothérapies immunomodulatrices",
         "page": 860,
         "depth": 1,
-        "number": 15
+        "number": 15,
+        "readingPage": 861
       },
       {
         "title": "Axe microbiote intestinal-immunité-cœur",
         "page": 907,
         "depth": 1,
-        "number": 16
+        "number": 16,
+        "readingPage": 908
       },
       {
         "title": "Cardio-oncologie immunologique : CAR-T, inhibiteurs de point de contrôle immunitaire (ICI) et thérapies ciblées",
         "page": 925,
         "depth": 1,
-        "number": 17
+        "number": 17,
+        "readingPage": 926
       },
       {
         "title": "Cardio-infectiologie immunologique",
         "page": 953,
         "depth": 1,
-        "number": 18
+        "number": 18,
+        "readingPage": 954
       },
       {
         "title": "Génomique et endotypage en cardio-immunologie",
         "page": 998,
         "depth": 1,
-        "number": 19
+        "number": 19,
+        "readingPage": 999
       },
       {
         "title": "Imagerie et biomarqueurs en cardio-immunologie",
         "page": 1015,
         "depth": 1,
-        "number": 20
+        "number": 20,
+        "readingPage": 1016
       },
       {
         "title": "Transplantation cardiaque et immunologie du rejet",
         "page": 1136,
         "depth": 1,
-        "number": 21
+        "number": 21,
+        "readingPage": 1137
       }
-    ]
+    ],
+    "bytes": 43189309
   },
   "bilan": {
     "title": "Le Bilan",
@@ -151,129 +173,151 @@
         "title": "Les trois rangs du bilan : indispensable, selon le contexte, avis spécialisé",
         "page": 16,
         "depth": 1,
-        "number": 1
+        "number": 1,
+        "readingPage": 17
       },
       {
         "title": "Prélever juste : le pré-analytique et ses pièges",
         "page": 23,
         "depth": 1,
-        "number": 2
+        "number": 2,
+        "readingPage": 24
       },
       {
         "title": "Les marqueurs cardiaques communs : troponine, peptides natriurétiques, protéine C réactive, ferritine",
         "page": 31,
         "depth": 1,
-        "number": 3
+        "number": 3,
+        "readingPage": 32
       },
       {
         "title": "Les auto-anticorps : techniques, titres et portée d’un résultat",
         "page": 38,
         "depth": 1,
-        "number": 4
+        "number": 4,
+        "readingPage": 39
       },
       {
         "title": "Lupus érythémateux systémique et syndrome des antiphospholipides, forme catastrophique comprise",
         "page": 47,
         "depth": 1,
-        "number": 5
+        "number": 5,
+        "readingPage": 48
       },
       {
         "title": "Sclérodermie systémique, connectivite mixte, syndrome de Sjögren et myopathies inflammatoires",
         "page": 56,
         "depth": 1,
-        "number": 6
+        "number": 6,
+        "readingPage": 57
       },
       {
         "title": "Polyarthrite rhumatoïde, spondyloarthrites et rhumatisme psoriasique",
         "page": 65,
         "depth": 1,
-        "number": 7
+        "number": 7,
+        "readingPage": 66
       },
       {
         "title": "Vascularites des gros et moyens vaisseaux : artérite à cellules géantes, Takayasu, aortites, panartérite noueuse, Kawasaki, Behçet, Cogan, polychondrite",
         "page": 71,
         "depth": 1,
-        "number": 8
+        "number": 8,
+        "readingPage": 72
       },
       {
         "title": "Vascularites des petits vaisseaux, cryoglobulinémies et vascularites du système nerveux central",
         "page": 82,
         "depth": 1,
-        "number": 9
+        "number": 9,
+        "readingPage": 83
       },
       {
         "title": "Maladie de Still, syndrome d’activation macrophagique et lymphohistiocytoses",
         "page": 91,
         "depth": 1,
-        "number": 10
+        "number": 10,
+        "readingPage": 92
       },
       {
         "title": "Fièvres périodiques et maladies monogéniques : FMF, MKD, CAPS, TRAPS, interféronopathies, DADA2, VEXAS",
         "page": 98,
         "depth": 1,
-        "number": 11
+        "number": 11,
+        "readingPage": 99
       },
       {
         "title": "Sarcoïdose, maladie associée aux IgG4 et maladie d’Erdheim-Chester",
         "page": 107,
         "depth": 1,
-        "number": 12
+        "number": 12,
+        "readingPage": 108
       },
       {
         "title": "Amyloses AL, ATTR et AA, et maladie de Fabry",
         "page": 113,
         "depth": 1,
-        "number": 13
+        "number": 13,
+        "readingPage": 114
       },
       {
         "title": "Syndromes hyperéosinophiliques et syndrome de Löffler",
         "page": 121,
         "depth": 1,
-        "number": 14
+        "number": 14,
+        "readingPage": 122
       },
       {
         "title": "Le bilan étiologique d’une myocardite, hypersensibilité et DRESS compris",
         "page": 128,
         "depth": 1,
-        "number": 15
+        "number": 15,
+        "readingPage": 129
       },
       {
         "title": "Le bilan d’une péricardite",
         "page": 136,
         "depth": 1,
-        "number": 16
+        "number": 16,
+        "readingPage": 137
       },
       {
         "title": "Insuffisance cardiaque et hypertension pulmonaire : la part immune",
         "page": 143,
         "depth": 1,
-        "number": 17
+        "number": 17,
+        "readingPage": 144
       },
       {
         "title": "Rythme et conduction : les causes immunes et acquises",
         "page": 150,
         "depth": 1,
-        "number": 18
+        "number": 18,
+        "readingPage": 151
       },
       {
         "title": "Cancer, inhibiteurs de point de contrôle, CAR-T et hémopathies",
         "page": 158,
         "depth": 1,
-        "number": 19
+        "number": 19,
+        "readingPage": 159
       },
       {
         "title": "Infections, grossesse et transplantation",
         "page": 167,
         "depth": 1,
-        "number": 20
+        "number": 20,
+        "readingPage": 168
       },
       {
         "title": "Avant et sous traitement : bilan préthérapeutique, surveillance et cadences",
         "page": 180,
         "depth": 1,
-        "number": 21
+        "number": 21,
+        "readingPage": 181
       }
-    ]
+    ],
+    "bytes": 2458460
   },
   "methode": {
     "title": "La Méthode",
@@ -289,129 +333,151 @@
         "title": "Connaître en médecine",
         "page": 21,
         "depth": 0,
-        "number": 1
+        "number": 1,
+        "readingPage": 22
       },
       {
         "title": "Définir la santé et la maladie",
         "page": 35,
         "depth": 0,
-        "number": 2
+        "number": 2,
+        "readingPage": 36
       },
       {
         "title": "Expliquer et établir une cause",
         "page": 49,
         "depth": 0,
-        "number": 3
+        "number": 3,
+        "readingPage": 50
       },
       {
         "title": "Lire les sources et constituer les preuves",
         "page": 65,
         "depth": 0,
-        "number": 4
+        "number": 4,
+        "readingPage": 66
       },
       {
         "title": "L’inflammation entre protection et maladie",
         "page": 89,
         "depth": 0,
-        "number": 5
+        "number": 5,
+        "readingPage": 90
       },
       {
         "title": "Le cœur comme milieu immunitaire",
         "page": 109,
         "depth": 0,
-        "number": 6
+        "number": 6,
+        "readingPage": 110
       },
       {
         "title": "L’athérosclérose et la convergence des preuves",
         "page": 131,
         "depth": 0,
-        "number": 7
+        "number": 7,
+        "readingPage": 132
       },
       {
         "title": "La réparation et les limites des modèles expérimentaux",
         "page": 149,
         "depth": 0,
-        "number": 8
+        "number": 8,
+        "readingPage": 150
       },
       {
         "title": "L’inflammation coronaire à l’épreuve des essais",
         "page": 175,
         "depth": 0,
-        "number": 9
+        "number": 9,
+        "readingPage": 176
       },
       {
         "title": "Les péricardites et les myocardites comme terrains d’expérimentation clinique",
         "page": 193,
         "depth": 0,
-        "number": 10
+        "number": 10,
+        "readingPage": 194
       },
       {
         "title": "Les maladies systémiques et la question de la transposition au cœur",
         "page": 209,
         "depth": 0,
-        "number": 11
+        "number": 11,
+        "readingPage": 210
       },
       {
         "title": "L’insuffisance cardiaque et les enseignements des essais négatifs",
         "page": 225,
         "depth": 0,
-        "number": 12
+        "number": 12,
+        "readingPage": 226
       },
       {
         "title": "Les cardiopathies infiltratives et la spécificité des traitements",
         "page": 243,
         "depth": 0,
-        "number": 13
+        "number": 13,
+        "readingPage": 244
       },
       {
         "title": "Le cœur dans ses relations avec le microbiote et l’infection",
         "page": 263,
         "depth": 0,
-        "number": 14
+        "number": 14,
+        "readingPage": 264
       },
       {
         "title": "Les traitements immunitaires comme révélateurs de la maladie",
         "page": 279,
         "depth": 0,
-        "number": 15
+        "number": 15,
+        "readingPage": 280
       },
       {
         "title": "La médecine de précision entre mesure et interprétation",
         "page": 293,
         "depth": 0,
-        "number": 16
+        "number": 16,
+        "readingPage": 294
       },
       {
         "title": "La transplantation et la connaissance du rejet",
         "page": 311,
         "depth": 0,
-        "number": 17
+        "number": 17,
+        "readingPage": 312
       },
       {
         "title": "Ce que les nombres autorisent à conclure",
         "page": 331,
         "depth": 0,
-        "number": 18
+        "number": 18,
+        "readingPage": 332
       },
       {
         "title": "De la population étudiée à la personne soignée",
         "page": 343,
         "depth": 0,
-        "number": 19
+        "number": 19,
+        "readingPage": 344
       },
       {
         "title": "L’objectivité comme travail collectif",
         "page": 357,
         "depth": 0,
-        "number": 20
+        "number": 20,
+        "readingPage": 358
       },
       {
         "title": "La responsabilité de connaître et de transmettre",
         "page": 371,
         "depth": 0,
-        "number": 21
+        "number": 21,
+        "readingPage": 372
       }
-    ]
+    ],
+    "bytes": 1449772
   },
   "method-en": {
     "title": "The Method",
@@ -427,128 +493,150 @@
         "title": "Knowing in Medicine",
         "page": 23,
         "depth": 0,
-        "number": 1
+        "number": 1,
+        "readingPage": 24
       },
       {
         "title": "Defining Health and Disease",
         "page": 37,
         "depth": 0,
-        "number": 2
+        "number": 2,
+        "readingPage": 38
       },
       {
         "title": "Explaining and Establishing a Cause",
         "page": 51,
         "depth": 0,
-        "number": 3
+        "number": 3,
+        "readingPage": 52
       },
       {
         "title": "Reading Sources and Building the Evidence",
         "page": 67,
         "depth": 0,
-        "number": 4
+        "number": 4,
+        "readingPage": 68
       },
       {
         "title": "Inflammation between Protection and Disease",
         "page": 91,
         "depth": 0,
-        "number": 5
+        "number": 5,
+        "readingPage": 92
       },
       {
         "title": "The Heart as an Immune Milieu",
         "page": 109,
         "depth": 0,
-        "number": 6
+        "number": 6,
+        "readingPage": 110
       },
       {
         "title": "Atherosclerosis and the Convergence of Evidence",
         "page": 129,
         "depth": 0,
-        "number": 7
+        "number": 7,
+        "readingPage": 130
       },
       {
         "title": "Repair and the Limits of Experimental Models",
         "page": 145,
         "depth": 0,
-        "number": 8
+        "number": 8,
+        "readingPage": 146
       },
       {
         "title": "Coronary Inflammation Put to the Test in Trials",
         "page": 169,
         "depth": 0,
-        "number": 9
+        "number": 9,
+        "readingPage": 170
       },
       {
         "title": "Pericarditis and Myocarditis as Testing Grounds for Clinical Experimentation",
         "page": 187,
         "depth": 0,
-        "number": 10
+        "number": 10,
+        "readingPage": 188
       },
       {
         "title": "Systemic Diseases and the Question of Extrapolation to the Heart",
         "page": 203,
         "depth": 0,
-        "number": 11
+        "number": 11,
+        "readingPage": 204
       },
       {
         "title": "Heart Failure and the Lessons of Negative Trials",
         "page": 219,
         "depth": 0,
-        "number": 12
+        "number": 12,
+        "readingPage": 220
       },
       {
         "title": "Infiltrative Cardiomyopathies and the Specificity of Treatments",
         "page": 237,
         "depth": 0,
-        "number": 13
+        "number": 13,
+        "readingPage": 238
       },
       {
         "title": "The Heart in Its Relations with the Microbiota and Infection",
         "page": 257,
         "depth": 0,
-        "number": 14
+        "number": 14,
+        "readingPage": 258
       },
       {
         "title": "Immune Treatments as Revealers of Disease",
         "page": 273,
         "depth": 0,
-        "number": 15
+        "number": 15,
+        "readingPage": 274
       },
       {
         "title": "Precision Medicine between Measurement and Interpretation",
         "page": 287,
         "depth": 0,
-        "number": 16
+        "number": 16,
+        "readingPage": 288
       },
       {
         "title": "Transplantation and the Knowledge of Rejection",
         "page": 303,
         "depth": 0,
-        "number": 17
+        "number": 17,
+        "readingPage": 304
       },
       {
         "title": "What Numbers Allow One to Conclude",
         "page": 321,
         "depth": 0,
-        "number": 18
+        "number": 18,
+        "readingPage": 322
       },
       {
         "title": "From the Study Population to the Person Receiving Care",
         "page": 333,
         "depth": 0,
-        "number": 19
+        "number": 19,
+        "readingPage": 334
       },
       {
         "title": "Objectivity as Collective Work",
         "page": 347,
         "depth": 0,
-        "number": 20
+        "number": 20,
+        "readingPage": 348
       },
       {
         "title": "The Responsibility to Know and to Transmit",
         "page": 361,
         "depth": 0,
-        "number": 21
+        "number": 21,
+        "readingPage": 362
       }
-    ]
+    ],
+    "bytes": 1408879
   }
 }
