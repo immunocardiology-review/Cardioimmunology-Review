@@ -19,3 +19,6 @@
 .reader-aside>#cover-link{display:block;width:max-content}@media(max-width:800px){.reader-aside>#cover-link{grid-row:1/4}.reader-focus.contents-visible .reader-aside>#cover-link{margin-top:12px}}
 
 .page-scroll.is-page-dragging{cursor:grabbing;user-select:none;-webkit-user-select:none}
+
+/* Turn only a visual canvas leaf; selectable PDF text stays in the new page. */
+.page-scroll{position:relative;perspective:1800px;isolation:isolate}.page-scroll[aria-busy=true]{opacity:1}.book-turn-leaf{position:absolute;z-index:3;pointer-events:none;background:#fff;transform-style:preserve-3d;box-shadow:5px 0 20px #18392f20;will-change:transform,opacity}.book-turn-leaf canvas{backface-visibility:hidden}.book-turn-leaf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#dce1d522,transparent 12%,transparent 88%,#18392f12);pointer-events:none}.book-turn-leaf::before{content:"";position:absolute;inset:0;background:#fafaf6;transform:rotateY(180deg);backface-visibility:hidden}@media(prefers-reduced-motion:reduce){.book-turn-leaf{display:none}}

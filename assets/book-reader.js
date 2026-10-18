@@ -130,14 +130,42 @@ function updateChapter(){
  $('page-number').value=pageNumber;
  updateLocation();
 }
+let pageTurnEffect=null;
+function cancelPageTurn(){
+ if(!pageTurnEffect)return;
+ pageTurnEffect.animation?.cancel();pageTurnEffect.leaf.remove();pageTurnEffect=null;
+}
+async function animatePageTurn(box,spread,fragment,direction){
+ const pages=[...spread.querySelectorAll('.page')];
+ const old=direction>0?pages.at(-1):pages[0];
+ if(!old||matchMedia('(prefers-reduced-motion: reduce)').matches||typeof old.animate!=='function'){
+  spread.replaceChildren(fragment);return;
+ }
+ const oldRect=old.getBoundingClientRect(),boxRect=box.getBoundingClientRect();
+ const leaf=document.createElement('div');leaf.className='book-turn-leaf';leaf.setAttribute('aria-hidden','true');
+ Object.assign(leaf.style,{left:(oldRect.left-boxRect.left+box.scrollLeft)+'px',top:(oldRect.top-boxRect.top+box.scrollTop)+'px',width:oldRect.width+'px',height:oldRect.height+'px',transformOrigin:direction>0?'left center':'right center'});
+ leaf.append(old.querySelector('canvas'));spread.replaceChildren(fragment);box.append(leaf);
+ const sign=direction>0?-1:1;
+ const animation=leaf.animate([
+  {transform:'rotateY(0deg)',opacity:1,filter:'brightness(1)'},
+  {transform:`rotateY(${sign*65}deg)`,opacity:1,filter:'brightness(.92)',offset:.48},
+  {transform:`rotateY(${sign*145}deg)`,opacity:0,filter:'brightness(.98)'}
+ ],{duration:420,easing:'cubic-bezier(.22,.62,.25,1)',fill:'forwards'});
+ const effect={leaf,animation};pageTurnEffect=effect;
+ try{await animation.finished;}catch{/* A new navigation can interrupt the turn. */}
+ finally{leaf.remove();if(pageTurnEffect===effect)pageTurnEffect=null;}
+}
 async function showPage(n,{resetScroll=true}={}){
  if(!pdf)return;
- const moved=pageNumber!==undefined&&Number(n)!==pageNumber;
+ const previousPage=pageNumber;
+ const moved=previousPage!==undefined&&Number(n)!==previousPage;
+ const turn=moved&&zoom===1&&Math.abs(Number(n)-previousPage)<=pageStep()&&!$('page-scroll').hasAttribute('data-rendering')?Math.sign(Number(n)-previousPage):0;
+ cancelPageTurn();
  const request=++generation;
  pageNumber=Math.max(1,Math.min(pdf.numPages,Math.round(n)||1));
  const pending=renderings;for(const task of pending)task.cancel();for(const layer of textLayers)layer.cancel();
  renderings=[];textLayers=[];
- $('page-scroll').setAttribute('aria-busy','true');message(english()?'Opening the page…':'Ouverture de la page…');
+ $('page-scroll').setAttribute('data-rendering','');$('page-scroll').setAttribute('aria-busy','true');message(english()?'Opening the page…':'Ouverture de la page…');
  updateView();updateChapter();
  try{
   await Promise.all(pending.map(task=>task.promise.catch(()=>{})));
@@ -150,19 +178,21 @@ async function showPage(n,{resetScroll=true}={}){
   const width=Math.max(100,box.clientWidth-gap);
   const raw=pages.map(page=>page.getViewport({scale:1}));
   const scale=width/raw.reduce((sum,v)=>sum+v.width,0)*zoom;
-  spread.replaceChildren();
+  const fragment=document.createDocumentFragment();
   const slots=pages.map((page,i)=>{
    const viewport=page.getViewport({scale});
    const ratio=Math.min(devicePixelRatio||1,2,Math.sqrt(7500000/(viewport.width*viewport.height*pages.length)));
    const holder=document.createElement('div');holder.className='page';holder.setAttribute('role','group');holder.setAttribute('aria-label',(english()?'PDF page ':'Page PDF ')+(pageNumber+i));
    holder.style.width=viewport.width+'px';holder.style.height=viewport.height+'px';holder.style.setProperty('--scale-factor',scale);
    const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');canvas.width=Math.floor(viewport.width*ratio);canvas.height=Math.floor(viewport.height*ratio);canvas.style.width=viewport.width+'px';canvas.style.height=viewport.height+'px';
-   const text=document.createElement('div');text.className='textLayer';holder.append(canvas,text);spread.append(holder);
+   const text=document.createElement('div');text.className='textLayer';holder.append(canvas,text);fragment.append(holder);
    const task=page.render({canvas,canvasContext:canvas.getContext('2d'),viewport,transform:ratio===1?null:[ratio,0,0,ratio,0,0]});renderings.push(task);
    return {page,viewport,text,task};
   });
   await Promise.all(slots.map(slot=>slot.task.promise));if(request!==generation)return;
-  $('page-scroll').setAttribute('aria-busy','false');
+  if(turn)await animatePageTurn(box,spread,fragment,turn);else spread.replaceChildren(fragment);
+  if(request!==generation)return;
+  box.removeAttribute('data-rendering');box.setAttribute('aria-busy','false');
   message(`${end>pageNumber?(english()?'Pages ':'Pages '):(english()?'Page ':'Page ')}${pageNumber}${end>pageNumber?'–'+end:''} / ${pdf.numPages} · ${english()?'Original edition':'Édition originale'}`);
   rememberPosition();
   if(!status.dataset.firstPageMs)status.dataset.firstPageMs=Math.round(performance.now()-startedAt);
@@ -174,7 +204,7 @@ async function showPage(n,{resetScroll=true}={}){
   if(resetScroll){box.scrollTop=0;box.scrollLeft=0;if(moved)box.scrollIntoView({block:'start',behavior:'instant'});}
  }catch(error){
   if(error?.name==='RenderingCancelledException'||request!==generation)return;
-  console.error('Book reader:',error);$('page-scroll').setAttribute('aria-busy','false');message(english()?'Page unavailable. Try again or download the original PDF.':'Page indisponible. Réessayez ou téléchargez le PDF original.');
+  console.error('Book reader:',error);cancelPageTurn();$('page-scroll').removeAttribute('data-rendering');$('page-scroll').setAttribute('aria-busy','false');message(english()?'Page unavailable. Try again or download the original PDF.':'Page indisponible. Réessayez ou téléchargez le PDF original.');
  }
 }
 // Horizontal single-finger turns leave vertical scrolling, pinch zoom and
