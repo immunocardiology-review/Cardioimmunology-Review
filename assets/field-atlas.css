@@ -133,3 +133,5 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 .is-presentation #field-download{font-size:10px;min-height:30px;border:0;padding:5px;color:#dce7d1}
 .is-presentation .constellation-mobile-tools{top:-25px;gap:8px}
 @media(max-width:700px){.is-presentation .constellation-mobile-tools{top:-28px}}
+
+#field-search-clear{min-height:44px;padding:8px 12px;background:transparent;color:#edf0d5;border:1px solid #8ca584;font:13px/1.4 Arial,sans-serif;cursor:pointer}#field-search-clear[hidden]{display:none}.field-tools{margin-top:14px}.field-layout.has-topic .mobile-theme-choice{margin-top:8px}

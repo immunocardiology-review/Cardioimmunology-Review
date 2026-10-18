@@ -5,6 +5,8 @@ const data=window.FIELD_ATLAS;
 const byId=new Map(data.topics.map(t=>[t.id,t]));
 const el=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const frenchTerms={"innate": "immunité innée reconnaissance danger", "complement": "complément", "inflammasome": "inflammasome", "interleukins": "cytokines interleukines", "immunometabolism": "immunométabolisme", "microbiome": "microbiote axe intestin cœur", "macrophages": "macrophages cardiaques", "lymphocytes": "lymphocytes B T", "dendritic-cells": "cellules dendritiques", "neutrophils": "neutrophiles NETs", "adaptive": "présentation antigénique immunité adaptative", "tolerance": "tolérance immunitaire", "resolution": "résolution inflammation", "remodeling": "remodelage réparation", "fibrosis": "fibrose", "regeneration": "régénération", "atherosclerosis": "athérosclérose", "pericarditis": "péricardite", "myocarditis": "myocardite", "sarcoidosis": "sarcoïdose", "amyloidosis": "amylose amyloses", "systemic": "maladies systémiques auto-immunes", "vasculitis": "vascularite vascularites", "autoinflammation": "auto-inflammation maladies auto-inflammatoires", "pulmonary-hypertension": "hypertension pulmonaire HTAP", "heart-failure": "insuffisance cardiaque", "cardio-oncology": "cardio-oncologie cancer", "cardio-infectiology": "cardio-infectiologie infection", "transplantation": "transplantation greffe rejet", "eye": "œil oculaire uvéite", "kidney": "rein rénal", "neuro": "neuro-immunité cerveau", "pulmonary": "poumon pulmonaire", "rheumatology": "rhumatologie cardio-rhumatologie", "clonal-haematopoiesis": "hématopoïèse clonale CHIP"};
+const normalise=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 let initialised=false,active=null,origin=null,route=null,positions=new Map();
 
 function setMapZoom(enlarged){
@@ -14,21 +16,9 @@ function setMapZoom(enlarged){
  el('constellation-zoom').textContent=enlarged?'Show the whole map':'Enlarge the map';
  el('constellation-help').textContent=enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.';
 }
-function setPresentation(enabled){
- if(enabled){
-  if(active)closeTopic();
-  setMapZoom(false);
-  document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family==='all')));
-  el('field-search').value='';filterMap();
- }
- el('p2').classList.toggle('is-presentation',enabled);
- el('field-presentation').setAttribute('aria-pressed',String(enabled));
- el('field-presentation').textContent=enabled?'Back to exploration':'Presentation view';
- el('p2').scrollTop=0;
-}
 function readingMarkup(topic){
  const p=data.papers[topic.reading];
- return `<section class="field-selected-reading"><h4>Selected reading</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
+ return `<section class="field-selected-reading"><h4>Read the source</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
 }
 function drawConnections(){
  const group=el('field-connections');
@@ -52,13 +42,12 @@ function routeMarkup(id){
 }
 function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
- if(el('p2').classList.contains('is-presentation'))setPresentation(false);
  const repeated=active===id&&trigger?.closest('.constellation-node');
  if(repeated){closeTopic();return;}
  setMapZoom(false);active=id;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
- el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>Core concept</h4><p>${esc(topic.idea)}</p></section>${readingMarkup(topic)}<section><h4>Cardiac context</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>Critical distinction</h4><p>${esc(topic.evidence)}</p></section><section><h4>Connected themes</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}<p class="field-editorial">Editorial synthesis · Reading checked ${esc(data.reviewed)}. Read the study design and population before extrapolating.</p>`;
+ el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>What it means</h4><p>${esc(topic.idea)}</p></section><section><h4>Why it matters for the heart</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>Evidence and limits</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}<section><h4>Connected themes</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
  el('field-panel').hidden=false;
  el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');
  el('field-panel').scrollTop=0;
@@ -124,15 +113,16 @@ function drawConstellation(){
 }
 function filterMap(){
  const family=document.querySelector('[data-family][aria-pressed="true"]')?.dataset.family||'all';
- const query=el('field-search').value.trim().toLowerCase();let count=0;
+ const query=normalise(el('field-search').value.trim());let count=0;
  for(const topic of data.topics){
-  const match=(family==='all'||topic.group===family)&&(!query||[topic.title,topic.immune,topic.idea,topic.heart].join(' ').toLowerCase().includes(query));
+  const match=(family==='all'||topic.group===family)&&(!query||normalise([topic.title,topic.immune,topic.question,topic.idea,topic.heart,topic.evidence,frenchTerms[topic.id]||''].join(' ')).includes(query));
   const star=document.querySelector(`.constellation-node[data-topic="${topic.id}"]`);
   star.classList.toggle('family-muted',!match);star.setAttribute('tabindex',match?'0':'-1');
   document.querySelectorAll(`.field-topic-list [data-topic="${topic.id}"]`).forEach(n=>n.hidden=!match);
   if(match)count++;
  }
- el('field-search-status').textContent=(query||family!=='all')?`${count} theme${count===1?'':'s'} highlighted`:'';
+ el('field-search-status').textContent=(query||family!=='all')?(count?`${count} theme${count===1?'':'s'} highlighted`:'No matching theme. Try a shorter term or clear the filters.'):'';
+ if(el('field-search-clear'))el('field-search-clear').hidden=!query&&family==='all';
 }
 window.initFieldAtlas=function(){
  if(initialised)return;initialised=true;
@@ -140,10 +130,10 @@ window.initFieldAtlas=function(){
  drawConstellation();
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
- el('field-presentation')?.addEventListener('click',()=>setPresentation(!el('p2').classList.contains('is-presentation')));
  el('constellation-filters').innerHTML='<button type="button" data-family="all" aria-pressed="true">All themes</button>'+data.groups.map(g=>`<button type="button" data-family="${g.id}" aria-pressed="false"><span style="background:${g.color}" aria-hidden="true"></span>${esc(g.title)}</button>`).join('');
  el('constellation-filters').addEventListener('click',e=>{const b=e.target.closest('[data-family]');if(!b)return;document.querySelectorAll('[data-family]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));filterMap();});
  el('field-search').addEventListener('input',filterMap);
+ el('field-search-clear')?.addEventListener('click',()=>{el('field-search').value='';document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family==='all')));filterMap();el('field-search').focus();});
  el('field-paths').innerHTML=data.paths.map(p=>`<button type="button" data-route="${p.id}">${esc(p.title)} <span aria-hidden="true">↗</span></button>`).join('');
  el('field-paths').addEventListener('click',e=>{const b=e.target.closest('[data-route]');if(b){route=b.dataset.route;openTopic(data.paths.find(p=>p.id===route).topics[0],b);}});
  el('mobile-theme-select').innerHTML='<option value="">Choose a theme</option>'+data.groups.map(g=>`<optgroup label="${esc(g.title)}">${data.topics.filter(t=>t.group===g.id).map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join('')}</optgroup>`).join('');
@@ -158,6 +148,6 @@ window.initFieldAtlas=function(){
  el('field-close').addEventListener('click',closeTopic);
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
- el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&el('p2').classList.contains('is-presentation')){e.preventDefault();setPresentation(false);el('field-presentation').focus({preventScroll:true});return;}if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
+ el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
 };
 })();
