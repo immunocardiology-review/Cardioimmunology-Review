@@ -203,7 +203,57 @@ function installPageSwipes(){
   else if(pageNumber>1)showPage(Math.max(1,pageNumber-pageStep()));
  },{passive:true});
  area.addEventListener('touchcancel',()=>{gesture=null;},{passive:true});
- area.setAttribute('aria-label',english()?'Book page. Swipe left or right to turn pages; scroll vertically to read.':'Page du livre. Glissez à gauche ou à droite pour tourner les pages ; faites défiler verticalement pour lire.');
+ // Mouse drags begin on page whitespace; original PDF text stays selectable.
+ let mouseGesture=null;
+ const endMouse=()=>{
+  const start=mouseGesture;mouseGesture=null;area.classList.remove('is-page-dragging');
+  if(start){try{if(area.hasPointerCapture(start.id))area.releasePointerCapture(start.id);}catch{}}
+  return start;
+ };
+ area.addEventListener('pointerdown',event=>{
+  if(event.pointerType!=='mouse'||event.button!==0||event.ctrlKey||event.metaKey||event.altKey||event.shiftKey||!canTurn())return;
+  if(event.target.closest('a,button,input,select,textarea,.textLayer span'))return;
+  mouseGesture={id:event.pointerId,x:event.clientX,y:event.clientY,time:performance.now(),vertical:false};
+  // Prevent text selection from whitespace, never from the PDF text itself.
+  event.preventDefault();try{area.setPointerCapture(event.pointerId);}catch{}
+ });
+ area.addEventListener('pointermove',event=>{
+  if(!mouseGesture||event.pointerId!==mouseGesture.id)return;
+  if(!canTurn()||event.buttons!==1){endMouse();return;}
+  const dx=event.clientX-mouseGesture.x,dy=event.clientY-mouseGesture.y;
+  if(Math.abs(dy)>24&&Math.abs(dy)>Math.abs(dx))mouseGesture.vertical=true;
+  if(!mouseGesture.vertical&&Math.abs(dx)>20&&Math.abs(dx)>Math.abs(dy)*1.7){area.classList.add('is-page-dragging');if(event.cancelable)event.preventDefault();}
+ });
+ area.addEventListener('pointerup',event=>{
+  if(!mouseGesture||event.pointerId!==mouseGesture.id)return;
+  const start=endMouse(),dx=event.clientX-start.x,dy=event.clientY-start.y;
+  if(!canTurn()||start.vertical||performance.now()-start.time>2000||Math.abs(dx)<Math.max(60,Math.min(110,area.clientWidth*.18))||Math.abs(dx)<Math.abs(dy)*1.7)return;
+  if(dx<0){if(pageNumber+pageStep()<=pdf.numPages)showPage(pageNumber+pageStep());}
+  else if(pageNumber>1)showPage(Math.max(1,pageNumber-pageStep()));
+ });
+ area.addEventListener('pointercancel',endMouse);
+ area.addEventListener('lostpointercapture',()=>{if(mouseGesture)endMouse();});
+ // One turn per horizontal trackpad burst, including its momentum tail.
+ let wheelLast=-Infinity,wheelDistance=0,wheelTurned=false,wheelVertical=false;
+ area.addEventListener('wheel',event=>{
+  if(event.ctrlKey||event.metaKey||event.altKey||event.shiftKey)return;
+  const now=performance.now();
+  if(now-wheelLast>220){wheelDistance=0;wheelTurned=false;wheelVertical=false;}
+  wheelLast=now;if(!canTurn())return;
+  const unit=event.deltaMode===1?16:event.deltaMode===2?area.clientWidth:1;
+  const dx=event.deltaX*unit,dy=event.deltaY*unit;
+  if(Math.abs(dy)>8&&Math.abs(dy)>Math.abs(dx)*1.3)wheelVertical=true;
+  if(wheelVertical||Math.abs(dx)<2||Math.abs(dx)<Math.abs(dy)*1.7)return;
+  if(event.cancelable)event.preventDefault();
+  if(wheelTurned)return;
+  if(wheelDistance&&Math.sign(dx)!==Math.sign(wheelDistance))wheelDistance=0;
+  wheelDistance+=dx;
+  if(Math.abs(wheelDistance)<Math.max(80,Math.min(180,area.clientWidth*.16)))return;
+  wheelTurned=true;
+  if(wheelDistance>0){if(pageNumber+pageStep()<=pdf.numPages)showPage(pageNumber+pageStep());}
+  else if(pageNumber>1)showPage(Math.max(1,pageNumber-pageStep()));
+ },{passive:false});
+ area.setAttribute('aria-label',english()?'Book page. Swipe or drag horizontally to turn pages; scroll vertically to read.':'Page du livre. Glissez au doigt, à la souris ou au trackpad pour tourner les pages ; faites défiler verticalement pour lire.');
 }
 function changeChapter(c){
  if(!c)return;chapter=c;title.textContent=c.title;if(!pdf)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;document.documentElement.classList.remove('contents-visible');syncScreenControls();
