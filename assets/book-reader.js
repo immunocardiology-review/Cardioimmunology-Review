@@ -177,6 +177,34 @@ async function showPage(n,{resetScroll=true}={}){
   console.error('Book reader:',error);$('page-scroll').setAttribute('aria-busy','false');message(english()?'Page unavailable. Try again or download the original PDF.':'Page indisponible. Réessayez ou téléchargez le PDF original.');
  }
 }
+// Horizontal single-finger turns leave vertical scrolling, pinch zoom and
+// panning an enlarged PDF to the browser. Avoid the OS back-gesture edges.
+function installPageSwipes(){
+ const area=$('page-scroll');let gesture=null;
+ const canTurn=()=>pdf&&zoom<=1&&(window.visualViewport?.scale||1)<=1.02&&area.scrollWidth<=area.clientWidth+3&&area.getAttribute('aria-busy')!=='true'&&!window.getSelection()?.toString();
+ area.addEventListener('touchstart',event=>{
+  gesture=null;if(event.touches.length!==1||!canTurn())return;
+  const touch=event.touches[0];if(touch.clientX<24||touch.clientX>innerWidth-24)return;
+  gesture={id:touch.identifier,x:touch.clientX,y:touch.clientY,time:performance.now(),vertical:false};
+ },{passive:true});
+ area.addEventListener('touchmove',event=>{
+  if(!gesture)return;if(event.touches.length!==1||!canTurn()){gesture=null;return;}
+  const touch=event.touches[0],dx=touch.clientX-gesture.x,dy=touch.clientY-gesture.y;
+  if(Math.abs(dy)>24&&Math.abs(dy)>Math.abs(dx))gesture.vertical=true;
+  if(!gesture.vertical&&Math.abs(dx)>24&&Math.abs(dx)>Math.abs(dy)*1.7&&event.cancelable)event.preventDefault();
+ },{passive:false});
+ area.addEventListener('touchend',event=>{
+  const start=gesture;gesture=null;if(!start||start.vertical||event.touches.length||!canTurn())return;
+  const touch=[...event.changedTouches].find(t=>t.identifier===start.id);if(!touch)return;
+  const dx=touch.clientX-start.x,dy=touch.clientY-start.y;
+  const threshold=Math.max(60,Math.min(110,area.clientWidth*.18));
+  if(performance.now()-start.time>1000||Math.abs(dx)<threshold||Math.abs(dx)<Math.abs(dy)*1.7)return;
+  if(dx<0){if(pageNumber+pageStep()<=pdf.numPages)showPage(pageNumber+pageStep());}
+  else if(pageNumber>1)showPage(Math.max(1,pageNumber-pageStep()));
+ },{passive:true});
+ area.addEventListener('touchcancel',()=>{gesture=null;},{passive:true});
+ area.setAttribute('aria-label',english()?'Book page. Swipe left or right to turn pages; scroll vertically to read.':'Page du livre. Glissez à gauche ou à droite pour tourner les pages ; faites défiler verticalement pour lire.');
+}
 function changeChapter(c){
  if(!c)return;chapter=c;title.textContent=c.title;if(!pdf)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;document.documentElement.classList.remove('contents-visible');syncScreenControls();
  $('reading').focus({preventScroll:true});$('reading').scrollIntoView({block:'start',behavior:'instant'});
@@ -235,6 +263,7 @@ async function init(){
  for(const id of ['previous-chapter','next-chapter'])$(id).addEventListener('click',e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();const n=Number(new URL($(id).href).searchParams.get('chapitre'));changeChapter(book.chapters.find(c=>c.number===n));});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focusedReading&&!document.fullscreenElement){setReadingFocus(false);return;}if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||e.ctrlKey||e.altKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();showPage(pageNumber+pageStep());}if(e.key==='ArrowLeft'){e.preventDefault();showPage(pageNumber-pageStep());}});
  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>showPage(pageNumber,{resetScroll:false}),200);});
+ installPageSwipes();
  const explicit=Number(params.get('page'))||(params.has('chapitre')?chapter.page:0);
  await showPage(explicit||(resumePage<=pdf.numPages?resumePage:0)||chapter.page);
 }
