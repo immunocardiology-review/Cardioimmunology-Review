@@ -10,12 +10,46 @@ if(!$('pdf-spread')){
  document.querySelector('.zoom-controls').before(controls);
  const shortcuts=document.createElement('div');shortcuts.className='reading-shortcuts';shortcuts.innerHTML='<button id="resume-reading" type="button" hidden></button>';$('reader-status').before(shortcuts);
 }
+// Progressive controls also support a reader shell still cached by the browser.
+const aside=document.querySelector('.reader-aside');aside.id='reader-contents';
+if(!$('fullscreen-reading')){const button=document.createElement('button');button.id='fullscreen-reading';button.type='button';button.textContent='Plein écran';button.setAttribute('aria-pressed','false');document.querySelector('.view-controls').append(button);}
+if(!$('toggle-sidebar')){const button=document.createElement('button');button.id='toggle-sidebar';button.type='button';button.textContent='Masquer le sommaire';button.setAttribute('aria-controls','reader-contents');button.setAttribute('aria-expanded','true');document.querySelector('.zoom-controls').before(button);}
+if(!$('close-contents')){const button=document.createElement('button');button.id='close-contents';button.type='button';button.textContent='Fermer le sommaire';aside.prepend(button);}
 const status = $('reader-status');
 const startedAt=performance.now();let transferred=0;
 function received(bytes){transferred+=bytes;status.dataset.transferredBytes=transferred;}
 let pdf, book, bookKey, chapter, pageNumber, zoom=1, renderings=[], textLayers=[], generation=0, viewMode='single', savedPosition, resumePage;
 const params = new URLSearchParams(location.search);
 const mobile = matchMedia('(max-width:800px)');
+let focusedReading=false;
+function syncScreenControls(){
+ const collapsed=document.documentElement.classList.contains('contents-hidden');
+ $('toggle-sidebar').setAttribute('aria-expanded',String(!collapsed));
+ $('toggle-sidebar').textContent=english()?(collapsed?'Show contents':'Hide contents'):(collapsed?'Afficher le sommaire':'Masquer le sommaire');
+ $('fullscreen-reading').setAttribute('aria-pressed',String(focusedReading));
+ $('fullscreen-reading').textContent=english()?(focusedReading?'Exit full screen':'Full screen'):(focusedReading?'Quitter le plein écran':'Plein écran');
+ $('open-contents').setAttribute('aria-expanded',String(focusedReading?document.documentElement.classList.contains('contents-visible'):!collapsed&&$('chapter-links').closest('details').open));
+}
+function screenLayout(){
+ syncScreenControls();requestAnimationFrame(()=>showPage(pageNumber,{resetScroll:false}));
+}
+function setReadingFocus(value){
+ focusedReading=value;document.documentElement.classList.toggle('reader-focus',value);document.documentElement.classList.remove('contents-visible');
+ if(value)$('reading').scrollTop=0;
+ screenLayout();
+}
+async function toggleFullScreen(){
+ if(focusedReading){
+  if(document.fullscreenElement){try{await document.exitFullscreen();}catch{setReadingFocus(false);}}
+  else setReadingFocus(false);
+  return;
+ }
+ // The same distraction-free layout works on phones without the Fullscreen API.
+ setReadingFocus(true);
+ if(document.documentElement.requestFullscreen){try{await document.documentElement.requestFullscreen();}catch{/* Keep the full-window reading layout. */}}
+}
+document.addEventListener('fullscreenchange',()=>setReadingFocus(!!document.fullscreenElement));
+
 const title = $('chapter-title');
 const english=()=>bookKey==='method-en';
 const storageKey=()=>`cardioimmunology-reading:${bookKey}`;
@@ -144,7 +178,7 @@ async function showPage(n,{resetScroll=true}={}){
  }
 }
 function changeChapter(c){
- if(!c)return;chapter=c;title.textContent=c.title;if(!pdf)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;
+ if(!c)return;chapter=c;title.textContent=c.title;if(!pdf)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;document.documentElement.classList.remove('contents-visible');syncScreenControls();
  $('reading').focus({preventScroll:true});$('reading').scrollIntoView({block:'start',behavior:'instant'});
 }
 async function init(){
@@ -154,7 +188,7 @@ async function init(){
  if(!book)throw Error('Unknown book');
  document.documentElement.lang=bookKey==='method-en'?'en':'fr';
  if(bookKey==='method-en'){
-  for(const [id,text] of [['return-book','Back to the book'],['toc-label','Contents'],['download','Download the PDF'],['fit-width','Fit page'],['single-page','One page'],['double-page','Two pages'],['open-contents','Contents'],['previous-chapter','← Previous chapter'],['next-chapter','Next chapter →']])$(id).textContent=text;
+  for(const [id,text] of [['return-book','Back to the book'],['toc-label','Contents'],['download','Download the PDF'],['fit-width','Fit page'],['single-page','One page'],['double-page','Two pages'],['open-contents','Contents'],['fullscreen-reading','Full screen'],['toggle-sidebar','Hide contents'],['close-contents','Close contents'],['previous-chapter','← Previous chapter'],['next-chapter','Next chapter →']])$(id).textContent=text;
   for(const [id,text] of [['previous','Previous page'],['next','Next page'],['zoom-in','Zoom in'],['zoom-out','Zoom out'],['page-number','PDF page number']])$(id).setAttribute('aria-label',text);
   document.querySelector('label[for=page-number]').textContent='PDF page';
  }
@@ -177,7 +211,16 @@ async function init(){
  for(const id of ['page-number','zoom-in','zoom-out','fit-width','single-page','double-page'])$(id).disabled=false;
  $('page-number').max=pdf.numPages;
  for(const [id,mode] of [['single-page','single'],['double-page','double']])$(id).addEventListener('click',()=>{if(viewMode===mode)return;viewMode=mode;zoom=1;showPage(pageNumber,{resetScroll:false});});
- $('open-contents').addEventListener('click',()=>{const details=$('chapter-links').closest('details');details.open=true;details.scrollIntoView({block:'start',behavior:'instant'});$('toc-label').focus({preventScroll:true});});
+ $('open-contents').addEventListener('click',()=>{
+  const details=$('chapter-links').closest('details');
+  if(focusedReading){document.documentElement.classList.toggle('contents-visible');details.open=true;syncScreenControls();if(document.documentElement.classList.contains('contents-visible'))$('close-contents').focus({preventScroll:true});}
+  else{document.documentElement.classList.remove('contents-hidden');details.open=true;screenLayout();details.scrollIntoView({block:'start',behavior:'instant'});$('toc-label').focus({preventScroll:true});}
+ });
+ $('fullscreen-reading').addEventListener('click',toggleFullScreen);
+ $('toggle-sidebar').addEventListener('click',()=>{document.documentElement.classList.toggle('contents-hidden');screenLayout();});
+ $('close-contents').addEventListener('click',()=>{document.documentElement.classList.remove('contents-visible');syncScreenControls();$('open-contents').focus({preventScroll:true});});
+ $('chapter-links').closest('details').addEventListener('toggle',syncScreenControls);
+ syncScreenControls();
  if(resumePage&&resumePage<=pdf.numPages){
   $('resume-reading').hidden=false;$('resume-reading').textContent=english()?`Resume · page ${resumePage}`:`Reprendre · page ${resumePage}`;
   $('resume-reading').addEventListener('click',()=>showPage(resumePage));
@@ -190,7 +233,7 @@ async function init(){
  $('zoom-out').addEventListener('click',()=>{zoom=Math.max(.75,zoom-.25);showPage(pageNumber,{resetScroll:false});});
  $('fit-width').addEventListener('click',()=>{zoom=1;showPage(pageNumber);});
  for(const id of ['previous-chapter','next-chapter'])$(id).addEventListener('click',e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();const n=Number(new URL($(id).href).searchParams.get('chapitre'));changeChapter(book.chapters.find(c=>c.number===n));});
- document.addEventListener('keydown',e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||e.ctrlKey||e.altKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();showPage(pageNumber+pageStep());}if(e.key==='ArrowLeft'){e.preventDefault();showPage(pageNumber-pageStep());}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focusedReading&&!document.fullscreenElement){setReadingFocus(false);return;}if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||e.ctrlKey||e.altKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();showPage(pageNumber+pageStep());}if(e.key==='ArrowLeft'){e.preventDefault();showPage(pageNumber-pageStep());}});
  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>showPage(pageNumber,{resetScroll:false}),200);});
  const explicit=Number(params.get('page'))||(params.has('chapitre')?chapter.page:0);
  await showPage(explicit||(resumePage<=pdf.numPages?resumePage:0)||chapter.page);
