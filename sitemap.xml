@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cardioimmunologyreview.org/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/livres-cardioimmunologie.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/auteur.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/method/la-methode.html</loc>
@@ -52,5 +52,9 @@
   <url>
     <loc>https://cardioimmunologyreview.org/le-bilan.html</loc>
     <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://cardioimmunologyreview.org/author.html</loc>
+    <lastmod>2026-10-18</lastmod>
   </url>
 </urlset>
