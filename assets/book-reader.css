@@ -4,3 +4,9 @@
 .reader-book{font-size:23px;overflow-wrap:anywhere}.reader-layout main{overflow:hidden}.page{margin:0}.reader-download[aria-disabled=true]{opacity:.65;cursor:progress}
 
 .page-scroll{scroll-margin-top:90px}
+
+/* Reading modes share the original paper, ink and controls. */
+.pdf-spread{display:flex;align-items:flex-start;gap:12px;width:max-content;min-width:100%}.pdf-spread .page{flex:none;margin:0}.view-controls{display:flex;gap:2px;align-items:center}.reader-toolbar .view-controls button{font-size:12px;padding:0 10px;white-space:nowrap}.view-controls button[aria-pressed=true]{background:#e3e9de;border-color:var(--rule);font-weight:600}.reading-shortcuts{display:flex;flex-wrap:wrap;gap:4px 16px;max-width:920px;margin:6px auto 0}.reading-shortcuts button{font:12px/1.5 Arial,sans-serif;min-height:44px;padding:4px 0;color:var(--ink);border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.reader-chapters{scroll-margin-top:12px}.page-scroll{scroll-margin-top:150px}.page-scroll[aria-busy=true]{pointer-events:none}
+@media(max-width:800px){.reader-toolbar{gap:4px 6px}.view-controls{order:3;flex:1 0 100%;justify-content:center;border-top:1px solid var(--rule);padding-top:4px}.reader-toolbar .view-controls button{flex:1;max-width:160px}.reading-shortcuts{margin:3px 4px 0}.page-scroll{scroll-margin-top:170px}}
+
+.reading-shortcuts:not(:has(button:not([hidden]))){display:none}.view-controls #open-contents{font-weight:400;text-decoration:underline;text-underline-offset:4px}
