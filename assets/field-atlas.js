@@ -147,7 +147,7 @@ function filterMap(){
  const family=document.querySelector('[data-family][aria-pressed="true"]')?.dataset.family||'all';
  const query=normalise(el('field-search').value.trim());let count=0;
  for(const topic of data.topics){
-  const match=(family==='all'||topic.group===family)&&(!query||normalise([topic.title,topic.immune,topic.question,topic.idea,topic.heart,topic.evidence,topic.terms||'',frenchTerms[topic.id]||''].join(' ')).includes(query));
+  const match=(family==='all'||topic.group===family)&&(!query||normalise([topic.title,uiLabels[topic.title]||'',topic.immune,topic.question,topic.idea,topic.heart,topic.evidence,topic.terms||'',frenchTerms[topic.id]||''].join(' ')).includes(query));
   const star=document.querySelector(`.constellation-node[data-topic="${topic.id}"]`);
   star.classList.toggle('family-muted',!match);star.setAttribute('tabindex',match?'0':'-1');
   document.querySelectorAll(`.field-topic-list [data-topic="${topic.id}"]`).forEach(n=>n.hidden=!match);
