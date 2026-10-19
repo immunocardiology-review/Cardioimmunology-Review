@@ -197,7 +197,7 @@ async function showPage(n,{resetScroll=true}={}){
   if(turn)await animatePageTurn(box,spread,fragment,turn);else spread.replaceChildren(fragment);
   if(request!==generation)return;
   box.removeAttribute('data-rendering');box.setAttribute('aria-busy','false');
-  message(`${end>pageNumber?(english()?'Pages ':'Pages '):(english()?'Page ':'Page ')}${pageNumber}${end>pageNumber?'–'+end:''} / ${pdf.numPages} · ${english()?'Original edition':'Édition originale'}`);
+  message(`${end>pageNumber?(english()?'Pages ':'Pages '):(english()?'Page ':'Page ')}${pageNumber}${end>pageNumber?'–'+end:''} / ${pdf.numPages} · ${english()?'English translation':'Édition originale'}`);
   rememberPosition();
   if(!status.dataset.firstPageMs)status.dataset.firstPageMs=Math.round(performance.now()-startedAt);
   // Each text layer overlays its own original PDF page without reflowing it.
@@ -301,7 +301,7 @@ async function init(){
   for(const [id,text] of [['previous','Previous page'],['next','Next page'],['zoom-in','Zoom in'],['zoom-out','Zoom out'],['page-number','PDF page number']])$(id).setAttribute('aria-label',text);
   document.querySelector('label[for=page-number]').textContent='PDF page';
   document.querySelector('.skip').textContent='Skip to reading';
-  document.querySelector('.reader-aside>.eyebrow').textContent='English edition · 2026';
+  document.querySelector('.reader-aside>.eyebrow').textContent='English translation · 2026';
   document.querySelector('.reader-toolbar').setAttribute('aria-label','Reading controls');
   document.querySelector('.view-controls').setAttribute('aria-label','Page layout');
   document.querySelector('.chapter-pagination').setAttribute('aria-label','Chapter navigation');
