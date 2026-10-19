@@ -290,10 +290,11 @@ function changeChapter(c){
  $('reading').focus({preventScroll:true});$('reading').scrollIntoView({block:'start',behavior:'instant'});
 }
 async function init(){
- const response=await fetch(new URL('./book-reader-data.json?v=20261017-original',import.meta.url));if(!response.ok)throw Error('Book catalogue');
+ const response=await fetch(new URL('./book-reader-data.json?v=20261019-editorial1',import.meta.url));if(!response.ok)throw Error('Book catalogue');
  const books=await response.json();
  bookKey=params.get('livre')||'methode';book=books[bookKey];
  if(!book)throw Error('Unknown book');
+ document.documentElement.dataset.readerBook=bookKey;
  document.documentElement.lang=bookKey==='method-en'?'en':'fr';
  if(bookKey==='method-en'){
   for(const [id,text] of [['return-book','Back to the book'],['toc-label','Contents'],['download','Download the PDF'],['fit-width','Fit page'],['single-page','One page'],['double-page','Two pages'],['open-contents','Contents'],['fullscreen-reading','Full screen'],['toggle-sidebar','Hide contents'],['close-contents','Close contents'],['previous-chapter','← Previous chapter'],['next-chapter','Next chapter →']])$(id).textContent=text;
@@ -301,7 +302,7 @@ async function init(){
   document.querySelector('label[for=page-number]').textContent='PDF page';
  }
  savedPosition=readPosition();resumePage=savedPosition?.page;viewMode=savedPosition?.mode==='double'?'double':'single';
- $('reader-book').textContent=book.title;$('reader-cover').src='assets/covers/'+book.cover;$('reader-cover').alt='Couverture de '+book.title;
+ $('reader-book').textContent=book.title;$('reader-cover').src='assets/covers/'+book.cover+(bookKey==='methode'||bookKey==='method-en'?'?v=20261019-title2':'');$('reader-cover').alt='Couverture de '+book.title;
  $('cover-link').href=book.path;$('return-book').href=book.path+'#sommaire';$('download').href=book.pdf;$('download').hidden=false;
  if(book.pdf.startsWith('https://zenodo.org/api/')){ $('download').dataset.pdfDownload=decodeURIComponent(book.pdf.split('/').at(-2));$('download').dataset.pdfBytes=book.bytes; }else $('download').download=book.pdf.split('/').at(-1);
  $('reader-doi').href='https://doi.org/'+book.doi;$('reader-doi').textContent='DOI '+book.doi;
