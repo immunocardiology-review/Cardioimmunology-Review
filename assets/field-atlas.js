@@ -15,8 +15,7 @@ const data=uiLanguage==='en'||!french?source:{...source,
  papers:Object.fromEntries(Object.entries(source.papers).map(([id,p])=>[id,{...p,kind:french.kind[p.kind],access:french.access[p.access]}]))
 };
 document.getElementById('field-topic-content').lang=uiLanguage;
-const referenceNote=document.querySelector('.scientific-language');
-referenceNote.lang=uiLanguage;referenceNote.textContent=uiLanguage==='fr'?'Les références conservent leur titre original.':'References retain their original titles.';
+document.querySelector('.scientific-language')?.remove();
 
 
 const byId=new Map(data.topics.map(t=>[t.id,t]));
