@@ -75,3 +75,29 @@ h1{font-size:clamp(27px,2.6vw,39px);line-height:1.22;letter-spacing:-.035em;colo
 @media(max-width:355px){.reader-header{padding:10px 12px}.reader-brand span{max-width:155px;font-size:15px}.reader-brand img{width:28px;height:28px}.reader-header>a:last-child{font-size:10px}h1{font-size:26px}}
 @media print{.reader-header,.reader-aside,.reader-toolbar,.reader-status,.chapter-pagination{display:none}.reader-layout{display:block}.reader-layout main{background:#fff;padding:0}.chapter-heading{border:0}.page-scroll{box-shadow:none;overflow:visible}}
 @media(max-width:800px){.reader-aside{position:relative}.reader-aside:not(:has(details[open])) .reader-chapters{padding-right:150px}.reader-aside:not(:has(details[open])) .reader-download{position:absolute;right:18px;bottom:12px;border:0;min-height:44px;padding:12px 0}.reader-toolbar .view-controls button,.reader-toolbar #fullscreen-reading{font-size:11px}.reader-focus.contents-visible .reader-aside .reader-download{position:static}.reader-focus.contents-visible .reader-aside .reader-chapters{padding-right:0}}
+
+/* Legible controls and the shared philosopher-green identity. Original PDF pages are unchanged. */
+:root,:root[data-reader-book="traite"],:root[data-reader-book="bilan"]{--ink:#18392f;--paper:#faf9f5;--rule:#ccd8cf;--muted:#485d52;--accent:#215341;--reader-soft:#e3ece4;--reader-tone:#eaf0e9;--reader-dark:#102b26;--reader-light:#edf2e5}
+.reader-header>a{min-height:44px}.reader-header>a:last-child{font-size:15px;min-height:44px}
+.reader-toolbar .view-controls button,.reader-toolbar #toggle-sidebar,.reader-toolbar #fullscreen-reading,.reader-toolbar #fit-width{font-size:15px;line-height:1.35;min-height:44px}
+.page-controls input{font-size:16px}
+.page-controls label,.reader-status,.reading-shortcuts button,.reader-author,.reader-download,.reader-chapters summary,.chapter-pagination a{font-size:14px}
+.reader-doi,.download-status{font-size:13px}
+.reader-chapters a{font-size:17px;line-height:1.5}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline-width:3px}
+.reader-header a:focus-visible{outline-color:#c8d9af}
+@media(max-width:800px){
+ .reader-header{flex-wrap:wrap;gap:4px 12px}.reader-header>a:last-child{font-size:14px;min-height:44px;margin-left:auto}
+ .reader-aside>.eyebrow,.chapter-heading .eyebrow{font-size:11px}
+ .reader-author,.reader-download,.reader-chapters summary,.reader-status,.reading-shortcuts button,.chapter-pagination a{font-size:14px;line-height:1.5}
+ .reader-chapters a{font-size:18px;line-height:1.5}
+ .reader-toolbar .view-controls button,.reader-toolbar #fullscreen-reading,.reader-toolbar #fit-width,.reader-focus .reader-toolbar .view-controls button,.reader-focus #fullscreen-reading{font-size:14px;line-height:1.35;min-height:44px;padding:4px 5px}
+ .reader-toolbar #fit-width{min-width:64px}
+ .page-controls input{font-size:16px}
+ .reader-aside:not(:has(details[open])) .reader-chapters{padding-right:0}
+ .reader-aside:not(:has(details[open])) .reader-download{position:static;grid-column:1/-1;min-height:44px;padding:10px 0}
+ .reader-doi{font-size:13px}
+}
+@media(max-width:380px){.reader-toolbar .page-controls,.reader-toolbar .zoom-controls{margin-inline:auto}.reader-header .reader-brand span{font-size:17px;max-width:210px}}
+
+@media(max-width:800px){.reader-toolbar .view-controls{align-items:stretch}.reader-toolbar .view-controls button,.reader-focus .reader-toolbar .view-controls button{min-height:48px}}
