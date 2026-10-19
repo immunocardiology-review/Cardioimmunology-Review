@@ -7,11 +7,9 @@ ORCID: [0009-0002-7690-9993](https://orcid.org/0009-0002-7690-9993)
 ## Publications (Zenodo, CC BY-NC-ND 4.0)
 
 - Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine (2026). DOI [10.5281/zenodo.23426684](https://doi.org/10.5281/zenodo.23426684) — [reading and original PDF](https://cardioimmunologyreview.org/traite.html)
+- La Méthode : Cardioimmunologie Livre 2, édition originale française (octobre 2026). DOI [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) — livre intégral et fiche de présentation des travaux en français.
+- The Method: Cardioimmunology Book 2 (2026-10-10). DOI [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) — [book page](https://cardioimmunologyreview.org/method/the-method.html)
 - Le Bilan : Précis de biologie médicale des maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire (2026). DOI [10.5281/zenodo.23426618](https://doi.org/10.5281/zenodo.23426618) — [reading and original PDF](https://cardioimmunologyreview.org/le-bilan.html)
-
-- La Méthode, Cardioimmunologie. Livre 2, édition originale française (octobre 2026). DOI [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) — livre intégral et fiche de présentation des travaux en français.
-
-- The Method, Cardioimmunology. Book 2: Understanding Evidence and Building Knowledge in Cardioimmunology (2026-10-10). DOI [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) — [book page](https://cardioimmunologyreview.org/method/the-method.html)
 - Architecture scientifique et clinique du Traité de Cardioimmunologie (2026-10-08). DOI [10.5281/zenodo.23248208](https://doi.org/10.5281/zenodo.23248208)
 - Scientific and Clinical Architecture of the Treatise on Cardioimmunology (2026-10-08). DOI [10.5281/zenodo.23248048](https://doi.org/10.5281/zenodo.23248048)
 
