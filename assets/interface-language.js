@@ -14,7 +14,7 @@ const languageLinks=document.querySelectorAll('[data-ui-language]');languageLink
 if(language==='en'){
  const author=document.querySelector('.welcome-author');author.innerHTML='An independent open-access review edited by <a href="author.html">Dr Brahim Abdelouaeb</a>.<br><a href="review.html">Explore the Review ↗</a> · <a href="author.html">About the author ↗</a>';author.lang='en';
  const books=document.querySelector('.welcome-books');books.firstChild.textContent='Browse the books ';books.lang='en';
- document.querySelector('.scientific-language').textContent='Scientific reading · original references';document.querySelector('.scientific-language').lang='en';
+ document.querySelector('.scientific-language').textContent='References retain their original titles.';document.querySelector('.scientific-language').lang='en';
 }
 if(language==='fr'){document.querySelector('.welcome-author a[href="author.html"]').href='auteur.html';}
 const tools=document.querySelector('.field-tools');if(!matchMedia('(max-width:700px)').matches)tools.open=false;

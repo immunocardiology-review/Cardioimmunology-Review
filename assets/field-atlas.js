@@ -1,10 +1,23 @@
 /* Reading relationships are conceptual, never causal claims. */
 (()=>{
 'use strict';
-const data=window.FIELD_ATLAS;
 const uiLabels={"Welcome": "Accueil", "The field": "Le domaine", "The collection": "La collection", "The Collection": "La collection", "Books & the Review": "Livres et Revue", "The heart, an immune organ": "Le cœur, un organe immunitaire", "About the author ↗": "Biographie ↗", "The map of the field": "La carte du domaine", "Cardioimmunology": "Cardioimmunologie", "Mechanisms, cells and clinical phenotypes — connected through evidence.": "Mécanismes, cellules et phénotypes cliniques : explorer les liens et leurs preuves.", "Innate and adaptive immunity interact across these themes.": "Immunités innée et adaptative se croisent dans ces thèmes.", "Find a theme · English / Français": "Trouver un thème", "Find a theme": "Rechercher un thème", "Clear filters": "Effacer les filtres", "Explore a theme": "Choisir un thème", "Choose a theme": "Choisir un thème", "Show the map": "Afficher la carte", "Hide the map": "Masquer la carte", "Enlarge the map": "Agrandir la carte", "Show the whole map": "Voir toute la carte", "View the whole map": "Voir toute la carte", "Return to reading": "Revenir à la lecture", "Select a star, or use the theme selector.": "Sélectionnez un thème dans la liste ou sur la carte.", "Enlarge for readable labels, or use the theme selector.": "Agrandissez la carte ou choisissez un thème dans la liste.", "Pan to explore. Select a star to read.": "Déplacez la carte et sélectionnez une étoile.", "Select a star to examine its evidence. Connections indicate related readings.": "Choisissez une étoile pour consulter les preuves. Les liens rapprochent des lectures.", "All themes": "Tous les thèmes", "Sensing & mediators": "Détection et médiateurs", "Immune cells": "Cellules immunitaires", "Regulation & repair": "Régulation et réparation", "Clinical phenotypes": "Phénotypes cliniques", "Organ interfaces": "Interfaces entre organes", "Observation & translation": "Observation et translation", "Method & citation ↗": "Méthode et citation ↗", "Source data ↧": "Données sources ↧", "Editorial charter ↗": "Charte éditoriale ↗", "Discover the collection →": "Découvrir la collection →", "Browse themes by reading family": "Parcourir les thèmes par famille", "Close ×": "Fermer ×", "The Treatise": "Le Traité", "The Method": "La Méthode", "Clinical Biology": "Biologie clinique", "The Review": "La Revue", "Skip to the collection": "Aller à la collection", "Choose a publication and language": "Choisir une publication et sa langue", "Site navigation": "Navigation principale", "Map of the field": "Carte du domaine", "Original French cover of Cardioimmunologie": "Couverture originale française de Cardioimmunologie", "Original French cover of Le Bilan": "Couverture originale française du Bilan", "English publications": "Publications en anglais", "French publications": "Publications en français", "Pattern recognition": "Reconnaissance des motifs", "Complement": "Complément", "Inflammasome": "Inflammasome", "Cytokine networks": "Réseaux de cytokines", "Immunometabolism": "Immunométabolisme", "Gut–heart axis": "Axe intestin–cœur", "Cardiac macrophages": "Macrophages cardiaques", "T lymphocytes": "Lymphocytes T", "Dendritic cells": "Cellules dendritiques", "Neutrophils & NETs": "Neutrophiles et NETs", "Antigen presentation": "Présentation antigénique", "Immune tolerance": "Tolérance immunitaire", "Resolution": "Résolution", "Remodeling": "Remodelage", "Fibrosis": "Fibrose", "Regeneration": "Régénération", "Atherosclerosis": "Athérosclérose", "Pericarditis": "Péricardite", "Myocarditis": "Myocardite", "Sarcoidosis": "Sarcoïdose", "Amyloidosis": "Amylose", "Systemic diseases": "Maladies systémiques", "Vasculitis": "Vascularites", "Autoinflammation": "Auto-inflammation", "Pulmonary hypertension": "Hypertension pulmonaire", "Heart failure & cardiomyopathy": "Insuffisance cardiaque et cardiomyopathie", "Cardio-oncology": "Cardio-oncologie", "Cardio-infectiology": "Cardio-infectiologie", "Transplantation": "Transplantation", "Ocular immunity": "Immunité oculaire", "Renal immunity": "Immunité rénale", "Neuroimmune axis": "Axe neuro-immunitaire", "Pulmonary immunity": "Immunité pulmonaire", "Cardio-rheumatology": "Cardio-rhumatologie", "Clonal haematopoiesis": "Hématopoïèse clonale", "Chemokines & trafficking": "Chimiokines et migration", "Autoantibodies": "Auto-anticorps", "Trained immunity": "Immunité entraînée", "B cells & plasma cells": "Lymphocytes B et plasmocytes", "NK cells & ILCs": "Cellules NK et ILC", "Eosinophils": "Éosinophiles", "Mast cells": "Mastocytes", "Platelets": "Plaquettes", "Endothelium": "Endothélium", "Cardiomyocytes": "Cardiomyocytes", "Fibroblast niches": "Niches fibroblastiques", "Cardiac lymphatics": "Lymphatiques cardiaques", "Efferocytosis": "Efférocytose", "Cell death & danger": "Mort cellulaire et danger", "Immune ageing": "Vieillissement immunitaire", "Systemic hypertension": "Hypertension artérielle", "Rhythm & conduction": "Rythme et conduction", "Valvular disease": "Valvulopathies", "Aorta & large vessels": "Aorte et gros vaisseaux", "Immunothrombosis & APS": "Immunothrombose et SAPL", "Cardiac imaging": "Imagerie cardiaque", "Biomarkers & sampling": "Biomarqueurs et prélèvements", "Single-cell & spatial": "Analyse unicellulaire et spatiale", "Causal evidence": "Preuves causales", "Therapeutic translation": "Translation thérapeutique", "an immune organ": "un organe immunitaire", "Highlight a reading family": "Choisir une famille de lecture", "Read the original": "Lire le texte original", "Find a theme, or explore the map": "Rechercher un thème ou explorer la carte", "Myocarditis, myocardite, fibrose…": "Myocardite, fibrose, vascularite…", "Explore the field": "Explorer le domaine", "The heart": "Le cœur", "No matching theme. Try a shorter term or clear the filters.": "Aucun thème trouvé. Essayez un terme plus court ou effacez les filtres."};
 let uiLanguage=new URLSearchParams(location.search).get('lang');if(!['en','fr'].includes(uiLanguage)){try{uiLanguage=localStorage.getItem('cir-interface-language');}catch{}}
-const ui=s=>uiLanguage==='en'?s:(uiLabels[s]||s);
+if(!['en','fr'].includes(uiLanguage))uiLanguage='fr';
+const french=window.FIELD_ATLAS_FR;
+const ui=s=>uiLanguage==='en'?s:(french?.ui[s]||uiLabels[s]||s);
+const source=window.FIELD_ATLAS;
+// Localise a copy: ids, links, geometry, source titles and the English catalogue stay intact.
+const data=uiLanguage==='en'||!french?source:{...source,
+ groups:source.groups.map(g=>({...g,...french.groups[g.id]})),
+ topics:source.topics.map(t=>({...t,...french.topics[t.id],...(t.id==='vasculitis'?{book:{label:'Lire le numéro 1 · Le cœur silencieux',url:'revue/n1-le-coeur-silencieux.html'}}:{})})),
+ paths:source.paths.map(p=>({...p,title:french.paths[p.id]})),
+ papers:Object.fromEntries(Object.entries(source.papers).map(([id,p])=>[id,{...p,kind:french.kind[p.kind],access:french.access[p.access]}]))
+};
+document.getElementById('field-topic-content').lang=uiLanguage;
+const referenceNote=document.querySelector('.scientific-language');
+referenceNote.lang=uiLanguage;referenceNote.textContent=uiLanguage==='fr'?'Les références conservent leur titre original.':'References retain their original titles.';
+
 
 const byId=new Map(data.topics.map(t=>[t.id,t]));
 const el=id=>document.getElementById(id);
@@ -17,8 +30,8 @@ function setMapZoom(enlarged){
  const viewport=el('constellation-viewport');
  viewport.classList.toggle('is-enlarged',enlarged);
  el('constellation-zoom').setAttribute('aria-pressed',String(enlarged));
- el('constellation-zoom').textContent=enlarged?'Show the whole map':'Enlarge the map';
- el('constellation-help').textContent=enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.';
+ el('constellation-zoom').textContent=ui(enlarged?'Show the whole map':'Enlarge the map');
+ el('constellation-help').textContent=ui(enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.');
  if(enlarged)requestAnimationFrame(()=>{
   const svg=el('field-constellation'),point=positions.get(active)||{x:1400,y:1260};
   const sx=svg.clientWidth/2800,sy=svg.clientHeight/2520;
@@ -29,7 +42,7 @@ function setMapZoom(enlarged){
 function readingMarkup(topic){
  const p=data.papers[topic.reading];
  if(!p)return '';
- return `<section class="field-selected-reading"><h4>Read the source</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
+ return `<section class="field-selected-reading"><h4>${esc(ui("Read the source"))}</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only">${esc(ui(" (opens in a new tab)"))}</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
 }
 function drawConnections(){
  const group=el('field-connections');
@@ -49,7 +62,7 @@ function routeMarkup(id){
  if(!route)return '';
  const path=data.paths.find(p=>p.id===route),i=path.topics.indexOf(id);
  if(i<0){route=null;return '';}
- return `<nav class="field-route-nav" aria-label="Reading route"><span>${esc(path.title)} · ${i+1}/${path.topics.length}</span><div>${i>0?`<button type="button" data-route-topic="${path.topics[i-1]}">← Previous</button>`:''}${i<path.topics.length-1?`<button type="button" data-route-topic="${path.topics[i+1]}">Next →</button>`:''}<button type="button" data-end-route>Leave route</button></div></nav>`;
+ return `<nav class="field-route-nav" aria-label="${esc(ui("Reading route"))}"><span>${esc(path.title)} · ${i+1}/${path.topics.length}</span><div>${i>0?`<button type="button" data-route-topic="${path.topics[i-1]}">${esc(ui("\u2190 Previous"))}</button>`:''}${i<path.topics.length-1?`<button type="button" data-route-topic="${path.topics[i+1]}">${esc(ui("Next \u2192"))}</button>`:''}<button type="button" data-end-route>${esc(ui("Leave route"))}</button></div></nav>`;
 }
 function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
@@ -58,7 +71,7 @@ function openTopic(id,trigger){
  setMapZoom(false);active=id;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
- el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>What it means</h4><p>${esc(topic.idea)}</p></section><section><h4>Why it matters for the heart</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>Evidence and limits</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>Scope & search terms</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>Connected themes</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
+ el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>${esc(ui("What it means"))}</h4><p>${esc(topic.idea)}</p></section><section><h4>${esc(ui("Why it matters for the heart"))}</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>${esc(ui("Evidence and limits"))}</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>${esc(ui("Scope & search terms"))}</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>${esc(ui("Connected themes"))}</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
  el('field-panel').hidden=false;
  el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');
  el('field-panel').scrollTop=0;
@@ -82,8 +95,9 @@ function drawConstellation(){
  const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1400,cy=1260;
  svg.setAttribute('viewBox','0 0 2800 2520');
  const make=(name,attrs={},parent=svg)=>{const n=document.createElementNS(NS,name);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);parent.appendChild(n);return n;};
- make('title').textContent='The map of the field';
- make('desc').textContent='A circular reading map with the heart at its centre. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.';
+ svg.setAttribute('aria-label',ui('Circular constellation of cardioimmunology, with the heart at its centre'));
+ make('title').textContent=ui('The map of the field');
+ make('desc').textContent=ui('A circular reading map with the heart at its centre. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.');
  const defs=make('defs');
  defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>';
  [260,450,650,860,1060].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
@@ -101,7 +115,7 @@ function drawConstellation(){
   const t=byId.get(id),g=data.groups.find(x=>x.id===t.group),a=(orbit.phase+i*360/orbit.ids.length)*Math.PI/180;
   const x=cx+orbit.r*Math.cos(a),y=cy+orbit.r*Math.sin(a);positions.set(id,{x,y});
   make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.065'},rays);
-  const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':uiLanguage==='en'?`${t.title} — ${t.immune}. Open evidence and selected reading`:`${ui(t.title)} — ouvrir la fiche scientifique en anglais`,'aria-controls':'field-panel','aria-expanded':'false',class:'constellation-node'},nodes);
+  const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':uiLanguage==='en'?`${t.title} — ${t.immune}. Open evidence and selected reading`:`${ui(t.title)} — ouvrir la fiche et ses références`,'aria-controls':'field-panel','aria-expanded':'false',class:'constellation-node'},nodes);
   make('title',{},n).textContent=`${t.title} · ${t.immune}`;
   make('circle',{cx:x,cy:y,r:39,fill:'transparent',class:'constellation-hit'},n);
   make('circle',{cx:x,cy:y,r:12,fill:'#173e33',stroke:g.color,'stroke-width':'2.2',class:'constellation-star'},n);
@@ -154,7 +168,7 @@ function filterMap(){
   const option=el('mobile-theme-select').querySelector(`option[value="${topic.id}"]`);if(option){option.hidden=!match;option.disabled=!match;}
   if(match)count++;
  }
- el('field-search-status').textContent=(query||family!=='all')?(count?`${count} theme${count===1?'':'s'} highlighted`:'No matching theme. Try a shorter term or clear the filters.'):'';
+ el('field-search-status').textContent=(query||family!=='all')?(count?(uiLanguage==='fr'?`${count} thème${count>1?'s':''} trouvé${count>1?'s':''}`:`${count} theme${count===1?'':'s'} highlighted`):ui('No matching theme. Try a shorter term or clear the filters.')):'';
  if(el('field-search-clear'))el('field-search-clear').hidden=!query&&family==='all';
 }
 window.initFieldAtlas=function(){
@@ -163,14 +177,14 @@ window.initFieldAtlas=function(){
  drawConstellation();
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
- el('field-presentation').addEventListener('click',()=>{const on=el('p2').classList.toggle('is-presentation');el('field-presentation').setAttribute('aria-pressed',String(on));el('field-presentation').textContent=on?'Return to reading':'View the whole map';if(on){closeTopic();setMapZoom(false);}el('p2').scrollTop=0;});
- el('constellation-filters').innerHTML='<button type="button" data-family="all" aria-pressed="true">All themes</button>'+data.groups.map(g=>`<button type="button" data-family="${g.id}" aria-pressed="false"><span style="background:${g.color}" aria-hidden="true"></span>${esc(g.title)}</button>`).join('');
+ el('field-presentation').addEventListener('click',()=>{const on=el('p2').classList.toggle('is-presentation');el('field-presentation').setAttribute('aria-pressed',String(on));el('field-presentation').textContent=ui(on?'Return to reading':'View the whole map');if(on){closeTopic();setMapZoom(false);}el('p2').scrollTop=0;});
+ el('constellation-filters').innerHTML=`<button type="button" data-family="all" aria-pressed="true">${esc(ui("All themes"))}</button>`+data.groups.map(g=>`<button type="button" data-family="${g.id}" aria-pressed="false"><span style="background:${g.color}" aria-hidden="true"></span>${esc(g.title)}</button>`).join('');
  el('constellation-filters').addEventListener('click',e=>{const b=e.target.closest('[data-family]');if(!b)return;document.querySelectorAll('[data-family]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));filterMap();});
  el('field-search').addEventListener('input',filterMap);
  el('field-search-clear')?.addEventListener('click',()=>{el('field-search').value='';document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family==='all')));filterMap();el('field-search').focus();});
  el('field-paths').innerHTML=data.paths.map(p=>`<button type="button" data-route="${p.id}">${esc(p.title)} <span aria-hidden="true">↗</span></button>`).join('');
  el('field-paths').addEventListener('click',e=>{const b=e.target.closest('[data-route]');if(b){route=b.dataset.route;openTopic(data.paths.find(p=>p.id===route).topics[0],b);}});
- el('mobile-theme-select').innerHTML='<option value="">Choose a theme</option>'+data.groups.map(g=>`<optgroup label="${esc(g.title)}">${data.topics.filter(t=>t.group===g.id).map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join('')}</optgroup>`).join('');
+ el('mobile-theme-select').innerHTML=`<option value="">${esc(ui("Choose a theme"))}</option>`+data.groups.map(g=>`<optgroup label="${esc(g.title)}">${data.topics.filter(t=>t.group===g.id).map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join('')}</optgroup>`).join('');
  el('mobile-theme-select').addEventListener('change',e=>{route=null;if(e.target.value)openTopic(e.target.value,e.target);else if(active)closeTopic();});
  el('field-constellation').addEventListener('keydown',e=>{const n=e.target.closest('[data-topic]');if(n&&(e.key==='Enter'||e.key===' ')){e.preventDefault();route=null;openTopic(n.dataset.topic,n);}});
  el('field-panel').addEventListener('click',e=>{
@@ -179,6 +193,7 @@ window.initFieldAtlas=function(){
   if(step)openTopic(step.dataset.routeTopic,step);
   if(e.target.closest('[data-end-route]')){route=null;openTopic(active);}
  });
+ el('field-close').textContent=ui('Close ×');el('field-close').setAttribute('aria-label',ui('Close the theme'));
  el('field-close').addEventListener('click',closeTopic);
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
