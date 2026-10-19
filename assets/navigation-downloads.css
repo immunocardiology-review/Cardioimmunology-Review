@@ -3,3 +3,15 @@
 @media(max-width:700px){.editorial-header{padding-top:12px!important;padding-bottom:10px!important;gap:4px!important}.editorial-header>a{font-size:15px!important;gap:9px!important}.editorial-header img{width:34px;height:34px}.editorial-header>nav{width:100%;justify-content:space-between;gap:0 10px!important}.editorial-header>nav>a{font-size:12px;min-height:40px;padding-top:0!important;padding-bottom:0!important}.editorial-header .navigation-language{padding-left:10px}.digital-edition{max-width:34em}.book-actions .download-primary,.book-actions .read-primary{flex:1 1 150px;text-align:center;justify-content:center}.acts .download-primary{flex:1 1 150px}.site-nav{gap:4px 10px!important;flex-wrap:wrap;padding-top:7px!important;padding-bottom:7px!important}.site-nav button,.site-nav>a:not(.journal-home){font-size:11px!important;min-height:36px}.site-nav .journal-seal{width:32px;height:32px}.site-nav .interface-language{margin-left:0!important}}
 
 .editorial-header:has(>a>b){padding:18px clamp(22px,5vw,80px);border-bottom:1px solid #d8dfd8}.editorial-header:has(>a>b)>a{color:inherit}.editorial-header:has(>a>b)>nav{color:inherit}
+
+/* Philosopher green navigation: consistent links, including visited links. */
+nav.site-nav>button,nav.site-nav>a:not(.journal-home){display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:10px 4px;font:13px/1.4 Arial,Helvetica,sans-serif;color:#e0e8d5;text-decoration:none;border-bottom:2px solid transparent}
+nav.site-nav>a:not(.journal-home):visited{color:#e0e8d5}
+nav.site-nav>button:hover,nav.site-nav>a:not(.journal-home):hover{color:#f6f8ee;border-bottom-color:#93ad83}
+nav.site-nav>button:focus-visible,nav.site-nav>a:focus-visible,nav.site-nav .interface-language a:focus-visible{outline:2px solid #c8d9af;outline-offset:3px}
+nav.site-nav>button[aria-current],nav.site-nav .interface-language a[aria-current]{border-bottom-color:#c8d9af}
+.editorial-header>nav>a,.editorial-header>nav>a:visited{color:#14382f}
+.editorial-header>nav>a:hover{color:#315e46;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.editorial-header>nav>a:focus-visible{outline:2px solid #315e46;outline-offset:4px}
+@media(max-width:700px){nav.site-nav>button,nav.site-nav>a:not(.journal-home){font-size:12px!important;min-height:40px;padding:8px 3px}}
+@media(max-width:380px){nav.site-nav{gap:2px 6px!important}}
