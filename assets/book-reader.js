@@ -18,7 +18,7 @@ if(!$('close-contents')){const button=document.createElement('button');button.id
 const status = $('reader-status');
 const startedAt=performance.now();let transferred=0;
 function received(bytes){transferred+=bytes;status.dataset.transferredBytes=transferred;}
-let pdf, book, bookKey, chapter, pageNumber, zoom=1, renderings=[], textLayers=[], generation=0, viewMode='single', savedPosition, resumePage;
+let pdf, book, bookKey, chapter, pageNumber, zoom=1, renderings=[], textLayers=[], generation=0, viewMode='single', savedPosition, resumePage, pendingChapterPage;
 const params = new URLSearchParams(location.search);
 const mobile = matchMedia('(max-width:800px)');
 let focusedReading=false;
@@ -63,8 +63,12 @@ function updateView(){
  $('previous').setAttribute('aria-label',english()?(viewMode==='double'?'Previous two pages':'Previous page'):(viewMode==='double'?'Deux pages précédentes':'Page précédente'));
  $('next').setAttribute('aria-label',english()?(viewMode==='double'?'Next two pages':'Next page'):(viewMode==='double'?'Deux pages suivantes':'Page suivante'));
 }
-mobile.addEventListener('change',()=>{$('chapter-links').closest('details').open=!mobile.matches;});
-function message(text){if(pdf&&/^Ouverture du (?:livre|chapitre)/.test(text))return;status.textContent=text;}
+mobile.addEventListener('change',()=>{
+ $('chapter-links').closest('details').open=!mobile.matches;
+ if(mobile.matches&&viewMode==='double'){viewMode='single';zoom=1;if(pdf)showPage(pageNumber,{resetScroll:false});}
+});
+function message(text){if(pdf&&/^(?:Ouverture du (?:livre|chapitre)|Opening the (?:book|chapter))/.test(text))return;status.textContent=text;}
+const openingBook=(loaded,total)=>(english()?'Opening the book':'Ouverture du livre')+(total?` · ${Math.min(100,Math.round(loaded/total*100))} %`:'…');
 // Zenodo accepts byte ranges, but its CORS policy does not expose the range
 // headers used by PDF.js auto-detection. Supply the transport explicitly so
 // a chapter opens without first transferring the complete Treatise.
@@ -88,7 +92,7 @@ async function openBookPdf(){
  const chunk=262144;let range;
  if(book.bytes>1024*1024&&url.startsWith('https://zenodo.org/api/')){
   try{
-   message('Ouverture du chapitre…');
+   message(english()?'Opening the chapter…':'Ouverture du chapitre…');
    const response=await fetch(url,{headers:{Range:`bytes=0-${chunk-1}`},credentials:'omit'});
    if(response.status===206){
     const initial=new Uint8Array(await response.arrayBuffer());received(initial.length);
@@ -99,14 +103,14 @@ async function openBookPdf(){
  const options={url,isEvalSupported:false,withCredentials:false};
  if(range)Object.assign(options,{range,rangeChunkSize:chunk,disableStream:true,disableAutoFetch:true});
  const task=getDocument(options);
- task.onProgress=({loaded,total})=>message(range?'Ouverture du chapitre…':total?`Ouverture du livre · ${Math.min(100,Math.round(loaded/total*100))} %`:'Ouverture du livre…');
+ task.onProgress=({loaded,total})=>message(range?(english()?'Opening the chapter…':'Ouverture du chapitre…'):openingBook(loaded,total));
  if(!range)return task.promise;
  const failed=new Promise((_,reject)=>{range.onError=error=>{range.abort();task.destroy().catch(()=>{});reject(error);};});
  try{return await Promise.race([task.promise,failed]);}
  catch{
   range.abort();task.destroy().catch(()=>{});
   const fallback=getDocument({url,isEvalSupported:false,withCredentials:false});
-  fallback.onProgress=({loaded,total})=>message(total?`Ouverture du livre · ${Math.min(100,Math.round(loaded/total*100))} %`:'Ouverture du livre…');
+  fallback.onProgress=({loaded,total})=>message(openingBook(loaded,total));
   return fallback.promise;
  }
 }
@@ -286,23 +290,31 @@ function installPageSwipes(){
  area.setAttribute('aria-label',english()?'Book page. Swipe or drag horizontally to turn pages; scroll vertically to read.':'Page du livre. Glissez au doigt, à la souris ou au trackpad pour tourner les pages ; faites défiler verticalement pour lire.');
 }
 function changeChapter(c){
- if(!c)return;chapter=c;title.textContent=c.title;if(!pdf)return;zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;document.documentElement.classList.remove('contents-visible');syncScreenControls();
+ if(!c)return;chapter=c;title.textContent=c.title;if(!pdf){pendingChapterPage=c.page;return;}zoom=1;showPage(c.page);if(mobile.matches)$('chapter-links').closest('details').open=false;document.documentElement.classList.remove('contents-visible');syncScreenControls();
  $('reading').focus({preventScroll:true});$('reading').scrollIntoView({block:'start',behavior:'instant'});
 }
 async function init(){
- const response=await fetch(new URL('./book-reader-data.json?v=20261019-editorial1',import.meta.url));if(!response.ok)throw Error('Book catalogue');
- const books=await response.json();
- bookKey=params.get('livre')||'methode';book=books[bookKey];
- if(!book)throw Error('Unknown book');
- document.documentElement.dataset.readerBook=bookKey;
+ bookKey=params.get('livre')||'methode';
  document.documentElement.lang=bookKey==='method-en'?'en':'fr';
  if(bookKey==='method-en'){
   for(const [id,text] of [['return-book','Back to the book'],['toc-label','Contents'],['download','Download the PDF'],['fit-width','Fit page'],['single-page','One page'],['double-page','Two pages'],['open-contents','Contents'],['fullscreen-reading','Full screen'],['toggle-sidebar','Hide contents'],['close-contents','Close contents'],['previous-chapter','← Previous chapter'],['next-chapter','Next chapter →']])$(id).textContent=text;
   for(const [id,text] of [['previous','Previous page'],['next','Next page'],['zoom-in','Zoom in'],['zoom-out','Zoom out'],['page-number','PDF page number']])$(id).setAttribute('aria-label',text);
   document.querySelector('label[for=page-number]').textContent='PDF page';
+  document.querySelector('.skip').textContent='Skip to reading';
+  document.querySelector('.reader-aside>.eyebrow').textContent='English edition · 2026';
+  document.querySelector('.reader-toolbar').setAttribute('aria-label','Reading controls');
+  document.querySelector('.view-controls').setAttribute('aria-label','Page layout');
+  document.querySelector('.chapter-pagination').setAttribute('aria-label','Chapter navigation');
+  $('chapter-links').setAttribute('aria-label','Book chapters');
+  $('page-scroll').setAttribute('aria-label','Book page, scrolling and zoom');
+  $('chapter-label').textContent='Reading';title.textContent='Opening the book';message('Opening the book…');
  }
- savedPosition=readPosition();resumePage=savedPosition?.page;viewMode=savedPosition?.mode==='double'?'double':'single';
- $('reader-book').textContent=book.title;$('reader-cover').src='assets/covers/'+book.cover+(bookKey==='methode'||bookKey==='method-en'?'?v=20261019-title2':'');$('reader-cover').alt='Couverture de '+book.title;
+ const response=await fetch(new URL('./book-reader-data.json?v=20261019-editorial1',import.meta.url));if(!response.ok)throw Error('Book catalogue');
+ const books=await response.json();book=books[bookKey];
+ if(!book)throw Error('Unknown book');
+ document.documentElement.dataset.readerBook=bookKey;
+ savedPosition=readPosition();resumePage=savedPosition?.page;viewMode=savedPosition?.mode==='double'&&!mobile.matches?'double':'single';
+ $('reader-book').textContent=book.title;$('reader-cover').src='assets/covers/'+book.cover+(bookKey==='methode'||bookKey==='method-en'?'?v=20261019-title2':'');$('reader-cover').alt=(english()?'Cover of ':'Couverture de ')+book.title;
  $('cover-link').href=book.path;$('return-book').href=book.path+'#sommaire';$('download').href=book.pdf;$('download').hidden=false;
  if(book.pdf.startsWith('https://zenodo.org/api/')){ $('download').dataset.pdfDownload=decodeURIComponent(book.pdf.split('/').at(-2));$('download').dataset.pdfBytes=book.bytes; }else $('download').download=book.pdf.split('/').at(-1);
  $('reader-doi').href='https://doi.org/'+book.doi;$('reader-doi').textContent='DOI '+book.doi;
@@ -315,7 +327,7 @@ async function init(){
  }
  if(mobile.matches)$('chapter-links').closest('details').open=false;
  chapter=book.chapters.find(c=>c.number===Number(params.get('chapitre')))||book.chapters[0];title.textContent=chapter.title;
- $('chapter-label').textContent='Chapitre '+String(chapter.number).padStart(2,'0');
+ $('chapter-label').textContent=(english()?'Chapter ':'Chapitre ')+String(chapter.number).padStart(2,'0');
  pdf=await openBookPdf();
  for(const id of ['page-number','zoom-in','zoom-out','fit-width','single-page','double-page'])$(id).disabled=false;
  $('page-number').max=pdf.numPages;
@@ -346,6 +358,6 @@ async function init(){
  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>showPage(pageNumber,{resetScroll:false}),200);});
  installPageSwipes();
  const explicit=Number(params.get('page'))||(params.has('chapitre')?chapter.page:0);
- await showPage(explicit||(resumePage<=pdf.numPages?resumePage:0)||chapter.page);
+ await showPage(pendingChapterPage||explicit||(resumePage<=pdf.numPages?resumePage:0)||chapter.page);
 }
-init().catch(error=>{console.error('Book reader:',error);message('La liseuse ne peut pas ouvrir le livre pour le moment. Retrouvez le PDF original depuis la présentation du livre.');});
+init().catch(error=>{console.error('Book reader:',error);message(english()?'The reader cannot open this book right now. Download the original PDF from the book presentation.':'La liseuse ne peut pas ouvrir le livre pour le moment. Retrouvez le PDF original depuis la présentation du livre.');});
