@@ -106,7 +106,7 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 .is-presentation .constellation-filters button[data-family="all"]{display:none}
 .is-presentation .constellation-mobile-tools{display:flex;position:absolute;top:-25px;right:0;z-index:3;margin:0}
 .is-presentation #field-presentation{font-size:10px;min-height:30px;border:0;padding:5px;color:#a9bea6}
-.is-presentation .constellation-wrap{width:100%;max-width:min(100%,calc((100dvh - 330px)*1.19));height:auto;min-width:0;margin:auto}
+.is-presentation .constellation-wrap{width:100%;max-width:min(100%,1250px);height:auto;min-width:0;margin:auto}
 .is-presentation .constellation-caption{font:15px/1.5 'EB Garamond',Georgia,serif;margin:0 auto 12px}
 .is-presentation .field-presentation-footer{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 22px;padding-top:14px;border-top:1px solid #6d8b7270;color:#bacdb5;font:12px/1.5 Arial,sans-serif;text-align:center}
 .field-presentation-footer a{color:#edf0df;text-decoration:none}

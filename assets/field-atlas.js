@@ -15,6 +15,12 @@ function setMapZoom(enlarged){
  el('constellation-zoom').setAttribute('aria-pressed',String(enlarged));
  el('constellation-zoom').textContent=enlarged?'Show the whole map':'Enlarge the map';
  el('constellation-help').textContent=enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.';
+ if(enlarged)requestAnimationFrame(()=>{
+  const svg=el('field-constellation'),point=positions.get(active)||{x:1400,y:1260};
+  const sx=svg.clientWidth/2800,sy=svg.clientHeight/2520;
+  viewport.scrollLeft=Math.max(0,point.x*sx-viewport.clientWidth/2);
+  viewport.scrollTop=Math.max(0,point.y*sy-viewport.clientHeight/2);
+ });
 }
 function readingMarkup(topic){
  const p=data.papers[topic.reading];
