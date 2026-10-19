@@ -18,6 +18,7 @@ function setMapZoom(enlarged){
 }
 function readingMarkup(topic){
  const p=data.papers[topic.reading];
+ if(!p)return '';
  return `<section class="field-selected-reading"><h4>Read the source</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
 }
 function drawConnections(){
@@ -29,7 +30,7 @@ function drawConnections(){
   const end=positions.get(id);if(!end)continue;
   const line=document.createElementNS(NS,'path');
   const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
-  line.setAttribute('d',`M ${start.x} ${start.y} Q ${1000+(mx-1000)*.8} ${840+(my-840)*.8} ${end.x} ${end.y}`);
+  line.setAttribute('d',`M ${start.x} ${start.y} Q ${1400+(mx-1400)*.8} ${1260+(my-1260)*.8} ${end.x} ${end.y}`);
   group.appendChild(line);
  }
  document.querySelectorAll('.constellation-node').forEach(n=>n.classList.toggle('is-related',topic.related.includes(n.dataset.topic)));
@@ -47,7 +48,7 @@ function openTopic(id,trigger){
  setMapZoom(false);active=id;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
- el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>What it means</h4><p>${esc(topic.idea)}</p></section><section><h4>Why it matters for the heart</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>Evidence and limits</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}<section><h4>Connected themes</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
+ el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>What it means</h4><p>${esc(topic.idea)}</p></section><section><h4>Why it matters for the heart</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>Evidence and limits</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>Scope & search terms</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>Connected themes</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
  el('field-panel').hidden=false;
  el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');
  el('field-panel').scrollTop=0;
@@ -68,18 +69,20 @@ function closeTopic(){
  const address=new URL(location.href);address.searchParams.delete('theme');history.replaceState(null,'',address.pathname+address.search+address.hash);
 }
 function drawConstellation(){
- const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1000,cy=840;
+ const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1400,cy=1260;
+ svg.setAttribute('viewBox','0 0 2800 2520');
  const make=(name,attrs={},parent=svg)=>{const n=document.createElementNS(NS,name);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);parent.appendChild(n);return n;};
  make('title').textContent='The map of the field';
- make('desc').textContent='A circular reading map with the heart at its centre. Innate and adaptive immunity cross its five thematic families. Select a theme to read its question, evidence and selected article.';
+ make('desc').textContent='A circular reading map with the heart at its centre. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.';
  const defs=make('defs');
  defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>';
- [230,410,590,740].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
+ [260,450,650,860,1060].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
  const orbits=[
-  {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:230,phase:-90},
-  {ids:data.topics.filter(t=>['cells','tissue'].includes(t.group)).map(t=>t.id),r:410,phase:-72},
-  {ids:data.topics.filter(t=>t.group==='clinical').map(t=>t.id),r:590,phase:-90},
-  {ids:data.topics.filter(t=>t.group==='connections').map(t=>t.id),r:740,phase:-56}
+  {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:260,phase:-90},
+  {ids:data.topics.filter(t=>t.group==='cells').map(t=>t.id),r:450,phase:-72},
+  {ids:data.topics.filter(t=>t.group==='tissue').map(t=>t.id),r:650,phase:-90},
+  {ids:data.topics.filter(t=>t.group==='clinical').map(t=>t.id),r:860,phase:-82},
+  {ids:data.topics.filter(t=>['connections','methods'].includes(t.group)).map(t=>t.id),r:1060,phase:-90}
  ];
  const rays=make('g',{'aria-hidden':'true',class:'field-rays'});
  const connections=make('g',{id:'field-connections','aria-hidden':'true'});
@@ -87,10 +90,10 @@ function drawConstellation(){
  for(const orbit of orbits)orbit.ids.forEach((id,i)=>{
   const t=byId.get(id),g=data.groups.find(x=>x.id===t.group),a=(orbit.phase+i*360/orbit.ids.length)*Math.PI/180;
   const x=cx+orbit.r*Math.cos(a),y=cy+orbit.r*Math.sin(a);positions.set(id,{x,y});
-  make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.16'},rays);
+  make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.065'},rays);
   const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':`${t.title} — ${t.immune}. Open evidence and selected reading`,'aria-controls':'field-panel','aria-expanded':'false',class:'constellation-node'},nodes);
   make('title',{},n).textContent=`${t.title} · ${t.immune}`;
-  make('circle',{cx:x,cy:y,r:43,fill:'transparent',class:'constellation-hit'},n);
+  make('circle',{cx:x,cy:y,r:39,fill:'transparent',class:'constellation-hit'},n);
   make('circle',{cx:x,cy:y,r:12,fill:'#173e33',stroke:g.color,'stroke-width':'2.2',class:'constellation-star'},n);
   const cos=Math.cos(a),sin=Math.sin(a),vertical=Math.abs(cos)<.26;
   const tx=x+(vertical?0:Math.sign(cos)*28),anchor=vertical?'middle':cos>0?'start':'end';
@@ -99,12 +102,31 @@ function drawConstellation(){
   let ty=vertical?y+Math.sign(sin)*34:y+8;
   if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*29;
   // Keep text clear of neighbouring stars without changing the scientific layout.
-  const offset=id==='sarcoidosis'?-30:id==='dendritic-cells'?22:0;
+  const offset=0;
   ty+=offset;
   if(offset)make('line',{x1:x+16,y1:y,x2:tx-8,y2:ty-10,stroke:g.color,'stroke-width':'1.5',opacity:'.6','aria-hidden':'true'},n);
-  const text=make('text',{x:tx,y:ty,fill:g.color,'text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'32','font-weight':'500','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
+  const text=make('text',{x:tx,y:ty,fill:g.color,'text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'31','font-weight':'500','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
   lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*31},text).textContent=l);
  });
+ const arrangeLabels=()=>{
+  const accepted=[];
+  const hitBoxes=[...positions.values()].map(p=>({x:p.x-19,y:p.y-19,width:38,height:38}));
+  const overlaps=(a,b,p=9)=>a.x<b.x+b.width+p&&a.x+a.width+p>b.x&&a.y<b.y+b.height+p&&a.y+a.height+p>b.y;
+  const labels=[...nodes.querySelectorAll('text')];
+  for(const text of labels){
+   text.removeAttribute('transform');
+   const box=text.getBBox();let shift=0;
+   const choices=[0,-38,38,-76,76,-114,114,-152,152];
+   for(const dy of choices){
+    const candidate={x:box.x,y:box.y+dy,width:box.width,height:box.height};
+    if(candidate.x<25||candidate.x+candidate.width>2775||candidate.y<15||candidate.y+candidate.height>2500)continue;
+    if(!accepted.some(b=>overlaps(candidate,b))&&!hitBoxes.some(b=>overlaps(candidate,b,6))){shift=dy;break;}
+   }
+   text.setAttribute('transform',`translate(0 ${shift})`);
+   accepted.push({x:box.x,y:box.y+shift,width:box.width,height:box.height});
+  }
+ };
+ arrangeLabels();document.fonts?.ready.then(arrangeLabels);
  const core=make('g',{'aria-hidden':'true',class:'field-centre'});
  make('circle',{cx,cy,r:118,fill:'#c8d9af',opacity:'.045'},core);
  make('circle',{cx,cy,r:94,fill:'url(#field-core)',stroke:'#e0e8c8','stroke-width':'1'},core);
@@ -115,7 +137,7 @@ function filterMap(){
  const family=document.querySelector('[data-family][aria-pressed="true"]')?.dataset.family||'all';
  const query=normalise(el('field-search').value.trim());let count=0;
  for(const topic of data.topics){
-  const match=(family==='all'||topic.group===family)&&(!query||normalise([topic.title,topic.immune,topic.question,topic.idea,topic.heart,topic.evidence,frenchTerms[topic.id]||''].join(' ')).includes(query));
+  const match=(family==='all'||topic.group===family)&&(!query||normalise([topic.title,topic.immune,topic.question,topic.idea,topic.heart,topic.evidence,topic.terms||'',frenchTerms[topic.id]||''].join(' ')).includes(query));
   const star=document.querySelector(`.constellation-node[data-topic="${topic.id}"]`);
   star.classList.toggle('family-muted',!match);star.setAttribute('tabindex',match?'0':'-1');
   document.querySelectorAll(`.field-topic-list [data-topic="${topic.id}"]`).forEach(n=>n.hidden=!match);
@@ -130,6 +152,7 @@ window.initFieldAtlas=function(){
  drawConstellation();
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
+ el('field-presentation').addEventListener('click',()=>{const on=el('p2').classList.toggle('is-presentation');el('field-presentation').setAttribute('aria-pressed',String(on));el('field-presentation').textContent=on?'Return to reading':'View the whole map';if(on){closeTopic();setMapZoom(false);}el('p2').scrollTop=0;});
  el('constellation-filters').innerHTML='<button type="button" data-family="all" aria-pressed="true">All themes</button>'+data.groups.map(g=>`<button type="button" data-family="${g.id}" aria-pressed="false"><span style="background:${g.color}" aria-hidden="true"></span>${esc(g.title)}</button>`).join('');
  el('constellation-filters').addEventListener('click',e=>{const b=e.target.closest('[data-family]');if(!b)return;document.querySelectorAll('[data-family]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));filterMap();});
  el('field-search').addEventListener('input',filterMap);

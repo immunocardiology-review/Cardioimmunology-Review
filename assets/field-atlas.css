@@ -135,3 +135,13 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 @media(max-width:700px){.is-presentation .constellation-mobile-tools{top:-28px}}
 
 #field-search-clear{min-height:44px;padding:8px 12px;background:transparent;color:#edf0d5;border:1px solid #8ca584;font:13px/1.4 Arial,sans-serif;cursor:pointer}#field-search-clear[hidden]{display:none}.field-tools{margin-top:14px}.field-layout.has-topic .mobile-theme-choice{margin-top:8px}
+
+/* Documentation and accessible expanded catalogue. */
+.field-reference-links{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:center;margin:24px auto;font:15px/1.6 Georgia,serif}
+.field-reference-links a{color:#e9ddbf;min-height:44px;padding:10px 0;text-underline-offset:5px}
+.field-panel .field-subtopics{border-top:1px solid #bcc8b5;margin:22px 0;padding-top:12px}
+.field-panel .field-subtopics summary{font:14px/1.6 Arial,sans-serif;min-height:44px;cursor:pointer;color:#345846}
+.field-panel .field-subtopics p{font-size:15px;color:#465b48}
+.is-presentation .field-reference-links{display:none}
+.constellation-node .field-label{transition:fill .2s ease;pointer-events:none}
+@media(max-width:700px){.field-reference-links{justify-content:flex-start;gap:6px 18px}.field-layout.has-topic .field-reference-links{display:none}.constellation-wrap.is-enlarged svg{width:2000px;min-width:2000px}}

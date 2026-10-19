@@ -29,6 +29,12 @@
       "title": "Organ interfaces",
       "question": "Which connections are supported by evidence?",
       "color": "#c7bddb"
+    },
+    {
+      "id": "methods",
+      "title": "Observation & translation",
+      "question": "How do we observe, test and translate a claim?",
+      "color": "#aacbe4"
     }
   ],
   "topics": [
@@ -41,14 +47,23 @@
       "evidence": "Receptor expression is not proof of pathway activation. Viral and sterile injury can share sensors while requiring different interpretations.",
       "sources": [],
       "related": [
-        "dendritic-cells",
+        "autoinflammation",
         "macrophages",
-        "inflammasome"
+        "cardio-infectiology",
+        "cardiomyocytes",
+        "complement",
+        "dendritic-cells",
+        "microbiome",
+        "inflammasome",
+        "trained-immunity"
       ],
       "book": null,
       "immune": "Innate sensing",
       "question": "What is being sensed: a pathogen, damaged tissue, or both?",
-      "reading": "sensing"
+      "reading": "sensing",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "complement",
@@ -59,14 +74,21 @@
       "evidence": "Mechanistic involvement does not establish benefit from complement inhibition in every cardiac disease.",
       "sources": [],
       "related": [
+        "autoantibodies",
+        "cardio-infectiology",
+        "immunothrombosis",
+        "neutrophils",
         "innate",
-        "vasculitis",
-        "transplantation"
+        "transplantation",
+        "vasculitis"
       ],
       "book": null,
       "immune": "Innate effector · adaptive interface",
       "question": "Which pathway, fragment and disease stage are implicated?",
-      "reading": "complement"
+      "reading": "complement",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "inflammasome",
@@ -77,14 +99,20 @@
       "evidence": "Distinguish evidence about a specific inflammasome from evidence about its downstream cytokines.",
       "sources": [],
       "related": [
+        "atherosclerosis",
+        "autoinflammation",
+        "cell-death",
+        "clonal-haematopoiesis",
         "interleukins",
-        "innate",
-        "atherosclerosis"
+        "innate"
       ],
       "book": null,
       "immune": "Innate sensing & amplification",
       "question": "Is the evidence about inflammasome assembly, a cytokine, or pyroptosis?",
-      "reading": "inflammasome"
+      "reading": "inflammasome",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "interleukins",
@@ -95,14 +123,21 @@
       "evidence": "A fall in CRP or another biomarker does not establish a reduction in cardiovascular events.",
       "sources": [],
       "related": [
+        "biomarkers",
+        "causal-evidence",
+        "immunometabolism",
         "inflammasome",
-        "pericarditis",
-        "immunometabolism"
+        "mast-cells",
+        "nk-ilc",
+        "pericarditis"
       ],
       "book": null,
       "immune": "Innate ↔ adaptive communication",
       "question": "Which ligand, receptor and patient population are being studied?",
-      "reading": "cytokines"
+      "reading": "cytokines",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "immunometabolism",
@@ -113,14 +148,19 @@
       "evidence": "A promising translational field; changing a cellular metabolic pathway is not automatically a validated therapy.",
       "sources": [],
       "related": [
-        "macrophages",
         "atherosclerosis",
-        "microbiome"
+        "macrophages",
+        "interleukins",
+        "microbiome",
+        "trained-immunity"
       ],
       "book": null,
       "immune": "Innate ↔ adaptive regulation",
       "question": "Is altered metabolism driving cell function, reflecting injury, or both?",
-      "reading": "metabolism"
+      "reading": "metabolism",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "microbiome",
@@ -131,14 +171,17 @@
       "evidence": "A prospective association or a predictive model does not show that changing the microbiome prevents cardiovascular disease.",
       "sources": [],
       "related": [
-        "immunometabolism",
         "atherosclerosis",
+        "immunometabolism",
         "innate"
       ],
       "book": null,
       "immune": "Microbial–metabolic interface",
       "question": "Does the study show association, prediction or a causal intervention?",
-      "reading": "microbiome"
+      "reading": "microbiome",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "macrophages",
@@ -149,34 +192,69 @@
       "evidence": "Much mechanistic evidence comes from models; origin alone does not fully define a cell’s function.",
       "sources": [],
       "related": [
+        "chemokines",
+        "clonal-haematopoiesis",
         "dendritic-cells",
-        "resolution",
+        "efferocytosis",
+        "fibroblasts",
+        "immunometabolism",
+        "neutrophils",
+        "innate",
+        "regeneration",
         "remodeling",
-        "immunometabolism"
+        "resolution",
+        "single-cell-spatial",
+        "trained-immunity"
       ],
       "book": null,
       "immune": "Innate cells",
       "question": "Which origin, state, niche and time after injury?",
-      "reading": "macrophages"
+      "reading": "macrophages",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19",
+      "terms": "macrophages monocytes résidents recrutés moelle CCR2 ontogénie état niche temporalité M1 M2"
     },
     {
       "id": "lymphocytes",
-      "title": "B & T lymphocytes",
+      "title": "T lymphocytes",
       "group": "cells",
-      "idea": "B and T cells mediate antigen-specific effector, memory and regulatory responses. B cells also present antigen; T-cell subsets can support injury, tolerance or repair.",
+      "idea": "T cells support antigen-specific effector, memory and regulatory responses. CD4, CD8, regulatory and unconventional populations differ in their receptors, state and tissue functions.",
       "heart": "Antigen specificity distinguishes targeted cardiac immune responses from a nonspecific inflammatory infiltrate.",
       "evidence": "Cell identity, activation state and tissue context matter; “lymphocyte” is not one uniform mechanism.",
       "sources": [],
       "related": [
         "adaptive",
+        "b-cells",
+        "cardio-oncology",
         "dendritic-cells",
         "tolerance",
-        "myocarditis"
+        "myocarditis",
+        "transplantation"
       ],
       "book": null,
       "immune": "Adaptive cells",
       "question": "Which subset, antigen specificity and tissue compartment?",
-      "reading": "tcells"
+      "reading": "tcells",
+      "terms": "lymphocytes T CD4 CD8 Treg Th1 Th2 Th17 Tfh gamma delta MAIT mémoire cytotoxicité",
+      "subtopics": [
+        "lymphocytes",
+        "T",
+        "CD4",
+        "CD8",
+        "Treg",
+        "Th1",
+        "Th2",
+        "Th17",
+        "Tfh",
+        "gamma",
+        "delta",
+        "MAIT",
+        "mémoire",
+        "cytotoxicité"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "dendritic-cells",
@@ -188,14 +266,19 @@
       "heart": "Cardiac antigen sampling and presentation provide a bridge between local tissue injury, draining lymph nodes and adaptive responses.",
       "evidence": "Conventional and plasmacytoid subsets have different functions. Benefits of engineered cells in experimental models do not establish a clinical treatment.",
       "related": [
-        "innate",
         "adaptive",
-        "lymphocytes",
-        "tolerance"
+        "lymphatics",
+        "macrophages",
+        "tolerance",
+        "innate",
+        "lymphocytes"
       ],
       "reading": "dc",
       "sources": [],
-      "book": null
+      "book": null,
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "neutrophils",
@@ -207,14 +290,19 @@
       "heart": "NET-associated processes connect thrombosis, reperfusion injury and repair, while timing and tissue context shape the effects of neutrophils.",
       "evidence": "Circulating NET-associated markers do not uniquely identify tissue NET formation or show that NET-directed treatment improves clinical outcomes.",
       "related": [
-        "complement",
-        "macrophages",
         "atherosclerosis",
+        "macrophages",
+        "complement",
+        "immunothrombosis",
+        "platelets",
         "vasculitis"
       ],
       "reading": "neutrophils",
       "sources": [],
-      "book": null
+      "book": null,
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "adaptive",
@@ -225,15 +313,20 @@
       "evidence": "Distinguish antigen presentation, demonstrable antigen-specific responses and proof that those responses cause disease.",
       "sources": [],
       "related": [
+        "b-cells",
         "dendritic-cells",
-        "lymphocytes",
         "tolerance",
-        "myocarditis"
+        "myocarditis",
+        "neuro",
+        "lymphocytes"
       ],
       "book": null,
       "immune": "Innate ↔ adaptive bridge",
       "question": "Who presents which antigen, through which MHC and co-signals?",
-      "reading": "dc"
+      "reading": "dc",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "tolerance",
@@ -244,15 +337,26 @@
       "evidence": "Tolerance is not simply the absence of inflammation or general immunosuppression.",
       "sources": [],
       "related": [
-        "dendritic-cells",
-        "lymphocytes",
+        "adaptive",
+        "b-cells",
         "cardio-oncology",
+        "rheumatology",
+        "dendritic-cells",
+        "neuro",
+        "eye",
+        "kidney",
+        "systemic",
+        "lymphocytes",
+        "therapeutic-targets",
         "transplantation"
       ],
       "book": null,
       "immune": "Adaptive regulation · innate support",
       "question": "Which protective control is lost, preserved or being restored?",
-      "reading": "treg"
+      "reading": "treg",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "resolution",
@@ -263,14 +367,21 @@
       "evidence": "Stopping inflammation and restoring functional tissue are related but different outcomes.",
       "sources": [],
       "related": [
+        "lymphatics",
         "macrophages",
+        "efferocytosis",
         "fibrosis",
-        "regeneration"
+        "nk-ilc",
+        "regeneration",
+        "remodeling"
       ],
       "book": null,
       "immune": "Active inflammatory control",
       "question": "Has inflammation resolved, and has tissue function recovered?",
-      "reading": "resolution"
+      "reading": "resolution",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "remodeling",
@@ -281,6 +392,8 @@
       "evidence": "Remodelling describes a process; it is not synonymous with inflammation or proof of its cause.",
       "sources": [],
       "related": [
+        "lymphatics",
+        "macrophages",
         "fibrosis",
         "heart-failure",
         "resolution"
@@ -288,7 +401,10 @@
       "book": null,
       "immune": "Immune–stromal response",
       "question": "Which structural change, at which phase after injury?",
-      "reading": "repair"
+      "reading": "repair",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "fibrosis",
@@ -299,14 +415,24 @@
       "evidence": "Active fibroblast signalling, accumulated scar and potential reversibility are different quantities. An imaging signal needs validation against the biological process it is claimed to measure.",
       "sources": [],
       "related": [
-        "remodeling",
+        "amyloidosis",
+        "aortic-disease",
+        "fibroblasts",
+        "mast-cells",
+        "myocarditis",
         "regeneration",
-        "myocarditis"
+        "remodeling",
+        "resolution",
+        "arrhythmias",
+        "valvular-disease"
       ],
       "book": null,
       "immune": "Stromal response",
       "question": "Active fibroblast signalling, matrix deposition or established scar?",
-      "reading": "fibrosis"
+      "reading": "fibrosis",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "regeneration",
@@ -317,14 +443,18 @@
       "evidence": "Results in mice do not establish restoration of human myocardium or a ready-to-use treatment.",
       "sources": [],
       "related": [
-        "fibrosis",
         "macrophages",
+        "fibroblasts",
+        "fibrosis",
         "resolution"
       ],
       "book": null,
       "immune": "Repair–regeneration interface",
       "question": "Is functional myocardium replaced, or is scar formation modified?",
-      "reading": "regeneration"
+      "reading": "regeneration",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "atherosclerosis",
@@ -335,15 +465,22 @@
       "evidence": "Inflammation is one component of risk, alongside other established contributors.",
       "sources": [],
       "related": [
-        "immunometabolism",
-        "inflammasome",
+        "causal-evidence",
+        "clonal-haematopoiesis",
         "microbiome",
-        "clonal-haematopoiesis"
+        "immunometabolism",
+        "immunothrombosis",
+        "inflammasome",
+        "neutrophils",
+        "therapeutic-targets"
       ],
       "book": null,
       "immune": "Lipid–immune disease",
       "question": "Does target engagement translate into fewer clinical events?",
-      "reading": "atherosclerosis"
+      "reading": "atherosclerosis",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "pericarditis",
@@ -354,14 +491,17 @@
       "evidence": "Clinical assessment and disease-specific guidance are needed; a pathway alone does not define management.",
       "sources": [],
       "related": [
-        "interleukins",
         "autoinflammation",
+        "interleukins",
         "myocarditis"
       ],
       "book": null,
       "immune": "Pericardial inflammation",
       "question": "Which cause, inflammatory phenotype and recurrence pattern?",
-      "reading": "pericarditis"
+      "reading": "pericarditis",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "myocarditis",
@@ -372,14 +512,26 @@
       "evidence": "The cause, clinical presentation and evidence of tissue injury need individual assessment.",
       "sources": [],
       "related": [
+        "adaptive",
+        "autoantibodies",
+        "cardiac-imaging",
+        "cardio-infectiology",
+        "cardio-oncology",
+        "cardiomyocytes",
+        "eosinophils",
         "fibrosis",
         "pericarditis",
-        "cardio-oncology"
+        "arrhythmias",
+        "sarcoidosis",
+        "lymphocytes"
       ],
       "book": null,
       "immune": "Myocardial inflammation",
       "question": "What establishes inflammation, its cause and the risk profile?",
-      "reading": "esc"
+      "reading": "esc",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "sarcoidosis",
@@ -390,14 +542,20 @@
       "evidence": "A diagnosis in one organ does not by itself define the presence or severity of cardiac involvement.",
       "sources": [],
       "related": [
+        "cardiac-imaging",
+        "myocarditis",
+        "eye",
         "pulmonary",
-        "systemic",
-        "myocarditis"
+        "arrhythmias",
+        "systemic"
       ],
       "book": null,
       "immune": "Granulomatous disease",
       "question": "Active inflammation, scar, or a combination of both?",
-      "reading": "sarcoidosis"
+      "reading": "sarcoidosis",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "amyloidosis",
@@ -408,14 +566,17 @@
       "evidence": "AL and transthyretin amyloidosis are distinct; infiltration must not be equated with active immune inflammation.",
       "sources": [],
       "related": [
-        "heart-failure",
         "fibrosis",
+        "heart-failure",
         "systemic"
       ],
       "book": null,
       "immune": "Protein deposition · differential diagnosis",
       "question": "Which amyloid protein is demonstrated?",
-      "reading": "amyloidosis"
+      "reading": "amyloidosis",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "systemic",
@@ -426,14 +587,37 @@
       "evidence": "Mechanisms and organ patterns differ between diseases; extrapolation requires care.",
       "sources": [],
       "related": [
-        "tolerance",
+        "amyloidosis",
         "rheumatology",
-        "kidney"
+        "tolerance",
+        "neuro",
+        "eye",
+        "pulmonary-hypertension",
+        "pulmonary",
+        "kidney",
+        "sarcoidosis",
+        "valvular-disease",
+        "vasculitis"
       ],
       "book": null,
       "immune": "Multiorgan immune disease",
       "question": "What is established in the heart, rather than inferred from another organ?",
-      "reading": "systemic"
+      "reading": "systemic",
+      "terms": "lupus sclérodermie myosite Sjögren polyarthrite autoimmunité systémique connective tissue disease",
+      "subtopics": [
+        "lupus",
+        "sclérodermie",
+        "myosite",
+        "Sjögren",
+        "polyarthrite",
+        "autoimmunité",
+        "systémique",
+        "connective",
+        "tissue",
+        "disease"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "vasculitis",
@@ -444,10 +628,13 @@
       "evidence": "The vasculitis subtype matters; a general label does not determine a patient’s organ involvement.",
       "sources": [],
       "related": [
-        "neutrophils",
+        "aortic-disease",
+        "rheumatology",
         "complement",
-        "systemic",
-        "kidney"
+        "eosinophils",
+        "neutrophils",
+        "kidney",
+        "systemic"
       ],
       "book": {
         "label": "Read issue 1 · The Silent Heart",
@@ -455,7 +642,23 @@
       },
       "immune": "Vascular inflammation",
       "question": "Which subtype, vessel size, activity and cardiac manifestation?",
-      "reading": "vasculitis"
+      "reading": "vasculitis",
+      "terms": "vascularites ANCA GPA MPA EGPA Behçet Kawasaki petits moyens gros vaisseaux",
+      "subtopics": [
+        "vascularites",
+        "ANCA",
+        "GPA",
+        "MPA",
+        "EGPA",
+        "Behçet",
+        "Kawasaki",
+        "petits",
+        "moyens",
+        "gros",
+        "vaisseaux"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "autoinflammation",
@@ -466,14 +669,27 @@
       "evidence": "Autoinflammation and autoimmunity overlap in some settings but are not interchangeable terms.",
       "sources": [],
       "related": [
-        "innate",
         "inflammasome",
+        "innate",
         "pericarditis"
       ],
       "book": null,
       "immune": "Dysregulated innate inflammation",
       "question": "What supports an autoinflammatory rather than an infectious or autoimmune mechanism?",
-      "reading": "pericarditis"
+      "reading": "pericarditis",
+      "terms": "auto-inflammation FMF TRAPS CAPS Still fièvre périodique IL-1",
+      "subtopics": [
+        "auto-inflammation",
+        "FMF",
+        "TRAPS",
+        "CAPS",
+        "Still",
+        "fièvre",
+        "périodique",
+        "IL-1"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "pulmonary-hypertension",
@@ -484,6 +700,7 @@
       "evidence": "The underlying group and cause matter; inflammation is not the sole explanation for pulmonary hypertension.",
       "sources": [],
       "related": [
+        "endothelium",
         "heart-failure",
         "pulmonary",
         "systemic"
@@ -491,25 +708,51 @@
       "book": null,
       "immune": "Pulmonary vascular–right heart interface",
       "question": "Which haemodynamic group, and what evidence of immune involvement?",
-      "reading": "ph"
+      "reading": "ph",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "heart-failure",
-      "title": "Heart failure",
+      "title": "Heart failure & cardiomyopathy",
       "group": "clinical",
       "idea": "A clinical syndrome with multiple possible causes.",
       "heart": "Provides a shared clinical outcome in which vascular, myocardial and systemic processes may converge.",
       "evidence": "Heart failure is not one immune disease; identifying a mechanism requires more than the syndrome label.",
       "sources": [],
       "related": [
-        "remodeling",
         "amyloidosis",
-        "pulmonary-hypertension"
+        "clonal-haematopoiesis",
+        "immune-ageing",
+        "pulmonary-hypertension",
+        "remodeling"
       ],
       "book": null,
       "immune": "Syndrome · heterogeneous mechanisms",
       "question": "Which cause and phenotype explain the immune signal?",
-      "reading": "hf"
+      "reading": "hf",
+      "terms": "insuffisance cardiaque HFpEF HFrEF cardiomyopathie dilatée DCM ACM génétique péripartum diabète obésité sexes ventricule droit oreillette",
+      "subtopics": [
+        "insuffisance",
+        "cardiaque",
+        "HFpEF",
+        "HFrEF",
+        "cardiomyopathie",
+        "dilatée",
+        "DCM",
+        "ACM",
+        "génétique",
+        "péripartum",
+        "diabète",
+        "obésité",
+        "sexes",
+        "ventricule",
+        "droit",
+        "oreillette"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "cardio-oncology",
@@ -527,7 +770,25 @@
       "book": null,
       "immune": "Treatment–immune interface",
       "question": "Which therapy, immune lesion and competing diagnosis?",
-      "reading": "ici"
+      "reading": "ici",
+      "terms": "ICI inhibiteurs checkpoints immunitaires CAR-T syndrome libération cytokines CRS cancer radiothérapie toxicité immunothérapie",
+      "subtopics": [
+        "ICI",
+        "inhibiteurs",
+        "checkpoints",
+        "immunitaires",
+        "CAR-T",
+        "syndrome",
+        "libération",
+        "cytokines",
+        "CRS",
+        "cancer",
+        "radiothérapie",
+        "toxicité",
+        "immunothérapie"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "cardio-infectiology",
@@ -538,14 +799,30 @@
       "evidence": "The selected influenza study combines human observations with mechanistic animal work. It does not explain every infection-related cardiac syndrome.",
       "sources": [],
       "related": [
-        "innate",
+        "complement",
         "myocarditis",
-        "complement"
+        "nk-ilc",
+        "innate",
+        "valvular-disease"
       ],
       "book": null,
       "immune": "Pathogen–host interface",
       "question": "What distinguishes pathogen persistence from immune-mediated damage?",
-      "reading": "infection"
+      "reading": "infection",
+      "terms": "infection virus influenza SARS-CoV-2 VIH Chagas endocardite sepsis post-infectieux",
+      "subtopics": [
+        "infection",
+        "virus",
+        "influenza",
+        "SARS-CoV-2",
+        "VIH",
+        "Chagas",
+        "endocardite",
+        "sepsis",
+        "post-infectieux"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "transplantation",
@@ -556,14 +833,18 @@
       "evidence": "Rejection, infection and graft dysfunction are distinct problems requiring specialist evaluation.",
       "sources": [],
       "related": [
+        "autoantibodies",
+        "complement",
         "tolerance",
-        "lymphocytes",
-        "complement"
+        "lymphocytes"
       ],
       "book": null,
       "immune": "Alloimmune recognition",
       "question": "Cellular rejection, antibody-mediated injury, infection or another graft problem?",
-      "reading": "transplant"
+      "reading": "transplant",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "eye",
@@ -574,14 +855,17 @@
       "evidence": "An inflammatory sign in the eye does not establish a cardiac diagnosis.",
       "sources": [],
       "related": [
-        "systemic",
+        "tolerance",
         "sarcoidosis",
-        "tolerance"
+        "systemic"
       ],
       "book": null,
       "immune": "Cross-organ comparison",
       "question": "Which ocular mechanism is demonstrated, and can it be extrapolated?",
-      "reading": "eye"
+      "reading": "eye",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "kidney",
@@ -592,14 +876,28 @@
       "evidence": "The selected human study identifies signatures in lupus nephritis. Its findings cannot diagnose cardiac involvement or establish a cardiac therapeutic target.",
       "sources": [],
       "related": [
+        "biomarkers",
+        "tolerance",
         "systemic",
-        "vasculitis",
-        "tolerance"
+        "hypertension",
+        "vasculitis"
       ],
       "book": null,
       "immune": "Cross-organ comparison",
       "question": "Do circulating signatures reflect kidney injury, cardiac injury or systemic activity?",
-      "reading": "kidney"
+      "reading": "kidney",
+      "terms": "rein rénal néphrite cardiorénal lupus complément urémie",
+      "subtopics": [
+        "rein",
+        "rénal",
+        "néphrite",
+        "cardiorénal",
+        "lupus",
+        "complément",
+        "urémie"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "neuro",
@@ -610,14 +908,19 @@
       "evidence": "This conceptual connection does not imply a common cardiac mechanism or treatment.",
       "sources": [],
       "related": [
-        "tolerance",
         "adaptive",
-        "systemic"
+        "tolerance",
+        "arrhythmias",
+        "systemic",
+        "hypertension"
       ],
       "book": null,
       "immune": "Neural–immune communication",
       "question": "Which neural circuit, immune effector and cardiac outcome are linked?",
-      "reading": "neuro"
+      "reading": "neuro",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "pulmonary",
@@ -628,14 +931,17 @@
       "evidence": "Shared inflammatory vocabulary does not mean identical organ behaviour.",
       "sources": [],
       "related": [
-        "sarcoidosis",
         "pulmonary-hypertension",
+        "sarcoidosis",
         "systemic"
       ],
       "book": null,
       "immune": "Lung–heart interface",
       "question": "Is cardiac stress secondary to pulmonary vascular disease or direct cardiac involvement?",
-      "reading": "ph"
+      "reading": "ph",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "rheumatology",
@@ -646,14 +952,17 @@
       "evidence": "Troponin indicates myocardial injury in context; assay interference and non-inflammatory causes must also be considered.",
       "sources": [],
       "related": [
-        "systemic",
         "tolerance",
+        "systemic",
         "vasculitis"
       ],
       "book": null,
       "immune": "Systemic–cardiac interface",
       "question": "Inflammatory injury, vascular disease, treatment effect or an analytical interference?",
-      "reading": "rheum"
+      "reading": "rheum",
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     },
     {
       "id": "clonal-haematopoiesis",
@@ -665,17 +974,836 @@
       "heart": "Clonal haematopoiesis links ageing, myeloid biology and cardiovascular risk, including atherosclerosis and heart failure.",
       "evidence": "Risk associations and mechanistic models do not establish routine population screening or a validated clone-directed cardiovascular treatment.",
       "related": [
-        "inflammasome",
-        "macrophages",
         "atherosclerosis",
-        "heart-failure"
+        "macrophages",
+        "heart-failure",
+        "immune-ageing",
+        "inflammasome",
+        "trained-immunity"
       ],
       "reading": "chip",
       "sources": [],
-      "book": null
+      "book": null,
+      "subtopics": [],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "chemokines",
+      "title": "Chemokines & trafficking",
+      "group": "signals",
+      "immune": "Recruitment & positioning",
+      "question": "Which cell is recruited, through which receptor and into which compartment?",
+      "idea": "Chemokine gradients and adhesion signals position immune cells within tissues. Expression, migration and retention are distinct observations.",
+      "heart": "CCL2–CCR2 and CXCL-family pathways help frame the recruitment of myeloid and lymphoid cells to injured myocardium.",
+      "evidence": "Chemokine abundance alone cannot identify its cellular source, demonstrate a functional gradient or establish benefit from receptor blockade.",
+      "reading": "chemokines",
+      "related": [
+        "lymphatics",
+        "macrophages",
+        "endothelium",
+        "fibroblasts"
+      ],
+      "terms": "chimiokines recrutement migration adhésion CCL2 CCR2 CXCL9 CXCL10 CXCR3",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "chimiokines",
+        "recrutement",
+        "migration",
+        "adhésion",
+        "CCL2",
+        "CCR2",
+        "CXCL9",
+        "CXCL10",
+        "CXCR3"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "autoantibodies",
+      "title": "Autoantibodies",
+      "group": "signals",
+      "immune": "Humoral immunity",
+      "question": "Does the antibody bind, alter function, or cause disease?",
+      "idea": "Autoantibodies may bind cardiac antigens or influence receptor signalling. Their presence and their functional effects need separate assays.",
+      "heart": "Humoral mechanisms are studied in myocardial disease, systemic autoimmunity and graft injury.",
+      "evidence": "Association, functional activity and pathogenic causality are different claims. A positive antibody test does not by itself justify immune therapy.",
+      "reading": "autoantibodies",
+      "related": [
+        "b-cells",
+        "complement",
+        "immunothrombosis",
+        "myocarditis",
+        "transplantation"
+      ],
+      "terms": "autoanticorps autoimmunité humorale immunoglobulines récepteurs complexes immuns Fc",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "autoanticorps",
+        "autoimmunité",
+        "humorale",
+        "immunoglobulines",
+        "récepteurs",
+        "complexes",
+        "immuns",
+        "Fc"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "trained-immunity",
+      "title": "Trained immunity",
+      "group": "signals",
+      "immune": "Innate memory & reprogramming",
+      "question": "Which earlier exposure leaves which durable change?",
+      "idea": "Some innate cells and their progenitors retain altered responsiveness after an earlier stimulus through metabolic and epigenetic reprogramming.",
+      "heart": "Persistent myeloid responses provide a framework for studying vascular inflammation after metabolic or infectious exposures.",
+      "evidence": "This is not antigen-specific adaptive memory. Demonstrating a chromatin signature alone does not establish a clinically useful intervention.",
+      "reading": "trained",
+      "related": [
+        "macrophages",
+        "clonal-haematopoiesis",
+        "immunometabolism",
+        "innate"
+      ],
+      "terms": "immunité entraînée mémoire innée épigénétique tolérance innée moelle progéniteurs",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "immunité",
+        "entraînée",
+        "mémoire",
+        "innée",
+        "épigénétique",
+        "tolérance",
+        "innée",
+        "moelle",
+        "progéniteurs"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "b-cells",
+      "title": "B cells & plasma cells",
+      "group": "cells",
+      "immune": "Adaptive cells",
+      "question": "Which B-cell state, specificity and function are implicated?",
+      "idea": "B cells can present antigen and produce cytokines; differentiated plasma cells secrete antibodies. Regulatory and effector functions depend on state and context.",
+      "heart": "B-cell responses and receptor repertoires are studied in myocarditis and other cardiac immune settings.",
+      "evidence": "B-cell depletion and suppression of long-lived plasma cells are not equivalent. Findings in experimental myocarditis do not establish a broadly effective cardiac treatment.",
+      "reading": "bcells",
+      "related": [
+        "adaptive",
+        "autoantibodies",
+        "tolerance",
+        "lymphocytes"
+      ],
+      "terms": "lymphocytes B plasmocytes BCR Breg mémoire centres germinatifs",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "lymphocytes",
+        "B",
+        "plasmocytes",
+        "BCR",
+        "Breg",
+        "mémoire",
+        "centres",
+        "germinatifs"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "nk-ilc",
+      "title": "NK cells & ILCs",
+      "group": "cells",
+      "immune": "Innate lymphoid cells",
+      "question": "Which lineage, activation state and target are being examined?",
+      "idea": "Natural killer cells and helper innate lymphoid populations differ in cytotoxicity and cytokine programmes. They lack the rearranged antigen receptors of conventional B and T cells.",
+      "heart": "These populations participate in experimental responses to infection, injury and tissue repair in the heart.",
+      "evidence": "NK, NKT and ILC subsets should not be conflated. A circulating cell count cannot establish the function of a tissue-resident population.",
+      "reading": "sensing",
+      "related": [
+        "cardio-infectiology",
+        "interleukins",
+        "resolution"
+      ],
+      "terms": "cellules NK lymphoïdes innées ILC1 ILC2 ILC3 NKT cytotoxicité perforine granzymes",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "cellules",
+        "NK",
+        "lymphoïdes",
+        "innées",
+        "ILC1",
+        "ILC2",
+        "ILC3",
+        "NKT",
+        "cytotoxicité",
+        "perforine",
+        "granzymes"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "eosinophils",
+      "title": "Eosinophils",
+      "group": "cells",
+      "immune": "Innate granulocytes",
+      "question": "Which cause and which evidence of eosinophilic tissue injury?",
+      "idea": "Eosinophils release granule proteins and lipid mediators. Blood eosinophilia and eosinophilic myocardial infiltration describe different findings.",
+      "heart": "Hypersensitivity, eosinophilic granulomatosis with polyangiitis and hypereosinophilic disorders can be associated with cardiac injury.",
+      "evidence": "A normal blood count does not exclude tissue disease. Imaging can suggest a phenotype but cannot by itself establish its histological cause.",
+      "reading": "eosinophils",
+      "related": [
+        "cell-death",
+        "myocarditis",
+        "vasculitis"
+      ],
+      "terms": "éosinophiles EGPA hyperéosinophilie hypersensibilité myocardite éosinophilique",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "éosinophiles",
+        "EGPA",
+        "hyperéosinophilie",
+        "hypersensibilité",
+        "myocardite",
+        "éosinophilique"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "mast-cells",
+      "title": "Mast cells",
+      "group": "cells",
+      "immune": "Innate tissue sentinels",
+      "question": "Which mediator and which phase of the response?",
+      "idea": "Mast cells are tissue-resident immune cells with granule-derived mediators, cytokines and proteases. Their functions vary across local environments.",
+      "heart": "Experimental work links cardiac mast cells to vascular responses, matrix remodelling and inflammatory regulation.",
+      "evidence": "Many functional claims remain preclinical. Cell abundance, degranulation and the effect of a particular mediator require different measurements.",
+      "reading": "mast",
+      "related": [
+        "interleukins",
+        "endothelium",
+        "fibrosis"
+      ],
+      "terms": "mastocytes histamine tryptase chymase allergie Kounis basophiles",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "mastocytes",
+        "histamine",
+        "tryptase",
+        "chymase",
+        "allergie",
+        "Kounis",
+        "basophiles"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "platelets",
+      "title": "Platelets",
+      "group": "cells",
+      "immune": "Haemostatic & immune interface",
+      "question": "Which platelet activity links haemostasis to immunity?",
+      "idea": "Platelets are anucleate blood elements that combine haemostatic functions with mediator release and interactions with immune cells.",
+      "heart": "Platelet–leukocyte interactions provide a bridge between vascular injury, inflammation and thrombus formation.",
+      "evidence": "Platelet activation is not one uniform state. A circulating activation marker does not demonstrate a causal tissue interaction.",
+      "reading": "platelets",
+      "related": [
+        "endothelium",
+        "immunothrombosis",
+        "neutrophils"
+      ],
+      "terms": "plaquettes agrégation thrombo-inflammation vésicules extracellulaires CD40L",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "plaquettes",
+        "agrégation",
+        "thrombo-inflammation",
+        "vésicules",
+        "extracellulaires",
+        "CD40L"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "endothelium",
+      "title": "Endothelium",
+      "group": "cells",
+      "immune": "Vascular resident cells",
+      "question": "Which vascular bed and which endothelial state?",
+      "idea": "Endothelial cells regulate barrier function, leucocyte recruitment and signals exchanged with their tissue environment.",
+      "heart": "Coronary and pulmonary microvascular states can influence the distribution and consequences of cardiac inflammation.",
+      "evidence": "An endothelial transcriptomic signature needs functional validation. The heart and lung do not share one uniform endothelial programme.",
+      "reading": "endothelium",
+      "related": [
+        "aortic-disease",
+        "chemokines",
+        "mast-cells",
+        "platelets",
+        "pulmonary-hypertension",
+        "single-cell-spatial",
+        "hypertension"
+      ],
+      "terms": "endothélium microcirculation glycocalyx perméabilité adhésion péricytes cellules musculaires lisses",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "endothélium",
+        "microcirculation",
+        "glycocalyx",
+        "perméabilité",
+        "adhésion",
+        "péricytes",
+        "cellules",
+        "musculaires",
+        "lisses"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "cardiomyocytes",
+      "title": "Cardiomyocytes",
+      "group": "cells",
+      "immune": "Cardiac resident responders",
+      "question": "Is the myocyte a sensor, a target, or both?",
+      "idea": "Cardiomyocytes respond to injury and can activate innate sensing, cytokine and regulated cell-death pathways. Their contractile role does not make them immunologically passive.",
+      "heart": "In viral myocarditis, direct infection and host-mediated injury can converge on the same cardiac cell.",
+      "evidence": "A pathogen signal or an inflammatory transcript is not enough to separate direct cytotoxicity from immune-mediated damage.",
+      "reading": "sensing",
+      "related": [
+        "cell-death",
+        "myocarditis",
+        "innate"
+      ],
+      "terms": "cardiomyocytes mitochondries stress réticulum autophagie cardiotoxicité",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "cardiomyocytes",
+        "mitochondries",
+        "stress",
+        "réticulum",
+        "autophagie",
+        "cardiotoxicité"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "fibroblasts",
+      "title": "Fibroblast niches",
+      "group": "tissue",
+      "immune": "Immune–stromal interface",
+      "question": "Which fibroblast state and which local partners?",
+      "idea": "Cardiac fibroblasts maintain extracellular matrix and organise niches. Injury can change their inflammatory, reparative and matrix-producing programmes.",
+      "heart": "Their interactions with immune and myocardial cells connect tissue integrity, inflammatory positioning and fibrosis.",
+      "evidence": "A fibroblast marker or a predicted ligand–receptor pair does not establish a functional interaction. Reducing scar formation and restoring contractile tissue are different outcomes.",
+      "reading": "fibroblasts",
+      "related": [
+        "macrophages",
+        "chemokines",
+        "fibrosis",
+        "immune-ageing",
+        "regeneration",
+        "single-cell-spatial"
+      ],
+      "terms": "fibroblastes stroma niches matrice TGF bêta FAP mécanobiologie périvasculaire",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "fibroblastes",
+        "stroma",
+        "niches",
+        "matrice",
+        "TGF",
+        "bêta",
+        "FAP",
+        "mécanobiologie",
+        "périvasculaire"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "lymphatics",
+      "title": "Cardiac lymphatics",
+      "group": "tissue",
+      "immune": "Drainage & immune trafficking",
+      "question": "What leaves the tissue, and where does it go?",
+      "idea": "Lymphatic vessels drain interstitial fluid and support movement of immune cells and antigens towards lymph nodes.",
+      "heart": "Experimental myocardial injury studies connect lymphatic remodelling with inflammatory clearance and recovery.",
+      "evidence": "More lymphatic vessels do not automatically mean effective drainage. Translational benefit needs demonstration beyond vessel density in animal tissue.",
+      "reading": "lymphatics",
+      "related": [
+        "chemokines",
+        "dendritic-cells",
+        "remodeling",
+        "resolution"
+      ],
+      "terms": "lymphatiques ganglions drainage œdème circulation lymphatique lymphangiogenèse",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "lymphatiques",
+        "ganglions",
+        "drainage",
+        "œdème",
+        "circulation",
+        "lymphatique",
+        "lymphangiogenèse"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "efferocytosis",
+      "title": "Efferocytosis",
+      "group": "tissue",
+      "immune": "Clearance of dying cells",
+      "question": "Are dying cells recognised, engulfed and processed successfully?",
+      "idea": "Phagocytes clear apoptotic cells through coordinated recognition, engulfment and processing. Failed clearance can prolong local injury.",
+      "heart": "Efferocytosis helps frame resolution after myocardial infarction and clearance within atherosclerotic lesions.",
+      "evidence": "Increased phagocyte numbers do not establish efficient clearance. A mechanistic rescue in a model does not establish clinical efficacy.",
+      "reading": "efferocytosis",
+      "related": [
+        "macrophages",
+        "cell-death",
+        "resolution"
+      ],
+      "terms": "efférocytose phagocytose MerTK CD47 apoptose eat-me clearance",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "efférocytose",
+        "phagocytose",
+        "MerTK",
+        "CD47",
+        "apoptose",
+        "eat-me",
+        "clearance"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "cell-death",
+      "title": "Cell death & danger",
+      "group": "tissue",
+      "immune": "Injury–inflammation interface",
+      "question": "Which death programme is demonstrated by which perturbation?",
+      "idea": "Apoptosis, necroptosis, pyroptosis and ferroptosis describe distinct regulated processes. Their contributions can overlap in a diseased tissue.",
+      "heart": "Cell death changes myocardial cell mass and can release signals that recruit or activate immune responses.",
+      "evidence": "A single marker rarely identifies a unique death programme. PANoptosis describes proposed coordinated death circuitry and requires mechanistic evidence.",
+      "reading": "cell-death",
+      "related": [
+        "cardiomyocytes",
+        "efferocytosis",
+        "eosinophils",
+        "inflammasome"
+      ],
+      "terms": "mort cellulaire apoptose nécroptose pyroptose ferroptose PANoptose DAMP",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "mort",
+        "cellulaire",
+        "apoptose",
+        "nécroptose",
+        "pyroptose",
+        "ferroptose",
+        "PANoptose",
+        "DAMP"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "immune-ageing",
+      "title": "Immune ageing",
+      "group": "tissue",
+      "immune": "Host context",
+      "question": "How do age and senescence change the response?",
+      "idea": "Immune ageing and cellular senescence can alter surveillance, inflammatory tone and tissue repair. Chronological age does not fully capture these processes.",
+      "heart": "Senescent stromal, vascular and immune states are studied in age-associated cardiovascular dysfunction.",
+      "evidence": "A senescence-associated marker is not a complete cell identity. Senolytic findings in models do not establish routine human cardiac treatment.",
+      "reading": "ageing",
+      "related": [
+        "clonal-haematopoiesis",
+        "fibroblasts",
+        "heart-failure"
+      ],
+      "terms": "vieillissement sénescence immunosénescence inflammaging SASP sexe genre hormones comorbidités",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "vieillissement",
+        "sénescence",
+        "immunosénescence",
+        "inflammaging",
+        "SASP",
+        "sexe",
+        "genre",
+        "hormones",
+        "comorbidités"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "hypertension",
+      "title": "Systemic hypertension",
+      "group": "clinical",
+      "immune": "Vascular–renal–immune phenotype",
+      "question": "What evidence supports immune involvement in this hypertensive setting?",
+      "idea": "Experimental and human studies examine immune pathways alongside vascular, renal and neurohumoral regulation of blood pressure.",
+      "heart": "Immune activation may contribute to vascular dysfunction and target-organ injury in selected contexts.",
+      "evidence": "Most hypertension is not established as an autoimmune disease. Immune associations do not replace validated blood-pressure management or establish benefit from immunosuppression.",
+      "reading": "hypertension",
+      "related": [
+        "endothelium",
+        "neuro",
+        "kidney"
+      ],
+      "terms": "hypertension artérielle HTA pression sodium angiotensine aldostérone",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "hypertension",
+        "artérielle",
+        "HTA",
+        "pression",
+        "sodium",
+        "angiotensine",
+        "aldostérone"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "arrhythmias",
+      "title": "Rhythm & conduction",
+      "group": "clinical",
+      "immune": "Electrical phenotype",
+      "question": "Which inflammatory process is linked to which electrical outcome?",
+      "idea": "Immune cells and inflammatory mediators can interact with electrical properties, tissue architecture and autonomic signals.",
+      "heart": "Atrial fibrillation, conduction disease and ventricular arrhythmia are different clinical settings; inflammation and scar may contribute in different ways.",
+      "evidence": "An inflammatory association does not prove an immune cause of an arrhythmia. Results in atrial fibrillation cannot be assumed to apply to every rhythm disorder.",
+      "reading": "arrhythmias",
+      "related": [
+        "fibrosis",
+        "myocarditis",
+        "neuro",
+        "sarcoidosis"
+      ],
+      "terms": "arythmies fibrillation atriale conduction bloc ventriculaire mort subite",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "arythmies",
+        "fibrillation",
+        "atriale",
+        "conduction",
+        "bloc",
+        "ventriculaire",
+        "mort",
+        "subite"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "valvular-disease",
+      "title": "Valvular disease",
+      "group": "clinical",
+      "immune": "Valvular immune interfaces",
+      "question": "Which valve process: post-infectious autoimmunity, calcification or another cause?",
+      "idea": "Rheumatic valve disease provides an established setting in which an immune response after infection can contribute to valve injury. Other valve diseases have different mechanisms.",
+      "heart": "Valve inflammation, fibrosis and calcification need to be distinguished from the haemodynamic consequence of a valve lesion.",
+      "evidence": "Not every valve lesion is immune-mediated. A review of rheumatic disease does not establish the mechanism of degenerative calcific disease.",
+      "reading": "valves",
+      "related": [
+        "cardio-infectiology",
+        "fibrosis",
+        "systemic"
+      ],
+      "terms": "valves valvulopathies rhumatisme articulaire aigu endocardite Libman Sacks calcification",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "valves",
+        "valvulopathies",
+        "rhumatisme",
+        "articulaire",
+        "aigu",
+        "endocardite",
+        "Libman",
+        "Sacks",
+        "calcification"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "aortic-disease",
+      "title": "Aorta & large vessels",
+      "group": "clinical",
+      "immune": "Arterial wall disease",
+      "question": "Is the wall disease inflammatory, degenerative, genetic or mixed?",
+      "idea": "Large-vessel vasculitis and clinically isolated aortitis can affect aortic structure. Aneurysm is an anatomical finding with several possible causes.",
+      "heart": "Imaging, pathology and clinical context help separate active wall inflammation from established structural damage.",
+      "evidence": "A growth-rate association in an observational cohort does not prove treatment efficacy. Genetic and degenerative aneurysms must not be relabelled as autoimmune disease.",
+      "reading": "aorta",
+      "related": [
+        "endothelium",
+        "fibrosis",
+        "vasculitis"
+      ],
+      "terms": "aorte aortite Takayasu artérite cellules géantes anévrisme dissection paroi",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "aorte",
+        "aortite",
+        "Takayasu",
+        "artérite",
+        "cellules",
+        "géantes",
+        "anévrisme",
+        "dissection",
+        "paroi"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "immunothrombosis",
+      "title": "Immunothrombosis & APS",
+      "group": "clinical",
+      "immune": "Immune–coagulation interface",
+      "question": "Which immune trigger contributes to which thrombotic event?",
+      "idea": "Coagulation, platelets, complement and immune cells can interact. Antiphospholipid syndrome is a specific autoimmune setting within this wider interface.",
+      "heart": "Arterial, venous and microvascular thrombosis have different contexts and consequences for the heart and circulation.",
+      "evidence": "An isolated antiphospholipid antibody result does not establish antiphospholipid syndrome. Classification criteria and individual clinical diagnosis serve different purposes.",
+      "reading": "aps",
+      "related": [
+        "atherosclerosis",
+        "autoantibodies",
+        "complement",
+        "neutrophils",
+        "platelets"
+      ],
+      "terms": "immunothrombose SAPL antiphospholipides thrombose thromboembolie anticoagulation",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "immunothrombose",
+        "SAPL",
+        "antiphospholipides",
+        "thrombose",
+        "thromboembolie",
+        "anticoagulation"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "cardiac-imaging",
+      "title": "Cardiac imaging",
+      "group": "methods",
+      "immune": "Observation",
+      "question": "Which biological process does the image actually measure?",
+      "idea": "Echocardiography, magnetic resonance, CT and nuclear imaging measure different properties. Inflammation, extracellular expansion and active fibroblast signalling are not interchangeable signals.",
+      "heart": "Multimodality imaging can locate injury and follow ventricular, vascular or tissue consequences in an appropriate clinical context.",
+      "evidence": "An imaging pattern cannot automatically identify an immune cause. Molecular tracers require validation against the biological process they are claimed to measure.",
+      "reading": "fibrosis",
+      "related": [
+        "biomarkers",
+        "myocarditis",
+        "sarcoidosis"
+      ],
+      "terms": "imagerie échocardiographie IRM CMR TEP PET CT scanner strain LGE T1 T2 ECV",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "imagerie",
+        "échocardiographie",
+        "IRM",
+        "CMR",
+        "TEP",
+        "PET",
+        "CT",
+        "scanner",
+        "strain",
+        "LGE",
+        "T1",
+        "T2",
+        "ECV"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "biomarkers",
+      "title": "Biomarkers & sampling",
+      "group": "methods",
+      "immune": "Measurement & interpretation",
+      "question": "Which sample, assay, timing and clinical question?",
+      "idea": "A biomarker is interpreted through its biological source, analytical method and intended clinical use. Diagnostic, prognostic and treatment-response claims require different evidence.",
+      "heart": "Troponin, natriuretic peptides and inflammatory markers may inform complementary questions in cardiovascular disease.",
+      "evidence": "A biomarker may reflect processes outside the heart. A statistical association does not establish clinical utility or a treatment threshold.",
+      "reading": "rheum",
+      "related": [
+        "cardiac-imaging",
+        "interleukins",
+        "kidney"
+      ],
+      "terms": "biomarqueurs troponine CRP BNP NT-proBNP prélèvement biopsie histologie immunohistochimie endomyocardique",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "biomarqueurs",
+        "troponine",
+        "CRP",
+        "BNP",
+        "NT-proBNP",
+        "prélèvement",
+        "biopsie",
+        "histologie",
+        "immunohistochimie",
+        "endomyocardique"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19",
+      "readingSecondary": [
+        "biomarkers"
+      ]
+    },
+    {
+      "id": "single-cell-spatial",
+      "title": "Single-cell & spatial",
+      "group": "methods",
+      "immune": "Cell states & tissue niches",
+      "question": "Does proximity support a functional interaction?",
+      "idea": "Single-cell, single-nucleus and spatial methods describe cell states and their anatomical arrangement. Human cardiac atlases provide reference populations and niches.",
+      "heart": "These methods help formulate hypotheses about which immune, vascular and stromal cells may interact in the heart.",
+      "evidence": "Dissociation, sampling and computational choices can alter the result. Proximity and inferred ligand–receptor pairing do not establish causality; developmental and adult tissues are distinct.",
+      "reading": "single-cell",
+      "related": [
+        "macrophages",
+        "causal-evidence",
+        "endothelium",
+        "fibroblasts"
+      ],
+      "terms": "unicellulaire transcriptomique spatial omiques protéomique épigénomique scRNA snRNA données reproductibilité",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "unicellulaire",
+        "transcriptomique",
+        "spatial",
+        "omiques",
+        "protéomique",
+        "épigénomique",
+        "scRNA",
+        "snRNA",
+        "données",
+        "reproductibilité"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "causal-evidence",
+      "title": "Causal evidence",
+      "group": "methods",
+      "immune": "From mechanism to clinical effect",
+      "question": "Which comparison would change the claim?",
+      "idea": "Perturbation experiments and randomised clinical comparisons answer different causal questions. Each requires a defined intervention, comparison, population and outcome.",
+      "heart": "Targeted IL-1β inhibition has been tested in selected patients with previous myocardial infarction and persistent inflammatory risk.",
+      "evidence": "A positive trial supports its tested intervention and setting, not every anti-inflammatory strategy. Bias, transportability, adverse events and absolute effects remain part of interpretation.",
+      "reading": "cantos",
+      "related": [
+        "atherosclerosis",
+        "interleukins",
+        "single-cell-spatial",
+        "therapeutic-targets"
+      ],
+      "terms": "causalité essais randomisés modèles animaux humains génétique Mendélienne biais preuve intervention",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "causalité",
+        "essais",
+        "randomisés",
+        "modèles",
+        "animaux",
+        "humains",
+        "génétique",
+        "Mendélienne",
+        "biais",
+        "preuve",
+        "intervention"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
+    },
+    {
+      "id": "therapeutic-targets",
+      "title": "Therapeutic translation",
+      "group": "methods",
+      "immune": "From target to patient",
+      "question": "Does target engagement improve a patient-relevant outcome?",
+      "idea": "Immune interventions differ in target, exposure, timing and consequences. Biomarker change and a reduction in clinical events are distinct outcomes.",
+      "heart": "Trials of colchicine after acute myocardial infarction and in chronic coronary disease illustrate why the clinical setting remains part of the claim.",
+      "evidence": "A neutral trial is not proof that immunity is irrelevant, and a positive trial does not validate all immune inhibition. Infection, toxicity and treatment interactions require separate assessment.",
+      "reading": "clear",
+      "related": [
+        "atherosclerosis",
+        "causal-evidence",
+        "tolerance"
+      ],
+      "terms": "thérapeutique colchicine canakinumab immunosuppression immunomodulation CAR-T anti IL-1 IL-6 IL-5 anti TNF JAK sécurité infection",
+      "sources": [],
+      "book": null,
+      "subtopics": [
+        "thérapeutique",
+        "colchicine",
+        "canakinumab",
+        "immunosuppression",
+        "immunomodulation",
+        "CAR-T",
+        "anti",
+        "IL-1",
+        "IL-6",
+        "IL-5",
+        "anti",
+        "TNF",
+        "JAK",
+        "sécurité",
+        "infection"
+      ],
+      "evidenceLevel": "Selected reading; see design and limits",
+      "lastReviewed": "2026-10-19"
     }
   ],
-  "reviewed": "16 October 2026",
+  "reviewed": "19 October 2026",
   "papers": {
     "sensing": {
       "title": "Antiviral innate immunity in myocarditis: mechanisms and emerging therapeutics",
@@ -684,7 +1812,23 @@
       "kind": "Review",
       "url": "https://www.nature.com/articles/s12276-026-01822-z",
       "doi": "10.1038/s12276-026-01822-z",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        9,
+        3
+      ],
+      "onlineDate": [
+        2026,
+        9,
+        3
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s12276-026-01822-z",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "complement": {
       "title": "Complement C3 in panvascular disease: a central integrator of immune signaling and vascular remodeling",
@@ -693,7 +1837,22 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12687451/",
       "doi": "10.1042/CS20257865",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        11
+      ],
+      "onlineDate": [
+        2025,
+        11,
+        4
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1042/CS20257865",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "inflammasome": {
       "title": "NLRP3-mediated pyroptosis in cardiovascular disease: from molecular mechanisms to therapeutic targets",
@@ -702,7 +1861,23 @@
       "kind": "Review",
       "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1901368/full",
       "doi": "10.3389/fphar.2026.1901368",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        9,
+        10
+      ],
+      "onlineDate": [
+        2026,
+        9,
+        10
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fphar.2026.1901368",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "cytokines": {
       "title": "Targeting Interleukin-6 for Treatment of CKD and Cardiovascular Disease",
@@ -711,7 +1886,18 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13508385/",
       "doi": "10.1016/j.ekir.2026.106712",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        10
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.ekir.2026.106712",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "metabolism": {
       "title": "Roles of inflammation and metabolic dysfunction in cardiovascular diseases: molecular mechanisms and therapeutic targets",
@@ -720,7 +1906,23 @@
       "kind": "Review",
       "url": "https://link.springer.com/article/10.1186/s43556-026-00599-x",
       "doi": "10.1186/s43556-026-00599-x",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        9,
+        24
+      ],
+      "onlineDate": [
+        2026,
+        9,
+        24
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1186/s43556-026-00599-x",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "microbiome": {
       "title": "A gut microbiome-kidney-heart axis predictive of future cardiovascular diseases",
@@ -729,7 +1931,23 @@
       "kind": "Human cohort study",
       "url": "https://www.nature.com/articles/s41467-026-69405-0",
       "doi": "10.1038/s41467-026-69405-0",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        3,
+        5
+      ],
+      "onlineDate": [
+        2026,
+        3,
+        5
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41467-026-69405-0",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "macrophages": {
       "title": "Functional diversity of cardiac macrophages in health and disease",
@@ -738,7 +1956,21 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12596025/",
       "doi": "10.1038/s41569-024-01109-8",
-      "access": "Free full text"
+      "access": "Free full text",
+      "publicationDate": [
+        2025,
+        1,
+        2
+      ],
+      "onlineDate": [
+        2025,
+        1,
+        2
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41569-024-01109-8",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     },
     "tcells": {
       "title": "T cells in cardiac health and disease",
@@ -747,7 +1979,23 @@
       "kind": "Review",
       "url": "https://www.jci.org/articles/view/185218",
       "doi": "10.1172/JCI185218",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        1,
+        16
+      ],
+      "onlineDate": [
+        2025,
+        1,
+        16
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1172/JCI185218",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "dc": {
       "title": "Dendritic Cells: Origin, Classification, Development, Biological Functions, and Therapeutic Potential",
@@ -756,7 +2004,22 @@
       "kind": "Review",
       "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/mco2.70455",
       "doi": "10.1002/mco2.70455",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        11
+      ],
+      "onlineDate": [
+        2025,
+        11,
+        5
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1002/mco2.70455",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "treg": {
       "title": "Preclinical and clinical developments in Treg therapy for heart transplantation: Critical assessment and translational challenges",
@@ -765,7 +2028,18 @@
       "kind": "Translational review",
       "url": "https://www.sciencedirect.com/science/article/pii/S0198885926000273",
       "doi": "10.1016/j.humimm.2026.111681",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        4
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.humimm.2026.111681",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "resolution": {
       "title": "Inflammation-resolution signalling in cardiac repair, remodelling, and heart failure",
@@ -774,16 +2048,42 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12728415/",
       "doi": "10.1093/ehjopen/oeaf157",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        10,
+        31
+      ],
+      "onlineDate": [
+        2025,
+        12,
+        4
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1093/ehjopen/oeaf157",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "repair": {
       "title": "Cellular and molecular signals of cardiac wound healing after myocardial infarction",
-      "journal": "American Journal of Physiology — Heart and Circulatory Physiology",
+      "journal": "American Journal of Physiology-Heart and Circulatory Physiology",
       "year": "2026",
       "kind": "Mechanistic review",
-      "url": "https://journals.physiology.org/doi/full/10.1152/ajpheart.00891.2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914773/",
       "doi": "10.1152/ajpheart.00891.2025",
-      "access": "Open access"
+      "access": "Free full text",
+      "publicationDate": [
+        2026,
+        2,
+        1
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1152/ajpheart.00891.2025",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     },
     "fibrosis": {
       "title": "Next-generation molecular imaging of cardiac fibrosis",
@@ -792,7 +2092,23 @@
       "kind": "Review",
       "url": "https://link.springer.com/article/10.1007/s10554-026-03682-0",
       "doi": "10.1007/s10554-026-03682-0",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        3,
+        21
+      ],
+      "onlineDate": [
+        2026,
+        3,
+        21
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1007/s10554-026-03682-0",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "regeneration": {
       "title": "Spatiotemporal precision interventions for cardiac repair and regenerative therapy",
@@ -801,7 +2117,23 @@
       "kind": "Translational review",
       "url": "https://www.nature.com/articles/s12276-026-01704-4",
       "doi": "10.1038/s12276-026-01704-4",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        5,
+        1
+      ],
+      "onlineDate": [
+        2026,
+        5,
+        1
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s12276-026-01704-4",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "atherosclerosis": {
       "title": "Targeting Inflammation in Atherosclerotic Cardiovascular Disease: Mechanisms and Emerging Therapies",
@@ -810,7 +2142,21 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13420926/",
       "doi": "10.1111/imr.70151",
-      "access": "Free full text"
+      "access": "Free full text",
+      "publicationDate": [
+        2026,
+        7,
+        29
+      ],
+      "onlineDate": [
+        2026,
+        7,
+        29
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1111/imr.70151",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     },
     "esc": {
       "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
@@ -819,7 +2165,21 @@
       "kind": "Clinical guideline",
       "url": "https://academic.oup.com/eurheartj/article/46/40/3952/8234483",
       "doi": "10.1093/eurheartj/ehaf192",
-      "access": "Free full text"
+      "access": "Free full text",
+      "publicationDate": [
+        2025,
+        8,
+        29
+      ],
+      "onlineDate": [
+        2025,
+        8,
+        29
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1093/eurheartj/ehaf192",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     },
     "pericarditis": {
       "title": "French protocol for the diagnosis and management of recurrent pericarditis",
@@ -828,7 +2188,18 @@
       "kind": "National care protocol",
       "url": "https://www.sciencedirect.com/science/article/pii/S0248866326000159",
       "doi": "10.1016/j.revmed.2026.02.002",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        3
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.revmed.2026.02.002",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "sarcoidosis": {
       "title": "Cardiac sarcoidosis: from clinical manifestations to heart transplantation",
@@ -837,7 +2208,23 @@
       "kind": "Review",
       "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2026.1723644/full",
       "doi": "10.3389/fmed.2026.1723644",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        3,
+        10
+      ],
+      "onlineDate": [
+        2026,
+        3,
+        10
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fmed.2026.1723644",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "amyloidosis": {
       "title": "Multimodality imaging for cardiac amyloidosis: clinical applications and future directions",
@@ -846,7 +2233,18 @@
       "kind": "Review",
       "url": "https://www.sciencedirect.com/science/article/pii/S095362052500439X",
       "doi": "10.1016/j.ejim.2025.106562",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        2
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.ejim.2025.106562",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "systemic": {
       "title": "The 2026 British Society for Rheumatology guideline for the management of children, young people and adults with systemic lupus erythematosus",
@@ -855,7 +2253,22 @@
       "kind": "Clinical guideline",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13290301/",
       "doi": "10.1093/rheumatology/keag223",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        6
+      ],
+      "onlineDate": [
+        2026,
+        6,
+        24
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1093/rheumatology/keag223",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "vasculitis": {
       "title": "Mechanisms, clinical manifestations and management of cardiovascular diseases in ANCA-associated vasculitis",
@@ -864,25 +2277,74 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13332445/",
       "doi": "10.1093/rheumatology/keag268",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        6,
+        30
+      ],
+      "onlineDate": [
+        2026,
+        7,
+        2
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1093/rheumatology/keag268",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "ph": {
-      "title": "Beyond the Heart-Lung Axis: A Review of the Crosstalk Between the Hemodynamic, Neurohormonal, and Immune Systems in Pulmonary Hypertension",
+      "title": "Beyond the Heart‐Lung Axis: A Review of the Crosstalk Between the Hemodynamic, Neurohormonal, and Immune Systems in Pulmonary Hypertension",
       "journal": "Comprehensive Physiology",
       "year": "2026",
       "kind": "Review",
       "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/cph4.70266",
       "doi": "10.1002/cph4.70266",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        9,
+        22
+      ],
+      "onlineDate": [
+        2026,
+        9,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1002/cph4.70266",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "hf": {
-      "title": "Immune cell dynamics in heart failure: implicated mechanisms and therapeutic targets",
+      "title": "Immune Cell Dynamics in Heart Failure: Implicated Mechanisms and Therapeutic Targets",
       "journal": "ESC Heart Failure",
       "year": "2025",
       "kind": "Review",
       "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/ehf2.15238",
       "doi": "10.1002/ehf2.15238",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        2,
+        4
+      ],
+      "onlineDate": [
+        2025,
+        2,
+        4
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1002/ehf2.15238",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by-nc/4.0/",
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "ici": {
       "title": "Immune checkpoint inhibitor-related cardiotoxicity: a cellular pharmacology perspective on susceptibility and resistance",
@@ -891,16 +2353,41 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13294274/",
       "doi": "10.3389/fphar.2026.1845366",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        6,
+        11
+      ],
+      "onlineDate": [
+        2026,
+        6,
+        11
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fphar.2026.1845366",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "infection": {
-      "title": "Influenza hijacks myeloid cells to inflict Type-I Interferon-fueled damage in the heart",
+      "title": "Influenza hijacks myeloid cells to inflict type-I interferon-fueled damage in the heart",
       "journal": "Immunity",
       "year": "2026",
       "kind": "Human tissue & animal study",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13299115/",
       "doi": "10.1016/j.immuni.2025.12.011",
-      "access": "Free full text"
+      "access": "Free full text",
+      "publicationDate": [
+        2026,
+        3
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.immuni.2025.12.011",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     },
     "transplant": {
       "title": "Diagnosis of rejection following heart transplantation: diving into the future",
@@ -909,7 +2396,23 @@
       "kind": "Review",
       "url": "https://www.frontiersin.org/journals/transplantation/articles/10.3389/frtra.2025.1693821/full",
       "doi": "10.3389/frtra.2025.1693821",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        1,
+        22
+      ],
+      "onlineDate": [
+        2026,
+        1,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/frtra.2025.1693821",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "eye": {
       "title": "The Immunopathogenesis of uveitis",
@@ -918,7 +2421,23 @@
       "kind": "Review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13006656/",
       "doi": "10.3389/fmed.2026.1717056",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        3,
+        2
+      ],
+      "onlineDate": [
+        2026,
+        3,
+        2
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fmed.2026.1717056",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "kidney": {
       "title": "Single-cell profiling unveils nephritis-related circulating immunological signatures in systemic lupus erythematosus patients",
@@ -927,7 +2446,23 @@
       "kind": "Human single-cell study",
       "url": "https://www.nature.com/articles/s42003-025-09431-8",
       "doi": "10.1038/s42003-025-09431-8",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        1,
+        5
+      ],
+      "onlineDate": [
+        2026,
+        1,
+        5
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s42003-025-09431-8",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "neuro": {
       "title": "Neural-immune-cardiovascular axis: from mechanistic crosstalk to therapeutic targets in cardiovascular disease",
@@ -936,7 +2471,23 @@
       "kind": "Review",
       "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1886102/full",
       "doi": "10.3389/fimmu.2026.1886102",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        7,
+        22
+      ],
+      "onlineDate": [
+        2026,
+        7,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fimmu.2026.1886102",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "rheum": {
       "title": "Cardiac Troponin in Autoimmune Rheumatic Diseases: Lights and Shadows",
@@ -945,16 +2496,42 @@
       "kind": "Review",
       "url": "https://www.sciencedirect.com/science/article/pii/S0025619626186601",
       "doi": "10.1016/j.mayocp.2026.07.023",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        7
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.mayocp.2026.07.023",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "neutrophils": {
       "title": "Role of neutrophil extracellular traps in myocardial infarction pathogenesis, diagnosis, and treatment",
-      "journal": "International Journal of Immunopathology and Pharmacology",
+      "journal": "European Journal of Inflammation",
       "year": "2026",
       "kind": "Review",
       "url": "https://journals.sagepub.com/doi/full/10.1177/1721727X261478016",
       "doi": "10.1177/1721727X261478016",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        8
+      ],
+      "onlineDate": [
+        2026,
+        8,
+        8
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1177/1721727X261478016",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
     },
     "chip": {
       "title": "Clonal haematopoiesis and cardiovascular disease, defining risk, filling gaps, and framing the future",
@@ -963,7 +2540,530 @@
       "kind": "Review",
       "url": "https://www.nature.com/articles/s44325-026-00127-4",
       "doi": "10.1038/s44325-026-00127-4",
-      "access": "Open access"
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        5,
+        21
+      ],
+      "onlineDate": [
+        2026,
+        5,
+        21
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s44325-026-00127-4",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "chemokines": {
+      "title": "Inflammation, Immunity, and Cardiovascular Diseases",
+      "journal": "Med Research",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.1002/mdr2.70064",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/mdr2.70064",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        4,
+        9
+      ],
+      "onlineDate": [
+        2026,
+        4,
+        9
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1002/mdr2.70064",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "autoantibodies": {
+      "title": "Functional Autoantibodies in Myocardial Diseases",
+      "journal": "JACC: Basic to Translational Science",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.1016/j.jacbts.2026.101636",
+      "url": "https://www.jacc.org/doi/10.1016/j.jacbts.2026.101636",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        8
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.jacbts.2026.101636",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "trained": {
+      "title": "Trained immunity: induction of an inflammatory memory in disease",
+      "journal": "Cell Research",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.1038/s41422-025-01171-y",
+      "url": "https://www.nature.com/articles/s41422-025-01171-y",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        10,
+        14
+      ],
+      "onlineDate": [
+        2025,
+        10,
+        14
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41422-025-01171-y",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "bcells": {
+      "title": "B-Cell Immune Responses in Myocarditis: Mechanisms, B-Cell Receptor Repertoire, and Clinical Translation",
+      "journal": "Cells",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.3390/cells15191734",
+      "url": "https://www.mdpi.com/2073-4409/15/19/1734",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        9,
+        23
+      ],
+      "onlineDate": [
+        2026,
+        9,
+        23
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3390/cells15191734",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "eosinophils": {
+      "title": "Multimodality Imaging in Eosinophilic Myocarditis: A Rare Cause of Heart Failure",
+      "journal": "Journal of Cardiovascular Development and Disease",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.3390/jcdd12080320",
+      "url": "https://www.mdpi.com/2308-3425/12/8/320",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        8,
+        21
+      ],
+      "onlineDate": [
+        2025,
+        8,
+        21
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3390/jcdd12080320",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "mast": {
+      "title": "Role of cardiac mast cells in cardiovascular diseases: a review",
+      "journal": "PeerJ",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.7717/peerj.21320",
+      "url": "https://peerj.com/articles/21320/",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        5,
+        22
+      ],
+      "onlineDate": [
+        2026,
+        5,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.7717/peerj.21320",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "platelets": {
+      "title": "Platelets and Their Role in Immunity: Formation, Activation and Activity, and Biologically Active Substances in Their Granules and Extracellular Vesicles",
+      "journal": "International Journal of Inflammation",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.1155/ijin/8878764",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1155/ijin/8878764",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        1
+      ],
+      "onlineDate": [
+        2025,
+        9,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1155/ijin/8878764",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "endothelium": {
+      "title": "Transcriptional signatures of endothelial cells shape immune responses in cardiopulmonary health and disease",
+      "journal": "JCI Insight",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.1172/jci.insight.191059",
+      "url": "https://insight.jci.org/articles/view/191059",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        5,
+        22
+      ],
+      "onlineDate": [
+        2025,
+        5,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1172/jci.insight.191059",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "fibroblasts": {
+      "title": "Cardiac Fibroblastic Niches in Homeostasis and Inflammation",
+      "journal": "Circulation Research",
+      "year": "2024",
+      "kind": "Review",
+      "doi": "10.1161/CIRCRESAHA.124.323892",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11149942/",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2024,
+        6,
+        7
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1161/CIRCRESAHA.124.323892",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "lymphatics": {
+      "title": "Cross-talk between cardiac lymphatics and immune cells regulates inflammatory response and cardiac recovery after myocardial infarction",
+      "journal": "Frontiers in Immunology",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.3389/fimmu.2025.1557250",
+      "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1557250/full",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        5,
+        20
+      ],
+      "onlineDate": [
+        2025,
+        5,
+        20
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fimmu.2025.1557250",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "efferocytosis": {
+      "title": "Macrophage efferocytosis: Mechanisms and therapeutic opportunities for future cardiovascular diseases",
+      "journal": "International Immunopharmacology",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.1016/j.intimp.2025.115899",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1567576925018879",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        1
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.intimp.2025.115899",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "cell-death": {
+      "title": "PANoptosis: a potential target of atherosclerotic cardiovascular disease",
+      "journal": "Apoptosis",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.1007/s10495-025-02089-x",
+      "url": "https://link.springer.com/article/10.1007/s10495-025-02089-x",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        4,
+        26
+      ],
+      "onlineDate": [
+        2025,
+        4,
+        26
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1007/s10495-025-02089-x",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc-nd/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "ageing": {
+      "title": "Cellular Senescence, Inflammaging and Cardiovascular Disease",
+      "journal": "Immunological Reviews",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.1111/imr.70084",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/imr.70084",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        1
+      ],
+      "onlineDate": [
+        2026,
+        1,
+        16
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1111/imr.70084",
+      "sourceLicenses": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "hypertension": {
+      "title": "Immune Mechanisms in Hypertension",
+      "journal": "Hypertension",
+      "year": "2024",
+      "kind": "Review",
+      "doi": "10.1161/HYPERTENSIONAHA.124.21355",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11254551/",
+      "access": "Free full text",
+      "publicationDate": [
+        2024,
+        8
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1161/HYPERTENSIONAHA.124.21355",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
+    },
+    "arrhythmias": {
+      "title": "Leukocytes in atrial fibrillation: mechanisms and therapeutics",
+      "journal": "American Journal of Physiology-Heart and Circulatory Physiology",
+      "year": "2026",
+      "kind": "Review",
+      "doi": "10.1152/ajpheart.00127.2026",
+      "url": "https://journals.physiology.org/doi/10.1152/ajpheart.00127.2026",
+      "access": "Open access · publisher",
+      "publicationDate": [
+        2026,
+        8,
+        1
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1152/ajpheart.00127.2026",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher explicitly labels the article Open access: free to read and share (checked 2026-10-19)"
+    },
+    "valves": {
+      "title": "Rheumatic heart valve disease: navigating the challenges of an overlooked autoimmune disorder",
+      "journal": "Frontiers in Cardiovascular Medicine",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.3389/fcvm.2025.1537104",
+      "url": "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1537104/full",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        3,
+        13
+      ],
+      "onlineDate": [
+        2025,
+        3,
+        13
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3389/fcvm.2025.1537104",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "aorta": {
+      "title": "Aortitis accelerates the growth rate of thoracic aortic aneurysms",
+      "journal": "RMD Open",
+      "year": "2026",
+      "kind": "Human observational study",
+      "doi": "10.1136/rmdopen-2026-006933",
+      "url": "https://rmdopen.bmj.com/content/12/2/e006933",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2026,
+        4
+      ],
+      "onlineDate": [
+        2026,
+        6,
+        11
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1136/rmdopen-2026-006933",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "aps": {
+      "title": "Antiphospholipid Syndrome—Diagnostic and Methodologic Approach",
+      "journal": "Metabolites",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.3390/metabo15080500",
+      "url": "https://www.mdpi.com/2218-1989/15/8/500",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2025,
+        7,
+        27
+      ],
+      "onlineDate": [
+        2025,
+        7,
+        27
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.3390/metabo15080500",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "biomarkers": {
+      "title": "Blood biomarkers in left-sided valvular heart disease",
+      "journal": "European Heart Journal",
+      "year": "2025",
+      "kind": "Review",
+      "doi": "10.1093/eurheartj/ehaf232",
+      "url": "https://academic.oup.com/eurheartj/article/46/24/2289/8117240",
+      "access": "Publisher reading · access may vary",
+      "publicationDate": [
+        2025,
+        4,
+        22
+      ],
+      "onlineDate": [
+        2025,
+        4,
+        22
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1093/eurheartj/ehaf232",
+      "sourceLicenses": [],
+      "accessBasis": "Author-manuscript route reported by OpenAIRE; HAL access was blocked to the automated reader on 2026-10-19",
+      "repositoryUrl": "https://hal.science/hal-05295729"
+    },
+    "single-cell": {
+      "title": "Spatially resolved multiomics of human cardiac niches",
+      "journal": "Nature",
+      "year": "2023",
+      "kind": "Human tissue atlas",
+      "doi": "10.1038/s41586-023-06311-1",
+      "url": "https://www.nature.com/articles/s41586-023-06311-1",
+      "access": "Open access · source licence applies",
+      "publicationDate": [
+        2023,
+        7,
+        12
+      ],
+      "onlineDate": [
+        2023,
+        7,
+        12
+      ],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41586-023-06311-1",
+      "sourceLicenses": [
+        "https://creativecommons.org/licenses/by/4.0"
+      ],
+      "accessBasis": "Creative Commons licence recorded by publisher in Crossref"
+    },
+    "cantos": {
+      "title": "Antiinflammatory Therapy with Canakinumab for Atherosclerotic Disease",
+      "journal": "New England Journal of Medicine",
+      "year": "2017",
+      "kind": "Randomised clinical trial",
+      "doi": "10.1056/NEJMoa1707914",
+      "url": "https://ueaeprints.uea.ac.uk/id/eprint/64820/",
+      "access": "Free full text",
+      "publicationDate": [
+        2017,
+        9,
+        21
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1056/NEJMoa1707914",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
+    },
+    "clear": {
+      "title": "Colchicine in Acute Myocardial Infarction",
+      "journal": "New England Journal of Medicine",
+      "year": "2025",
+      "kind": "Randomised clinical trial",
+      "doi": "10.1056/NEJMoa2405922",
+      "url": "https://eprints.whiterose.ac.uk/id/eprint/220260/",
+      "access": "Free full text",
+      "publicationDate": [
+        2025,
+        2,
+        13
+      ],
+      "onlineDate": [],
+      "metadataChecked": "2026-10-19",
+      "metadataSource": "https://api.crossref.org/works/10.1056/NEJMoa2405922",
+      "sourceLicenses": [],
+      "accessBasis": "Publisher or repository reading link; licence not inferred from free access"
     }
   },
   "paths": [
@@ -996,6 +3096,1106 @@
         "kidney",
         "heart-failure"
       ]
+    },
+    {
+      "id": "vascular-interface",
+      "title": "From vessel to thrombosis",
+      "topics": [
+        "endothelium",
+        "platelets",
+        "neutrophils",
+        "immunothrombosis"
+      ]
+    },
+    {
+      "id": "measure-claim",
+      "title": "From measurement to a clinical claim",
+      "topics": [
+        "cardiac-imaging",
+        "biomarkers",
+        "causal-evidence",
+        "therapeutic-targets"
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "schemaVersion": "2.0",
+  "doi": "10.5281/zenodo.23468276",
+  "method": "constellation-method.html",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "scope": "A curated educational map of cardiac and vascular immune interfaces, with selected organ connections and methods. Not a systematic review or an exhaustive ontology.",
+  "reviewStatus": "Editorial synthesis; not independently peer reviewed",
+  "edges": [
+    {
+      "source": "dendritic-cells",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "innate",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "inflammasome",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardiomyocytes",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "innate",
+      "target": "trained-immunity",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "complement",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "complement",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "complement",
+      "target": "transplantation",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "inflammasome",
+      "target": "interleukins",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "inflammasome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "interleukins",
+      "target": "pericarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunometabolism",
+      "target": "interleukins",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunometabolism",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "immunometabolism",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunometabolism",
+      "target": "microbiome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "microbiome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "innate",
+      "target": "microbiome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "dendritic-cells",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "remodeling",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "efferocytosis",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibroblasts",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "b-cells",
+      "target": "lymphocytes",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "lymphocytes",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "dendritic-cells",
+      "target": "lymphocytes",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "lymphocytes",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "lymphocytes",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "dendritic-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "dendritic-cells",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "complement",
+      "target": "neutrophils",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "neutrophils",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "neutrophils",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "neutrophils",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-oncology",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "tolerance",
+      "target": "transplantation",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "b-cells",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "regeneration",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "remodeling",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "heart-failure",
+      "target": "remodeling",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "remodeling",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "regeneration",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "regeneration",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "clonal-haematopoiesis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "therapeutic-targets",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "immunothrombosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoinflammation",
+      "target": "pericarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "myocarditis",
+      "target": "pericarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-oncology",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "pulmonary",
+      "target": "sarcoidosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "sarcoidosis",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "myocarditis",
+      "target": "sarcoidosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "amyloidosis",
+      "target": "heart-failure",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "amyloidosis",
+      "target": "fibrosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "amyloidosis",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "systemic",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "rheumatology",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "kidney",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "systemic",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "kidney",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoinflammation",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoinflammation",
+      "target": "inflammasome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "heart-failure",
+      "target": "pulmonary-hypertension",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "pulmonary",
+      "target": "pulmonary-hypertension",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "pulmonary-hypertension",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-oncology",
+      "target": "lymphocytes",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-infectiology",
+      "target": "innate",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-infectiology",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-infectiology",
+      "target": "complement",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "lymphocytes",
+      "target": "transplantation",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "eye",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "eye",
+      "target": "sarcoidosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "eye",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "kidney",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "neuro",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "neuro",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "neuro",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "pulmonary",
+      "target": "systemic",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "rheumatology",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "rheumatology",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "clonal-haematopoiesis",
+      "target": "inflammasome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "clonal-haematopoiesis",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "clonal-haematopoiesis",
+      "target": "heart-failure",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "chemokines",
+      "target": "macrophages",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "chemokines",
+      "target": "endothelium",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "chemokines",
+      "target": "lymphatics",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoantibodies",
+      "target": "b-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoantibodies",
+      "target": "complement",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoantibodies",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoantibodies",
+      "target": "transplantation",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunometabolism",
+      "target": "trained-immunity",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "clonal-haematopoiesis",
+      "target": "trained-immunity",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "trained-immunity",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "adaptive",
+      "target": "b-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-infectiology",
+      "target": "nk-ilc",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "interleukins",
+      "target": "nk-ilc",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "nk-ilc",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "eosinophils",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "eosinophils",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cell-death",
+      "target": "eosinophils",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "endothelium",
+      "target": "mast-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "mast-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "interleukins",
+      "target": "mast-cells",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunothrombosis",
+      "target": "platelets",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "neutrophils",
+      "target": "platelets",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "endothelium",
+      "target": "platelets",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "endothelium",
+      "target": "hypertension",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "endothelium",
+      "target": "pulmonary-hypertension",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardiomyocytes",
+      "target": "cell-death",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardiomyocytes",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibroblasts",
+      "target": "fibrosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "chemokines",
+      "target": "fibroblasts",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibroblasts",
+      "target": "regeneration",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "lymphatics",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "dendritic-cells",
+      "target": "lymphatics",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "lymphatics",
+      "target": "remodeling",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "efferocytosis",
+      "target": "resolution",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cell-death",
+      "target": "efferocytosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cell-death",
+      "target": "inflammasome",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "clonal-haematopoiesis",
+      "target": "immune-ageing",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibroblasts",
+      "target": "immune-ageing",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "heart-failure",
+      "target": "immune-ageing",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "hypertension",
+      "target": "kidney",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "hypertension",
+      "target": "neuro",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "arrhythmias",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "arrhythmias",
+      "target": "sarcoidosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "arrhythmias",
+      "target": "fibrosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "arrhythmias",
+      "target": "neuro",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "systemic",
+      "target": "valvular-disease",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardio-infectiology",
+      "target": "valvular-disease",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibrosis",
+      "target": "valvular-disease",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "aortic-disease",
+      "target": "vasculitis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "aortic-disease",
+      "target": "endothelium",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "aortic-disease",
+      "target": "fibrosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "immunothrombosis",
+      "target": "neutrophils",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "complement",
+      "target": "immunothrombosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "autoantibodies",
+      "target": "immunothrombosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardiac-imaging",
+      "target": "myocarditis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "cardiac-imaging",
+      "target": "sarcoidosis",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "biomarkers",
+      "target": "cardiac-imaging",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "biomarkers",
+      "target": "kidney",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "biomarkers",
+      "target": "interleukins",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "fibroblasts",
+      "target": "single-cell-spatial",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "endothelium",
+      "target": "single-cell-spatial",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "macrophages",
+      "target": "single-cell-spatial",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "causal-evidence",
+      "target": "single-cell-spatial",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "atherosclerosis",
+      "target": "causal-evidence",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "causal-evidence",
+      "target": "therapeutic-targets",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "causal-evidence",
+      "target": "interleukins",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
+    },
+    {
+      "source": "therapeutic-targets",
+      "target": "tolerance",
+      "relation": "conceptual-reading-link",
+      "directed": false,
+      "causalClaim": false
     }
   ]
 }

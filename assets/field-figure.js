@@ -1,75 +1,39 @@
-/* Export the actual atlas geometry as a sharp, self-contained teaching figure. */
+/* A versioned export of the same source geometry; no selected theme is hidden. */
 (()=>{
 'use strict';
-const button=document.getElementById('field-download');
-if(!button)return;
-button.addEventListener('click',async()=>{
- const status=document.getElementById('field-figure-status');
- button.disabled=true;button.setAttribute('aria-busy','true');status.textContent='Preparing the complete map';
+const pngButton=document.getElementById('field-download');
+if(!pngButton)return;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function figureSVG(){
+ const source=document.getElementById('field-constellation');
+ const clone=source.cloneNode(true);
+ const properties=['fill','stroke','stroke-width','stroke-linejoin','stroke-dasharray','font-family','font-size','font-weight','font-style','text-anchor','paint-order'];
+ const originals=[source,...source.querySelectorAll('*')],copies=[clone,...clone.querySelectorAll('*')];
+ originals.forEach((node,i)=>{
+  const css=getComputedStyle(node),copy=copies[i];
+  for(const name of properties){let value=css.getPropertyValue(name);if(name==='fill'&&value.includes('field-core'))value='url(#field-core)';if(name==='font-family')value='Georgia, serif';if(value)copy.style.setProperty(name,value);}
+  copy.style.opacity=node.classList?.contains('field-rays')?'1':node.getAttribute('opacity')||'1';
+ });
+ clone.querySelectorAll('.constellation-hit,#field-connections').forEach(n=>n.remove());
+ clone.querySelectorAll('[tabindex],[role]').forEach(n=>{n.removeAttribute('tabindex');n.removeAttribute('role');n.removeAttribute('aria-expanded');n.removeAttribute('aria-controls');});
+ clone.setAttribute('x','100');clone.setAttribute('y','405');clone.setAttribute('width','2800');clone.setAttribute('height','2520');
+ const legend=window.FIELD_ATLAS.groups.map((g,i)=>{const x=310+(i%3)*850,y=286+Math.floor(i/3)*48;return `<circle cx="${x}" cy="${y-7}" r="6" fill="${g.color}"/><text x="${x+20}" y="${y}" fill="${g.color}" font-size="25" font-family="Arial,sans-serif">${esc(g.title)}</text>`;}).join('');
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="4800" height="4800" viewBox="0 0 3000 3000"><title>The Map of the Field, Cardioimmunology</title><desc>A curated educational atlas by Brahim Abdelouaeb. Six reading families, with the heart at the centre. Geometry and reading links are not causal evidence.</desc><rect width="3000" height="3000" fill="#102f28"/><rect x="50" y="50" width="2900" height="2900" fill="none" stroke="#79967d"/><text x="1500" y="125" text-anchor="middle" fill="#edf0df" font-size="48" font-family="Georgia,serif">Cardioimmunology Review</text><text x="1500" y="213" text-anchor="middle" fill="#edf0df" font-size="73" font-family="Georgia,serif">The Map of the Field</text>${legend}${new XMLSerializer().serializeToString(clone)}<rect x="55" y="2870" width="2890" height="75" fill="#102f28"/><text x="1500" y="2897" text-anchor="middle" fill="#edf0df" font-family="Arial,sans-serif" font-size="22">Brahim Abdelouaeb · v1.0.0 · 19 October 2026 · doi:10.5281/zenodo.23468276</text><text x="1500" y="2932" text-anchor="middle" fill="#c5d6bd" font-family="Arial,sans-serif" font-size="20">cardioimmunologyreview.org/#field · Conceptual reading map · CC BY 4.0</text></svg>`;
+}
+function save(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);}
+async function exportFigure(svgOnly){
+ const status=document.getElementById('field-figure-status');pngButton.disabled=true;status.textContent='Preparing the versioned map';
  try{
-  const presentation=document.getElementById('field-presentation');
-  if(presentation.getAttribute('aria-pressed')!=='true')presentation.click();
   await document.fonts.ready;
-  const canvas=document.createElement('canvas');canvas.width=3200;canvas.height=3200;
-  const ctx=canvas.getContext('2d');
-  if(!ctx)throw new Error('Canvas unavailable');
-  ctx.scale(1.6,1.6);
-  const text=(value,x,y,font,color='#edf0df',align='center')=>{ctx.font=font;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillText(value,x,y);};
-  ctx.fillStyle='#102f28';ctx.fillRect(0,0,2000,2000);
-  ctx.strokeStyle='#7f9b8055';ctx.lineWidth=1;ctx.strokeRect(42,42,1916,1916);
-  text('Cardioimmunology Review',1000,92,'500 44px "EB Garamond", Georgia, serif');
-  text('THE MAP OF THE FIELD',1000,145,'22px Arial, sans-serif','#bcd0b5');
-  text('Cardioimmunology',1000,233,'500 86px "Cormorant Garamond", Georgia, serif');
-  text('Mechanisms, cells and clinical phenotypes — connected through evidence',1000,285,'32px "EB Garamond", Georgia, serif','#d4dfc8');
-  const groups=window.FIELD_ATLAS.groups;
-  const widths=groups.map(g=>{ctx.font='22px Arial';return ctx.measureText(g.title).width+60;});
-  let gx=(2000-widths.reduce((a,b)=>a+b,0))/2;
-  groups.forEach((g,i)=>{ctx.fillStyle=g.color;ctx.beginPath();ctx.arc(gx+9,328,5,0,Math.PI*2);ctx.fill();text(g.title,gx+25,335,'22px Arial, sans-serif',g.color,'left');gx+=widths[i];});
-  ctx.save();ctx.translate(160,330);ctx.scale(.84,.84);
-  const svg=document.getElementById('field-constellation');
-  for(const node of svg.querySelectorAll('circle,line,path,text')){
-   if(node.classList.contains('constellation-hit'))continue;
-   const css=getComputedStyle(node),num=name=>Number(node.getAttribute(name)||0);
-   ctx.save();ctx.globalAlpha=Number(css.opacity||1);
-   ctx.lineWidth=parseFloat(css.strokeWidth)||1;ctx.lineJoin='round';
-   ctx.strokeStyle=css.stroke==='none'?'transparent':css.stroke;
-   ctx.fillStyle=css.fill==='none'?'transparent':css.fill;
-   if(css.fill.includes('field-core')){
-    const gradient=ctx.createRadialGradient(1000,840,0,1000,840,94);
-    gradient.addColorStop(0,'#edf0d5');gradient.addColorStop(.72,'#c8d9af');gradient.addColorStop(1,'#95b17e');ctx.fillStyle=gradient;
-   }
-   const tag=node.tagName.toLowerCase();
-   if(tag==='circle'){
-    ctx.beginPath();ctx.arc(num('cx'),num('cy'),num('r'),0,Math.PI*2);
-    if(css.fill!=='none')ctx.fill();if(css.stroke!=='none')ctx.stroke();
-   }else if(tag==='line'){
-    ctx.beginPath();ctx.moveTo(num('x1'),num('y1'));ctx.lineTo(num('x2'),num('y2'));ctx.stroke();
-   }else if(tag==='path'){
-    ctx.setLineDash((css.strokeDasharray||'').split(/[ ,]+/).map(Number).filter(v=>Number.isFinite(v)&&v>0));ctx.stroke(new Path2D(node.getAttribute('d')));
-   }else if(tag==='text'){
-    ctx.font=`${css.fontStyle} ${css.fontWeight} ${css.fontSize} ${css.fontFamily}`;
-    ctx.textAlign=css.textAnchor==='middle'?'center':css.textAnchor==='end'?'right':'left';ctx.textBaseline='alphabetic';
-    const spans=Array.from(node.querySelectorAll('tspan'));
-    for(const part of spans.length?spans:[node]){
-     const x=Number(part.getAttribute('x')||node.getAttribute('x')),y=Number(part.getAttribute('y')||node.getAttribute('y'));
-     if(css.stroke!=='none')ctx.strokeText(part.textContent,x,y);
-     ctx.fillText(part.textContent,x,y);
-    }
-   }
-   ctx.restore();
+  const text=figureSVG();
+  if(svgOnly){save(new Blob([text],{type:'image/svg+xml;charset=utf-8'}),'cardioimmunology-field-atlas-v1.svg');}
+  else{
+   const url=URL.createObjectURL(new Blob([text],{type:'image/svg+xml;charset=utf-8'}));
+   try{const img=new Image();await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url;});const c=document.createElement('canvas');c.width=4800;c.height=4800;const x=c.getContext('2d');x.drawImage(img,0,0,4800,4800);const blob=await new Promise(resolve=>c.toBlob(resolve,'image/png'));if(!blob)throw new Error('Export unavailable');save(blob,'cardioimmunology-field-atlas-v1-4800.png');}finally{URL.revokeObjectURL(url);}
   }
-  ctx.restore();ctx.strokeStyle='#7f9b8066';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(130,1815);ctx.lineTo(1870,1815);ctx.stroke();
-  text('Explore the interactive map · cardioimmunologyreview.org/#field',1000,1860,'30px "EB Garamond", Georgia, serif');
-  text('Brahim Abdelouaeb · Author & editor',1000,1900,'22px Arial, sans-serif','#bcd0b5');
-  text('Conceptual reading map · Connections do not establish causality',1000,1940,'18px Arial, sans-serif','#bcd0b5');
-  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
-  if(!blob)throw new Error('Image unavailable');
-  const url=URL.createObjectURL(blob),link=document.createElement('a');
-  link.href=url;link.download='cardioimmunology-map-of-the-field-hd-square.png';link.click();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-  status.textContent='The complete map has been downloaded';
- }catch(error){
-  status.textContent='The figure could not be downloaded. Please try again.';
- }finally{button.disabled=false;button.removeAttribute('aria-busy');}
-});
+  status.textContent='Versioned figure downloaded';
+ }catch(e){status.textContent='The export could not be prepared. Please try again.';}finally{pngButton.disabled=false;}
+}
+pngButton.addEventListener('click',()=>exportFigure(false));
+const svgButton=document.createElement('button');svgButton.type='button';svgButton.id='field-download-svg';svgButton.textContent='Download SVG';svgButton.addEventListener('click',()=>exportFigure(true));pngButton.insertAdjacentElement('afterend',svgButton);
 })();
