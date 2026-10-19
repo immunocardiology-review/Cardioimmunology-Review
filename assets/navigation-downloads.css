@@ -15,3 +15,7 @@ nav.site-nav>button[aria-current],nav.site-nav .interface-language a[aria-curren
 .editorial-header>nav>a:focus-visible{outline:2px solid #315e46;outline-offset:4px}
 @media(max-width:700px){nav.site-nav>button,nav.site-nav>a:not(.journal-home){font-size:12px!important;min-height:40px;padding:8px 3px}}
 @media(max-width:380px){nav.site-nav{gap:2px 6px!important}}
+
+/* Larger navigation labels and touch targets. */
+nav.site-nav>button,nav.site-nav>a:not(.journal-home),.editorial-header>nav>a{font-size:15px!important;min-height:44px}
+@media(max-width:700px){nav.site-nav>button,nav.site-nav>a:not(.journal-home),.editorial-header>nav>a{font-size:14px!important;min-height:44px}nav.site-nav{gap:2px 8px!important}.editorial-header>nav{gap:2px 12px!important}}
