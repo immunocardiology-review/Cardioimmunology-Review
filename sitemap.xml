@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cardioimmunologyreview.org/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/livres-cardioimmunologie.html</loc>
@@ -28,7 +28,7 @@
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/plan-du-site.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/architecture-traite-cardioimmunologie.html</loc>
@@ -60,6 +60,14 @@
   </url>
   <url>
     <loc>https://cardioimmunologyreview.org/revue.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://cardioimmunologyreview.org/charte-editoriale.html</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://cardioimmunologyreview.org/constellation-method.html</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
 </urlset>
