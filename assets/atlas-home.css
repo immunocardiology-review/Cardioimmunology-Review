@@ -443,3 +443,34 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 @media(max-width:700px){.field-focus-title{font-size:21px;min-height:0}.field-focus-title:empty{display:none}.field-panel p{font-size:20px;line-height:1.65}}
 /* Clip the star background without creating a scroll container for the sticky panel. */
 .atlas-band{overflow:clip}
+
+/* Keep the map and its reading card in normal document flow on phones and tablets,
+   in both orientations. Old 35vh / 48% map rows must not clip the SVG or overlap a card. */
+#p2 .field-map-area{max-height:none;height:auto;min-height:0}
+#p2 .field-panel[hidden]{display:none!important}
+@media(max-width:1100px){
+ #p2 .field-layout,#p2 .field-layout.has-topic{display:block!important;height:auto!important;max-height:none!important;overflow:visible!important}
+ #p2 .field-map-area,#p2.field-topic-open .field-map-area{display:block!important;height:auto!important;max-height:none!important;overflow:visible!important;padding:0!important}
+ #p2 .field-panel,#p2 .field-layout.has-topic .field-panel{position:static!important;inset:auto!important;height:auto!important;max-height:none!important;overflow:visible!important;margin:20px 0 0!important;padding:20px!important;clear:both}
+ #p2 .field-panel-head{position:static!important}
+ #p2 .field-framework,#p2 .constellation-filters,#p2 .field-tools>summary{display:none}
+ #p2 .mobile-theme-choice{display:flex;position:static;flex-direction:column;gap:8px;margin:12px 0;color:#dce7d1;font:15px/1.5 var(--ui)}
+ #p2 .mobile-theme-choice select{width:100%;max-width:100%;min-height:48px;padding:10px;font:16px/1.5 var(--ui);background:#e0e8d5;color:#173e33;border:1px solid #bdcba9}
+ #p2 .mobile-map-toggle{display:block;margin:14px 0;min-height:44px;padding:10px 18px;border:1px solid #8ca584;color:#e8eed9;background:transparent;font:14px/1.4 var(--ui)}
+ #p2:not(.mobile-map-visible):not(.is-presentation) #constellation-viewport,#p2:not(.mobile-map-visible):not(.is-presentation) .constellation-caption{display:none!important}
+ #p2 .constellation-mobile-tools{display:none!important}
+ #p2.mobile-map-visible .constellation-mobile-tools{display:flex!important;position:static;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin:10px 0}
+ #p2 .constellation-mobile-tools span{display:none}
+ #p2 #field-presentation{display:none!important}
+ #p2 .constellation-wrap:not(.is-enlarged){width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0 auto}
+ #p2 .constellation-wrap.is-enlarged{width:100%!important;min-width:0!important;max-width:100%!important;height:clamp(220px,60svh,560px)!important;min-height:220px;overflow:auto!important;overscroll-behavior:contain}
+ #p2 .constellation-wrap.is-enlarged svg{width:1350px!important;min-width:1350px!important;max-width:none!important;height:auto;pointer-events:auto}
+ #p2 .constellation-wrap:not(.is-enlarged) svg{pointer-events:auto}
+ #p2 .field-layout.has-topic .field-reference-links{display:none}
+ #p2 .field-panel p{font-size:20px;line-height:1.65}
+ #p2 .field-focus-title{font-size:21px;min-height:0}
+ #p2 .field-focus-title:empty{display:none}
+ #p2 .field-topic-content,#p2 .field-panel{overflow-wrap:break-word}
+}
+
+@media(max-width:1100px){#p2 .constellation-wrap.is-enlarged .constellation-hit{r:46px}}

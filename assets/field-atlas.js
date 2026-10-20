@@ -25,6 +25,53 @@ const frenchTerms={"innate": "immunité innée reconnaissance danger", "compleme
 const normalise=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 let initialised=false,active=null,origin=null,route=null,positions=new Map();
 
+
+const compactMap=matchMedia('(max-width:1100px)');
+function hideCompactMap(){
+ el('p2').classList.remove('mobile-map-visible');
+ const toggle=document.querySelector('.mobile-map-toggle');
+ if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent=uiLanguage==='fr'?'Afficher la carte':'Show the map';}
+}
+function exitMapPresentation(){
+ el('p2').classList.remove('is-presentation');
+ const button=el('field-presentation');
+ if(button){button.setAttribute('aria-pressed','false');button.textContent=ui('View the whole map');}
+}
+function keepMapInView(target){
+ const header=document.querySelector('.site-header');
+ header?.classList.remove('hide');
+ const top=window.scrollY+target.getBoundingClientRect().top-(header?.getBoundingClientRect().height||0)-14;
+ window.scrollTo({top:Math.max(0,top),behavior:'instant'});
+}
+function followMapRotation(){
+ let width=window.innerWidth,height=window.innerHeight,timer,anchor=null;
+ const remember=()=>{
+  if(window.innerWidth!==width)return;
+  const root=el('p2'),rect=root.getBoundingClientRect();
+  if(rect.bottom<=70||rect.top>=window.innerHeight){anchor=null;return;}
+  anchor=active&&!root.classList.contains('mobile-map-visible')&&!root.classList.contains('is-presentation')?'panel':'map';
+ };
+ window.addEventListener('scroll',remember,{passive:true});
+ window.addEventListener('resize',()=>{
+  const nextWidth=window.innerWidth,nextHeight=window.innerHeight;
+  // Ignore browser address-bar movement: only a width/breakpoint or orientation change needs anchoring.
+  if(nextWidth===width)return;
+  const target=anchor,turned=(width>height)!==(nextWidth>nextHeight);
+  width=nextWidth;height=nextHeight;clearTimeout(timer);
+  timer=setTimeout(()=>{
+   const root=el('p2'),viewport=el('constellation-viewport');
+   if(compactMap.matches&&root.classList.contains('is-presentation'))exitMapPresentation();
+   if(!compactMap.matches){setMapZoom(false);hideCompactMap();}else if(viewport.classList.contains('is-enlarged'))setMapZoom(true);
+   // Layout can settle over two frames during Safari rotation.
+   if(target&&(turned||compactMap.matches))requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const node=target==='panel'&&active?el('field-panel'):root.classList.contains('mobile-map-visible')?viewport:root;
+    keepMapInView(node);remember();
+   }));
+  },180);
+ },{passive:true});
+ remember();
+}
+
 function setMapZoom(enlarged){
  const viewport=el('constellation-viewport');
  viewport.classList.toggle('is-enlarged',enlarged);
@@ -67,7 +114,7 @@ function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
  const repeated=active===id&&trigger?.closest('.constellation-node');
  if(repeated){closeTopic();return;}
- setMapZoom(false);active=id;el('field-focus-title').textContent=topic.title;
+ exitMapPresentation();if(compactMap.matches)hideCompactMap();setMapZoom(false);active=id;el('field-focus-title').textContent=topic.title;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
  el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>${esc(ui("What it means"))}</h4><p>${esc(topic.idea)}</p></section><section><h4>${esc(ui("Why it matters for the heart"))}</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>${esc(ui("Evidence and limits"))}</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>${esc(ui("Scope & search terms"))}</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>${esc(ui("Connected themes"))}</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
@@ -78,7 +125,7 @@ function openTopic(id,trigger){
  el('mobile-theme-select').value=id;
  drawConnections();
  el('field-topic-title').focus({preventScroll:true});
- if(matchMedia('(max-width:700px)').matches){el('p2').scrollTop=0;requestAnimationFrame(()=>{el('field-map-area').scrollTop=0;el('field-layout').scrollTop=0;});}
+ if(compactMap.matches)requestAnimationFrame(()=>requestAnimationFrame(()=>keepMapInView(el('field-panel'))));
  const address=new URL(location.href);address.searchParams.set('theme',id);history.replaceState(null,'',address.pathname+address.search+address.hash);
 }
 function closeTopic(){
@@ -87,7 +134,7 @@ function closeTopic(){
  el('field-panel').hidden=true;el('field-layout').classList.remove('has-topic');el('p2').classList.remove('field-topic-open');
  document.querySelectorAll('[data-topic]').forEach(b=>{b.setAttribute('aria-expanded','false');b.classList.remove('is-active','is-related');});
  el('field-connections').replaceChildren();
- el('mobile-theme-select').value='';restore?.focus({preventScroll:true});
+ el('mobile-theme-select').value='';if(compactMap.matches){el('mobile-theme-select').focus({preventScroll:true});requestAnimationFrame(()=>keepMapInView(el('mobile-theme-select')));}else restore?.focus({preventScroll:true});
  const address=new URL(location.href);address.searchParams.delete('theme');history.replaceState(null,'',address.pathname+address.search+address.hash);
 }
 function drawConstellation(){
@@ -173,7 +220,7 @@ function filterMap(){
 window.initFieldAtlas=function(){
  if(initialised)return;initialised=true;
  el('field-branches').innerHTML=data.groups.map((g,i)=>`<section class="field-branch" style="--branch-color:${g.color}" aria-labelledby="field-group-${g.id}"><div class="field-branch-heading"><span class="field-step">${String(i+1).padStart(2,'0')}</span><h3 id="field-group-${g.id}">${esc(g.title)}</h3><p>${esc(g.question)}</p></div><div class="field-topic-list">${data.topics.filter(t=>t.group===g.id).map(t=>`<button type="button" data-topic="${t.id}" aria-controls="field-panel" aria-expanded="false"><span class="field-node" aria-hidden="true"></span><span>${esc(t.title)}</span><span class="field-node-arrow" aria-hidden="true">↗</span></button>`).join('')}</div></section>`).join('');
- drawConstellation();
+ drawConstellation();followMapRotation();
  const focusTitle=el('field-focus-title'); const announce=e=>{const node=e.target.closest('[data-topic]');if(node&&byId.has(node.dataset.topic))focusTitle.textContent=byId.get(node.dataset.topic).title;};el('field-constellation').addEventListener('focusin',announce);el('field-constellation').addEventListener('pointerover',announce);el('field-constellation').addEventListener('pointerleave',()=>{focusTitle.textContent=active?byId.get(active).title:'';});
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
