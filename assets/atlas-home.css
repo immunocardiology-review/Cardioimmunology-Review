@@ -433,3 +433,13 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 .constellation-mobile-tools button{background:transparent!important;color:#e8eed9!important;border:1px solid #8ca584!important;min-height:44px;padding:8px 14px;border-radius:999px;font:600 .82rem var(--ui)!important}
 .constellation-mobile-tools button[aria-pressed="true"]{background:#e8eed914!important}
 @media(max-width:700px){#field-presentation{display:none!important}}
+
+/* A readable name follows the selected or focused star. Geometry stays intact. */
+.field-focus-title{min-height:32px;margin:12px 0 4px;color:#f5f4e8;text-align:center;font:600 21px/1.4 var(--text)}
+.constellation-node:hover .field-label,.constellation-node:focus-visible .field-label,.constellation-node.is-active .field-label{fill:#fff8e6;stroke:#102f28;stroke-width:9;font-weight:600}
+.field-layout.has-topic .field-panel h3{font-family:var(--display);font-size:34px;letter-spacing:-.02em}
+.field-panel-head>span{font-size:12px;line-height:1.5}
+.field-panel h4{font-size:12px;line-height:1.5;letter-spacing:.08em}
+@media(max-width:700px){.field-focus-title{font-size:21px;min-height:0}.field-focus-title:empty{display:none}.field-panel p{font-size:20px;line-height:1.65}}
+/* Clip the star background without creating a scroll container for the sticky panel. */
+.atlas-band{overflow:clip}
