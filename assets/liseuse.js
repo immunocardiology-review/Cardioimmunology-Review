@@ -1,9 +1,11 @@
 // La liseuse de Cardioimmunology Review : lecture continue des PDF originaux, sans modification du texte.
 import './book-download.js';
+import { mountComfort } from './reader-comfort.js';
 
 const $ = s => document.querySelector(s);
 const params = new URLSearchParams(location.search);
 const DATA = await (await fetch(new URL('./liseuse-data.json', import.meta.url))).json();
+const BREAKS = await fetch(new URL('./reader-breaks.json', import.meta.url)).then(r=>r.ok?r.json():{}).catch(()=>({}));
 const key = params.get('livre');
 const book = DATA.books[key];
 const EN = book ? book.lang === 'en' : document.documentElement.lang === 'en';
@@ -42,7 +44,7 @@ if (!book) {
 } else await run();
 
 async function run() {
-const { getDocument, GlobalWorkerOptions, TextLayer, PDFDataRangeTransport } = await import('./book-pdf.mjs');
+const { getDocument, GlobalWorkerOptions, TextLayer, PDFDataRangeTransport, OPS } = await import('./book-pdf.mjs');
 GlobalWorkerOptions.workerSrc = new URL('./book-pdf.worker.mjs', import.meta.url).href;
 
 // ------------------------------------------------------------------ interface
@@ -56,6 +58,7 @@ $('#app').innerHTML = `
     <button type="button" id="b-toc" aria-expanded="false" aria-controls="toc" title="${L.contents} (T)">${icon('toc')}<span>${L.contents}</span></button>
     <button type="button" id="b-search" aria-expanded="false" aria-controls="search" title="${L.search} (/)">${icon('search')}<span>${L.search}</span></button>
     <div class="rpage"><label class="sr" for="pg">${L.page}</label><input id="pg" type="text" inputmode="numeric" autocomplete="off" value="1"><span>/ ${book.pages}</span></div>
+    <button type="button" id="b-reading" disabled aria-pressed="false" title="${EN ? 'Comfort reading' : 'Lecture confortable'}"><b aria-hidden="true">Aa</b><span>${EN ? 'Text' : 'Texte'}</span></button>
     <button type="button" id="b-view" aria-expanded="false" aria-controls="viewmenu" title="${L.view}">${icon('view')}<span>${L.view}</span></button>
     <button type="button" id="b-full" class="hide-s" title="${L.full} (F)">${icon('full')}</button>
     <a class="hide-s" id="b-dl" href="${href(book.pdf)}" download="${book.pdfName}" data-pdf-download="${book.pdfName}" data-pdf-bytes="${book.bytes}" title="${L.download}">${icon('dl')}</a>
@@ -63,6 +66,7 @@ $('#app').innerHTML = `
   <div class="rprogress" aria-hidden="true"><i id="prog"></i></div>
 </header>
 <div class="menu" id="viewmenu" hidden>
+  <div class="seg" role="group" aria-label="${EN ? 'Reading mode' : 'Mode de lecture'}"><button type="button" id="read-text" disabled>${EN ? 'Comfort reading' : 'Lecture confortable'}</button><button type="button" id="read-original" disabled>${EN ? 'Original PDF' : 'PDF original'}</button></div>
   <div class="seg" role="group" aria-label="${L.view}"><button type="button" data-mode="single">${L.single}</button><button type="button" data-mode="double">${L.double}</button></div>
   <div class="seg" role="group" aria-label="Zoom"><button type="button" id="z-out" title="${L.zoomOut} (−)">−</button><button type="button" id="z-fit">${L.fit}</button><button type="button" id="z-in" title="${L.zoomIn} (+)">+</button></div>
   <div class="seg" role="group" aria-label="${L.theme}"><button type="button" data-theme="jour">${L.day}</button><button type="button" data-theme="sepia">${L.sepia}</button><button type="button" data-theme="nuit">${L.night}</button></div>
@@ -76,10 +80,13 @@ $('#app').innerHTML = `
   <p class="snote">${L.searchNote}</p><p class="sstatus" id="sstatus" role="status" aria-live="polite"></p><ol class="hits" id="hits"></ol></aside>
 <div class="keys" id="keys" hidden role="dialog" aria-modal="true" aria-label="${L.shortcuts}"><div><h2>${L.shortcuts}</h2><dl>${L.keys.map(([k, v]) => `<dt><kbd>${k}</kbd></dt><dd>${v}</dd>`).join('')}</dl><button type="button" data-close="keys">${L.close}</button></div></div>
 <main id="reader" class="reader" tabindex="-1" aria-label="${book.title}"><div class="sheets" id="sheets"></div></main>
+<main id="comfort" class="comfort-reader" tabindex="-1" aria-label="${book.title}" hidden></main>
 <p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
 <button type="button" class="nav prev" id="b-prev" aria-label="${L.page} −1">${icon('left')}</button><button type="button" class="nav next" id="b-next" aria-label="${L.page} +1">${icon('right')}</button>`;
 
-const reader = $('#reader'), sheets = $('#sheets');
+const reader = $('#reader'), sheets = $('#sheets'), comfortHost = $('#comfort');
+let comfortable = false, textReader;
+prefs.textSize = Math.max(17,Math.min(26,+prefs.textSize || 20));
 const toast = (t, ms = 2600, action) => { const el = $('#toast'); el.innerHTML = t; el.hidden = false; clearTimeout(toast.t); if (ms) toast.t = setTimeout(() => el.hidden = true, ms); if (action) el.querySelector('button')?.addEventListener('click', action, { once: true }); };
 const status = t => toast(t, 0);
 
@@ -122,6 +129,7 @@ const N = book.pages;
 const isMobile = () => matchMedia('(max-width:760px)').matches;
 function mode() { return isMobile() ? 'single' : prefs.mode; }
 function layout(keepPage = current) {
+  if (comfortable) { textReader?.font(); return; }
   const drawer = matchMedia('(min-width:1300px)').matches && document.documentElement.classList.contains('drawer-open') ? 396 : 0;
   const W = reader.clientWidth - (isMobile() ? 16 : 64) - drawer;
   sheets.style.paddingLeft = drawer ? (drawer + 16) + 'px' : '';
@@ -148,6 +156,7 @@ function pageAt(y) {
 }
 function goTo(n, smooth = true) {
   n = Math.min(N, Math.max(1, n | 0));
+  if (comfortable && textReader) { textReader.go(n); return; }
   reader.scrollTo({ top: topOf(n) - 10, behavior: smooth && !matchMedia('(prefers-reduced-motion:reduce)').matches ? 'smooth' : 'instant' });
   setCurrent(n);
 }
@@ -177,6 +186,7 @@ async function render(s) {
 }
 let io;
 function queueVisible() {
+  if (comfortable) return;
   const top = reader.scrollTop, h = reader.clientHeight;
   const first = pageAt(top - h), last = pageAt(top + 2 * h) + (mode() === 'double' ? 1 : 0);
   for (const s of slots) {
@@ -196,14 +206,29 @@ function setCurrent(n) {
   $('#rchap').textContent = c ? `${L.chapter} ${c.number} · ${c.title}` : book.title;
   for (const a of document.querySelectorAll('.chapters a')) a.toggleAttribute('aria-current', !!c && +a.dataset.n === c.number);
   clearTimeout(urlTimer); urlTimer = setTimeout(() => {
-    const u = new URL(location.href); u.search = ''; u.searchParams.set('livre', key); u.searchParams.set('page', n); history.replaceState(null, '', u);
+    const u = new URL(location.href); u.search = ''; u.searchParams.set('livre', key); u.searchParams.set('page', n); u.searchParams.set('lecture', comfortable ? 'texte' : 'original'); history.replaceState(null, '', u);
     document.title = `${c ? c.title + ' · ' : ''}${book.title} | Cardioimmunology Review`;
     store.set('cir-liseuse:' + key, { page: n, at: Date.now() });
   }, 350);
 }
 let ticking = false;
-reader.addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; setCurrent(pageAt(reader.scrollTop + reader.clientHeight * 0.3)); queueVisible(); }); }, { passive: true });
+reader.addEventListener('scroll', () => { if (comfortable) return; if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; setCurrent(pageAt(reader.scrollTop + reader.clientHeight * 0.3)); queueVisible(); }); }, { passive: true });
 addEventListener('resize', () => { clearTimeout(layout.t); layout.t = setTimeout(() => { gen++; layout(current); }, 150); });
+
+// ------------------------------------------------------------------ modes de lecture
+function readingMode(on, page = current) {
+  comfortable = !!on; prefs.reading = comfortable ? 'text' : 'original'; savePrefs();
+  reader.hidden = comfortable; reader.setAttribute('aria-hidden',String(comfortable)); comfortHost.hidden = !comfortable;
+  $('#b-reading').setAttribute('aria-pressed', String(comfortable));
+  $('#read-text').setAttribute('aria-pressed',String(comfortable)); $('#read-original').setAttribute('aria-pressed',String(!comfortable));
+  document.documentElement.classList.toggle('comfort-on',comfortable);
+  for(const b of document.querySelectorAll('[data-mode]'))b.disabled=comfortable||(isMobile()&&b.dataset.mode==='double');
+  if (comfortable) { gen++; for (const slot of slots) release(slot); textReader.go(page); }
+  else { textReader.stop(); gen++; layout(page); }
+}
+$('#b-reading').onclick = () => readingMode(!comfortable);
+$('#read-text').onclick = () => { readingMode(true); toggle('viewmenu', false); };
+$('#read-original').onclick = () => { readingMode(false); toggle('viewmenu', false); };
 
 // ------------------------------------------------------------------ commandes
 function step(d) { const s = mode() === 'double' ? 2 : 1; let n = current + d * s; if (mode() === 'double' && n > 1) n -= n % 2; goTo(n); }
@@ -232,8 +257,8 @@ for (const b of document.querySelectorAll('[data-mode]')) b.onclick = () => { pr
 for (const b of document.querySelectorAll('[data-theme]')) b.onclick = () => setTheme(b.dataset.theme);
 function setTheme(t) { prefs.theme = t; savePrefs(); document.documentElement.dataset.theme = t; for (const b of document.querySelectorAll('[data-theme]')) b.setAttribute('aria-pressed', String(b.dataset.theme === t)); }
 setTheme(prefs.theme);
-const zoom = z => { prefs.zoom = Math.round(Math.min(3, Math.max(.5, z)) * 100) / 100; savePrefs(); gen++; layout(current); toast(Math.round(prefs.zoom * 100) + ' %', 1000); };
-$('#z-in').onclick = () => zoom(prefs.zoom * 1.15); $('#z-out').onclick = () => zoom(prefs.zoom / 1.15); $('#z-fit').onclick = () => zoom(1);
+const zoom = z => { if (comfortable) { prefs.textSize = Math.max(17,Math.min(26,prefs.textSize+(z>prefs.zoom?1:-1))); savePrefs(); textReader.font(); toast(prefs.textSize+' px',1000); return; } prefs.zoom = Math.round(Math.min(3, Math.max(.5, z)) * 100) / 100; savePrefs(); gen++; layout(current); toast(Math.round(prefs.zoom * 100) + ' %', 1000); };
+$('#z-in').onclick = () => zoom(prefs.zoom * 1.15); $('#z-out').onclick = () => zoom(prefs.zoom / 1.15); $('#z-fit').onclick = () => { if (comfortable) { prefs.textSize=20; savePrefs(); textReader.font(); } else zoom(1); };
 $('#b-full').onclick = async () => { try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen(); } catch {} };
 document.addEventListener('fullscreenchange', () => { $('#b-full').title = document.fullscreenElement ? L.exitFull : L.full; });
 $('#b-share').onclick = async () => { const u = new URL(location.href); try { await navigator.clipboard.writeText(u.href); toast(L.copied); } catch { toast(u.href, 5000); } toggle('viewmenu', false); };
@@ -298,9 +323,15 @@ try {
   let start = parseInt(params.get('page'), 10);
   const ch = parseInt(params.get('chapitre'), 10);
   if (!start && ch) start = (chapters.find(c => c.number === ch) || {}).readingPage;
+  textReader = mountComfort({ pdf, OPS, host:comfortHost, language:book.lang, bookTitle:book.title, total:N,
+    chapterEnd:n=>(chapters.find(c=>c.readingPage>n)?.readingPage || N+1)-1,
+    onPage:setCurrent, onOriginal:n=>{ readingMode(false,n); }, getFont:()=>prefs.textSize, breaks:BREAKS[key] || {} });
+  for(const id of ['b-reading','read-text','read-original']) document.getElementById(id).disabled=false;
   layout(start || 1);
+  const requested = params.get('lecture');
+  if (requested === 'texte' || (requested !== 'original' && (prefs.reading === 'text' || (!prefs.reading && isMobile())))) readingMode(true,start || 1);
   if (!start && saved?.page > 1) toast(`<button type="button">${L.resume} ${saved.page}</button>`, 9000, () => goTo(saved.page));
-  reader.focus({ preventScroll: true });
+  (comfortable?comfortHost:reader).focus({ preventScroll: true });
 } catch (e) {
   console.error(e);
   toast(`${L.error} <a href="${href(book.pdf)}">${L.download}</a>`, 0);

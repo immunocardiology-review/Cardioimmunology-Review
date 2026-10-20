@@ -618,3 +618,30 @@ kbd{font:600 .78rem var(--ui);border:1px solid var(--rule);border-bottom-width:2
     }
   }
 }
+/* Comfort reading: flowing text with a persistent route to the original. */
+[hidden]{display:none!important}
+#b-reading b{font:600 20px/1 var(--text)}
+#b-reading[aria-pressed="true"]{background:var(--sage-100);color:var(--green-900)}
+.comfort-reader{flex:1;min-height:0;overflow:auto;background:var(--sheet);color:var(--bar-ink);padding:28px max(20px,calc((100% - 760px)/2)) 80px;overscroll-behavior:contain;outline:none;--reading-size:20px}
+.comfort-title{font:500 30px/1.2 var(--display);margin:0 0 28px;color:inherit}
+.comfort-page{font:400 var(--reading-size)/1.65 var(--text);overflow-wrap:break-word;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid var(--rule)}
+.comfort-page-head{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--rule);padding:0 0 8px;margin-bottom:20px;font:500 13px/1.4 var(--ui);color:var(--muted)}
+.comfort-reader button{min-height:44px;border:1px solid var(--rule);border-radius:8px;padding:8px 12px;background:var(--bar);color:var(--bar-ink);font:500 14px/1.4 var(--ui);cursor:pointer}
+.comfort-page-head button{border:0;text-decoration:underline;text-underline-offset:4px}
+.comfort-page p{margin:0 0 1.1em}
+.comfort-page h2{font:600 1.25em/1.25 var(--text);margin:1.2em 0 .7em}
+.comfort-page .comfort-running{font:400 13px/1.5 var(--ui);color:var(--muted);margin:.4em 0}
+.comfort-page .comfort-note{font:400 14px/1.6 var(--ui);color:var(--muted)}
+.comfort-original{display:block;width:100%;height:auto;background:white;border:1px solid var(--rule);margin-bottom:16px}
+:root[data-theme="nuit"] .comfort-original{filter:invert(.9) hue-rotate(180deg)}
+.comfort-transcript{margin-top:20px;font-size:18px}
+.comfort-transcript summary{min-height:44px;font:500 14px/1.5 var(--ui);cursor:pointer}
+.comfort-next{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font:500 14px/1.5 var(--ui);padding:10px 0 30px}
+.comfort-on .nav{display:none}
+.comfort-on [data-mode]{opacity:.5}
+@media(max-width:760px){
+ .rbar{padding-inline:8px;gap:2px}.rtools{gap:1px}.rtools>button{padding-inline:8px}
+ .comfort-reader{padding:24px 20px 64px}.comfort-title{font-size:28px}
+ .comfort-page-head{font-size:12px;gap:6px}.comfort-page-head button{font-size:13px;padding-inline:4px}
+}
+@media(max-width:360px){.rbar{padding-inline:4px;gap:0}.rtools{gap:0}.rpage{padding-inline:2px;gap:4px}.rpage input{width:44px}}
