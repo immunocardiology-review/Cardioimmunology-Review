@@ -645,3 +645,5 @@ kbd{font:600 .78rem var(--ui);border:1px solid var(--rule);border-bottom-width:2
  .comfort-page-head{font-size:12px;gap:6px}.comfort-page-head button{font-size:13px;padding-inline:4px}
 }
 @media(max-width:360px){.rbar{padding-inline:4px;gap:0}.rtools{gap:0}.rpage{padding-inline:2px;gap:4px}.rpage input{width:44px}}
+
+[data-theme="nuit"] :focus-visible{outline-color:var(--sage-300)}

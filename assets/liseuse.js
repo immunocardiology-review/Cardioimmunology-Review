@@ -39,7 +39,7 @@ const icon = n => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use h
 // ------------------------------------------------------------------ choix du livre
 if (!book) {
   document.title = `${L.readerTitle} | Cardioimmunology Review`;
-  $('#app').innerHTML = `<div class="shelf-pick"><p class="kicker"><a href="${href(EN ? 'en.html' : 'index.html')}">← Cardioimmunology Review</a></p><h1>${L.readerTitle}</h1><p class="lede">${L.choose}</p><div class="pick">` +
+  $('#app').innerHTML = `<div class="shelf-pick"><p class="kicker"><a href="${href(EN ? './' : 'fr.html')}">← Cardioimmunology Review</a></p><h1>${L.readerTitle}</h1><p class="lede">${L.choose}</p><div class="pick">` +
     Object.entries(DATA.books).map(([k, b]) => `<a href="?livre=${k}"><img src="${href(b.cover)}" alt="" width="420" height="594"><span class="t" lang="${b.lang}">${b.title}</span><span class="s">${b.pages} ${L.pages}</span></a>`).join('') + '</div></div>';
 } else await run();
 

@@ -330,3 +330,8 @@ main{display:block}
 }
 @media(max-width:760px){.book-hero h1{overflow-wrap:anywhere;hyphens:auto;-webkit-hyphens:auto}}
 @media(max-width:360px){.section-tabs{gap:0}.section-tabs a{font-size:12px;padding-inline:9px}.book-actions .btn{font-size:13px}}
+
+/* 26/10/2026 : étagère anglaise à trois volumes ; « Discover » plus lisible */
+.shelf.shelf-en{align-items:start}.shelf-en .cover{aspect-ratio:840/1188}.shelf-en .cover img{width:100%;height:100%;object-fit:contain;background:#fff}
+.shelf-en .volume-soon{cursor:default}.shelf-en .volume-soon:hover .cover{transform:none}
+.scroll-cue{font-size:.78rem;color:#ffffffc7}.scroll-cue::after{background:linear-gradient(#ffffffc7,transparent)}
