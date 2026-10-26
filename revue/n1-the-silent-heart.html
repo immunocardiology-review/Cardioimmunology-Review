@@ -155,7 +155,9 @@
 @media(max-width:960px){.mobile-toc{display:block;border-bottom:1px solid var(--gris-trait);padding:20px 0 15px}.mobile-toc>summary{font-size:20px;color:var(--carmin);min-height:48px;padding:8px 0;cursor:pointer}.mobile-toc nav ol{list-style:none;padding:10px 0}.mobile-toc nav li a{display:block;padding:10px 0;font-size:18px;text-decoration:none}.mobile-toc .t{display:none}}
 @media(max-width:640px){.bar{padding:8px 16px;gap:5px}.bar b{font-size:9px;letter-spacing:.09em}.bar .mm{width:25px;height:25px}.lang{letter-spacing:0}.lang a,.lang span{padding:8px;min-width:42px}.hero{padding:38px 22px}.hero h1{font-size:35px;line-height:1.15;overflow-wrap:break-word}.hero .en{font-size:20px}.byline{font-size:17px}.byline a{display:block;margin:8px 0 0;border:0;font-size:15px}.wrap{padding:0 23px}.wrap main{padding-top:35px;font-size:20px;min-width:0}main p{hyphens:none;line-height:1.7}.abs{margin-bottom:30px}.abs p{font-size:18px}.abs h3{font-size:13px}.propo{margin-left:-23px;margin-right:-23px;padding-left:23px;padding-right:23px}.propo a.cit{color:#ffbc99}.tab tbody th{font-size:19px}.tab tbody td{font-size:18px;padding:8px 0;line-height:1.6}.tab tbody td:before{font-size:12px;color:#645449;letter-spacing:.06em}.row{grid-template-columns:52px minmax(0,1fr) 59px;font-size:15px}.grp-t{font-size:17px}.grp-t span{font-size:15px}.box li,.qcm li{font-size:19px}.coi{font-size:17px}.refs ol{font-size:17px;padding-left:23px}.cite{font-size:17px;overflow-wrap:anywhere}.pull{padding-left:18px}.fig,.box,.qcm{padding:20px 14px}.box h3{font-size:25px}.byline{letter-spacing:.02em}}
 @media(min-width:641px) and (max-width:960px){.propo{margin-left:0;margin-right:0;padding-left:25px;padding-right:25px}}
-@media (pointer:coarse){sup .cit{display:inline-block;line-height:1;padding:7px 8px;margin:-7px -6px}}
+@media (pointer:coarse){sup .cit{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px;padding:0;margin:-6px -4px;line-height:1}}
+.refs .doi,a.cit[href^="#fig"],a.cit[href^="#tab"]{text-decoration:underline;text-underline-offset:.18em}
+@media screen and (max-width:640px){.hero{padding:28px 22px}.hero h1{margin-top:16px;font-size:30px;line-height:1.12}.hero .en{margin-top:14px;font-size:18px}.rule{margin:24px auto}}
 </style>
 <style>
 
@@ -231,7 +233,7 @@ a,button,summary{-webkit-tap-highlight-color:#ad704b25}button,a{touch-action:man
 
 <figure class="fig" aria-labelledby="fig1-t">
   <figcaption id="fig1-t"><span class="fig-k">Figure 1</span>The frequency of cardiac involvement depends on how it is sought</figcaption>
-  <div class="bars" role="img" aria-label="Clinical cardiomyopathy at diagnosis: 16.4 percent. Systematic workup in remission: 62 percent versus 3 percent in controls. Systematic electrocardiography and echocardiography: 62 percent in EGPA, 46 percent in GPA, 20 percent in controls.">
+  <div class="bars" role="group" aria-label="Clinical cardiomyopathy at diagnosis: 16.4 percent. Systematic workup in remission: 62 percent versus 3 percent in controls. Systematic electrocardiography and echocardiography: 62 percent in EGPA, 46 percent in GPA, 20 percent in controls.">
     <div class="grp"><div class="grp-t">Clinical cardiomyopathy at diagnosis<span>EGPA, FVSG cohort, n = 383<sup><a href="#r1" class="cit" aria-label="Reference 1">1</a></sup></span></div>
       <div class="row"><span class="lab">Patients</span><span class="track"><span class="fill b-ink" style="--v:16.4"></span></span><span class="val">16.4%</span></div>
     </div>
@@ -345,7 +347,7 @@ a,button,summary{-webkit-tap-highlight-color:#ad704b25}button,a{touch-action:man
  <p>A cardioimmunology collection and an open-access review by <a href="../author.html">Dr. Brahim Abdelouaeb</a>.</p>
  <p><a href="https://orcid.org/0009-0002-7690-9993" rel="me">ORCID 0009-0002-7690-9993</a></p></div>
  <div><h2>The collection</h2><ul>
-  <li><a href="../method/the-method.html">The Method</a></li>
+  <li><a href="../the-labs.html">The Labs</a></li><li><a href="../method/the-method.html">The Method</a></li>
   <li><a href="https://doi.org/10.5281/zenodo.23248048">Architecture of the Treatise</a></li></ul></div>
  <div><h2>The Review</h2><ul>
   <li><a href="../review.html">Cardioimmunology Review</a></li><li><a href="../revue/n1-the-silent-heart.html">Issue 1</a></li>
