@@ -1,6 +1,6 @@
 // La liseuse de Cardioimmunology Review : lecture continue des PDF originaux, sans modification du texte.
 import './book-download.js';
-import { mountComfort } from './reader-comfort.js';
+import { mountComfort } from './reader-comfort.js?v=20261027';
 
 const $ = s => document.querySelector(s);
 const params = new URLSearchParams(location.search);
@@ -79,7 +79,8 @@ $('#app').innerHTML = `
 <aside class="drawer" id="search" hidden aria-label="${L.search}"><div class="dhead search-head"><form id="sform" role="search"><input id="q" type="search" placeholder="${L.searchPh}" autocomplete="off" aria-label="${L.searchPh}"></form><button type="button" class="x" data-close="search" aria-label="${L.close}">×</button></div>
   <p class="snote">${L.searchNote}</p><p class="sstatus" id="sstatus" role="status" aria-live="polite"></p><ol class="hits" id="hits"></ol></aside>
 <div class="keys" id="keys" hidden role="dialog" aria-modal="true" aria-label="${L.shortcuts}"><div><h2>${L.shortcuts}</h2><dl>${L.keys.map(([k, v]) => `<dt><kbd>${k}</kbd></dt><dd>${v}</dd>`).join('')}</dl><button type="button" data-close="keys">${L.close}</button></div></div>
-<main id="reader" class="reader" tabindex="-1" aria-label="${book.title}"><div class="sheets" id="sheets"></div></main>
+<h1 class="sr" lang="${book.lang}">${book.title}</h1>
+<main id="reader" class="reader" tabindex="0" aria-label="${book.title}"><div class="sheets" id="sheets"></div></main>
 <main id="comfort" class="comfort-reader" tabindex="-1" aria-label="${book.title}" hidden></main>
 <p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
 <button type="button" class="nav prev" id="b-prev" aria-label="${L.page} −1">${icon('left')}</button><button type="button" class="nav next" id="b-next" aria-label="${L.page} +1">${icon('right')}</button>`;
@@ -327,6 +328,7 @@ try {
     chapterEnd:n=>(chapters.find(c=>c.readingPage>n)?.readingPage || N+1)-1,
     onPage:setCurrent, onOriginal:n=>{ readingMode(false,n); }, getFont:()=>prefs.textSize, breaks:BREAKS[key] || {} });
   for(const id of ['b-reading','read-text','read-original']) document.getElementById(id).disabled=false;
+  $('#read-text').setAttribute('aria-pressed','false'); $('#read-original').setAttribute('aria-pressed','true');
   // 27/10/2026 (audit) : un seul mode initialisé au démarrage
   const requested = params.get('lecture');
   const comfortAtStart = requested === 'texte' || (requested !== 'original' && (prefs.reading === 'text' || (!prefs.reading && isMobile())));

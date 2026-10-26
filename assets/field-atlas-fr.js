@@ -103,11 +103,11 @@ window.FIELD_ATLAS_FR = {
   },
   "neutrophils": {
    "immune": "Cellules innées · immunothrombose",
-   "question": "Quel état des neutrophiles et quelles preuves de formation de NETs ?",
+   "question": "Quel état des neutrophiles et quelles preuves de formation de NET ?",
    "idea": "Les neutrophiles coordonnent la défense antimicrobienne, l’inflammation aiguë et les interactions avec les plaquettes et d’autres cellules immunitaires. Les pièges extracellulaires constituent un mécanisme effecteur parmi d’autres, et non un synonyme de toute activité des neutrophiles.",
-   "heart": "Les processus associés aux NETs relient thrombose, lésion de reperfusion et réparation ; la temporalité et le contexte tissulaire modulent les effets des neutrophiles.",
-   "evidence": "Les marqueurs circulants associés aux NETs n’identifient pas spécifiquement leur formation dans les tissus et ne démontrent pas qu’un traitement ciblant les NETs améliore les résultats cliniques.",
-   "title": "Neutrophiles et NETs"
+   "heart": "Les processus associés aux NET relient thrombose, lésion de reperfusion et réparation ; la temporalité et le contexte tissulaire modulent les effets des neutrophiles.",
+   "evidence": "Les marqueurs circulants associés aux NET n’identifient pas spécifiquement leur formation dans les tissus et ne démontrent pas qu’un traitement ciblant les NET améliore les résultats cliniques.",
+   "title": "Neutrophiles et NET"
   },
   "adaptive": {
    "immune": "Passerelle entre immunités innée et adaptative",

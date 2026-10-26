@@ -93,7 +93,7 @@ main{display:block}
 
 /* Boutons et liens d'action */
 .actions{display:flex;flex-wrap:wrap;gap:10px 12px;margin:22px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 20px;border-radius:999px;font:600 .9rem/1 var(--ui);letter-spacing:.01em;text-decoration:none;border:1px solid var(--green-800);color:var(--green-900);background:transparent;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 20px;border-radius:999px;font:600 .9rem/1.2 var(--ui);text-align:center;letter-spacing:.01em;text-decoration:none;border:1px solid var(--green-800);color:var(--green-900);background:transparent;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}
 .btn:hover{background:var(--sage-100);color:var(--green-950)}
 .btn-primary{background:var(--green-800);color:var(--ivory)}
 .btn-primary:hover{background:var(--green-900);color:#fff}
@@ -264,7 +264,7 @@ main{display:block}
 .cite-entry .formatted{margin:0 0 10px}
 .cite-entry details summary{font:600 .82rem/1 var(--ui);color:var(--green-700);cursor:pointer;padding:10px 0;min-height:44px;display:flex;align-items:center}
 .cite-entry pre{background:var(--green-950);color:#dfe8cf;font:400 .78rem/1.55 ui-monospace,'SF Mono',Menlo,monospace;padding:14px 16px;border-radius:8px;overflow:auto;margin:6px 0 10px}
-.copy{font:600 .78rem/1 var(--ui);border:1px solid var(--rule);background:var(--paper);color:var(--green-800);border-radius:999px;padding:10px 14px;cursor:pointer;min-height:40px}
+.copy{font:600 .9rem/1 var(--ui);border:1px solid var(--rule);background:var(--paper);color:var(--green-800);border-radius:999px;padding:12px 20px;cursor:pointer;min-height:46px}
 .copy:hover{background:var(--sage-100)}
 
 /* Pied de page commun */
@@ -293,7 +293,7 @@ main{display:block}
  .volume .sub{font-size:.88rem}
  .shelf{gap:28px 18px}
  .issue-feature .cover{max-width:220px}
- .hero .actions .btn{flex:1 1 140px}
+ .hero .actions .btn{flex:1 1 auto;white-space:nowrap}
 }
 
 /* Fiches de livres (page Livres) */
@@ -344,3 +344,13 @@ html:has(.section-tabs){scroll-padding-top:132px}
 /* 27/10/2026 (audit) : liens reconnaissables sans la couleur ; cibles tactiles des DOI */
 .author-strip p a,.site-footer .legal a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
 .pubs .d a{display:inline-flex;align-items:center;min-height:44px}
+
+/* 27/10/2026 (audit) : liens du pied de page soulignés */
+.site-footer .foot p a,.site-footer .legal a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+
+/* 27/10/2026 (audit visuel) */
+@media (min-width:861px){.side-layout:has(> aside .card){grid-template-columns:232px minmax(0,1fr)}}
+.issue-card .no,h1,h2,h3{font-variant-numeric:lining-nums}
+.section-tabs a:focus-visible{outline-offset:-4px}
+.cite-entry h3{text-wrap:pretty}
+#field details{max-width:1100px;margin-inline:auto}

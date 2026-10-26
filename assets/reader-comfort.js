@@ -1,8 +1,10 @@
 // Accessible reading from the original PDF text, with original-page fallback.
 // Keep source order and every extracted character. Never infer a table's cells.
-export function planTextPage(items, height, graphics = false, breaks = {}) {
+export function planTextPage(items, height, graphics = false, breaks = {}, known = []) {
   const lines = []; let line = null;
-  for (const item of items) {
+  const spaced = new Map(known.filter(Boolean).map(k => [k.replace(/\s+/g, '').toLowerCase(), k]));
+  for (let item of items) {
+    if (typeof item.str === 'string' && /^(?:\S ){3,}\S$/u.test(item.str)) { const k = spaced.get(item.str.replace(/ /g, '').toLowerCase()); if (k) item = { ...item, str: k }; }
     if (typeof item.str !== 'string' || !item.str.trim()) continue;
     const x = item.transform[4], y = height - item.transform[5];
     const size = Math.abs(item.height || item.transform[3]) || 10;
@@ -53,7 +55,7 @@ export function mountComfort({ pdf, OPS, host, language, bookTitle, total, chapt
     if (cache.has(page.pageNumber)) return cache.get(page.pageNumber);
     const [tc, ops] = await Promise.all([page.getTextContent(), page.getOperatorList()]);
     const vectors = ops.fnArray.filter(x => x === OPS.constructPath).length;
-    const plan = planTextPage(tc.items, page.getViewport({scale:1}).height, ops.fnArray.some(x => imageOps.has(x)) || vectors > 14, breaks);
+    const plan = planTextPage(tc.items, page.getViewport({scale:1}).height, ops.fnArray.some(x => imageOps.has(x)) || vectors > 14, breaks, [bookTitle, 'Cardioimmunology', 'Cardioimmunologie', 'Cardioimmunology Review']);
     cache.set(page.pageNumber, plan); return plan;
   }
   const addRuns=(element,block)=>{for(const run of block.runs){if(run.script){const note=document.createElement(run.script);note.textContent=run.text;element.append(note);}else element.append(document.createTextNode(run.text));}};
