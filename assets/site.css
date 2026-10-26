@@ -335,3 +335,8 @@ main{display:block}
 .shelf.shelf-en{align-items:start}.shelf-en .cover{aspect-ratio:840/1188}.shelf-en .cover img{width:100%;height:100%;object-fit:contain;background:#fff}
 .shelf-en .volume-soon{cursor:default}.shelf-en .volume-soon:hover .cover{transform:none}
 .scroll-cue{font-size:.78rem;color:#ffffffc7}.scroll-cue::after{background:linear-gradient(#ffffffc7,transparent)}
+
+/* 26/10/2026 (réaudit) : cadres identiques sur les deux étagères ; ancres visibles sous les onglets ; onglets collés en haut quand l'en-tête se cache */
+.shelf{align-items:start}.shelf .cover{aspect-ratio:840/1188}.shelf .cover img{width:100%;height:100%;object-fit:contain;background:#fff}
+html:has(.section-tabs){scroll-padding-top:132px}
+@media (max-width:760px){html:has(.section-tabs){scroll-padding-top:160px}body:has(.site-header.hide) .section-tabs{top:0}}
