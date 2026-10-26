@@ -1,0 +1,2 @@
+Cormorant Garamond (Christian Thalmann), EB Garamond (Georg Duffner, Octavio Pardo) et Inter (Rasmus Andersson) sont distribuées sous la SIL Open Font License 1.1 : https://openfontlicense.org
+Fichiers obtenus auprès de Google Fonts le 26 octobre 2026, jeux latin et latin étendu.
