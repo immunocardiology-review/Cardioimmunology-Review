@@ -340,3 +340,7 @@ main{display:block}
 .shelf{align-items:start}.shelf .cover{aspect-ratio:840/1188}.shelf .cover img{width:100%;height:100%;object-fit:contain;background:#fff}
 html:has(.section-tabs){scroll-padding-top:132px}
 @media (max-width:760px){html:has(.section-tabs){scroll-padding-top:160px}body:has(.site-header.hide) .section-tabs{top:0}}
+
+/* 27/10/2026 (audit) : liens reconnaissables sans la couleur ; cibles tactiles des DOI */
+.author-strip p a,.site-footer .legal a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.pubs .d a{display:inline-flex;align-items:center;min-height:44px}

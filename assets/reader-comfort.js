@@ -108,7 +108,9 @@ export function mountComfort({ pdf, OPS, host, language, bookTitle, total, chapt
     host.append(title,pages,more); host.scrollTop = 0; last = n - 1; end = chapterEnd(n);
     observer = new IntersectionObserver(entries=>{ const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top); if(visible[0] && token===generation) onPage(+visible[0].target.dataset.page); },{root:host,rootMargin:'-8% 0px -55% 0px',threshold:0});
     rasterObserver=new IntersectionObserver(entries=>{for(const e of entries){const canvas=e.target,r=rasters.get(canvas);if(!r||r.token!==generation)continue;if(e.isIntersecting&&!r.drawn&&!r.task){canvas.width=Math.round(r.vp.width);canvas.height=Math.round(r.vp.height);const task=r.page.render({canvas,canvasContext:canvas.getContext('2d'),viewport:r.vp});r.task=task;task.promise.then(()=>{if(r.task===task){r.task=null;r.drawn=true;}}).catch(()=>{if(r.task===task)r.task=null;});}else if(!e.isIntersecting){r.task?.cancel();r.task=null;r.drawn=false;canvas.width=canvas.height=1;}}},{root:host,rootMargin:'1000px 0px'});
-    onPage(n); await load(3);
+    onPage(n); await load(1);
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    if (token === generation) void load(2);
   }
   return { go, stop(){generation++;loading=false;observer?.disconnect();clearRasters();}, font(){host.style.setProperty('--reading-size',getFont()+'px');} };
 }

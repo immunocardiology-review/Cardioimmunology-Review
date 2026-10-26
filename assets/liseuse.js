@@ -245,7 +245,7 @@ function toggle(id, force) {
   document.documentElement.classList.toggle('drawer-open', !$('#toc').hidden || !$('#search').hidden);
   if (matchMedia('(min-width:1300px)').matches) { gen++; layout(current); }
   if (on && id === 'search') setTimeout(() => $('#q').focus(), 30);
-  if (on && id === 'toc') $('.chapters [aria-current]')?.scrollIntoView({ block: 'center' });
+  if (on && id === 'toc') { $('.chapters [aria-current]')?.scrollIntoView({ block: 'center' }); setTimeout(() => ($('.chapters [aria-current]') || $('#toc [data-close="toc"]'))?.focus(), 30); }
 }
 $('#b-toc').onclick = () => toggle('toc'); $('#b-search').onclick = () => toggle('search'); $('#b-view').onclick = () => toggle('viewmenu');
 document.addEventListener('click', e => {
@@ -254,8 +254,8 @@ document.addEventListener('click', e => {
   if (!e.target.closest('#viewmenu, #b-view') && !$('#viewmenu').hidden) toggle('viewmenu', false);
 });
 for (const b of document.querySelectorAll('[data-mode]')) b.onclick = () => { prefs.mode = b.dataset.mode; savePrefs(); gen++; layout(current); };
-for (const b of document.querySelectorAll('[data-theme]')) b.onclick = () => setTheme(b.dataset.theme);
-function setTheme(t) { prefs.theme = t; savePrefs(); document.documentElement.dataset.theme = t; for (const b of document.querySelectorAll('[data-theme]')) b.setAttribute('aria-pressed', String(b.dataset.theme === t)); }
+for (const b of document.querySelectorAll('button[data-theme]')) b.onclick = () => setTheme(b.dataset.theme);
+function setTheme(t) { prefs.theme = t; savePrefs(); document.documentElement.dataset.theme = t; for (const b of document.querySelectorAll('button[data-theme]')) b.setAttribute('aria-pressed', String(b.dataset.theme === t)); }
 setTheme(prefs.theme);
 const zoom = z => { if (comfortable) { prefs.textSize = Math.max(17,Math.min(26,prefs.textSize+(z>prefs.zoom?1:-1))); savePrefs(); textReader.font(); toast(prefs.textSize+' px',1000); return; } prefs.zoom = Math.round(Math.min(3, Math.max(.5, z)) * 100) / 100; savePrefs(); gen++; layout(current); toast(Math.round(prefs.zoom * 100) + ' %', 1000); };
 $('#z-in').onclick = () => zoom(prefs.zoom * 1.15); $('#z-out').onclick = () => zoom(prefs.zoom / 1.15); $('#z-fit').onclick = () => { if (comfortable) { prefs.textSize=20; savePrefs(); textReader.font(); } else zoom(1); };
@@ -327,9 +327,10 @@ try {
     chapterEnd:n=>(chapters.find(c=>c.readingPage>n)?.readingPage || N+1)-1,
     onPage:setCurrent, onOriginal:n=>{ readingMode(false,n); }, getFont:()=>prefs.textSize, breaks:BREAKS[key] || {} });
   for(const id of ['b-reading','read-text','read-original']) document.getElementById(id).disabled=false;
-  layout(start || 1);
+  // 27/10/2026 (audit) : un seul mode initialisé au démarrage
   const requested = params.get('lecture');
-  if (requested === 'texte' || (requested !== 'original' && (prefs.reading === 'text' || (!prefs.reading && isMobile())))) readingMode(true,start || 1);
+  const comfortAtStart = requested === 'texte' || (requested !== 'original' && (prefs.reading === 'text' || (!prefs.reading && isMobile())));
+  if (comfortAtStart) readingMode(true, start || 1); else layout(start || 1);
   if (!start && saved?.page > 1) toast(`<button type="button">${L.resume} ${saved.page}</button>`, 9000, () => goTo(saved.page));
   (comfortable?comfortHost:reader).focus({ preventScroll: true });
 } catch (e) {
