@@ -9,7 +9,7 @@ Site of the Cardioimmunology collection by Dr. Brahim Abdelouaeb (ORCID [0009-00
 | *Cardioimmunologie* — treatise, 1,195 pages (October 16, 2026) | French | [10.5281/zenodo.23426684](https://doi.org/10.5281/zenodo.23426684) |
 | *La Méthode* — Cardioimmunologie Livre 2, 388 pages (October 2026) | French | [10.5281/zenodo.23403519](https://doi.org/10.5281/zenodo.23403519) |
 | *The Method* — Cardioimmunology Book 2, 378 pages (October 10, 2026) | English | [10.5281/zenodo.23271825](https://doi.org/10.5281/zenodo.23271825) |
-| *Le Bilan* — 199 pages (October 16, 2026) | French | [10.5281/zenodo.23426618](https://doi.org/10.5281/zenodo.23426618) |
+| *Le Bilan* — 199 pages (October 16, 2026; corrected October 26, 2026) | French | [10.5281/zenodo.23675272](https://doi.org/10.5281/zenodo.23675272) |
 | *The Labs* — English edition of Le Bilan, 194 pages (October 26, 2026) | English | [10.5281/zenodo.23672192](https://doi.org/10.5281/zenodo.23672192) |
 | Architecture scientifique et clinique du Traité (October 8, 2026) | French | [10.5281/zenodo.23248208](https://doi.org/10.5281/zenodo.23248208) |
 | Scientific and Clinical Architecture of the Treatise (October 8, 2026) | English | [10.5281/zenodo.23248048](https://doi.org/10.5281/zenodo.23248048) |
