@@ -164,9 +164,9 @@
     "label": "Le Bilan",
     "path": "le-bilan.html",
     "cover": "bilan.webp",
-    "pdf": "https://zenodo.org/api/records/23426618/files/LE-BILAN_Abdelouaeb_2026.pdf/content",
-    "download": "https://zenodo.org/records/23426618/files/LE-BILAN_Abdelouaeb_2026.pdf?download=1",
-    "doi": "10.5281/zenodo.23426618",
+    "pdf": "https://zenodo.org/api/records/23675272/files/LE-BILAN_Abdelouaeb_2026.pdf/content",
+    "download": "https://zenodo.org/records/23675272/files/LE-BILAN_Abdelouaeb_2026.pdf?download=1",
+    "doi": "10.5281/zenodo.23675272",
     "pages": 199,
     "chapters": [
       {
@@ -317,7 +317,7 @@
         "readingPage": 181
       }
     ],
-    "bytes": 2458460
+    "bytes": 2462972
   },
   "methode": {
     "title": "La Méthode",
