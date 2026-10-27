@@ -81,5 +81,7 @@ const start=()=>window.initFieldAtlas&&window.initFieldAtlas();
 const f=document.getElementById('field');if('IntersectionObserver' in window&&!location.search.includes('theme=')){const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){start();io.disconnect();}},{rootMargin:'600px'});io.observe(f);}else start();
 })();
 </script>
+<script data-goatcounter="https://cardioimmunologyreview.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.goatcounter||!window.goatcounter.count)return;var u=new URL(a.href,location.href),p=null;if(/\.pdf$/i.test(u.pathname))p='pdf'+u.pathname;else if(/(^|\.)(zenodo\.org|hal\.science|doi\.org)$/.test(u.hostname))p='lien/'+u.hostname+u.pathname;if(p)window.goatcounter.count({path:p,title:(a.textContent||'').trim().slice(0,80),event:true});});</script>
 </body>
 </html>
