@@ -27,6 +27,19 @@ let initialised=false,active=null,origin=null,route=null,positions=new Map();
 
 
 const compactMap=matchMedia('(max-width:1100px)');
+// Phones: the reading opens as a full-screen sheet above an unchanged map.
+const phoneSheet=matchMedia('(max-width:700px)'),canHover=matchMedia('(hover:hover)');
+let sheetOpen=false,sheetPushed=false,sheetScroll=0;
+function openSheet(){
+ if(sheetOpen)return;
+ sheetOpen=true;sheetScroll=window.scrollY;document.documentElement.classList.add('field-sheet-open');
+ history.pushState({fieldSheet:true},'',location.href);sheetPushed=true;
+}
+function closeSheet(){
+ if(!sheetOpen)return false;
+ sheetOpen=false;document.documentElement.classList.remove('field-sheet-open');window.scrollTo({top:sheetScroll,behavior:'instant'});
+ return true;
+}
 function hideCompactMap(){
  el('p2').classList.remove('mobile-map-visible');
  const toggle=document.querySelector('.mobile-map-toggle');
@@ -114,28 +127,30 @@ function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
  const repeated=active===id&&trigger?.closest('.constellation-node');
  if(repeated){closeTopic();return;}
- exitMapPresentation();if(compactMap.matches)hideCompactMap();setMapZoom(false);active=id;el('field-focus-title').textContent=topic.title;
+ exitMapPresentation();if(!phoneSheet.matches){if(compactMap.matches)hideCompactMap();setMapZoom(false);}active=id;el('field-focus-title').textContent=topic.title;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
  el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>${esc(ui("What it means"))}</h4><p>${esc(topic.idea)}</p></section><section><h4>${esc(ui("Why it matters for the heart"))}</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>${esc(ui("Evidence and limits"))}</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>${esc(ui("Scope & search terms"))}</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>${esc(ui("Connected themes"))}</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
  el('field-panel').hidden=false;
- el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');
+ if(phoneSheet.matches)openSheet();else{el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');}
  el('field-panel').scrollTop=0;
  document.querySelectorAll('[data-topic]').forEach(b=>{const selected=b.dataset.topic===id;b.setAttribute('aria-expanded',String(selected));b.classList.toggle('is-active',selected);});
  el('mobile-theme-select').value=id;
  drawConnections();
  el('field-topic-title').focus({preventScroll:true});
- if(compactMap.matches)requestAnimationFrame(()=>requestAnimationFrame(()=>keepMapInView(el('field-panel'))));
+ if(compactMap.matches&&!sheetOpen)requestAnimationFrame(()=>requestAnimationFrame(()=>keepMapInView(el('field-panel'))));
  const address=new URL(location.href);address.searchParams.set('theme',id);history.replaceState(null,'',address.pathname+address.search+address.hash);
 }
-function closeTopic(){
+function closeTopic(fromHistory){
  const restore=origin||document.querySelector(`.constellation-node[data-topic="${active}"]`);
+ const wasSheet=closeSheet();
  active=null;route=null;if(el('field-focus-title'))el('field-focus-title').textContent='';
  el('field-panel').hidden=true;el('field-layout').classList.remove('has-topic');el('p2').classList.remove('field-topic-open');
  document.querySelectorAll('[data-topic]').forEach(b=>{b.setAttribute('aria-expanded','false');b.classList.remove('is-active','is-related');});
  el('field-connections').replaceChildren();
- el('mobile-theme-select').value='';if(compactMap.matches){el('mobile-theme-select').focus({preventScroll:true});requestAnimationFrame(()=>keepMapInView(el('mobile-theme-select')));}else restore?.focus({preventScroll:true});
+ el('mobile-theme-select').value='';if(wasSheet){restore?.focus?.({preventScroll:true});}else if(compactMap.matches){el('mobile-theme-select').focus({preventScroll:true});requestAnimationFrame(()=>keepMapInView(el('mobile-theme-select')));}else restore?.focus({preventScroll:true});
  const address=new URL(location.href);address.searchParams.delete('theme');history.replaceState(null,'',address.pathname+address.search+address.hash);
+ if(wasSheet&&sheetPushed&&!fromHistory){sheetPushed=false;history.back();}else if(fromHistory)sheetPushed=false;
 }
 function drawConstellation(){
  const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1400,cy=1260;
@@ -221,7 +236,7 @@ window.initFieldAtlas=function(){
  if(initialised)return;initialised=true;
  el('field-branches').innerHTML=data.groups.map((g,i)=>`<section class="field-branch" style="--branch-color:${g.color}" aria-labelledby="field-group-${g.id}"><div class="field-branch-heading"><span class="field-step">${String(i+1).padStart(2,'0')}</span><h3 id="field-group-${g.id}">${esc(g.title)}</h3><p>${esc(g.question)}</p></div><div class="field-topic-list">${data.topics.filter(t=>t.group===g.id).map(t=>`<button type="button" data-topic="${t.id}" aria-controls="field-panel" aria-expanded="false"><span class="field-node" aria-hidden="true"></span><span>${esc(t.title)}</span><span class="field-node-arrow" aria-hidden="true">↗</span></button>`).join('')}</div></section>`).join('');
  drawConstellation();followMapRotation();
- const focusTitle=el('field-focus-title'); const announce=e=>{const node=e.target.closest('[data-topic]');if(node&&byId.has(node.dataset.topic))focusTitle.textContent=byId.get(node.dataset.topic).title;};el('field-constellation').addEventListener('focusin',announce);el('field-constellation').addEventListener('pointerover',announce);el('field-constellation').addEventListener('pointerleave',()=>{focusTitle.textContent=active?byId.get(active).title:'';});
+ const focusTitle=el('field-focus-title'); const announce=e=>{const node=e.target.closest('[data-topic]');if(node&&byId.has(node.dataset.topic))focusTitle.textContent=byId.get(node.dataset.topic).title;};el('field-constellation').addEventListener('focusin',announce);el('field-constellation').addEventListener('pointerover',e=>{if(canHover.matches)announce(e);});el('field-constellation').addEventListener('pointerleave',()=>{focusTitle.textContent=active?byId.get(active).title:'';});
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
  el('field-presentation').addEventListener('click',()=>{const on=el('p2').classList.toggle('is-presentation');el('field-presentation').setAttribute('aria-pressed',String(on));el('field-presentation').textContent=ui(on?'Return to reading':'View the whole map');if(on){closeTopic();setMapZoom(false);}el('p2').scrollTop=0;});
@@ -241,7 +256,9 @@ window.initFieldAtlas=function(){
   if(e.target.closest('[data-end-route]')){route=null;openTopic(active);}
  });
  el('field-close').textContent=ui('Close ×');el('field-close').setAttribute('aria-label',ui('Close the theme'));
- el('field-close').addEventListener('click',closeTopic);
+ el('field-close').addEventListener('click',()=>closeTopic());
+ window.addEventListener('popstate',()=>{if(sheetOpen)closeTopic(true);});
+ phoneSheet.addEventListener('change',()=>{if(!phoneSheet.matches&&sheetOpen){sheetOpen=false;document.documentElement.classList.remove('field-sheet-open');el('field-layout').classList.add('has-topic');el('p2').classList.add('field-topic-open');}});
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
  el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});

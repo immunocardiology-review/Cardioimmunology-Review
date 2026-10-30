@@ -474,3 +474,17 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 }
 
 @media(max-width:1100px){#p2 .constellation-wrap.is-enlarged .constellation-hit{r:46px}}
+
+/* Phones (30/10/2026): the map stays still under the finger, the zoom is moderate, a reading opens in a full-screen sheet. */
+@media(max-width:700px){
+ #p2 .field-focus-title{min-height:1.4em}
+ #p2 .field-focus-title:empty{display:block}
+ #p2 .constellation-wrap:not(.is-enlarged) .constellation-hit{r:92px}
+ #p2 .constellation-wrap.is-enlarged svg{width:1100px!important;min-width:1100px!important}
+ #p2 .constellation-wrap.is-enlarged .constellation-hit{r:80px}
+ html.field-sheet-open,html.field-sheet-open body{overflow:hidden}
+ html.field-sheet-open #p2 .field-layout{z-index:auto!important}
+ html.field-sheet-open #p2 .field-panel{position:fixed!important;inset:0!important;z-index:1000;height:100dvh!important;max-height:none!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;margin:0!important;padding:0 18px calc(28px + env(safe-area-inset-bottom))!important;border:0;background:#f4f2e9}
+ html.field-sheet-open #p2 .field-panel-head{position:sticky!important;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 -18px 14px;padding:calc(8px + env(safe-area-inset-top)) 18px 8px;background:#f4f2e9;border-bottom:1px solid #c2cbb6}
+ html.field-sheet-open #p2 #field-close{min-height:44px;min-width:44px;font-size:16px}
+}
