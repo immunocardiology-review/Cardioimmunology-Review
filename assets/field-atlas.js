@@ -262,5 +262,11 @@ window.initFieldAtlas=function(){
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
  el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
+ // Phones open on the whole map, ready to touch.
+ if(phoneSheet.matches&&!el('p2').classList.contains('mobile-map-visible')){
+  el('p2').classList.add('mobile-map-visible');
+  const toggle=document.querySelector('.mobile-map-toggle');
+  if(toggle){toggle.setAttribute('aria-expanded','true');toggle.textContent=uiLanguage==='fr'?'Masquer la carte':'Hide the map';}
+ }
 };
 })();
