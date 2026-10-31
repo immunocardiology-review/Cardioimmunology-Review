@@ -1,6 +1,6 @@
 # Cardioimmunology Review
 
-**The heart as an immune organ: open-access books, review articles and a map of the field in cardioimmunology.**
+**The heart, an immune organ: open-access books, review articles and a map of the field in cardioimmunology.**
 
 [![Website](https://img.shields.io/badge/website-cardioimmunologyreview.org-1f4d3a)](https://cardioimmunologyreview.org/)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0002--7690--9993-a6ce39?logo=orcid&logoColor=white)](https://orcid.org/0009-0002-7690-9993)

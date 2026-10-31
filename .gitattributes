@@ -1,8 +1,3 @@
 # Third-party library (PDF.js, Apache 2.0): exclude from GitHub's language statistics
 assets/book-pdf.mjs linguist-vendored
 assets/book-pdf.worker.mjs linguist-vendored
-# Generated data files
-assets/field-atlas-data.js linguist-generated
-assets/field-atlas-fr.js linguist-generated
-assets/book-reader-data.json linguist-generated
-assets/book-word-boundaries.json linguist-generated
