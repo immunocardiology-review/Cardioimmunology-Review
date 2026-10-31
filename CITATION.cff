@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use these works, please cite them as below."
+title: "Cardioimmunology Review"
+abstract: "Open-access books, review articles and a map of the field in cardioimmunology: autoimmune, autoinflammatory and rare diseases with cardiovascular involvement."
+authors:
+  - family-names: Abdelouaeb
+    given-names: Brahim
+    orcid: "https://orcid.org/0009-0002-7690-9993"
+    website: "https://cardioimmunologyreview.org/author.html"
+url: "https://cardioimmunologyreview.org/"
+repository-code: "https://github.com/immunocardiology-review/Cardioimmunology-Review"
+keywords:
+  - cardioimmunology
+  - cardiology
+  - immunology
+  - autoimmune diseases
+  - autoinflammatory diseases
+  - rare diseases
+  - vasculitis
+  - laboratory medicine
+  - medical education
+  - open access
+preferred-citation:
+  type: book
+  title: "Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine"
+  authors:
+    - family-names: Abdelouaeb
+      given-names: Brahim
+      orcid: "https://orcid.org/0009-0002-7690-9993"
+  year: 2026
+  publisher:
+    name: "Cardioimmunology Review"
+  languages:
+    - fr
+  doi: "10.5281/zenodo.23822648"
+  url: "https://doi.org/10.5281/zenodo.23822648"
