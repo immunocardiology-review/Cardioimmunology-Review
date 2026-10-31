@@ -31,7 +31,7 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 
 | Work | Language | Pages | DOI |
 |---|---|---|---|
-| [*Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*](https://cardioimmunologyreview.org/traite.html) (2026) | French | 1,195 | [10.5281/zenodo.23822648](https://doi.org/10.5281/zenodo.23822648) |
+| [*Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*](https://cardioimmunologyreview.org/traite.html) (2026), scientific direction by Mahmoud Alaa Eddine Belkenadil | French | 1,195 | [10.5281/zenodo.23822648](https://doi.org/10.5281/zenodo.23822648) |
 | [*La Méthode : Comprendre les preuves et construire le savoir en cardioimmunologie*](https://cardioimmunologyreview.org/method/la-methode.html) (Cardioimmunologie, Livre 2, 2026) | French | 388 | [10.5281/zenodo.23822651](https://doi.org/10.5281/zenodo.23822651) |
 | [*The Method: Understanding Evidence and Building Knowledge in Cardioimmunology*](https://cardioimmunologyreview.org/method/the-method.html) (Cardioimmunology, Book 2, 2026) | English | 378 | [10.5281/zenodo.23822652](https://doi.org/10.5281/zenodo.23822652) |
 | [*Le Bilan : Précis de biologie médicale des maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire*](https://cardioimmunologyreview.org/le-bilan.html) (2026, corrected edition) | French | 199 | [10.5281/zenodo.23822649](https://doi.org/10.5281/zenodo.23822649) |
