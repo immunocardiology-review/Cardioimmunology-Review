@@ -4,9 +4,9 @@
     "label": "Le Traité",
     "path": "traite.html",
     "cover": "traite.webp",
-    "pdf": "https://zenodo.org/api/records/23822648/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf/content",
-    "download": "https://zenodo.org/records/23822648/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf?download=1",
-    "doi": "10.5281/zenodo.23822648",
+    "pdf": "https://zenodo.org/api/records/23928078/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf/content",
+    "download": "https://zenodo.org/records/23928078/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf?download=1",
+    "doi": "10.5281/zenodo.23928078",
     "pages": 1195,
     "chapters": [
       {
@@ -157,7 +157,7 @@
         "readingPage": 1137
       }
     ],
-    "bytes": 35305266
+    "bytes": 35312461
   },
   "bilan": {
     "title": "Le Bilan",
