@@ -4,17 +4,17 @@
     "label": "Le Traité",
     "path": "traite.html",
     "cover": "traite.webp",
-    "pdf": "https://zenodo.org/api/records/23928078/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf/content",
-    "download": "https://zenodo.org/records/23928078/files/CARDIOIMMUNOLOGIE_Abdelouaeb_2026.pdf?download=1",
-    "doi": "10.5281/zenodo.23928078",
-    "pages": 1195,
+    "pdf": "https://zenodo.org/api/records/24044230/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v3.pdf/content",
+    "download": "https://zenodo.org/records/24044230/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v3.pdf?download=1",
+    "doi": "10.5281/zenodo.24044230",
+    "pages": 1217,
     "chapters": [
       {
         "title": "Bases immunologiques fondamentales",
-        "page": 65,
+        "page": 66,
         "depth": 1,
         "number": 1,
-        "readingPage": 66
+        "readingPage": 67
       },
       {
         "title": "Cellules effectrices de l’immunité cardiaque",
@@ -25,139 +25,139 @@
       },
       {
         "title": "Biologie vasculaire et athérogenèse inflammatoire",
-        "page": 137,
+        "page": 136,
         "depth": 1,
         "number": 3,
-        "readingPage": 138
+        "readingPage": 137
       },
       {
         "title": "Remodelage cardiaque post-infarctus : mécanismes immunitaires de la réparation",
-        "page": 178,
+        "page": 177,
         "depth": 1,
         "number": 4,
-        "readingPage": 179
+        "readingPage": 178
       },
       {
         "title": "Péricardites immuno-médiées",
-        "page": 212,
+        "page": 211,
         "depth": 1,
         "number": 5,
-        "readingPage": 213
+        "readingPage": 212
       },
       {
         "title": "Myocardites : physiopathologie, diagnostic et prise en charge",
-        "page": 252,
+        "page": 253,
         "depth": 1,
         "number": 6,
-        "readingPage": 253
+        "readingPage": 254
       },
       {
         "title": "Cardiopathies inflammatoires et infiltratives : sarcoïdose et amyloses (AL, ATTR, AA)",
-        "page": 317,
+        "page": 320,
         "depth": 1,
         "number": 7,
-        "readingPage": 318
+        "readingPage": 321
       },
       {
         "title": "Atteintes cardiovasculaires des maladies auto-immunes systémiques",
-        "page": 395,
+        "page": 399,
         "depth": 1,
         "number": 8,
-        "readingPage": 396
+        "readingPage": 400
       },
       {
         "title": "Atteintes cardiovasculaires des vascularites systémiques",
-        "page": 477,
+        "page": 487,
         "depth": 1,
         "number": 9,
-        "readingPage": 478
+        "readingPage": 488
       },
       {
         "title": "Syndromes auto-inflammatoires",
-        "page": 544,
+        "page": 554,
         "depth": 1,
         "number": 10,
-        "readingPage": 545
+        "readingPage": 555
       },
       {
         "title": "Hypertension pulmonaire des maladies auto-immunes",
-        "page": 564,
+        "page": 575,
         "depth": 1,
         "number": 11,
-        "readingPage": 565
+        "readingPage": 576
       },
       {
         "title": "Maladies systémiques rares à expression cardiovasculaire",
-        "page": 601,
+        "page": 612,
         "depth": 1,
         "number": 12,
-        "readingPage": 602
+        "readingPage": 613
       },
       {
         "title": "De la défaillance à l’étiologie",
-        "page": 638,
+        "page": 647,
         "depth": 1,
         "number": 13,
-        "readingPage": 639
+        "readingPage": 648
       },
       {
         "title": "De l’étiologie à l’ordonnance",
-        "page": 798,
+        "page": 816,
         "depth": 1,
         "number": 14,
-        "readingPage": 799
+        "readingPage": 817
       },
       {
         "title": "Pharmacologie et biothérapies immunomodulatrices",
-        "page": 860,
+        "page": 879,
         "depth": 1,
         "number": 15,
-        "readingPage": 861
+        "readingPage": 880
       },
       {
         "title": "Axe microbiote intestinal-immunité-cœur",
-        "page": 907,
+        "page": 928,
         "depth": 1,
         "number": 16,
-        "readingPage": 908
+        "readingPage": 929
       },
       {
         "title": "Cardio-oncologie immunologique : CAR-T, inhibiteurs de point de contrôle immunitaire (ICI) et thérapies ciblées",
-        "page": 925,
+        "page": 946,
         "depth": 1,
         "number": 17,
-        "readingPage": 926
+        "readingPage": 947
       },
       {
         "title": "Cardio-infectiologie immunologique",
-        "page": 953,
+        "page": 976,
         "depth": 1,
         "number": 18,
-        "readingPage": 954
+        "readingPage": 977
       },
       {
         "title": "Génomique et endotypage en cardio-immunologie",
-        "page": 998,
+        "page": 1020,
         "depth": 1,
         "number": 19,
-        "readingPage": 999
+        "readingPage": 1021
       },
       {
         "title": "Imagerie et biomarqueurs en cardio-immunologie",
-        "page": 1015,
+        "page": 1037,
         "depth": 1,
         "number": 20,
-        "readingPage": 1016
+        "readingPage": 1038
       },
       {
         "title": "Transplantation cardiaque et immunologie du rejet",
-        "page": 1136,
+        "page": 1158,
         "depth": 1,
         "number": 21,
-        "readingPage": 1137
+        "readingPage": 1159
       }
     ],
-    "bytes": 35312461
+    "bytes": 45039688
   },
   "bilan": {
     "title": "Le Bilan",
