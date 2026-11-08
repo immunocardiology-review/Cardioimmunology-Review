@@ -4,7 +4,8 @@
 
 [![Website](https://img.shields.io/badge/website-cardioimmunologyreview.org-1f4d3a)](https://cardioimmunologyreview.org/)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0002--7690--9993-a6ce39?logo=orcid&logoColor=white)](https://orcid.org/0009-0002-7690-9993)
-[![Treatise DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24044230-1682d4)](https://doi.org/10.5281/zenodo.24044230)
+[![DOI Traité FR](https://img.shields.io/badge/DOI_Trait%C3%A9_FR-10.5281%2Fzenodo.24054117-1682d4)](https://doi.org/10.5281/zenodo.24054117)
+[![DOI Treatise EN](https://img.shields.io/badge/DOI_Treatise_EN-10.5281%2Fzenodo.24054141-1682d4)](https://doi.org/10.5281/zenodo.24054141)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 Cardioimmunology Review is an independent editorial collection by **Dr Brahim Abdelouaeb**, physician in Paris. It covers autoimmune, autoinflammatory and rare diseases with cardiovascular involvement: their mechanisms, laboratory assessment and clinical reasoning. It also covers the methods used to evaluate the evidence.
@@ -15,6 +16,7 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 
 <p align="center">
   <a href="https://cardioimmunologyreview.org/traite.html"><img src="assets/covers/traite-220.webp" alt="Cardioimmunologie, Traité de médecine" width="110"></a>
+  <a href="https://cardioimmunologyreview.org/treatise/"><img src="assets/covers/treatise-220.webp" alt="Cardioimmunology, English edition of the Treatise" width="110"></a>
   <a href="https://cardioimmunologyreview.org/method/la-methode.html"><img src="assets/covers/la-methode-220.webp" alt="La Méthode" width="110"></a>
   <a href="https://cardioimmunologyreview.org/method/the-method.html"><img src="assets/covers/the-method-220.webp" alt="The Method" width="110"></a>
   <a href="https://cardioimmunologyreview.org/le-bilan.html"><img src="assets/covers/bilan-220.webp" alt="Le Bilan" width="110"></a>
@@ -23,7 +25,7 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
   <a href="https://cardioimmunologyreview.org/constellation-method.html"><img src="assets/covers/map-220.webp" alt="The Map of the Field" width="110"></a>
 </p>
 
-> **En français.** Cardioimmunology Review est la collection du Dr Brahim Abdelouaeb, médecin à Paris, consacrée aux maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire : le *Traité de Cardioimmunologie*, *La Méthode*, *Le Bilan*, la revue *Cardioimmunology Review* et la carte du domaine. Tous les ouvrages sont en accès libre, avec un DOI Zenodo. [Lire le site en français](https://cardioimmunologyreview.org/fr.html).
+> **En français.** Cardioimmunology Review est la collection du Dr Brahim Abdelouaeb, médecin à Paris, consacrée aux maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire : le *Traité de Cardioimmunologie* (édition anglaise : *Cardioimmunology*), *La Méthode*, *Le Bilan*, la revue *Cardioimmunology Review* et la carte du domaine. Tous les ouvrages sont en accès libre, avec un DOI Zenodo. [Lire le site en français](https://cardioimmunologyreview.org/fr.html).
 
 ## Publications
 
@@ -31,7 +33,8 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 
 | Work | Language | Pages | DOI |
 |---|---|---|---|
-| [*Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*](https://cardioimmunologyreview.org/traite.html) (2026), scientific direction by Mahmoud Alaa Eddine Belkenadil | French | 1,195 | [10.5281/zenodo.24044230](https://doi.org/10.5281/zenodo.24044230) |
+| [*Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*](https://cardioimmunologyreview.org/traite.html) (2026), scientific direction by Mahmoud Alaa Eddine Belkenadil | French | 1,217 | [10.5281/zenodo.24054117](https://doi.org/10.5281/zenodo.24054117) |
+| [*Cardioimmunology: The Heart in Immune and Rare Diseases. A Treatise of Medicine*](https://cardioimmunologyreview.org/treatise/) (2026), scientific direction by Mahmoud Alaa Eddine Belkenadil | English | 1,166 | [10.5281/zenodo.24054141](https://doi.org/10.5281/zenodo.24054141) |
 | [*La Méthode : Comprendre les preuves et construire le savoir en cardioimmunologie*](https://cardioimmunologyreview.org/method/la-methode.html) (Cardioimmunologie, Livre 2, 2026) | French | 388 | [10.5281/zenodo.23822651](https://doi.org/10.5281/zenodo.23822651) |
 | [*The Method: Understanding Evidence and Building Knowledge in Cardioimmunology*](https://cardioimmunologyreview.org/method/the-method.html) (Cardioimmunology, Book 2, 2026) | English | 378 | [10.5281/zenodo.23822652](https://doi.org/10.5281/zenodo.23822652) |
 | [*Le Bilan : Précis de biologie médicale des maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire*](https://cardioimmunologyreview.org/le-bilan.html) (2026, corrected edition) | French | 199 | [10.5281/zenodo.23822649](https://doi.org/10.5281/zenodo.23822649) |
@@ -54,7 +57,9 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 
 ## How to cite
 
-> Abdelouaeb, B. (2026). *Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*. Cardioimmunology Review. https://doi.org/10.5281/zenodo.24044230
+> Abdelouaeb, B. (2026). *Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine*. Cardioimmunology Review. https://doi.org/10.5281/zenodo.24054117
+
+> Abdelouaeb, B. (2026). *Cardioimmunology: The Heart in Immune and Rare Diseases. A Treatise of Medicine*. Cardioimmunology Review. https://doi.org/10.5281/zenodo.24054141
 
 ```bibtex
 @book{abdelouaeb2026cardioimmunologie,
@@ -63,8 +68,8 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
   year      = {2026},
   publisher = {Cardioimmunology Review},
   language  = {french},
-  doi       = {10.5281/zenodo.24044230},
-  url       = {https://doi.org/10.5281/zenodo.24044230}
+  doi       = {10.5281/zenodo.24054117},
+  url       = {https://doi.org/10.5281/zenodo.24054117}
 }
 ```
 
