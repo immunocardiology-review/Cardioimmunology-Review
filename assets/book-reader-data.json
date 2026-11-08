@@ -4,9 +4,9 @@
     "label": "Le Traité",
     "path": "traite.html",
     "cover": "traite.webp",
-    "pdf": "https://zenodo.org/api/records/24044230/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v3.pdf/content",
-    "download": "https://zenodo.org/records/24044230/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v3.pdf?download=1",
-    "doi": "10.5281/zenodo.24044230",
+    "pdf": "https://zenodo.org/api/records/24054117/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v4.pdf/content",
+    "download": "https://zenodo.org/records/24054117/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v4.pdf?download=1",
+    "doi": "10.5281/zenodo.24054117",
     "pages": 1217,
     "chapters": [
       {
@@ -157,7 +157,7 @@
         "readingPage": 1159
       }
     ],
-    "bytes": 45039688
+    "bytes": 45745945
   },
   "bilan": {
     "title": "Le Bilan",
