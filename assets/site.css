@@ -264,6 +264,9 @@ main{display:block}
 .cite-entry .formatted{margin:0 0 10px}
 .cite-entry details summary{font:600 .82rem/1 var(--ui);color:var(--green-700);cursor:pointer;padding:10px 0;min-height:44px;display:flex;align-items:center}
 .cite-entry pre{background:var(--green-950);color:#dfe8cf;font:400 .78rem/1.55 ui-monospace,'SF Mono',Menlo,monospace;padding:14px 16px;border-radius:8px;overflow:auto;margin:6px 0 10px}
+@media (max-width:560px){
+  .cite-entry pre{white-space:pre-wrap;overflow-wrap:anywhere}
+}
 .copy{font:600 .9rem/1 var(--ui);border:1px solid var(--rule);background:var(--paper);color:var(--green-800);border-radius:999px;padding:12px 20px;cursor:pointer;min-height:46px}
 .copy:hover{background:var(--sage-100)}
 
