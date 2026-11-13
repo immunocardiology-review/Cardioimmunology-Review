@@ -92,3 +92,71 @@ These works are for education. They do not replace individual medical advice.
 ## About this repository
 
 This repository contains the source of [cardioimmunologyreview.org](https://cardioimmunologyreview.org/): static, bilingual pages served by GitHub Pages. The online reader uses [PDF.js](https://mozilla.github.io/pdf.js/) (Apache 2.0, see `assets/book-pdf-LICENSE.txt`) and displays the original PDFs unchanged.
+
+## Chronicle of the Review
+
+A website takes shape the way a heart does: in layers and in beats, before anyone can see the form it will take. These are its fourteen beats.
+
+**I.** The house opens in two languages, and the books can be read page after page without leaving the lamp.
+
+**II.** It fits in a pocket: reading rests in the hand, and the paths grow simpler.
+
+**III.** The map of the field and its sixty themes learn to shine on the screen of a phone.
+
+**IV.** The house receives its identity: its name, its way of being cited, its author.
+
+**V.** It gives itself a face for travelling, the image that goes before it when it is shared.
+
+**VI.** Each page bears the name of the one who wrote it, like a seal at the foot of a letter.
+
+**VII.** The covers line up on the threshold, as a gallery, and French finds its voice there.
+
+**VIII.** The scientific director of the Treatise is named: a book never stands alone.
+
+**IX.** The data that speak to machines are tuned, as an instrument is tuned before the concert.
+
+**X.** The English Treatise receives its covers and its identifiers: the translation becomes a book.
+
+**XI.** It finds its title, its image and its way of being cited.
+
+**XII.** The new edition of 2026 arrives in French and in English, 1,522 and 1,454 pages, with the same heart at the center.
+
+**XIII.** The Treatise is called by its full name, and its two languages recognize each other.
+
+**XIV.** The Treatise presents itself in both its languages, each chapter opens at its page, and the library is set in order.
+
+*A map heals no one. It only keeps one from getting lost.* (The Treatise, Credo)
+
+### En français
+
+Un site se forme comme un cœur : par couches et par battements, sans que l'on voie d'abord la forme qu'il prendra. Voici les quatorze battements de celui-ci.
+
+**I.** La maison s'ouvre en deux langues, et les livres s'y lisent page après page, sans quitter la lampe.
+
+**II.** On l'emporte dans la poche : la lecture tient dans la main, et les chemins se simplifient.
+
+**III.** La carte du domaine et ses soixante thèmes apprennent à briller sur l'écran d'un téléphone.
+
+**IV.** La maison reçoit son identité : son nom, sa manière d'être citée, son auteur.
+
+**V.** Elle se donne un visage pour voyager, l'image qui la précède quand on la partage.
+
+**VI.** Chaque page porte le nom de celui qui l'a écrite, comme un sceau au bas d'une lettre.
+
+**VII.** Les couvertures s'alignent sur le seuil, en galerie, et le français y trouve sa voix.
+
+**VIII.** Le directeur scientifique du Traité est nommé : un livre ne se tient jamais seul.
+
+**IX.** Les données qui parlent aux machines sont accordées, comme on accorde un instrument avant le concert.
+
+**X.** Le Traité anglais reçoit ses couvertures et ses identifiants : la traduction devient un livre.
+
+**XI.** Il trouve son titre, son image et sa manière d'être cité.
+
+**XII.** La nouvelle édition de 2026 arrive en français et en anglais, 1 522 et 1 454 pages, avec le même cœur au milieu.
+
+**XIII.** Le Traité est appelé par son nom entier, et ses deux langues se reconnaissent.
+
+**XIV.** Le Traité se présente dans ses deux langues, chaque chapitre s'ouvre à sa page, et la bibliothèque se range.
+
+*Une carte ne guérit personne. Elle empêche seulement de se perdre.* (le Traité, Credo)
