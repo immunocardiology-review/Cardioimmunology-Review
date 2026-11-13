@@ -22,7 +22,7 @@ keywords:
   - open access
 preferred-citation:
   type: book
-  title: "Cardioimmunologie : Maladies auto-immunes, auto-inflammatoires et rares à retentissement cardiovasculaire. Traité de médecine"
+  title: "Cardioimmunology: The Heart in Immune and Rare Diseases. A Treatise of Medicine"
   authors:
     - family-names: Abdelouaeb
       given-names: Brahim
@@ -31,6 +31,6 @@ preferred-citation:
   publisher:
     name: "Cardioimmunology Review"
   languages:
-    - fr
-  doi: "10.5281/zenodo.24044230"
-  url: "https://doi.org/10.5281/zenodo.24044230"
+    - en
+  doi: "10.5281/zenodo.24054141"
+  url: "https://doi.org/10.5281/zenodo.24054141"
