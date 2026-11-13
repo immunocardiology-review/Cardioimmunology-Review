@@ -45,7 +45,7 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 | Article | Language | DOI |
 |---|---|---|
 | [*The Silent Heart in Antineutrophil Cytoplasmic Antibody-Associated Vasculitis*](https://cardioimmunologyreview.org/revue/n1-the-silent-heart.html). Cardioimmunology Review, Issue 1 (October 2026) | English | [10.5281/zenodo.23822653](https://doi.org/10.5281/zenodo.23822653) |
-| [*Le cœur silencieux des vascularites associées aux ANCA*](https://cardioimmunologyreview.org/revue/n1-le-coeur-silencieux.html). Cardioimmunology Review, n° 1 (octobre 2026) | French | [Read online](https://cardioimmunologyreview.org/revue/n1-le-coeur-silencieux.html) |
+| [*Le cœur silencieux des vascularites associées aux ANCA*](https://cardioimmunologyreview.org/revue/n1-le-coeur-silencieux.html). Cardioimmunology Review, n° 1 (octobre 2026) | French | [10.5281/zenodo.24209024](https://doi.org/10.5281/zenodo.24209024) |
 
 ### Companion works
 
