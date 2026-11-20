@@ -4,9 +4,9 @@
     "label": "Le Traité",
     "path": "traite.html",
     "cover": "traite.webp",
-    "pdf": "https://zenodo.org/api/records/24189189/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v16.pdf/content",
-    "download": "https://zenodo.org/records/24189189/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v16.pdf?download=1",
-    "doi": "10.5281/zenodo.24189189",
+    "pdf": "https://zenodo.org/api/records/24393384/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v18.pdf/content",
+    "download": "https://zenodo.org/records/24393384/files/CARDIOIMMUNOLOGIE_FR_nouvelle-edition_v18.pdf?download=1",
+    "doi": "10.5281/zenodo.24393384",
     "pages": 1522,
     "chapters": [
       {
@@ -157,16 +157,16 @@
         "readingPage": 1159
       }
     ],
-    "bytes": 43064126
+    "bytes": 43071021
   },
   "bilan": {
     "title": "Le Bilan",
     "label": "Le Bilan",
     "path": "le-bilan.html",
     "cover": "bilan.webp",
-    "pdf": "https://zenodo.org/api/records/23822649/files/LE-BILAN_Abdelouaeb_2026.pdf/content",
-    "download": "https://zenodo.org/records/23822649/files/LE-BILAN_Abdelouaeb_2026.pdf?download=1",
-    "doi": "10.5281/zenodo.23822649",
+    "pdf": "https://zenodo.org/api/records/24393543/files/LE-BILAN_Abdelouaeb_2026.pdf/content",
+    "download": "https://zenodo.org/records/24393543/files/LE-BILAN_Abdelouaeb_2026.pdf?download=1",
+    "doi": "10.5281/zenodo.24393543",
     "pages": 199,
     "chapters": [
       {
@@ -317,7 +317,7 @@
         "readingPage": 181
       }
     ],
-    "bytes": 2531866
+    "bytes": 3118201
   },
   "methode": {
     "title": "La Méthode",
@@ -326,8 +326,8 @@
     "cover": "la-methode.webp",
     "pdf": "method/La-Methode_Livre-2_FR.pdf",
     "download": "method/La-Methode_Livre-2_FR.pdf",
-    "doi": "10.5281/zenodo.23822651",
-    "pages": 388,
+    "doi": "10.5281/zenodo.24390755",
+    "pages": 359,
     "chapters": [
       {
         "title": "Connaître en médecine",
@@ -477,7 +477,7 @@
         "readingPage": 372
       }
     ],
-    "bytes": 1510775
+    "bytes": 4385204
   },
   "method-en": {
     "title": "The Method",
@@ -486,8 +486,8 @@
     "cover": "the-method.webp",
     "pdf": "method/The-Method_Book-2_EN.pdf",
     "download": "method/The-Method_Book-2_EN.pdf",
-    "doi": "10.5281/zenodo.23822652",
-    "pages": 378,
+    "doi": "10.5281/zenodo.24390767",
+    "pages": 349,
     "chapters": [
       {
         "title": "Knowing in Medicine",
@@ -637,6 +637,6 @@
         "readingPage": 362
       }
     ],
-    "bytes": 1472897
+    "bytes": 4336699
   }
 }
