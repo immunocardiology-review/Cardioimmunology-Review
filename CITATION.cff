@@ -22,7 +22,7 @@ keywords:
   - open access
 preferred-citation:
   type: book
-  title: "Cardioimmunology: The Heart in Immune and Rare Diseases. A Treatise of Medicine"
+  title: "Cardioimmunology. The Heart in Immune and Rare Diseases. A Treatise of Medicine"
   authors:
     - family-names: Abdelouaeb
       given-names: Brahim
@@ -32,5 +32,5 @@ preferred-citation:
     name: "Cardioimmunology Review"
   languages:
     - en
-  doi: "10.5281/zenodo.24189246"
-  url: "https://doi.org/10.5281/zenodo.24189246"
+  doi: "10.5281/zenodo.24393475"
+  url: "https://doi.org/10.5281/zenodo.24393475"
