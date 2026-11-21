@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f2e26">
+<title>One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart</title>
+
+<meta name="description" content="Cardioimmunology Review, issue 2, November 2026: clonal hematopoiesis, read in the tumor and in the heart of the patient with cancer.">
+<meta name="author" content="Brahim Abdelouaeb">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cardioimmunology Review">
+<meta property="og:title" content="One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart">
+<meta property="og:description" content="Cardioimmunology Review, issue 2, November 2026: clonal hematopoiesis, read in the tumor and in the heart of the patient with cancer.">
+<meta property="og:image" content="https://cardioimmunologyreview.org/assets/share-review-en-2026.png">
+<link rel="icon" href="../assets/favicon.ico" sizes="32x32"><link rel="icon" href="../assets/favicon-48.png" type="image/png"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css?v=20261026">
+<style>
+  :root{
+    --noir:#141414; --encre:#1A1A1A; --carmin:#B3122E; --carmin-fonce:#7E0C21; --carmin-pale:#F7E3E7;
+    --blanc:#FFFFFF; --gris-fond:#F6F6F6; --gris-trait:#E4E4E4; --gris:#6B6B6B; --gris-clair:#A3A3A3;
+    --serif:'EB Garamond','Times New Roman',serif;
+    --display:'Cormorant Garamond','Times New Roman',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{font-family:var(--serif);color:var(--encre);background:var(--blanc);font-size:19px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:'onum' 1,'liga' 1,'kern' 1}
+  a{color:inherit}
+  .bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;height:62px;padding:0 28px;
+    background:var(--noir);border-bottom:2px solid var(--carmin);color:#F2F2F2}
+  .bar a{text-decoration:none;display:flex;align-items:center;gap:10px}
+  .bar .mm{width:28px;height:28px;border:1px solid var(--carmin);border-radius:50%;display:grid;place-items:center;color:#F2F2F2;font-family:var(--display);font-size:15px}
+  .bar b{font-weight:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+  .lang{margin-left:auto;display:flex;gap:2px;font-size:11px;letter-spacing:.18em} .lang a,.lang span{padding:5px 9px;text-decoration:none;color:#F2F2F2;border:1px solid #3A3A3A} .lang span{background:#FFFFFF;color:var(--noir);border-color:#FFFFFF} .lang a:hover{border-color:var(--carmin)}
+  .bar .issue{margin-left:12px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#FFFFFF;background:var(--carmin);padding:5px 12px;white-space:nowrap}
+  .hero{background:var(--blanc);color:var(--encre);text-align:center;padding:84px 24px 64px;border-bottom:1px solid var(--gris-trait)}
+  .kick{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--carmin)}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,5.6vw,60px);line-height:1.1;letter-spacing:.005em;max-width:17em;margin:22px auto 0;color:var(--noir)}
+  .hero .en{font-style:italic;color:var(--gris);font-size:clamp(17px,2.2vw,21px);max-width:34em;margin:18px auto 0}
+  .rule{width:64px;height:2px;background:var(--carmin);margin:34px auto}
+  .byline{font-size:16px;letter-spacing:.06em;color:var(--noir)}
+  .byline a{color:var(--carmin);text-decoration:none;border-bottom:1px solid rgba(179,18,46,.35);font-size:14px;margin-left:8px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:220px minmax(0,680px);gap:64px;justify-content:center}
+  .toc{position:sticky;top:100px;align-self:start;padding-top:64px;font-size:14px;line-height:1.4}
+  .toc .t{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--carmin);margin-bottom:14px}
+  .toc ol{list-style:none;border-left:1px solid var(--gris-trait)}
+  .toc li a{display:block;padding:7px 0 7px 14px;color:var(--gris);text-decoration:none;margin-left:-1px;border-left:2px solid transparent}
+  .toc li a:hover{color:var(--noir);border-color:var(--carmin)}
+  main{padding:64px 0 40px}
+  .abs{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:30px 32px;background:var(--gris-fond);border-top:2px solid var(--carmin);margin-bottom:56px}
+  .abs h3{font-family:var(--serif);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--carmin);margin-bottom:10px}
+  .abs p{font-size:16px;line-height:1.55}
+  .abs .en p{font-style:italic;color:#3B3B3B}
+  .abs details summary{list-style:none;cursor:default}
+  .abs details summary::-webkit-details-marker{display:none}
+  .abs details summary h3{display:block}
+  main h2{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.2;color:var(--noir);margin:58px 0 18px;letter-spacing:.005em}
+  main h2::before{content:'';display:block;width:36px;height:2px;background:var(--carmin);margin-bottom:18px}
+  main p{margin:0 0 1.05em;hyphens:auto;-webkit-hyphens:auto}
+  p.lead::first-letter{font-family:var(--display);float:left;font-size:4.6em;line-height:.82;padding:.06em .1em 0 0;color:var(--carmin)}
+  sup{font-size:.62em;line-height:0;vertical-align:.62em;margin-left:1px}
+  a.cit{color:var(--carmin);text-decoration:none;font-feature-settings:'lnum' 1}
+  a.cit:hover{color:var(--carmin-fonce);text-decoration:underline}
+  .pull{margin:38px 0;padding:6px 0 6px 28px;border-left:3px solid var(--carmin)}
+  .pull p{font-family:var(--display);font-style:italic;font-size:31px;line-height:1.25;color:var(--noir);margin:0}
+  .propo{margin:56px -32px;padding:8px 32px 18px;background:var(--noir);color:#E8E8E8;border-top:3px solid var(--carmin)}
+  .propo-k{display:inline-block;margin-top:26px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#FFFFFF;background:var(--carmin);padding:4px 10px}
+  .propo h2{color:#FFFFFF;margin-top:14px}
+  .propo h2::before{display:none}
+  .propo a.cit{color:#F08A9C}
+  .fig{margin:44px 0;padding:26px 28px 22px;background:var(--blanc);border:1px solid var(--gris-trait);border-top:2px solid var(--carmin)}
+  .fig figcaption{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.3;color:var(--noir);margin-bottom:22px}
+  .fig-k{display:block;font-family:var(--serif);font-weight:normal;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--carmin);margin-bottom:6px}
+  .grp{margin-bottom:20px}
+  .grp-t{font-size:15px;font-weight:600;color:var(--encre);margin-bottom:8px}
+  .grp-t span{display:block;font-weight:normal;font-size:13px;color:var(--gris)}
+  .row{display:grid;grid-template-columns:76px 1fr 64px;align-items:center;gap:12px;margin:5px 0;font-size:14px}
+  .lab{color:var(--gris)}
+  .track{height:12px;background:var(--gris-fond);overflow:hidden}
+  .track .fill{display:block;height:100%;width:calc(var(--v) * 1%);transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) both}
+  .b-gold{background:var(--carmin)}
+  .b-gold2{background:var(--carmin-fonce)}
+  .b-ink{background:var(--noir)}
+  .b-ctl{background:var(--gris-clair)}
+  .val{font-feature-settings:'lnum' 1,'tnum' 1;text-align:right;color:var(--noir);font-weight:500}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .tab{margin:48px 0;padding:0}
+  .tab figcaption{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.3;color:var(--noir);margin-bottom:16px}
+  .tab table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14.5px;line-height:1.45;border-top:2px solid var(--carmin)}
+  .tab thead th{text-align:left;font-family:var(--serif);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--carmin);padding:12px 10px;border-bottom:1px solid var(--noir)}
+  .tab tbody th{text-align:left;font-weight:600;color:var(--noir);padding:12px 10px;vertical-align:top}
+  .tab tbody td{padding:12px 10px;vertical-align:top;border-left:1px solid var(--gris-trait)}
+  .tab tbody tr{border-bottom:1px solid var(--gris-trait)}
+  .tab tbody td:last-child{font-style:italic;color:#3B3B3B}
+  .tab .fig-leg{margin-top:12px}
+  .fig-leg{font-size:14px;line-height:1.5;color:var(--gris);margin:14px 0 0}
+  .box{margin:52px 0 0;padding:28px 32px;border:1px solid var(--gris-trait);border-left:3px solid var(--carmin);background:var(--blanc)}
+  .box h3{font-family:var(--display);font-weight:600;font-size:23px;color:var(--noir);margin-bottom:14px}
+  .box ul{list-style:none}
+  .box li{position:relative;padding:8px 0 8px 22px;border-top:1px solid var(--gris-trait);font-size:17px;line-height:1.5}
+  .box li:first-child{border-top:none}
+  .box li::before{content:'';position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--carmin)}
+  .qcm{margin-top:28px;padding:26px 32px;background:var(--gris-fond)}
+  .qcm h3{font-family:var(--display);font-weight:600;font-size:21px;color:var(--noir);margin-bottom:10px}
+  .qcm ol{list-style:none;margin:10px 0 14px}
+  .qcm li{padding:5px 0;font-size:17px}
+  .qcm details summary{cursor:pointer;color:var(--carmin);font-size:13px;letter-spacing:.18em;text-transform:uppercase;list-style:none}
+  .qcm details summary::-webkit-details-marker{display:none}
+  .qcm details p{margin:10px 0 0;font-size:16px}
+  .coi{margin-top:28px;font-size:15px;color:var(--gris);line-height:1.55}
+  .coi b{color:var(--encre);font-weight:600}
+  .refs{margin-top:56px;padding-top:26px;border-top:1px solid var(--gris-trait)}
+  .refs h3{font-family:var(--display);font-weight:600;font-size:22px;color:var(--noir);margin-bottom:14px}
+  .refs ol{padding-left:26px;font-size:14.5px;line-height:1.5;color:#3B3B3B}
+  .refs li{padding:5px 0 5px 6px}
+  .refs li::marker{color:var(--carmin)}
+  .refs li:target{background:var(--carmin-pale)}
+  .refs .doi{color:var(--carmin);text-decoration:underline;text-underline-offset:.18em;word-break:normal;overflow-wrap:anywhere}
+  .cite{margin-top:34px;padding:18px 22px;border-left:3px solid var(--carmin);background:var(--gris-fond);font-size:15px;color:var(--gris)}
+  footer{margin-top:80px;background:var(--noir);color:#BDBDBD;text-align:center;padding:44px 24px;font-size:14px;letter-spacing:.04em;border-top:3px solid var(--carmin)}
+  footer a{color:#FFFFFF;text-decoration:none;border-bottom:1px solid var(--carmin)}
+  footer .mono{width:44px;height:44px;margin:0 auto 14px;border:1px solid var(--carmin);border-radius:50%;display:grid;place-items:center;font-family:var(--display);color:#FFFFFF;font-size:21px}
+  @media(max-width:960px){
+    .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+    .toc{display:none}
+  }
+  @media(max-width:640px){
+    body{font-size:18px}
+    .bar{padding:0 16px} .bar b{font-size:10px;letter-spacing:.16em} .bar .issue{display:none} .lang{font-size:10px}
+    .wrap{padding:0 16px}
+    .hero{padding:56px 16px 44px}
+    .abs{grid-template-columns:1fr;padding:22px 18px;gap:18px}
+    .abs details summary{cursor:pointer;border-top:1px solid var(--gris-trait);padding-top:14px}
+    .abs details summary h3::after{content:' +';font-weight:normal}
+    .abs details[open] summary h3::after{content:' −'}
+    .tab tbody tr{padding:10px 0}
+    .tab tbody td{padding:2px 0;font-size:14px}
+    .tab tbody td::before{font-size:10px;margin-top:4px}
+    .propo{margin:44px -16px;padding:8px 16px 14px}
+    .fig,.box,.qcm{padding:20px 16px}
+    .row{grid-template-columns:62px 1fr 56px;gap:8px}
+    .pull p{font-size:25px}
+    .tab thead{display:none}
+    .tab table,.tab tbody,.tab tr,.tab th,.tab td{display:block;width:100%} .tab colgroup{display:none}
+    .tab tbody tr{padding:14px 0}
+    .tab tbody th{padding:0 0 6px;font-size:16px;color:var(--carmin);width:100%}
+    .tab tbody td{border-left:none;padding:4px 0}
+    .tab tbody td::before{content:attr(data-l);display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);font-style:normal}
+  }
+  @media(prefers-reduced-motion:reduce){.track .fill{animation:none} html{scroll-behavior:auto}}
+  @media print{@page{margin:16mm 14mm} .fig,.box,.qcm,.pull,.cite,.tab tr{break-inside:avoid} .hero{padding:28px 0 22px} main{padding-top:22px} .abs{margin-bottom:30px} main h2,.tab figcaption{break-after:avoid} .bar,.toc,footer{display:none} .propo{background:none;color:var(--encre)} .propo h2{color:var(--noir)}}
+
+:root{--carmin:#a63e2b;--carmin-fonce:#7d2f22;--carmin-pale:#f1dfd2;--blanc:#faf8f0;--gris-fond:#f0eade;--gris-trait:#d7cdbf;--gris:#59534b;--noir:#302521;--encre:#272923}.bar{background:#803626;border-color:#b95a40;flex-wrap:wrap;height:auto;min-height:70px;padding:10px 25px;gap:8px 15px}.bar a{min-height:44px}.lang a,.lang span{min-height:44px;display:flex;align-items:center;justify-content:center;min-width:44px}.lang span{background:#f2e5d0;color:#442b22}.bar b{font-size:11px}.hero .kick{font-size:12px;letter-spacing:.18em}.hero h1{font-weight:500}.mobile-toc{display:none}.refs li{overflow-wrap:anywhere}.abs details summary{min-height:44px}.qcm details summary{min-height:48px;padding:10px 0;line-height:1.5}.toc a{font-size:16px}.toc .t{font-size:12px}.toc li a{padding:10px 0 10px 14px}.fig-k{font-size:12px}.fig-leg{font-size:16px}.refs ol{font-size:16px}.note{font-size:17px}
+@media(max-width:960px){.mobile-toc{display:block;border-bottom:1px solid var(--gris-trait);padding:20px 0 15px}.mobile-toc>summary{font-size:20px;color:var(--carmin);min-height:48px;padding:8px 0;cursor:pointer}.mobile-toc nav ol{list-style:none;padding:10px 0}.mobile-toc nav li a{display:block;padding:10px 0;font-size:18px;text-decoration:none}.mobile-toc .t{display:none}}
+@media(max-width:640px){.bar{padding:8px 16px;gap:5px}.bar b{font-size:9px;letter-spacing:.09em}.bar .mm{width:25px;height:25px}.lang{letter-spacing:0}.lang a,.lang span{padding:8px;min-width:42px}.hero{padding:38px 22px}.hero h1{font-size:35px;line-height:1.15;overflow-wrap:break-word}.hero .en{font-size:20px}.byline{font-size:17px}.byline a{display:block;margin:8px 0 0;border:0;font-size:15px}.wrap{padding:0 23px}.wrap main{padding-top:35px;font-size:20px;min-width:0}main p{hyphens:none;line-height:1.7}.abs{margin-bottom:30px}.abs p{font-size:18px}.abs h3{font-size:13px}.propo{margin-left:-23px;margin-right:-23px;padding-left:23px;padding-right:23px}.propo a.cit{color:#ffbc99}.tab tbody th{font-size:19px}.tab tbody td{font-size:18px;padding:8px 0;line-height:1.6}.tab tbody td:before{font-size:12px;color:#645449;letter-spacing:.06em}.row{grid-template-columns:52px minmax(0,1fr) 59px;font-size:15px}.grp-t{font-size:17px}.grp-t span{font-size:15px}.box li,.qcm li{font-size:19px}.coi{font-size:17px}.refs ol{font-size:17px;padding-left:23px}.cite{font-size:17px;overflow-wrap:anywhere}.pull{padding-left:18px}.fig,.box,.qcm{padding:20px 14px}.box h3{font-size:25px}.byline{letter-spacing:.02em}}
+@media(min-width:641px) and (max-width:960px){.propo{margin-left:0;margin-right:0;padding-left:25px;padding-right:25px}}
+@media (pointer:coarse){sup .cit{display:inline;min-width:0;min-height:0;padding:8px 6px;margin:-8px -6px;line-height:1}}
+.refs .doi,a.cit[href^="#fig"],a.cit[href^="#tab"]{text-decoration:underline;text-underline-offset:.18em}
+@media screen and (max-width:640px){.hero{padding:28px 22px}.hero h1{margin-top:16px;font-size:30px;line-height:1.12}.hero .en{margin-top:14px;font-size:18px}.rule{margin:24px auto}}
+</style>
+<style>
+
+:focus-visible{outline:3px solid #bd5336;outline-offset:5px}
+.skip-link{position:fixed;left:12px;top:-100px;z-index:9999;background:#f2f1e8;color:#173e33;padding:12px 18px;font:16px Arial,sans-serif}.skip-link:focus{top:10px}
+a,button,summary{-webkit-tap-highlight-color:#ad704b25}button,a{touch-action:manipulation}button{font:inherit}img,svg{max-width:100%}p,dd,li{overflow-wrap:break-word}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.vcover,.node,.far{opacity:1!important;transform:none!important}}
+@media print{.section-nav,.site-nav,.entry-action,.map-action,.skip-link{display:none!important}.hero{break-after:avoid}.method-poster{min-height:350px}.part{break-inside:avoid}main{max-width:none}body{background:white;color:#111}}
+
+</style><link rel="canonical" href="https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html"><link rel="stylesheet" href="../assets/identity.css"><meta name="citation_title" content="One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart"><meta name="citation_author" content="Abdelouaeb, Brahim"><meta name="citation_publication_date" content="2026/11"><meta name="citation_journal_title" content="Cardioimmunology Review"><meta name="citation_issue" content="2"><meta name="citation_language" content="en"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart", "url": "https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html", "author": {"@id": "https://cardioimmunologyreview.org/auteur.html#brahim-abdelouaeb"}, "inLanguage": "en", "datePublished": "2026-11", "isAccessibleForFree": true, "isPartOf": {"@type": "PublicationIssue", "issueNumber": "2", "datePublished": "2026-11", "isPartOf": {"@type": "Periodical", "@id": "https://cardioimmunologyreview.org/revue.html#periodical", "name": "Cardioimmunology Review", "url": "https://cardioimmunologyreview.org/revue.html"}}, "abstract": "Clonal hematopoiesis of indeterminate potential (CHIP) is the age-related expansion of a blood clone carrying somatic mutations, without hematologic malignancy; it nearly doubles coronary risk. Two studies published in 2026 find it on both sides of the patient with cancer. Among 10,571 patients with solid tumors, cells from the clone infiltrated the tumor in 18%, with poorer survival. Among 8,004 patients treated for a solid tumor, CHIP was associated with more heart failure at ten years. The same clone inhabits the tumor and the vessel. We propose reading clonal hematopoiesis as an interface, and cardio-oncology as the medicine of a single patient.", "mainEntityOfPage": "https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html", "@id": "https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html#work", "publisher": {"@id": "https://cardioimmunologyreview.org/#publisher"}, "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/", "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.24420357"}, "sameAs": "https://doi.org/10.5281/zenodo.24420357", "translationOfWork": {"@id": "https://cardioimmunologyreview.org/revue/n2-un-clone-deux-territoires.html#work"}, "image": "https://cardioimmunologyreview.org/assets/covers/review-2.webp"}, {"@type": "Person", "@id": "https://cardioimmunologyreview.org/auteur.html#brahim-abdelouaeb", "name": "Brahim Abdelouaeb", "givenName": "Brahim", "familyName": "Abdelouaeb", "honorificPrefix": "Dr", "jobTitle": "Médecin généraliste, auteur et éditeur", "description": "General practitioner in Paris; author and editor of Cardioimmunology Review", "affiliation": {"@id": "https://cardioimmunologyreview.org/#publisher"}, "url": "https://cardioimmunologyreview.org/auteur.html", "mainEntityOfPage": ["https://cardioimmunologyreview.org/auteur.html", "https://cardioimmunologyreview.org/author.html"], "sameAs": ["https://orcid.org/0009-0002-7690-9993", "https://www.linkedin.com/in/brahim-abdel-md-/", "https://www.doctolib.fr/medecin-generaliste/paris/brahim-abdelouaeb", "https://cv.hal.science/brahim-abdelouaeb", "https://www.researchgate.net/profile/Brahim-Abdelouaeb-2", "https://scholar.google.com/citations?user=Uw_YszUAAAAJ", "https://www.wikidata.org/wiki/Q142227616"], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Université de Versailles Saint-Quentin-en-Yvelines"}, {"@type": "CollegeOrUniversity", "name": "Sorbonne Université"}], "knowsAbout": ["Cardioimmunologie", "Cardioimmunology", "Imagerie cardiaque", "Cardiac imaging", "Lecture critique", "Critical appraisal", "Enseignement médical", "Medical education"], "identifier": {"@type": "PropertyValue", "propertyID": "ORCID", "value": "0009-0002-7690-9993"}}, {"@type": "Organization", "@id": "https://cardioimmunologyreview.org/#publisher", "name": "Cardioimmunology Review", "url": "https://cardioimmunologyreview.org/", "logo": {"@type": "ImageObject", "url": "https://cardioimmunologyreview.org/assets/seal-320.webp"}, "sameAs": ["https://www.linkedin.com/company/cardio-immunology-review/", "https://github.com/immunocardiology-review", "https://www.wikidata.org/wiki/Q142227617"], "founder": {"@id": "https://cardioimmunologyreview.org/auteur.html#brahim-abdelouaeb"}}]}</script><meta property="og:url" content="https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html"><meta property="og:locale" content="en_US"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="One Clone, Two Territories | Cardioimmunology Review"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="One Clone, Two Territories | Cardioimmunology Review"><meta name="twitter:description" content="Clonal hematopoiesis, read in the tumor and in the heart of the patient with cancer."><meta name="twitter:image" content="https://cardioimmunologyreview.org/assets/share-review-en-2026.png"><meta name="twitter:image:alt" content="One Clone, Two Territories | Cardioimmunology Review"><meta name="citation_doi" content="10.5281/zenodo.24420357"><meta name="citation_pdf_url" content="https://zenodo.org/records/24420357/files/Cardioimmunology-Review_2026-2_Abdelouaeb_One-Clone-Two-Territories.pdf"><link rel="alternate" hreflang="fr" href="https://cardioimmunologyreview.org/revue/n2-un-clone-deux-territoires.html"><link rel="alternate" hreflang="en" href="https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html"><link rel="alternate" hreflang="x-default" href="https://cardioimmunologyreview.org/revue/n2-one-clone-two-territories.html"><style>.article-author{max-width:900px;margin:28px auto 48px;padding:24px;border-top:1px solid #c8d9af50;font-size:16px;line-height:1.65}.article-author h2{font:400 26px/1.2 var(--display);margin:0 0 14px}.article-author a{color:inherit;text-underline-offset:4px}.article-author p{margin:8px 0}.article-author nav{display:flex;flex-wrap:wrap;gap:12px 24px}.article-author nav a{min-height:44px;display:inline-flex;align-items:center}@media(max-width:640px){.article-author{margin:24px 20px 32px;padding:22px 0}}</style><style>.article-guide{max-width:820px;margin:26px auto 0;text-align:left;border-top:1px solid var(--gris-trait);padding-top:20px}.article-guide .guide-meta{font:12px/1.6 Arial,sans-serif;color:var(--gris);margin-bottom:12px}.article-guide h2{font:600 23px/1.25 var(--display);color:var(--noir);margin-bottom:8px}.article-guide p{font-size:18px;line-height:1.5}.article-guide nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:16px;font-size:15px}.article-guide a{text-underline-offset:4px}.article-guide a:first-child{color:var(--carmin)}.editorial-record{font-size:15px;line-height:1.6;border-top:1px solid var(--gris-trait);padding-top:18px;margin-top:24px}@media(max-width:700px){.hero{padding-top:42px;padding-bottom:30px}.article-guide{margin-top:22px}.article-guide p{font-size:18px}.article-guide nav a{min-height:44px;display:flex;align-items:center}.hero .en{font-size:16px}.byline{font-size:14px}}</style><style>@media screen and (max-width:640px){.hero{padding:28px 22px}.hero h1{margin-top:16px;font-size:30px;line-height:1.12}.hero .en{margin-top:14px;font-size:18px}.rule{margin:24px auto}}</style><link rel="stylesheet" href="../assets/chrome.css?v=20261027">
+<style>.fig-n2 .row{grid-template-columns:92px minmax(0,1fr) 60px}@media(max-width:640px){.fig-n2 .row{grid-template-columns:84px minmax(0,1fr) 56px}}</style>
+</head>
+<body><a class="skip" href="#article-start">Skip to content</a><header class="site-header"><div class="cr-bar"><a class="brand" href="../"><img src="../assets/seal-96.webp" width="40" height="40" alt=""><span>Cardioimmunology Review</span></a><div class="cr-lang" role="group" aria-label="Language"><a href="../revue/n2-un-clone-deux-territoires.html" lang="fr" hreflang="fr" title="Français">FR</a><span aria-current="true" lang="en">EN</span></div><nav class="site-nav" aria-label="Main navigation"><a href="../#collection">Books</a><a href="../review.html" aria-current="page">Review</a><a href="../#field">Map</a><a href="../author.html">Author</a></nav></div></header>
+
+<section class="hero" id="article-start" tabindex="-1" aria-labelledby="article-title">
+  <div class="kick">Cardioimmunology Review · Issue 2 · November 2026</div>
+  <h1 id="article-title">One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart</h1>
+  <p class="en" lang="fr">Un clone, deux territoires&nbsp;: l’hématopoïèse clonale, de la tumeur au cœur</p>
+  <div class="rule"></div>
+  <p class="byline">By <a rel="author" href="../author.html">Dr. Brahim Abdelouaeb</a> <a href="https://orcid.org/0009-0002-7690-9993" target="_blank" rel="noopener">ORCID 0009-0002-7690-9993</a></p>
+<aside class="article-guide" aria-label="Reading guide"><p class="guide-meta">Critical reading · Issue 2 · November 2026 · English translation of the French original</p><h2>The question explored</h2><p>Can the same blood clone weigh on both the tumor and the heart of the patient with cancer, and what should be concluded today?</p><nav aria-label="Start reading"><a href="#introduction">Read the article ↓</a><a href="#refs-t">Sources</a><a href="#editorial-record">Editorial information</a><a href="../charte-editoriale.html#english">Editorial charter</a></nav></aside></section>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-clone-from-the-marrow-to-the-vessel">The Clone, from the Marrow to the Vessel</a></li>
+<li><a href="#the-clone-enters-the-tumor">The Clone Enters the Tumor</a></li>
+<li><a href="#cancer-treatment-chooses-the-clone">Cancer Treatment Chooses the Clone</a></li>
+<li><a href="#after-cancer-the-heart">After Cancer, the Heart</a></li>
+<li><a href="#the-immunotherapy-paradox">The Immunotherapy Paradox</a></li>
+<li><a href="#what-the-treatise-does-not-yet-say">What the Treatise Does Not Yet Say</a></li>
+<li><a href="#one-clone-two-territories">One Clone, Two Territories</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+    </ol>
+  </nav><details class="mobile-toc"><summary>Article contents</summary><nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-clone-from-the-marrow-to-the-vessel">The Clone, from the Marrow to the Vessel</a></li>
+<li><a href="#the-clone-enters-the-tumor">The Clone Enters the Tumor</a></li>
+<li><a href="#cancer-treatment-chooses-the-clone">Cancer Treatment Chooses the Clone</a></li>
+<li><a href="#after-cancer-the-heart">After Cancer, the Heart</a></li>
+<li><a href="#the-immunotherapy-paradox">The Immunotherapy Paradox</a></li>
+<li><a href="#what-the-treatise-does-not-yet-say">What the Treatise Does Not Yet Say</a></li>
+<li><a href="#one-clone-two-territories">One Clone, Two Territories</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+    </ol>
+  </nav></details>
+
+  <main id="main-content" tabindex="-1">
+    <div class="abs">
+<div lang="en"><h3>Abstract</h3><p>Clonal hematopoiesis of indeterminate potential (CHIP) is the age-related expansion of a blood clone carrying somatic mutations, without hematologic malignancy; it nearly doubles coronary risk. Two studies published in 2026 find it on both sides of the patient with cancer. Among 10,571 patients with solid tumors, cells from the clone infiltrated the tumor in 18%, with poorer survival. Among 8,004 patients treated for a solid tumor, CHIP was associated with more heart failure at ten years. The same clone inhabits the tumor and the vessel. We propose reading clonal hematopoiesis as an interface, and cardio-oncology as the medicine of a single patient.</p></div>
+<details class="en" lang="fr" open><summary><h3>Résumé (français)</h3></summary><p>L’hématopoïèse clonale de potentiel indéterminé (CHIP) est l’expansion, avec l’âge, d’un clone sanguin porteur de mutations somatiques, sans hémopathie ; elle double presque le risque coronarien. Deux études publiées en 2026 la retrouvent de part et d’autre du malade atteint de cancer. Chez 10 571 malades porteurs d’une tumeur solide, des cellules du clone infiltraient la tumeur chez 18 % d’entre eux, avec une survie moindre. Chez 8 004 malades traités pour une tumeur solide, la CHIP s’associait à davantage d’insuffisance cardiaque à dix ans. Le même clone habite la tumeur et le vaisseau. Nous proposons de lire l’hématopoïèse clonale comme une interface, et la cardio-oncologie comme la médecine d’un seul malade.</p></details>
+    </div>
+
+<h2 id="introduction">Introduction</h2>
+<p class="lead">With age, hematopoietic stem cells acquire somatic mutations, and one of them eventually supplies a measurable share of circulating leukocytes. This clonal hematopoiesis of indeterminate potential (CHIP) affects 9.5% of people aged 70 to 79 years and 18.4% of those older than 90 years.<sup><a href="#r1" class="cit" aria-label="Reference 1">1</a></sup> It increases the risk of hematologic cancer, but also that of coronary heart disease and ischemic stroke.<sup><a href="#r1" class="cit" aria-label="Reference 1">1</a>,<a href="#r2" class="cit" aria-label="Reference 2">2</a></sup></p>
+<p>Two studies published in 2026 in JAMA Oncology examine it in the patient with cancer, each from one side. One looks for it in the tumor,<sup><a href="#r3" class="cit" aria-label="Reference 3">3</a></sup> the other in the heart after treatment.<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup> Read together, they describe a single clone in two territories. This is the reading of cardioimmunology, which studies the contribution of immune mechanisms to cardiovascular disease.<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></p>
+<h2 id="the-clone-from-the-marrow-to-the-vessel">The Clone, from the Marrow to the Vessel</h2>
+<p>In prospective cohorts, carriers of CHIP had a risk of coronary heart disease multiplied by 1.9 (95% confidence interval [CI], 1.4 to 2.7) and, before age 50 years, a risk of myocardial infarction multiplied by 4.0 (95% CI, 2.4 to 6.7).<sup><a href="#r2" class="cit" aria-label="Reference 2">2</a></sup> Mutations in DNMT3A, TET2, ASXL1 and JAK2 each contributed.<sup><a href="#r2" class="cit" aria-label="Reference 2">2</a></sup></p>
+<p>The mechanism was established in mice. Tet2-deficient bone marrow cells are enough to enlarge atherosclerotic plaques; mutant macrophages secrete more interleukin 1β through the NLRP3 inflammasome, and an NLRP3 inhibitor protects animals carrying the clone more.<sup><a href="#r6" class="cit" aria-label="Reference 6">6</a></sup> The Treatise made it one of its paradigms: cardiovascular risk is also read in the marrow.<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></p>
+<h2 id="the-clone-enters-the-tumor">The Clone Enters the Tumor</h2>
+<p>Among 421 patients with early-stage non–small cell lung cancer enrolled in the TRACERx study, CHIP was present in 34%, and cells from the clone infiltrated the tumor in 42% of carriers.<sup><a href="#r7" class="cit" aria-label="Reference 7">7</a></sup> This infiltration was associated with a risk of death or recurrence multiplied by 1.80 (95% CI, 1.23 to 2.63) compared with the absence of CHIP. In mice, Tet2-mutant monocytes migrated toward tumor cells, enriched the tumor in myeloid cells and promoted the growth of tumor organoids.<sup><a href="#r7" class="cit" aria-label="Reference 7">7</a></sup></p>
+<p>Yun and colleagues extend this finding to 10,571 patients with solid tumors, using whole-genome sequencing from the Genomics England project.<sup><a href="#r3" class="cit" aria-label="Reference 3">3</a></sup> Cells from the clone infiltrated the tumor in 1,943 patients (18.4%), and up to 32% in endometrial cancers. This infiltration was more frequent with age and after cytotoxic chemotherapy (odds ratio, 1.24; 95% CI, 1.06 to 1.44). It was associated with poorer overall survival (hazard ratio, 1.13; 95% CI, 1.02 to 1.25), especially in breast cancer (1.95; 95% CI, 1.54 to 2.48).<sup><a href="#r3" class="cit" aria-label="Reference 3">3</a></sup> The study is retrospective: it establishes an association, not a cause.</p>
+<h2 id="cancer-treatment-chooses-the-clone">Cancer Treatment Chooses the Clone</h2>
+<p>Among 8,810 patients with nonhematologic cancers, clonal hematopoiesis was present in one in four.<sup><a href="#r8" class="cit" aria-label="Reference 8">8</a></sup> Among 24,146 patients, radiotherapy, platinum agents and topoisomerase II inhibitors preferentially selected mutations in DNA damage response genes: TP53, PPM1D and CHEK2.<sup><a href="#r9" class="cit" aria-label="Reference 9">9</a></sup> Treatment does not merely injure cells: it chooses, among them, those that will survive.</p>
+<h2 id="after-cancer-the-heart">After Cancer, the Heart</h2>
+<p>Shyr and colleagues followed 8,004 patients treated for a solid tumor with chemotherapy, radiotherapy or immunotherapy, in a biobank linked to the medical record and to whole-genome sequencing.<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup> CHIP, defined by a variant allele fraction of at least 2%, was present in 549 of them (6.9%). In the matched cohort, the 10-year cumulative incidence of heart failure reached 20.3% in carriers vs 14.5%, and that of ischemic cardiovascular disease 25.3% vs 18.5% (<a href="#fig1-t" class="cit">figure 1</a>).</p>
+
+<figure class="fig fig-n2" aria-labelledby="fig1-t">
+  <figcaption id="fig1-t"><span class="fig-k">Figure 1</span>After Treatment of a Solid Tumor, More Heart Failure in Carriers of the Clone</figcaption>
+  <div class="bars" role="group" aria-label="Ten-year cumulative incidence. Heart failure: 20.3 percent with CHIP versus 14.5 percent without CHIP. Ischemic cardiovascular disease: 25.3 percent with CHIP versus 18.5 percent without CHIP.">
+    <div class="grp"><div class="grp-t">Heart failure<span>Ten-year cumulative incidence, matched cohort<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup></span></div>
+      <div class="row"><span class="lab">With CHIP</span><span class="track"><span class="fill b-gold" style="--v:20.3"></span></span><span class="val">20.3%</span></div>
+      <div class="row"><span class="lab">Without CHIP</span><span class="track"><span class="fill b-ctl" style="--v:14.5"></span></span><span class="val">14.5%</span></div>
+    </div>
+    <div class="grp"><div class="grp-t">Ischemic cardiovascular disease<span>Ten-year cumulative incidence, matched cohort<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup></span></div>
+      <div class="row"><span class="lab">With CHIP</span><span class="track"><span class="fill b-gold" style="--v:25.3"></span></span><span class="val">25.3%</span></div>
+      <div class="row"><span class="lab">Without CHIP</span><span class="track"><span class="fill b-ctl" style="--v:18.5"></span></span><span class="val">18.5%</span></div>
+    </div>
+  </div>
+  <p class="fig-leg">Ten-year cumulative incidence of heart failure and ischemic cardiovascular disease, with and without clonal hematopoiesis of indeterminate potential (CHIP), in patients treated for a solid tumor with chemotherapy, radiotherapy or immunotherapy (cohort matched on a propensity score; bars: 95% confidence intervals).<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup> After adjustment, the association remains significant for heart failure, not for ischemic disease.</p>
+</figure>
+
+<p>After adjustment, the association remained significant for heart failure (subdistribution hazard ratio, 1.26; 95% CI, 1.02 to 1.56), but not for ischemic disease or arrhythmias.<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup> An interaction with intensive chemotherapy, of at least seven cycles, appears only in an exploratory analysis. A single biobank, a single sequencing effort: the signal needs to be replicated.</p>
+<h2 id="the-immunotherapy-paradox">The Immunotherapy Paradox</h2>
+<p>In mice, hematopoietic inactivation of Tet2 improves the response to immune checkpoint inhibitors; among patients with melanoma treated with these inhibitors, TET2 clonal hematopoiesis was associated with a sixfold higher probability of clinical benefit.<sup><a href="#r10" class="cit" aria-label="Reference 10">10</a></sup> The clone that helps the tumor grow might also help immunotherapy fight it.</p>
+<p>On the cardiac side, a study of 88 patients treated with checkpoint inhibitors reports myocarditis in 73% of CHIP carriers vs 41% of noncarriers (hazard ratio, 2.74; 95% CI, 1.44 to 5.22).<sup><a href="#r11" class="cit" aria-label="Reference 11">11</a></sup> These patients had been referred to cardio-oncology, often for suspected cardiac toxicity, and the diagnosis rested on MRI, without biopsy; the authors acknowledge that this frequency exceeds that of patients treated in the general population.<sup><a href="#r11" class="cit" aria-label="Reference 11">11</a></sup> The signal remains to be verified in an unselected cohort.</p>
+<h2 id="what-the-treatise-does-not-yet-say">What the Treatise Does Not Yet Say</h2>
+<p>The Treatise describes clonal hematopoiesis as an immune determinant of coronary risk and heart failure. It notes that, in an exploratory analysis of the CANTOS trial, carriers of a TET2 clone appeared to derive greater benefit from canakinumab (hazard ratio, 0.38; 95% CI, 0.15 to 0.96; P = .14 for interaction).<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a>,<a href="#r12" class="cit" aria-label="Reference 12">12</a></sup> Its chapter on cardio-oncology, however, does not mention clonal hematopoiesis.<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></p>
+<p>The American Heart Association scientific statement, published in 2026, notes that no treatment specific to clonal hematopoiesis has proven cardiovascular efficacy.<sup><a href="#r13" class="cit" aria-label="Reference 13">13</a></sup> The link with solid tumors remains much less well understood than the link with hematologic cancers.<sup><a href="#r14" class="cit" aria-label="Reference 14">14</a></sup> The proposal that follows is therefore a hypothesis.</p>
+<div class="propo"><span class="propo-k">Proposal</span>
+<h2 id="one-clone-two-territories">One Clone, Two Territories</h2>
+<p>Reading the clone as an interface between the tumor and the vessel, rather than as two separate risks, leads to three questions, each to be tested (<a href="#tab1-t" class="cit">table 1</a>). The first is descriptive: to report, in cardio-oncology cohorts, the presence and size of the clone, as one reports age or the treatment received. The second is prognostic: does a clone that infiltrates the tumor also predict heart failure after treatment? Neither study measured it. The third is therapeutic: does targeting interleukin 1β, which protects the vessel of the mouse carrying a Tet2 clone, also modify the tumor and the response to immunotherapy?</p>
+<figure class="tab" aria-labelledby="tab1-t">
+  <figcaption id="tab1-t"><span class="fig-k">Table 1</span>The Clone of the Patient with Cancer: What the Treatise Says, What the Data Show</figcaption>
+  <table><colgroup><col style="width:16%"><col style="width:29%"><col style="width:29%"><col style="width:26%"></colgroup><thead>
+<tr><th scope="col">Question</th><th scope="col">What the Treatise says</th><th scope="col">What the data show</th><th scope="col">Cardioimmunology reading</th></tr></thead><tbody>
+<tr><th scope="row">The vessel</th><td data-l="What the Treatise says">Coronary risk nearly doubled; mechanism through the NLRP3 inflammasome and interleukin 1β in mice<sup><a href="#r2" class="cit" aria-label="Reference 2">2</a>,<a href="#r5" class="cit" aria-label="Reference 5">5</a>,<a href="#r6" class="cit" aria-label="Reference 6">6</a></sup></td><td data-l="What the data show">After treatment of a solid tumor, 10-year heart failure: 20.3% vs 14.5%<sup><a href="#r4" class="cit" aria-label="Reference 4">4</a></sup></td><td data-l="Cardioimmunology reading">The clone also weighs on the treated heart</td></tr>
+<tr><th scope="row">The tumor</th><td data-l="What the Treatise says">Not addressed in the cardio-oncology chapter<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></td><td data-l="What the data show">Clone infiltrating the tumor in 18.4% of patients; poorer survival<sup><a href="#r3" class="cit" aria-label="Reference 3">3</a></sup>; more frequent recurrence or death in the lung<sup><a href="#r7" class="cit" aria-label="Reference 7">7</a></sup></td><td data-l="Cardioimmunology reading">The same clone inhabits the tumor</td></tr>
+<tr><th scope="row">Cancer treatment</th><td data-l="What the Treatise says">Not addressed<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></td><td data-l="What the data show">Selection of TP53, PPM1D and CHEK2 clones by radiotherapy and certain chemotherapies<sup><a href="#r9" class="cit" aria-label="Reference 9">9</a></sup>; infiltration more frequent after chemotherapy<sup><a href="#r3" class="cit" aria-label="Reference 3">3</a></sup></td><td data-l="Cardioimmunology reading">Treatment chooses the clone</td></tr>
+<tr><th scope="row">Immunotherapy</th><td data-l="What the Treatise says">Not addressed<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a></sup></td><td data-l="What the data show">Clinical benefit more likely with a TET2 clone in melanoma<sup><a href="#r10" class="cit" aria-label="Reference 10">10</a></sup>; myocarditis signal in a selected cohort<sup><a href="#r11" class="cit" aria-label="Reference 11">11</a></sup></td><td data-l="Cardioimmunology reading">A paradox to be verified</td></tr>
+<tr><th scope="row">Targeting</th><td data-l="What the Treatise says">Canakinumab in carriers of a TET2 clone: exploratory analysis<sup><a href="#r5" class="cit" aria-label="Reference 5">5</a>,<a href="#r12" class="cit" aria-label="Reference 12">12</a></sup></td><td data-l="What the data show">No specific treatment has proven effective<sup><a href="#r13" class="cit" aria-label="Reference 13">13</a></sup></td><td data-l="Cardioimmunology reading">Hypothesis: interleukin 1β, a target common to both territories</td></tr></tbody></table>
+  <p class="fig-leg">The last column is the author’s interpretation, not a recommendation.</p>
+</figure>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The two 2026 studies do not say the same thing, and that is what makes them useful together: one shows the clone in the tumor, the other its weight on the heart after treatment. They invite cardio-oncology to read a single patient, and a single cell in two territories.</p>
+
+    <section class="box" aria-labelledby="impl-t">
+      <h3 id="impl-t">Practice Points</h3>
+      <ul>
+<li>Clonal hematopoiesis is frequent in patients with cancer, and even more so after radiotherapy or chemotherapy.</li>
+<li>Testing for it is not, to date, a routine examination in cardio-oncology, and no specific treatment has proven cardiovascular efficacy.</li>
+<li>When it is known, for example when discovered on blood or tumor sequencing, it calls for careful management of cardiovascular risk factors and monitoring of cardiac function during and after treatment.</li>
+<li>The myocarditis signal under immunotherapy rests on a selected cohort and should not, on its own, change the decision to give immunotherapy.</li>
+      </ul>
+      <p style="font-size:.92em;margin-top:.7em">These points summarize the cited data; they do not replace medical advice.</p>
+    </section>
+
+    <section class="qcm" aria-labelledby="qcm-t">
+      <h3 id="qcm-t">Multiple-Choice Question</h3>
+      <p>According to the 2026 studies published in JAMA Oncology, which statement is correct?</p>
+      <ol>
+<li>A. The clone infiltrated the tumor in most patients</li>
+<li>B. After treatment of a solid tumor, CHIP was associated with more heart failure at ten years</li>
+<li>C. The association with arrhythmias remained significant after adjustment</li>
+<li>D. Chemotherapy was associated with a less frequent infiltrating clone</li>
+<li>E. A treatment specific to CHIP has proven cardiovascular efficacy</li>
+      </ol>
+      <details><summary>Show the answer</summary><p>Answer B. Among 8,004 patients treated for a solid tumor, CHIP was associated with a higher 10-year incidence of heart failure; the association with arrhythmias was not significant. The clone infiltrated the tumor in 18.4% of patients, more often after cytotoxic chemotherapy, and no treatment specific to clonal hematopoiesis has proven cardiovascular efficacy.</p></details>
+    </section>
+
+<p class="editorial-record" id="editorial-record"><b>Editorial responsibility.</b> Written, reviewed and validated by the author. The declarations below describe the use of generative AI and the author’s interests. <a href="../charte-editoriale.html#english">Read the editorial charter</a>.</p>
+    <p class="coi"><b>Use of artificial intelligence.</b> Generative artificial intelligence tools (Claude, by Anthropic) were used under the author’s control to search and verify sources, draft the text and produce the English translation. The author reviewed and validated the text and is solely responsible for it.</p>
+    <p class="coi"><b>Disclosure of interests.</b> The author declares no conflict of interest related to this article. Relationships: invitations to meals by GSK, AstraZeneca, Lilly and Menarini, without fees, research funding or other remuneration.</p>
+
+    <section class="refs" aria-labelledby="refs-t">
+      <h3 id="refs-t">References</h3>
+      <ol>
+<li id="r1">Jaiswal S, Fontanillas P, Flannick J, et al. Age-related clonal hematopoiesis associated with adverse outcomes. N Engl J Med 2014;371:2488-98. <a class="doi" href="https://doi.org/10.1056/NEJMoa1408617" target="_blank" rel="noopener">doi:10.1056/NEJMoa1408617</a></li>
+<li id="r2">Jaiswal S, Natarajan P, Silver AJ, et al. Clonal hematopoiesis and risk of atherosclerotic cardiovascular disease. N Engl J Med 2017;377:111-21. <a class="doi" href="https://doi.org/10.1056/NEJMoa1701719" target="_blank" rel="noopener">doi:10.1056/NEJMoa1701719</a></li>
+<li id="r3">Yun D, Chen C, Qin N, et al. Tumor-infiltrating clonal hematopoiesis and pan-cancer prognosis in patients with solid tumors. JAMA Oncol 2026;12:695-704. <a class="doi" href="https://doi.org/10.1001/jamaoncol.2026.1036" target="_blank" rel="noopener">doi:10.1001/jamaoncol.2026.1036</a></li>
+<li id="r4">Shyr D, Pershad Y, Zhao K, et al. Clonal hematopoiesis and cardiovascular disease risk after cancer therapy in patients with solid tumors. JAMA Oncol 2026;12:251-6. <a class="doi" href="https://doi.org/10.1001/jamaoncol.2025.5785" target="_blank" rel="noopener">doi:10.1001/jamaoncol.2025.5785</a></li>
+<li id="r5">Abdelouaeb B. Cardioimmunology. The Heart in Immune and Rare Diseases. A Treatise of Medicine. Cardioimmunology Review; 2026. <a class="doi" href="https://doi.org/10.5281/zenodo.24044257" target="_blank" rel="noopener">doi:10.5281/zenodo.24044257</a></li>
+<li id="r6">Fuster JJ, MacLauchlan S, Zuriaga MA, et al. Clonal hematopoiesis associated with TET2 deficiency accelerates atherosclerosis development in mice. Science 2017;355:842-7. <a class="doi" href="https://doi.org/10.1126/science.aag1381" target="_blank" rel="noopener">doi:10.1126/science.aag1381</a></li>
+<li id="r7">Pich O, Bernard E, Zagorulya M, et al. Tumor-infiltrating clonal hematopoiesis. N Engl J Med 2025;392:1594-608. <a class="doi" href="https://doi.org/10.1056/NEJMoa2413361" target="_blank" rel="noopener">doi:10.1056/NEJMoa2413361</a></li>
+<li id="r8">Coombs CC, Zehir A, Devlin SM, et al. Therapy-related clonal hematopoiesis in patients with non-hematologic cancers is common and associated with adverse clinical outcomes. Cell Stem Cell 2017;21:374-82. <a class="doi" href="https://doi.org/10.1016/j.stem.2017.07.010" target="_blank" rel="noopener">doi:10.1016/j.stem.2017.07.010</a></li>
+<li id="r9">Bolton KL, Ptashkin RN, Gao T, et al. Cancer therapy shapes the fitness landscape of clonal hematopoiesis. Nat Genet 2020;52:1219-26. <a class="doi" href="https://doi.org/10.1038/s41588-020-00710-0" target="_blank" rel="noopener">doi:10.1038/s41588-020-00710-0</a></li>
+<li id="r10">Rondeau V, Bansal S, Buttigieg MM, et al. Response to immune checkpoint blockade is enhanced in the presence of hematopoietic TET2 inactivation. Cancer Res 2026;86:845-57. <a class="doi" href="https://doi.org/10.1158/0008-5472.CAN-24-3329" target="_blank" rel="noopener">doi:10.1158/0008-5472.CAN-24-3329</a></li>
+<li id="r11">Jaber Chehayeb R, Singh J, Matute-Martinez C, et al. Clonal hematopoiesis of indeterminate potential is associated with increased risk of immune checkpoint inhibitor myocarditis in a prospective study of a cardio-oncology cohort. Cardiooncology 2024;10:84. <a class="doi" href="https://doi.org/10.1186/s40959-024-00289-z" target="_blank" rel="noopener">doi:10.1186/s40959-024-00289-z</a></li>
+<li id="r12">Svensson EC, Madar A, Campbell CD, et al. TET2-driven clonal hematopoiesis and response to canakinumab: an exploratory analysis of the CANTOS randomized clinical trial. JAMA Cardiol 2022;7:521-8. <a class="doi" href="https://doi.org/10.1001/jamacardio.2022.0386" target="_blank" rel="noopener">doi:10.1001/jamacardio.2022.0386</a></li>
+<li id="r13">Rhee JW, Bolton KL, Gupta D, et al. Clonal hematopoiesis and its cardiovascular implications: a scientific statement from the American Heart Association. Circulation 2026;153:e940-52. <a class="doi" href="https://doi.org/10.1161/CIR.0000000000001404" target="_blank" rel="noopener">doi:10.1161/CIR.0000000000001404</a></li>
+<li id="r14">Evans MA, Walsh K. Clonal hematopoiesis in cancer and cardiovascular disease. JACC CardioOncol 2025;7:470-95. <a class="doi" href="https://doi.org/10.1016/j.jaccao.2025.06.006" target="_blank" rel="noopener">doi:10.1016/j.jaccao.2025.06.006</a></li>
+      </ol>
+    </section>
+
+    <p class="cite"><b>How to cite this article.</b> Abdelouaeb B. One Clone, Two Territories: Clonal Hematopoiesis from the Tumor to the Heart. Cardioimmunology Review. 2026;2 (November). English translation of the French original. doi:10.5281/zenodo.24420357.</p>
+<p><a href="../references.html#one-clone-en">Copy citation or export BibTeX ↗</a></p>
+  </main>
+</div>
+
+<section class="article-author" aria-labelledby="signature-auteur"><h2 id="signature-auteur">About the author</h2><p><a rel="author" href="../author.html">Dr. Brahim Abdelouaeb</a>, a general practitioner whose clinical work includes cardiac imaging, author and editor of <a href="../review.html">Cardioimmunology Review</a>.</p><nav aria-label="Author and review"><a rel="author" href="../author.html">Biography and publications ↗</a><a href="../review.html">Browse the Review ↗</a></nav></section>
+<footer class="site-footer"><div class="foot-wrap">
+<div class="foot">
+ <div><div class="brand-foot"><img src="../assets/seal-96.webp" width="52" height="52" alt=""><span>Cardioimmunology<br>Review</span></div>
+ <p>A cardioimmunology collection and an open-access review by <a href="../author.html">Dr. Brahim Abdelouaeb</a>.</p>
+ <p><a href="https://orcid.org/0009-0002-7690-9993" rel="me">ORCID 0009-0002-7690-9993</a></p></div>
+ <div><h2>The collection</h2><ul>
+  <li><a href="../treatise/">Cardioimmunology</a></li><li><a href="../the-labs.html">The Labs</a></li><li><a href="../method/the-method.html">The Method</a></li>
+  <li><a href="https://doi.org/10.5281/zenodo.23248048">Architecture of the Treatise</a></li></ul></div>
+ <div><h2>The Review</h2><ul>
+  <li><a href="../review.html">Cardioimmunology Review</a></li><li><a href="../revue/n1-the-silent-heart.html">Issue 1</a></li><li><a href="../revue/n2-one-clone-two-territories.html">Issue 2</a></li>
+  <li><a href="../charte-editoriale.html#english">Editorial charter</a></li></ul></div>
+ <div><h2>Resources</h2><ul>
+  <li><a href="../cardioimmunology.html">About cardioimmunology</a></li><li><a href="../#field">The map of the field</a></li>
+  <li><a href="../references.html#english">Cite · BibTeX</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2026 Brahim Abdelouaeb · Books and articles under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · map of the field under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span><span><a href="../fr.html" lang="fr" hreflang="fr">Français</a></span></div>
+</div></footer><script>(()=>{const h=document.querySelector('.site-header');if(!h)return;let y=scrollY;addEventListener('scroll',()=>{const n=scrollY;if(matchMedia('(max-width:760px)').matches&&!document.querySelector('.drawer-open')){h.classList.toggle('hide',n>y&&n>140);}else h.classList.remove('hide');y=n;},{passive:true});})();</script>
+
+<script>
+  if (window.matchMedia && window.matchMedia("(max-width: 640px)").matches) {
+    document.querySelectorAll(".abs details").forEach(function (d) { d.open = false; });
+  }
+
+</script>
+<script data-goatcounter="https://cardioimmunologyreview.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.goatcounter||!window.goatcounter.count)return;var u=new URL(a.href,location.href),p=null;if(/\.pdf$/i.test(u.pathname))p='pdf'+u.pathname;else if(/(^|\.)(zenodo\.org|hal\.science|doi\.org)$/.test(u.hostname))p='lien/'+u.hostname+u.pathname;if(p)window.goatcounter.count({path:p,title:(a.textContent||'').trim().slice(0,80),event:true});});</script>
+</body>
+</html>
