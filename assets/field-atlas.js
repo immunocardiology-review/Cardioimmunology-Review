@@ -161,7 +161,7 @@ function closeTopic(fromHistory){
  const address=new URL(location.href);address.searchParams.delete('theme');history.replaceState(null,'',address.pathname+address.search+address.hash);
  if(wasSheet&&sheetPushed&&!fromHistory){sheetPushed=false;history.back();}else if(fromHistory)sheetPushed=false;
 }
-const STAR_SIZES={1:{core:13,halo:50},2:{core:18,halo:70,glint:58},3:{core:23,halo:90,glint:78}};
+const STAR_SIZES={1:{core:12,halo:34},2:{core:16,halo:48,glint:44},3:{core:20,halo:62,glint:58}};
 let relayLabels=()=>{};
 function drawConstellation(){
  const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1400,cy=1260;
@@ -172,7 +172,7 @@ function drawConstellation(){
  make('desc').textContent=ui('A circular reading map with the heart at its center. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.');
  const defs=make('defs');
  // Each reading family has its own light: a white-hot core fading into the family colour.
- defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>'+data.groups.map(g=>`<radialGradient id="field-halo-${g.id}"><stop offset="0%" stop-color="${g.color}" stop-opacity=".9"/><stop offset="28%" stop-color="${g.color}" stop-opacity=".42"/><stop offset="62%" stop-color="${g.color}" stop-opacity=".1"/><stop offset="100%" stop-color="${g.color}" stop-opacity="0"/></radialGradient><radialGradient id="field-star-${g.id}" cx="40%" cy="38%"><stop offset="0%" stop-color="#fffdf4"/><stop offset="38%" stop-color="#fff6df"/><stop offset="100%" stop-color="${g.color}"/></radialGradient>`).join('');
+ defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient><radialGradient id="field-ruby" cx="38%" cy="30%" r="75%"><stop offset="0%" stop-color="#ff7d8f"/><stop offset="22%" stop-color="#e02a4a"/><stop offset="58%" stop-color="#a3102c"/><stop offset="100%" stop-color="#560716"/></radialGradient><radialGradient id="field-ruby-shine"><stop offset="0%" stop-color="#fff" stop-opacity=".75"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="field-ruby-glow"><stop offset="0%" stop-color="#e02a4a" stop-opacity=".3"/><stop offset="45%" stop-color="#b3132f" stop-opacity=".1"/><stop offset="100%" stop-color="#b3132f" stop-opacity="0"/></radialGradient>'+data.groups.map(g=>`<radialGradient id="field-halo-${g.id}"><stop offset="0%" stop-color="${g.color}" stop-opacity=".5"/><stop offset="30%" stop-color="${g.color}" stop-opacity=".16"/><stop offset="65%" stop-color="${g.color}" stop-opacity=".03"/><stop offset="100%" stop-color="${g.color}" stop-opacity="0"/></radialGradient><radialGradient id="field-star-${g.id}" cx="40%" cy="38%"><stop offset="0%" stop-color="#fffdf4"/><stop offset="38%" stop-color="#fff6df"/><stop offset="100%" stop-color="${g.color}"/></radialGradient>`).join('');
  [260,450,650,860,1060].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
  const orbits=[
   {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:260,phase:-90},
@@ -196,21 +196,23 @@ function drawConstellation(){
   const body=make('g',{class:'star-body'},n);
   make('circle',{cx:x,cy:y,r:size.halo,fill:`url(#field-halo-${g.id})`,class:'star-halo'},body);
   if(tier>1){
-   const L=size.glint,w=size.core*.2,l=L*.5;
-   make('path',{d:`M${x} ${y-L}L${x+w} ${y}L${x} ${y+L}L${x-w} ${y}ZM${x-L} ${y}L${x} ${y-w}L${x+L} ${y}L${x} ${y+w}Z`+(tier>2?`M${x-l} ${y-l}L${x+w*.5} ${y-w*.5}L${x+l} ${y+l}L${x-w*.5} ${y+w*.5}ZM${x+l} ${y-l}L${x+w*.5} ${y+w*.5}L${x-l} ${y+l}L${x-w*.5} ${y-w*.5}Z`:''),fill:'#fffaf0',opacity:'.8',class:'star-glint'},body);
+   const L=size.glint,w=size.core*.14,l=L*.5;
+   make('path',{d:`M${x} ${y-L}L${x+w} ${y}L${x} ${y+L}L${x-w} ${y}ZM${x-L} ${y}L${x} ${y-w}L${x+L} ${y}L${x} ${y+w}Z`+(tier>2?`M${x-l} ${y-l}L${x+w*.5} ${y-w*.5}L${x+l} ${y+l}L${x-w*.5} ${y+w*.5}ZM${x+l} ${y-l}L${x+w*.5} ${y+w*.5}L${x-l} ${y+l}L${x-w*.5} ${y-w*.5}Z`:''),fill:'#fffaf0',opacity:'.6',class:'star-glint'},body);
   }
   make('circle',{cx:x,cy:y,r:size.core,fill:`url(#field-star-${g.id})`,stroke:g.color,'stroke-width':'1.6',class:'constellation-star'},body);
   const cos=Math.cos(a),sin=Math.sin(a),vertical=Math.abs(cos)<.26,gap=size.core-12;
+  // Typography of an old star atlas: the bright stars in spaced capitals, the others in a quiet roman.
   const label=(cls,fontSize,step,width,clearance)=>{
+   const caps=tier>1&&!cls.includes('phone'),name=caps?ui(t.title).toLocaleUpperCase(uiLanguage):ui(t.title);
    const tx=x+(vertical?0:Math.sign(cos)*(28+clearance)),anchor=vertical?'middle':cos>0?'start':'end';
    const lines=[];let line='';
-   for(const word of ui(t.title).split(' ')){if((line+' '+word).trim().length>width&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
+   for(const word of name.split(' ')){if((line+' '+word).trim().length>width&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
    let ty=vertical?y+Math.sign(sin)*(34+clearance)+(sin>0?fontSize-32:0):y+fontSize/4;
    if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*step;
-   const text=make('text',{x:tx,y:ty,fill:tier>1?'#fff6e2':'#dfe8d8','text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':String(fontSize),'font-weight':'600','paint-order':'stroke',stroke:'#102f28','stroke-width':String(Math.round(fontSize/4.6)),'stroke-linejoin':'round',class:cls},n);
+   const text=make('text',{x:tx,y:ty,fill:tier>1?'#f7ecd4':'#d3dfcc','text-anchor':anchor,'font-family':caps?"'Cormorant Garamond',Georgia,serif":"'EB Garamond',Georgia,serif",'font-size':String(fontSize),'font-weight':caps||tier>2?'600':'500','letter-spacing':caps?String(fontSize*.12):'0.3','paint-order':'stroke',stroke:'#0f2c25','stroke-opacity':'.85','stroke-width':String(Math.max(3,Math.round(fontSize/9))),'stroke-linejoin':'round',style:`stroke-width:${Math.max(3,Math.round(fontSize/9))}px;font-weight:${caps||tier>2?600:500}`,class:cls},n);
    lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*step},text).textContent=l);
   };
-  label('field-label',tier>1?36:31,tier>1?35:30,19,gap);
+  label('field-label',tier>1?32:33,tier>1?37:33,tier>1?14:18,gap);
   // Phones show only the brightest names, large enough to read without zooming.
   if(tier>2)label('field-label field-label-phone',70,66,13,gap+26);
  });
@@ -256,10 +258,12 @@ function drawConstellation(){
  };
  arrangeLabels();document.fonts?.ready.then(arrangeLabels);relayLabels=arrangeLabels;
  const core=make('g',{'aria-hidden':'true',class:'field-centre'});
- make('circle',{cx,cy,r:118,fill:'#c8d9af',opacity:'.045'},core);
- make('circle',{cx,cy,r:94,fill:'url(#field-core)',stroke:'#e0e8c8','stroke-width':'1'},core);
- make('text',{x:cx,y:cy-10,'text-anchor':'middle',fill:'#173e33','font-family':"'Cormorant Garamond',Georgia,serif",'font-size':'35'},core).textContent=ui('The heart');
- make('text',{x:cx,y:cy+24,'text-anchor':'middle',fill:'#173e33','font-family':"'EB Garamond',Georgia,serif",'font-size':'21','font-style':'italic'},core).textContent=ui('an immune organ');
+ // The centre is the heart itself: a ruby, beating slowly.
+ make('circle',{cx,cy,r:190,fill:'url(#field-ruby-glow)'},core);
+ const beat=make('g',{class:'field-ruby-heart'},core),points=[];
+ for(let k=0;k<=144;k++){const s=k/144*Math.PI*2;points.push(`${(cx+6.4*16*Math.sin(s)**3).toFixed(1)} ${(cy+8-6.4*(13*Math.cos(s)-5*Math.cos(2*s)-2*Math.cos(3*s)-Math.cos(4*s))).toFixed(1)}`);}
+ make('path',{d:`M${points.join('L')}Z`,fill:'url(#field-ruby)',stroke:'#ff9fae','stroke-opacity':'.55','stroke-width':'2.5','stroke-linejoin':'round'},beat);
+ make('ellipse',{cx:cx-44,cy:cy-38,rx:30,ry:17,fill:'url(#field-ruby-shine)',transform:`rotate(-32 ${cx-44} ${cy-38})`},beat);
 }
 function filterMap(){
  const family=document.querySelector('[data-family][aria-pressed="true"]')?.dataset.family||'all';
