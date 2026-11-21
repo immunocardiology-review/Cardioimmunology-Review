@@ -45,6 +45,12 @@ function hideCompactMap(){
  const toggle=document.querySelector('.mobile-map-toggle');
  if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent=uiLanguage==='fr'?'Afficher la carte':'Show the map';}
 }
+function showCompactMap(){
+ el('p2').classList.add('mobile-map-visible');
+ const toggle=document.querySelector('.mobile-map-toggle');
+ if(toggle){toggle.setAttribute('aria-expanded','true');toggle.textContent=uiLanguage==='fr'?'Masquer la carte':'Hide the map';}
+ requestAnimationFrame(relayLabels);
+}
 function exitMapPresentation(){
  el('p2').classList.remove('is-presentation');
  const button=el('field-presentation');
@@ -69,8 +75,9 @@ function followMapRotation(){
   const nextWidth=window.innerWidth,nextHeight=window.innerHeight;
   // Ignore browser address-bar movement: only a width/breakpoint or orientation change needs anchoring.
   if(nextWidth===width)return;
-  const target=anchor,turned=(width>height)!==(nextWidth>nextHeight);
+  const target=anchor,turned=(width>height)!==(nextWidth>nextHeight),wasWide=width>1100;
   width=nextWidth;height=nextHeight;clearTimeout(timer);
+  if(wasWide&&compactMap.matches)showCompactMap();
   timer=setTimeout(()=>{
    const root=el('p2'),viewport=el('constellation-viewport');
    if(compactMap.matches&&root.classList.contains('is-presentation'))exitMapPresentation();
@@ -91,6 +98,7 @@ function setMapZoom(enlarged){
  el('constellation-zoom').setAttribute('aria-pressed',String(enlarged));
  el('constellation-zoom').textContent=ui(enlarged?'Show the whole map':'Enlarge the map');
  el('constellation-help').textContent=ui(enlarged?'Pan to explore. Select a star to read.':'Enlarge for readable labels, or use the theme selector.');
+ relayLabels();
  if(enlarged)requestAnimationFrame(()=>{
   const svg=el('field-constellation'),point=positions.get(active)||{x:1400,y:1260};
   const sx=svg.clientWidth/2800,sy=svg.clientHeight/2520;
@@ -103,13 +111,14 @@ function readingMarkup(topic){
  if(!p)return '';
  return `<section class="field-selected-reading"><h4>${esc(ui("Read the source"))}</h4><p class="field-paper-meta">${esc(p.journal)} · ${esc(p.year)}</p><a class="field-paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} <span aria-hidden="true">↗</span><span class="sr-only">${esc(ui(" (opens in a new tab)"))}</span></a><div class="field-paper-tags"><span>${esc(p.kind)}</span><span>${esc(p.access)}</span></div></section>`;
 }
-function drawConnections(){
+function drawConnections(id=active){
  const group=el('field-connections');
  group.replaceChildren();
- if(!active)return;
- const start=positions.get(active),topic=byId.get(active),NS='http://www.w3.org/2000/svg';
- for(const id of topic.related){
-  const end=positions.get(id);if(!end)continue;
+ group.classList.toggle('is-preview',!!id&&id!==active);
+ if(!id){document.querySelectorAll('.constellation-node.is-related').forEach(n=>n.classList.remove('is-related'));return;}
+ const start=positions.get(id),topic=byId.get(id),NS='http://www.w3.org/2000/svg';
+ for(const related of topic.related){
+  const end=positions.get(related);if(!end)continue;
   const line=document.createElementNS(NS,'path');
   const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
   line.setAttribute('d',`M ${start.x} ${start.y} Q ${1400+(mx-1400)*.8} ${1260+(my-1260)*.8} ${end.x} ${end.y}`);
@@ -127,7 +136,7 @@ function openTopic(id,trigger){
  const topic=byId.get(id);if(!topic)return;
  const repeated=active===id&&trigger?.closest('.constellation-node');
  if(repeated){closeTopic();return;}
- exitMapPresentation();if(!phoneSheet.matches){if(compactMap.matches)hideCompactMap();setMapZoom(false);}active=id;el('field-focus-title').textContent=topic.title;
+ exitMapPresentation();if(!phoneSheet.matches)setMapZoom(false);active=id;el('field-focus-title').textContent=topic.title;
  if(trigger?.closest('#field-map-area'))origin=trigger;
  el('field-topic-group').textContent=data.groups.find(g=>g.id===topic.group).title;
  el('field-topic-content').innerHTML=`${routeMarkup(id)}<h3 id="field-topic-title" tabindex="-1">${esc(topic.title)}</h3><p class="field-immune-context">${esc(topic.immune)}</p><p class="field-research-question">${esc(topic.question)}</p><section><h4>${esc(ui("What it means"))}</h4><p>${esc(topic.idea)}</p></section><section><h4>${esc(ui("Why it matters for the heart"))}</h4><p>${esc(topic.heart)}</p></section><section class="field-evidence"><h4>${esc(ui("Evidence and limits"))}</h4><p>${esc(topic.evidence)}</p></section>${readingMarkup(topic)}${topic.terms?`<details class="field-subtopics"><summary>${esc(ui("Scope & search terms"))}</summary><p>${esc(topic.terms)}</p></details>`:''}<section><h4>${esc(ui("Connected themes"))}</h4><div class="field-related">${topic.related.map(r=>`<button type="button" data-related="${esc(r)}">${esc(byId.get(r).title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>${topic.book?`<a class="field-book-link" href="${esc(topic.book.url)}">${esc(topic.book.label)} →</a>`:''}`;
@@ -152,6 +161,8 @@ function closeTopic(fromHistory){
  const address=new URL(location.href);address.searchParams.delete('theme');history.replaceState(null,'',address.pathname+address.search+address.hash);
  if(wasSheet&&sheetPushed&&!fromHistory){sheetPushed=false;history.back();}else if(fromHistory)sheetPushed=false;
 }
+const STAR_SIZES={1:{core:13,halo:50},2:{core:18,halo:70,glint:58},3:{core:23,halo:90,glint:78}};
+let relayLabels=()=>{};
 function drawConstellation(){
  const svg=el('field-constellation'),NS='http://www.w3.org/2000/svg',cx=1400,cy=1260;
  svg.setAttribute('viewBox','0 0 2800 2520');
@@ -160,7 +171,8 @@ function drawConstellation(){
  make('title').textContent=ui('The map of the field');
  make('desc').textContent=ui('A circular reading map with the heart at its center. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.');
  const defs=make('defs');
- defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>';
+ // Each reading family has its own light: a white-hot core fading into the family colour.
+ defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient>'+data.groups.map(g=>`<radialGradient id="field-halo-${g.id}"><stop offset="0%" stop-color="${g.color}" stop-opacity=".9"/><stop offset="28%" stop-color="${g.color}" stop-opacity=".42"/><stop offset="62%" stop-color="${g.color}" stop-opacity=".1"/><stop offset="100%" stop-color="${g.color}" stop-opacity="0"/></radialGradient><radialGradient id="field-star-${g.id}" cx="40%" cy="38%"><stop offset="0%" stop-color="#fffdf4"/><stop offset="38%" stop-color="#fff6df"/><stop offset="100%" stop-color="${g.color}"/></radialGradient>`).join('');
  [260,450,650,860,1060].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
  const orbits=[
   {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:260,phase:-90},
@@ -176,42 +188,73 @@ function drawConstellation(){
   const t=byId.get(id),g=data.groups.find(x=>x.id===t.group),a=(orbit.phase+i*360/orbit.ids.length)*Math.PI/180;
   const x=cx+orbit.r*Math.cos(a),y=cy+orbit.r*Math.sin(a);positions.set(id,{x,y});
   make('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:g.color,'stroke-width':'1',opacity:'.065'},rays);
-  const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':uiLanguage==='en'?`${t.title} — ${t.immune}. Open evidence and selected reading`:`${ui(t.title)} — ouvrir la fiche et ses références`,'aria-controls':'field-panel','aria-expanded':'false',class:'constellation-node'},nodes);
+  // A star shines with the number of readings it connects: the most connected themes are the brightest doors in.
+  const links=t.related.length,tier=links>=10?3:links>=7?2:1,size=STAR_SIZES[tier];
+  const n=make('g',{'data-topic':id,role:'button',tabindex:'0','aria-label':uiLanguage==='en'?`${t.title} — ${t.immune}. Open evidence and selected reading`:`${ui(t.title)} — ouvrir la fiche et ses références`,'aria-controls':'field-panel','aria-expanded':'false',class:`constellation-node star-tier-${tier}${tier>1?' is-major':''}`,style:`--star-fill:url(#field-star-${g.id});--twinkle-delay:${-((i*1.7+orbit.r/97)%6).toFixed(2)}s`},nodes);
   make('title',{},n).textContent=`${t.title} · ${t.immune}`;
-  make('circle',{cx:x,cy:y,r:39,fill:'transparent',class:'constellation-hit'},n);
-  make('circle',{cx:x,cy:y,r:12,fill:'#173e33',stroke:g.color,'stroke-width':'2.2',class:'constellation-star'},n);
-  const cos=Math.cos(a),sin=Math.sin(a),vertical=Math.abs(cos)<.26;
-  const tx=x+(vertical?0:Math.sign(cos)*28),anchor=vertical?'middle':cos>0?'start':'end';
-  const lines=[];let line='';
-  for(const word of ui(t.title).split(' ')){if((line+' '+word).trim().length>19&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
-  let ty=vertical?y+Math.sign(sin)*34:y+8;
-  if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*29;
-  // Keep text clear of neighbouring stars without changing the scientific layout.
-  const offset=0;
-  ty+=offset;
-  if(offset)make('line',{x1:x+16,y1:y,x2:tx-8,y2:ty-10,stroke:g.color,'stroke-width':'1.5',opacity:'.6','aria-hidden':'true'},n);
-  const text=make('text',{x:tx,y:ty,fill:'#e5eddf','text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':'32','font-weight':'600','paint-order':'stroke',stroke:'#102f28','stroke-width':'7','stroke-linejoin':'round',class:'field-label'},n);
-  lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*31},text).textContent=l);
+  make('circle',{cx:x,cy:y,r:Math.max(39,size.core+22),fill:'transparent',class:'constellation-hit'},n);
+  const body=make('g',{class:'star-body'},n);
+  make('circle',{cx:x,cy:y,r:size.halo,fill:`url(#field-halo-${g.id})`,class:'star-halo'},body);
+  if(tier>1){
+   const L=size.glint,w=size.core*.2,l=L*.5;
+   make('path',{d:`M${x} ${y-L}L${x+w} ${y}L${x} ${y+L}L${x-w} ${y}ZM${x-L} ${y}L${x} ${y-w}L${x+L} ${y}L${x} ${y+w}Z`+(tier>2?`M${x-l} ${y-l}L${x+w*.5} ${y-w*.5}L${x+l} ${y+l}L${x-w*.5} ${y+w*.5}ZM${x+l} ${y-l}L${x+w*.5} ${y+w*.5}L${x-l} ${y+l}L${x-w*.5} ${y-w*.5}Z`:''),fill:'#fffaf0',opacity:'.8',class:'star-glint'},body);
+  }
+  make('circle',{cx:x,cy:y,r:size.core,fill:`url(#field-star-${g.id})`,stroke:g.color,'stroke-width':'1.6',class:'constellation-star'},body);
+  const cos=Math.cos(a),sin=Math.sin(a),vertical=Math.abs(cos)<.26,gap=size.core-12;
+  const label=(cls,fontSize,step,width,clearance)=>{
+   const tx=x+(vertical?0:Math.sign(cos)*(28+clearance)),anchor=vertical?'middle':cos>0?'start':'end';
+   const lines=[];let line='';
+   for(const word of ui(t.title).split(' ')){if((line+' '+word).trim().length>width&&line){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);
+   let ty=vertical?y+Math.sign(sin)*(34+clearance)+(sin>0?fontSize-32:0):y+fontSize/4;
+   if(sin<-.35&&lines.length>1)ty-=(lines.length-1)*step;
+   const text=make('text',{x:tx,y:ty,fill:tier>1?'#fff6e2':'#dfe8d8','text-anchor':anchor,'font-family':"'EB Garamond',Georgia,serif",'font-size':String(fontSize),'font-weight':'600','paint-order':'stroke',stroke:'#102f28','stroke-width':String(Math.round(fontSize/4.6)),'stroke-linejoin':'round',class:cls},n);
+   lines.forEach((l,j)=>make('tspan',{x:tx,y:ty+j*step},text).textContent=l);
+  };
+  label('field-label',tier>1?36:31,tier>1?35:30,19,gap);
+  // Phones show only the brightest names, large enough to read without zooming.
+  if(tier>2)label('field-label field-label-phone',70,66,13,gap+26);
  });
+ // Labels are placed for the set currently shown (all names, or the brightest names on a phone).
+ const flip=text=>{
+  const sx=+text.parentNode.querySelector('.constellation-star').getAttribute('cx');
+  text.setAttribute('text-anchor',text.getAttribute('text-anchor')==='start'?'end':'start');
+  for(const n of [text,...text.querySelectorAll('tspan')])n.setAttribute('x',2*sx-n.getAttribute('x'));
+  if(text.dataset.flipped)delete text.dataset.flipped;else text.dataset.flipped='1';
+ };
  const arrangeLabels=()=>{
   const accepted=[];
-  const hitBoxes=[...positions.values()].map(p=>({x:p.x-19,y:p.y-19,width:38,height:38}));
+  const labels=[...nodes.querySelectorAll('text')].filter(text=>getComputedStyle(text).display!=='none');
+  // On a phone the stars are drawn larger, so names keep a wider berth.
+  const berth=labels.some(text=>text.classList.contains('field-label-phone'))?2.4:1;
+  const hitBoxes=[...nodes.querySelectorAll('.constellation-star')].map(s=>{const r=(+s.getAttribute('r'))*berth+7,x=+s.getAttribute('cx'),y=+s.getAttribute('cy');return{x:x-r,y:y-r,width:2*r,height:2*r,node:s.closest('.constellation-node')};}).concat([{x:1282,y:1142,width:236,height:236}]);
   const overlaps=(a,b,p=9)=>a.x<b.x+b.width+p&&a.x+a.width+p>b.x&&a.y<b.y+b.height+p&&a.y+a.height+p>b.y;
-  const labels=[...nodes.querySelectorAll('text')];
   for(const text of labels){
    text.removeAttribute('transform');
-   const box=text.getBBox();let shift=0;
-   const choices=[0,-38,38,-76,76,-114,114,-152,152];
-   for(const dy of choices){
-    const candidate={x:box.x,y:box.y+dy,width:box.width,height:box.height};
-    if(candidate.x<25||candidate.x+candidate.width>2775||candidate.y<15||candidate.y+candidate.height>2500)continue;
-    if(!accepted.some(b=>overlaps(candidate,b))&&!hitBoxes.some(b=>overlaps(candidate,b,6))){shift=dy;break;}
+   if(text.dataset.flipped)flip(text);
+   const box=text.getBBox();
+   if(!box.width)continue;
+   const unit=38*(+text.getAttribute('font-size')/32),sx=+text.parentNode.querySelector('.constellation-star').getAttribute('cx');
+   // Try the usual side first, then the mirrored side, keeping each name close to its own star.
+   const sides=text.getAttribute('text-anchor')==='middle'?[false]:[false,true];
+   let placed=null,best=null;
+   const clash=c=>[...accepted,...hitBoxes.filter(b=>b.node!==text.parentNode)].reduce((s,b)=>s+Math.max(0,Math.min(c.x+c.width,b.x+b.width)-Math.max(c.x,b.x))*Math.max(0,Math.min(c.y+c.height,b.y+b.height)-Math.max(c.y,b.y)),0);
+   for(const dy of [0,-1,1,-2,2,-3,3,-4,4].map(k=>k*unit)){
+    for(const mirrored of sides){
+     const candidate={x:mirrored?2*sx-box.x-box.width:box.x,y:box.y+dy,width:box.width,height:box.height};
+     if(candidate.x<25||candidate.x+candidate.width>2775||candidate.y<15||candidate.y+candidate.height>2500)continue;
+     if(!accepted.some(b=>overlaps(candidate,b))&&!hitBoxes.some(b=>b.node!==text.parentNode&&overlaps(candidate,b,6))){placed={mirrored,dy,candidate};break;}
+     const cost=clash(candidate)+Math.abs(dy);if(!best||cost<best.cost)best={mirrored,dy,candidate,cost};
+    }
+    if(placed)break;
    }
-   text.setAttribute('transform',`translate(0 ${shift})`);
-   accepted.push({x:box.x,y:box.y+shift,width:box.width,height:box.height});
+   // When the sky is crowded, keep the position that covers the least.
+   placed||=best||{mirrored:false,dy:0,candidate:box};
+   if(placed.mirrored)flip(text);
+   text.setAttribute('transform',`translate(0 ${placed.dy})`);
+   accepted.push(placed.candidate);
   }
  };
- arrangeLabels();document.fonts?.ready.then(arrangeLabels);
+ arrangeLabels();document.fonts?.ready.then(arrangeLabels);relayLabels=arrangeLabels;
  const core=make('g',{'aria-hidden':'true',class:'field-centre'});
  make('circle',{cx,cy,r:118,fill:'#c8d9af',opacity:'.045'},core);
  make('circle',{cx,cy,r:94,fill:'url(#field-core)',stroke:'#e0e8c8','stroke-width':'1'},core);
@@ -236,7 +279,13 @@ window.initFieldAtlas=function(){
  if(initialised)return;initialised=true;
  el('field-branches').innerHTML=data.groups.map((g,i)=>`<section class="field-branch" style="--branch-color:${g.color}" aria-labelledby="field-group-${g.id}"><div class="field-branch-heading"><span class="field-step">${String(i+1).padStart(2,'0')}</span><h3 id="field-group-${g.id}">${esc(g.title)}</h3><p>${esc(g.question)}</p></div><div class="field-topic-list">${data.topics.filter(t=>t.group===g.id).map(t=>`<button type="button" data-topic="${t.id}" aria-controls="field-panel" aria-expanded="false"><span class="field-node" aria-hidden="true"></span><span>${esc(t.title)}</span><span class="field-node-arrow" aria-hidden="true">↗</span></button>`).join('')}</div></section>`).join('');
  drawConstellation();followMapRotation();
- const focusTitle=el('field-focus-title'); const announce=e=>{const node=e.target.closest('[data-topic]');if(node&&byId.has(node.dataset.topic))focusTitle.textContent=byId.get(node.dataset.topic).title;};el('field-constellation').addEventListener('focusin',announce);el('field-constellation').addEventListener('pointerover',e=>{if(canHover.matches)announce(e);});el('field-constellation').addEventListener('pointerleave',()=>{focusTitle.textContent=active?byId.get(active).title:'';});
+ const focusTitle=el('field-focus-title'); const announce=e=>{const node=e.target.closest('[data-topic]');if(node&&byId.has(node.dataset.topic))focusTitle.textContent=byId.get(node.dataset.topic).title;};el('field-constellation').addEventListener('focusin',announce);el('field-constellation').addEventListener('pointerleave',()=>{focusTitle.textContent=active?byId.get(active).title:'';});
+ // With a mouse, a star lights the readings it leads to before it is opened.
+ let previewed=null;
+ el('field-constellation').addEventListener('pointerover',e=>{if(!canHover.matches)return;announce(e);const node=e.target.closest('.constellation-node');const id=node?.dataset.topic||null;if(id!==previewed){previewed=id;drawConnections(id||active);}});
+ el('field-constellation').addEventListener('pointerleave',()=>{if(previewed){previewed=null;drawConnections(active);}});
+ phoneSheet.addEventListener('change',()=>requestAnimationFrame(relayLabels));
+ document.querySelector('.mobile-map-toggle')?.addEventListener('click',()=>requestAnimationFrame(relayLabels));
  el('field-map-area').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){route=null;openTopic(b.dataset.topic,b);}});
  el('constellation-zoom').addEventListener('click',()=>setMapZoom(el('constellation-zoom').getAttribute('aria-pressed')!=='true'));
  el('field-presentation').addEventListener('click',()=>{const on=el('p2').classList.toggle('is-presentation');el('field-presentation').setAttribute('aria-pressed',String(on));el('field-presentation').textContent=ui(on?'Return to reading':'View the whole map');if(on){closeTopic();setMapZoom(false);}el('p2').scrollTop=0;});
@@ -262,11 +311,7 @@ window.initFieldAtlas=function(){
  const requested=new URLSearchParams(location.search).get('theme');
  if(byId.has(requested))openTopic(requested,document.querySelector(`.constellation-node[data-topic="${requested}"]`));
  el('p2').addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('field-panel').hidden){e.preventDefault();closeTopic();}});
- // Phones open on the whole map, ready to touch.
- if(phoneSheet.matches&&!el('p2').classList.contains('mobile-map-visible')){
-  el('p2').classList.add('mobile-map-visible');
-  const toggle=document.querySelector('.mobile-map-toggle');
-  if(toggle){toggle.setAttribute('aria-expanded','true');toggle.textContent=uiLanguage==='fr'?'Masquer la carte':'Hide the map';}
- }
+ // Phones and tablets open on the whole map, ready to touch.
+ if(compactMap.matches&&!el('p2').classList.contains('mobile-map-visible'))showCompactMap();
 };
 })();
