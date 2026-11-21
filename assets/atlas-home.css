@@ -492,11 +492,11 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 /* Stars (21/11/2026): each theme is a point of light in its family colour; the most connected themes shine brightest. */
 #p2 .star-body,#p2 .star-halo,#p2 .star-glint{transform-box:fill-box;transform-origin:center}
 #p2 .star-body{transition:transform .28s cubic-bezier(.2,.8,.2,1)}
-#p2 .star-halo{opacity:.5;transition:opacity .28s ease}
-#p2 .is-major .star-halo{opacity:.72;animation:field-twinkle 6s ease-in-out infinite;animation-delay:var(--twinkle-delay,0s)}
+#p2 .star-halo{opacity:.7;transition:opacity .28s ease}
+#p2 .is-major .star-halo{opacity:.8;animation:field-twinkle 6s ease-in-out infinite;animation-delay:var(--twinkle-delay,0s)}
 #p2 .is-major .star-glint{animation:field-glint 6s ease-in-out infinite;animation-delay:var(--twinkle-delay,0s)}
-@keyframes field-twinkle{0%,100%{opacity:.6;transform:scale(.94)}50%{opacity:.95;transform:scale(1.1)}}
-@keyframes field-glint{0%,100%{opacity:.55;transform:scale(.86) rotate(0deg)}50%{opacity:.95;transform:scale(1.06) rotate(8deg)}}
+@keyframes field-twinkle{0%,100%{opacity:.62;transform:scale(.96)}50%{opacity:.9;transform:scale(1.06)}}
+@keyframes field-glint{0%,100%{opacity:.5;transform:scale(.9) rotate(0deg)}50%{opacity:.85;transform:scale(1.04) rotate(6deg)}}
 #p2 .constellation-node .constellation-star,#p2 .constellation-node:hover .constellation-star,#p2 .constellation-node.is-active .constellation-star,#p2 .constellation-node.is-related .constellation-star{fill:var(--star-fill)}
 #p2 .constellation-node:hover .star-body,#p2 .constellation-node:focus-visible .star-body{transform:scale(1.42)}
 #p2 .constellation-node:hover .star-halo,#p2 .constellation-node:focus-visible .star-halo,#p2 .constellation-node.is-active .star-halo{opacity:1;animation:none}
@@ -511,7 +511,13 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 @media(max-width:700px){
  #p2 .constellation-wrap:not(.is-enlarged) .field-label{display:none}
  #p2 .constellation-wrap:not(.is-enlarged) .field-label-phone{display:inline}
- #p2 .constellation-wrap:not(.is-enlarged) .star-body{transform:scale(1.55)}
- #p2 .constellation-wrap:not(.is-enlarged) .is-major .star-body{transform:scale(1.35)}
+ #p2 .constellation-wrap:not(.is-enlarged) .star-body{transform:scale(1.6)}
+ #p2 .constellation-wrap:not(.is-enlarged) .is-major .star-body{transform:scale(1.4)}
 }
-@media(prefers-reduced-motion:reduce){#p2 .is-major .star-halo,#p2 .is-major .star-glint{animation:none}#p2 .star-body{transition:none}}
+/* Labels keep their quiet weight when a star is touched; only their light changes. */
+#p2 .constellation-node:hover .field-label,#p2 .constellation-node:focus-visible .field-label,#p2 .constellation-node.is-active .field-label{fill:#fffaf0;stroke:#0f2c25}
+#p2 .field-label{text-rendering:geometricPrecision;font-kerning:normal}
+/* The heart at the centre: a ball of molten lava, beating slowly. */
+#p2 .field-lava-heart{transform-box:fill-box;transform-origin:center;animation:field-heartbeat 2.6s ease-in-out infinite}
+@keyframes field-heartbeat{0%,40%,100%{transform:scale(1)}8%{transform:scale(1.05)}16%{transform:scale(1)}24%{transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){#p2 .is-major .star-halo,#p2 .is-major .star-glint,#p2 .field-lava-heart{animation:none}#p2 .star-body{transition:none}}
