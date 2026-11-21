@@ -97,7 +97,7 @@ This repository contains the source of [cardioimmunologyreview.org](https://card
 
 ## Chronicle of the Review
 
-A website takes shape the way a heart does: in layers and in beats, before anyone can see the form it will take. These are its fourteen beats.
+A website takes shape the way a heart does: in layers and in beats, before anyone can see the form it will take. These are its twenty-two beats.
 
 **I.** The house opens in two languages, and the books can be read page after page without leaving the lamp.
 
@@ -127,11 +127,27 @@ A website takes shape the way a heart does: in layers and in beats, before anyon
 
 **XIV.** The Treatise presents itself in both its languages, each chapter opens at its page, and the library is set in order.
 
+**XV.** The house begins to keep its own chronicle, beat after beat.
+
+**XVI.** The silent heart becomes citable in its own language, French, with an identifier of its own.
+
+**XVII.** The six books arrive in their new edition, and what changed in them remains in view.
+
+**XVIII.** The collection enters Wikidata: the author, the Review and each book take their place in the common register.
+
+**XIX.** The stars of the map light up, each in the colour of its family and with the brightness of its connections.
+
+**XX.** At the centre, the heart becomes a ball of molten lava, beating slowly.
+
+**XXI.** The second issue of the Review appears: one clone, two territories.
+
+**XXII.** The map is cited in its new version, and its archive keeps the same light.
+
 *A map heals no one. It only keeps one from getting lost.* (The Treatise, Credo)
 
 ### En français
 
-Un site se forme comme un cœur : par couches et par battements, sans que l'on voie d'abord la forme qu'il prendra. Voici les quatorze battements de celui-ci.
+Un site se forme comme un cœur : par couches et par battements, sans que l'on voie d'abord la forme qu'il prendra. Voici les vingt-deux battements de celui-ci.
 
 **I.** La maison s'ouvre en deux langues, et les livres s'y lisent page après page, sans quitter la lampe.
 
@@ -160,5 +176,21 @@ Un site se forme comme un cœur : par couches et par battements, sans que l'on 
 **XIII.** Le Traité est appelé par son nom entier, et ses deux langues se reconnaissent.
 
 **XIV.** Le Traité se présente dans ses deux langues, chaque chapitre s'ouvre à sa page, et la bibliothèque se range.
+
+**XV.** La maison commence à tenir sa propre chronique, battement après battement.
+
+**XVI.** Le cœur silencieux devient citable dans sa langue, le français, avec un identifiant à lui.
+
+**XVII.** Les six livres arrivent dans leur nouvelle édition, et ce qui a changé en eux reste visible.
+
+**XVIII.** La collection entre dans Wikidata : l'auteur, la Revue et chaque livre prennent place dans le registre commun.
+
+**XIX.** Les étoiles de la carte s'allument, chacune dans la couleur de sa famille et avec l'éclat de ses liens.
+
+**XX.** Au centre, le cœur devient une boule de lave en fusion qui bat lentement.
+
+**XXI.** Le deuxième numéro de la Revue paraît : un clone, deux territoires.
+
+**XXII.** La carte est citée dans sa nouvelle version, et son archive garde la même lumière.
 
 *Une carte ne guérit personne. Elle empêche seulement de se perdre.* (le Traité, Credo)
