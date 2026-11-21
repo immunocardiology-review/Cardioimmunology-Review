@@ -53,7 +53,7 @@ All works are free to read online and to download. Each one has a DOI on Zenodo.
 
 | Work | Language | DOI |
 |---|---|---|
-| [*The Map of the Field, Cardioimmunology: A curated educational atlas and its method*](https://cardioimmunologyreview.org/constellation-method.html), version 1.0.0 (dataset, 2026) | English | [10.5281/zenodo.23468276](https://doi.org/10.5281/zenodo.23468276) |
+| [*The Map of the Field, Cardioimmunology: A curated educational atlas and its method*](https://cardioimmunologyreview.org/constellation-method.html), version 1.1.0 (dataset, 2026) | English | [10.5281/zenodo.24420638](https://doi.org/10.5281/zenodo.24420638) |
 | *Scientific and Clinical Architecture of the Treatise on Cardioimmunology* (2026) | English | [10.5281/zenodo.23248048](https://doi.org/10.5281/zenodo.23248048) |
 | [*Architecture scientifique et clinique du Traité de Cardioimmunologie*](https://cardioimmunologyreview.org/architecture-traite-cardioimmunologie.html) (2026) | French | [10.5281/zenodo.23248208](https://doi.org/10.5281/zenodo.23248208) |
 
