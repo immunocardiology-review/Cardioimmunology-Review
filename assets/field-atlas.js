@@ -172,7 +172,7 @@ function drawConstellation(){
  make('desc').textContent=ui('A circular reading map with the heart at its center. Innate and adaptive immunity cross its six reading families. The geometry and connectors do not assert a causal mechanism. Select a theme to read its question, evidence and selected article.');
  const defs=make('defs');
  // Each reading family has its own light: a white-hot core fading into the family colour.
- defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient><radialGradient id="field-ruby" cx="38%" cy="30%" r="75%"><stop offset="0%" stop-color="#ff7d8f"/><stop offset="22%" stop-color="#e02a4a"/><stop offset="58%" stop-color="#a3102c"/><stop offset="100%" stop-color="#560716"/></radialGradient><radialGradient id="field-ruby-shine"><stop offset="0%" stop-color="#fff" stop-opacity=".75"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="field-ruby-glow"><stop offset="0%" stop-color="#e02a4a" stop-opacity=".3"/><stop offset="45%" stop-color="#b3132f" stop-opacity=".1"/><stop offset="100%" stop-color="#b3132f" stop-opacity="0"/></radialGradient>'+data.groups.map(g=>`<radialGradient id="field-halo-${g.id}"><stop offset="0%" stop-color="${g.color}" stop-opacity=".5"/><stop offset="30%" stop-color="${g.color}" stop-opacity=".16"/><stop offset="65%" stop-color="${g.color}" stop-opacity=".03"/><stop offset="100%" stop-color="${g.color}" stop-opacity="0"/></radialGradient><radialGradient id="field-star-${g.id}" cx="40%" cy="38%"><stop offset="0%" stop-color="#fffdf4"/><stop offset="38%" stop-color="#fff6df"/><stop offset="100%" stop-color="${g.color}"/></radialGradient>`).join('');
+ defs.innerHTML='<radialGradient id="field-core"><stop offset="0%" stop-color="#edf0d5"/><stop offset="72%" stop-color="#c8d9af"/><stop offset="100%" stop-color="#95b17e"/></radialGradient><radialGradient id="field-lava" cx="46%" cy="54%" r="62%"><stop offset="0%" stop-color="#fffbe6"/><stop offset="20%" stop-color="#ffe680"/><stop offset="44%" stop-color="#ffab2e"/><stop offset="70%" stop-color="#f05a1a"/><stop offset="90%" stop-color="#b8260e"/><stop offset="100%" stop-color="#6e1208"/></radialGradient><filter id="field-molten" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".022" numOctaves="2" seed="11" result="flow"/><feDisplacementMap in="SourceGraphic" in2="flow" scale="16" xChannelSelector="R" yChannelSelector="G" result="molten"/><feTurbulence type="turbulence" baseFrequency=".038" numOctaves="2" seed="4" result="veins"/><feColorMatrix in="veins" type="matrix" values="0 0 0 0 .42  0 0 0 0 .07  0 0 0 0 .02  -8 0 0 0 1.05" result="crust"/><feComposite in="crust" in2="molten" operator="atop" result="crusted"/><feGaussianBlur in="molten" stdDeviation="4" result="heat"/><feMerge><feMergeNode in="heat"/><feMergeNode in="crusted"/></feMerge></filter>'+data.groups.map(g=>`<radialGradient id="field-halo-${g.id}"><stop offset="0%" stop-color="${g.color}" stop-opacity=".5"/><stop offset="30%" stop-color="${g.color}" stop-opacity=".16"/><stop offset="65%" stop-color="${g.color}" stop-opacity=".03"/><stop offset="100%" stop-color="${g.color}" stop-opacity="0"/></radialGradient><radialGradient id="field-star-${g.id}" cx="40%" cy="38%"><stop offset="0%" stop-color="#fffdf4"/><stop offset="38%" stop-color="#fff6df"/><stop offset="100%" stop-color="${g.color}"/></radialGradient>`).join('');
  [260,450,650,860,1060].forEach(r=>make('circle',{cx,cy,r,fill:'none',stroke:'#d5e4bb',opacity:'.22','stroke-width':'1'}));
  const orbits=[
   {ids:data.topics.filter(t=>t.group==='signals').map(t=>t.id),r:260,phase:-90},
@@ -258,12 +258,11 @@ function drawConstellation(){
  };
  arrangeLabels();document.fonts?.ready.then(arrangeLabels);relayLabels=arrangeLabels;
  const core=make('g',{'aria-hidden':'true',class:'field-centre'});
- // The centre is the heart itself: a ruby, beating slowly.
- make('circle',{cx,cy,r:190,fill:'url(#field-ruby-glow)'},core);
- const beat=make('g',{class:'field-ruby-heart'},core),points=[];
- for(let k=0;k<=144;k++){const s=k/144*Math.PI*2;points.push(`${(cx+6.4*16*Math.sin(s)**3).toFixed(1)} ${(cy+8-6.4*(13*Math.cos(s)-5*Math.cos(2*s)-2*Math.cos(3*s)-Math.cos(4*s))).toFixed(1)}`);}
- make('path',{d:`M${points.join('L')}Z`,fill:'url(#field-ruby)',stroke:'#ff9fae','stroke-opacity':'.55','stroke-width':'2.5','stroke-linejoin':'round'},beat);
- make('ellipse',{cx:cx-44,cy:cy-38,rx:30,ry:17,fill:'url(#field-ruby-shine)',transform:`rotate(-32 ${cx-44} ${cy-38})`},beat);
+ // The centre is the heart itself: a ball of molten lava, its apex down and to the left as in the chest.
+ const apex=115*Math.PI/180,R0=104;
+ const beat=make('g',{class:'field-lava-heart'},core),points=[];
+ for(let k=0;k<=144;k++){const s=k/144*Math.PI*2,r=R0*(1+.2*Math.max(0,Math.cos(s-apex))**4-.04*Math.max(0,Math.cos(s+Math.PI/2))**6);points.push(`${(cx+r*Math.cos(s)).toFixed(1)} ${(cy+r*Math.sin(s)).toFixed(1)}`);}
+ make('path',{d:`M${points.join('L')}Z`,fill:'url(#field-lava)',filter:'url(#field-molten)'},beat);
 }
 function filterMap(){
  const family=document.querySelector('[data-family][aria-pressed="true"]')?.dataset.family||'all';

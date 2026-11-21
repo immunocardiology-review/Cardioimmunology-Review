@@ -517,7 +517,7 @@ body:has(#p2.is-presentation) nav[aria-label="Site navigation"]{display:none}
 /* Labels keep their quiet weight when a star is touched; only their light changes. */
 #p2 .constellation-node:hover .field-label,#p2 .constellation-node:focus-visible .field-label,#p2 .constellation-node.is-active .field-label{fill:#fffaf0;stroke:#0f2c25}
 #p2 .field-label{text-rendering:geometricPrecision;font-kerning:normal}
-/* The heart at the centre beats slowly. */
-#p2 .field-ruby-heart{transform-box:fill-box;transform-origin:center;animation:field-heartbeat 2.6s ease-in-out infinite}
+/* The heart at the centre: a ball of molten lava, beating slowly. */
+#p2 .field-lava-heart{transform-box:fill-box;transform-origin:center;animation:field-heartbeat 2.6s ease-in-out infinite}
 @keyframes field-heartbeat{0%,40%,100%{transform:scale(1)}8%{transform:scale(1.05)}16%{transform:scale(1)}24%{transform:scale(1.03)}}
-@media(prefers-reduced-motion:reduce){#p2 .is-major .star-halo,#p2 .is-major .star-glint,#p2 .field-ruby-heart{animation:none}#p2 .star-body{transition:none}}
+@media(prefers-reduced-motion:reduce){#p2 .is-major .star-halo,#p2 .is-major .star-glint,#p2 .field-lava-heart{animation:none}#p2 .star-body{transition:none}}
